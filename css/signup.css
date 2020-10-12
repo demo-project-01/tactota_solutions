@@ -17,7 +17,7 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
   }
   
   body {
-    background: #2f323a;
+    background: #007042 /*#2f323a*/;
     background-attachment: fixed;
     font-family: 'Roboto', sans-serif;
   }
@@ -28,6 +28,17 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
     padding: 10px;
     text-align: center;
 
+  }
+  .vertical-center img {
+    margin: auto;
+    /*border: 3px solid #007042;*/
+    padding: 10px;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
   h1 {
     font-size: 2.5em;
@@ -43,10 +54,11 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
 
   
   .main-container {
+    border: 25px solid#2f323a;
     display: flex;
     margin: 2em auto;
     width: 50%;
-    background: rgb(255, 255, 255,0.9);
+    background:/* #2f323a*/#ffffff;
     background-size: cover;
     
   }
@@ -73,8 +85,8 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
     font-family: 'Roboto', sans-serif;
   }
   
-  input.email, input.text.w3lpass {
-    margin: 2em 0;
+  input.text, input.email, input.text.w3lpass {
+    margin: 1em 0;
   }
   
   .text:focus, .text:valid {
@@ -224,3 +236,31 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
     font-weight: 100;
   }
   
+#reg-main {
+  width: 70%;
+}
+#img-sub
+{
+  width: 30%;
+}
+.left h5{
+  text-align: left;
+}
+.right
+{
+  text-align: right;
+}
+.right h6 a:hover {
+  color: #007042;
+}
+.sub-container h6 a {
+  color: #000000;
+  -webkit-transition: .5s all;
+  -moz-transition: .5s all;
+  transition: .5s all;
+  font-weight: 400;
+}
+
+.sub-container h6 a:hover {
+  color: #007042;
+}
