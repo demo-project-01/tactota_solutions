@@ -88,7 +88,10 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
   input.text, input.email, input.text.w3lpass {
     margin: 1em 0;
   }
-  
+  input[type="radio"]{
+    padding:10px;
+    margin: 10px;
+  }
   .text:focus, .text:valid {
     box-shadow: none;
     outline: none;
