@@ -49,10 +49,10 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
     letter-spacing: 4px;
     font-family: "Lucida Sans Unicode", sans-serif;
   }
-  
+  h2{
+    font-size: 1.5em;
 
-
-  
+  }
   .main-container {
     border: 25px solid#2f323a;
     display: flex;
@@ -61,6 +61,14 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
     background:/* #2f323a*/#ffffff;
     background-size: cover;
     
+  }
+  .main-form{
+    border: 25px solid#2f323a;
+    display: flex;
+    margin: 2em auto;
+    width: 80%;
+    background:/* #2f323a*/#ffffff;
+    background-size: cover;
   }
   
   .sub-container {
@@ -231,7 +239,11 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
     margin: 2em 0 1em;
     text-align: center;
   }
+  .header{
+    margin: 2em 0 1em;
+    text-align: left;
   
+  }
   .footer p {
     font-size: .9em;
     color: #ffffff;
