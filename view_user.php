@@ -3,9 +3,15 @@ include 'clerk_sidebar.php';
 
 ?>
   <div class="content">
-    <div class="main-container" id="view-tbl">
+  <h1 id="tbl-heading"> View Users</h1>
+  
+  <div class="search">
+    <input type="text" placeholder="Search..">
+  </div>
+
+
+<div class="view-tbl">
       <table>
-        <caption> USER DETAILS</caption>
         <thead>
           <tr>
             <th>User ID</th>
