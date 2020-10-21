@@ -21,7 +21,7 @@ td{
 th{
     height: 50px;
     font-size: large;
-    background-color: #007042;
+    background-color: #4a746e;
 }
 #tbl-heading
 {
@@ -143,8 +143,14 @@ button {
   
   /*user activate message*/
   .alert {
+    padding:10px;
+    
+  margin: 2em auto;
+    text-align: center;
     padding: 20px;
     color: white;
+    width:60%;
+    height:40px;
   }
   #diactivate
   {
