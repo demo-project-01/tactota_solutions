@@ -1,0 +1,44 @@
+.center{
+    margin-top: auto;
+    margin-left: auto;
+    width: 60%;
+}
+
+ body {
+  font-family: Arial;
+}
+
+* {
+  box-sizing: content-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 12%;
+  padding: 10px;
+  background: #2f323a;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #007042;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
