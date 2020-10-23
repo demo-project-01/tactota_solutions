@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+/*.center {
+    margin: auto;
+    width: 100%;
+    border: 3px solid #007042;
+    padding: 10px;
+    text-align: center;
+    color: black;
+  
+  }*/
+  .content{
+    background-color: #c8cf94;
+
+  }
+  .subcontent{
+    
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(0, 0, 0);
+  }
+
+  *{
+    list-style: none;
+    margin:0;
+    padding: 0;
+    box-sizing: content-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .view{
+    margin-left: 100px;
+  }
+  
+
+  .wrapper{
+    display: flex;
+    orientation: landscape;
+    margin-top: -80px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+  }
+   
+
+  .list_wrap{
+    margin-left: 600px;
+      background: darkblue(0,0,0,0.4);
+      width: 300px;
+       margin-top: 80px; 
+      /* orientation: portrait; */
+      height:450px;
+      /* margin-left: -200px; */
+      box-shadow: -1px -1px 60px 10px black inset;
+  }
+
+  .list_wrap ul li{
+    background:#007042;
+    margin-top: 2px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    padding: 15px 15px;
+    width: 200px;
+    padding-right:1px ;
+    color: white;
+    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    line-height: 22px;
+    border-radius: 50px;
+    position: -webkit-sticky;
+     
+  }
+  .list_wrap ul li :last-child{
+    margin-bottom: 0;
+  }
+ 
