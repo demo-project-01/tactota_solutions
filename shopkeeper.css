@@ -1,7 +1,21 @@
 .center{
+  
     margin-top: auto;
-    margin-left: auto;
+    margin-left: 172px;
     width: 60%;
+}
+.centers {
+  margin-left: -4px;
+  width: 75%;
+  border: 3px solid #007042;
+  padding: 10px;
+  text-align: center;
+
+}
+.image{
+  margin-left: 170px;
+  padding: 10px;
+  border: #007042;
 }
 
  body {
@@ -10,6 +24,9 @@
 
 * {
   box-sizing: content-box;
+}
+.content{
+  background-color: #c8cf94;
 }
 
 form.example input[type=text] {
@@ -34,11 +51,15 @@ form.example button {
 }
 
 form.example button:hover {
-  background: #007042;
+  background: #c8cf94;
 }
 
 form.example::after {
   content: "";
   clear: both;
   display: table;
+}
+.footer{
+  text-align: center;
+  margin-left: 200px;
 }
