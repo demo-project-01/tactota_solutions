@@ -1,5 +1,5 @@
-.card{
-color:greenyellow
+body{
+  background-color: #c8cf94 ;
 }
 table{
     border: 3px solid #000;
@@ -21,20 +21,13 @@ td{
 th{
     height: 50px;
     font-size: large;
-    background-color: #007042;
+    background-color: #4a746e;
 }
-tr{
-    border: 3px solid #007042;
-}
-tbody
+#tbl-heading
 {
-    border: 5px solid #007042;
-}
-caption
-{
-    color: #007042;
-    font-style: initial;
-    font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: #000;
 }
 
 button {
@@ -46,12 +39,18 @@ button {
   font-size: 16px;
   color: #fff;
   }
-#view-tbl
-{   margin-bottom: 0px;
-    padding-bottom: 0px;
+
+.view-tbl
+{   
+  display: flex;
+  margin: 2em auto;
+  background:/* #2f323a*/#ffffff;
+  background-size: cover;
     border:none;
+    width:85%;
     padding: 20px;
     align-items: center;
+    text-align: center;
 }
 
 
@@ -120,8 +119,13 @@ button {
 
   .search
   {
+    padding:10px;
+    
+  margin: 2em auto;
+  background:/* #2f323a*/#ffffff;
+  background-size: cover;
     border: 1px solid #ccc;
-    width: 100%;
+    width: 85%;
     overflow: hidden;
     background-color: #e9e9e9;
     text-align: center;
@@ -133,5 +137,40 @@ button {
     margin-top: 8px;
     margin-right: 16px;
     font-size: 17px;
+    widows: 80%;
+    height: 30px;
   }
   
+  /*user activate message*/
+  .alert {
+    padding:10px;
+    
+  margin: 2em auto;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    width:60%;
+    height:40px;
+  }
+  #diactivate
+  {
+    background-color: #f44336;
+  }
+  #activate
+  {
+    background-color: #007042;
+  }
+  
+  .activebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
