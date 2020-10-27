@@ -3,12 +3,12 @@ include 'dash.php';
 
 ?>
 
-<link rel="stylesheet" href="css/signup.css">
-  <link rel="stylesheet" href="css/view_user.css">
+
+  
 
   <div class="content">
  </br></br></br>
-    <div class="main-container" id="view-tbl">
+    <div class="main-box" id="view-tbl">
 
     
       <table>

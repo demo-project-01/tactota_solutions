@@ -208,6 +208,7 @@ label #sidebar_btn:hover{
 
 #check{
   display: none;
+<<<<<<< Updated upstream
 }body{
   margin: 0;
   padding: 0;
@@ -420,4 +421,49 @@ label #sidebar_btn:hover{
   display: none;
 }
   
+=======
+}
 
+.main-box {
+  border: 25px solid#2f323a;
+  display: flex;
+  margin: 2em auto;
+  width: 50%;
+  background:/* #2f323a*/#ffffff;
+  background-size: cover;
+   margin-left: 25%;
+   margin-top: 10%;
+   text-align: center;
+   
+   }
+
+   input[type="new-btn"] {
+    font-size: 1.5em/*.9em*/;
+    color: rgb(0, 0, 0);
+    background: #007042;
+    outline: none;
+    border: 1px solid #007042;
+    cursor: pointer;
+    padding: 0.9em;
+    -webkit-appearance: none;
+    width: 60%;
+    margin: 2em 0;
+    letter-spacing: 4px;
+    text-align: center;
+  }
+  
+  input[type="new-btn"]:hover {
+    -webkit-transition: .5s all;
+    -moz-transition: .5s all;
+    -o-transition: .5s all;
+    -ms-transition: .5s all;
+    transition: .5s all;
+    background:#007042;
+  }
+>>>>>>> Stashed changes
+
+  .sub-box{
+    padding: 2em;
+    width: 50%;
+    margin: 2em auto;
+  }

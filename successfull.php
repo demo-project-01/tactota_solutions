@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <?php
 include 'dash.php';
 
@@ -28,4 +29,35 @@ include 'dash.php';
 		
 	
 	</div>
+=======
+<?php
+include 'header.php';
+
+?>
+<link rel="stylesheet" href="style1.css">
+</head>
+<body>
+	<div>
+		<h1>Successful Register</h1>
+        <br/>
+        
+		
+		<div class="main-box">
+			
+            <div class="sub-box">
+				<form action="#" method="post">
+                   
+               <b><h2>Payment Successful</h2></b>	
+                    
+				</form>
+				<br/>
+				<input type="new-btn" value="Home">
+                
+			</div>
+			
+		</div>
+		
+	
+	</div>
+>>>>>>> Stashed changes
 </body>
