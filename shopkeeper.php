@@ -8,16 +8,14 @@
   <br><br>
   <div class="center">
     
-  <form class="example" action="/action_page.php">
-  <input type="text" placeholder="Search Product" name="search">
-  <button type="submit"><i class="fa fa-search"></i></button>
-</form>
-
-</div>
-
-</div>
-<div class="footer">
-			<p>© Tactota Solutions All rights reserved </p>
+    <form class="example" action="/action_page.php">
+      <input type="text" placeholder="Search Product" name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+  <div class="footer">
+		<p>© Tactota Solutions All rights reserved </p>
+  </div>
 </div>
 
 
