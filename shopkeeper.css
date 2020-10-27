@@ -1,8 +1,14 @@
 .center{
   
-    margin-top: auto;
+   /* margin-top: auto;
     margin-left: 172px;
     width: 60%;
+    border: #007042;*/
+  margin: auto;
+  width: 60%;
+  border: 3px solid #007042;
+  padding: 10px;
+  text-align: center;
 }
 .centers {
   margin-left: -4px;
@@ -60,9 +66,21 @@ form.example::after {
   clear: both;
   display: table;
 }
-.footer{
+/*.footer{
   text-align: center;
   margin-left: 200px;
-  
-  
+}*/
+p{
+  padding-top: 1.2%;
+}
+
+.footer{
+  text-align: center;
+ /* position:absolute;*/
+  /*bottom:0;*/
+  width:105%;
+  background:#2f323a;
+  height:38px;
+  margin-top: 118px;
+  margin-left: -3%;
 }
