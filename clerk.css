@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 
+html,body, div, h1, h2, h3, h4, h5, h6, p{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+ 
+}
 /*.center {
     margin: auto;
     width: 100%;
@@ -17,10 +26,11 @@
     
     margin-top: 5px;
     margin-bottom: 5px;
-    margin-left: 30px;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 11px;
-    color: #22242a;
+    margin-left: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 40px;
+    color:#2f323a;
+    text-align: center;
   }
 
   *{
@@ -31,7 +41,10 @@
     font-family: 'Montserrat', sans-serif;
   }
   .view{
-    margin-left: 100px;
+    margin-left: 60px;
+    font-size: 22px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
   }
   
 
@@ -54,7 +67,7 @@
     width: 300px;
     margin-top: -270px; 
     /* orientation: portrait; */
-    height:450px;
+    height:480px;
     /* margin-left: -200px; */
     /*box-shadow: -1px -1px 60px 10px black inset;*/
   }
@@ -116,13 +129,27 @@
     margin-top: 50px;
     margin-left: 280px;
   }
-  .footer{
+  /*.footer{
     text-align: center;
     margin-left: 200px;
-   
     
+  }*/
+  p{
+    padding-top: 1.2%;
   }
+  .footer{
+    text-align: center;
+ /* position:absolute;*/
+  /*bottom:0;*/
+  width:104%;
+  background:#2f323a;
+  height:37px;
+  margin-top: 107px;
+  margin-left: -2%;
+  } 
+    
 
 
   
+ 
  
