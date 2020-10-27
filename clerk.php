@@ -1,7 +1,7 @@
 <?php
    include 'clerk_sidebar.php';
 ?>
-
+<body>
 <div class="content">
     <div class= "dash1">
         <div class= "dash2">
@@ -54,14 +54,14 @@
                     </div>
                 </li>
                 <div class="view">
-                <b><a href="login">View All Products</a></b>
+                <b><a href="#"><span>View All Products</span></a></b>
                 </div>
             </ul>
         </div>
     </div> 
-  
+    <div class="footer">
+	<p>© Tactota Solutions All rights reserved </p>
+   </div>
 </div>
-<div class="footer">
-			<p>© Tactota Solutions All rights reserved </p>
-</div>
+</body>
   
