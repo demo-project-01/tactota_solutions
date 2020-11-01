@@ -6,7 +6,7 @@
   <title>Clark Dashboard</title>
   <link rel="stylesheet" href="style1.css">
   <!--link href="css/signup.css" rel="stylesheet" type="text/css"/-->
-  <!--link rel="stylesheet" href="css/view_user.css"-->
+  <link rel="stylesheet" href="css/view_user.css">
   <link rel="stylesheet" href="clerk.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
