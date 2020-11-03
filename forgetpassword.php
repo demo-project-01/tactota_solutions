@@ -12,8 +12,11 @@
 		<br/>
 		<h1>Forgot Password</h1>
         <br/>
-        
-		
+
+		<br/>
+		<br/>
+		<br/>
+		<br/>
 		<div class="main-container">
 			<div class="sub-container">
 				<div><img src="images/logo.jpeg" alt="logo" class="verticle-center" width=400 height=auto /></div>
