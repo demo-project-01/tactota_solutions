@@ -28,23 +28,23 @@ include 'clerk_sidebar.php';
             <td><button class="view">View</button> </td>
             <td><button class="update">Update</button> </td>
             <td><button class="delete">Delete</button> </td>
-</tr>
-<tr>
+          </tr>
+          <tr>
             <td>mish001</td>
             <td>mish</td>
             <td>clerk</td>
             <td><button class="view">View</button> </td>
             <td><button class="update">Update</button> </td>
             <td><button class="delete">Delete</button> </td>
-</tr>
-<tr>
+          </tr>
+          <tr>
             <td>mish001</td>
             <td>mish</td>
             <td>clerk</td>
             <td><button class="view">View</button> </td>
             <td><button class="update">Update</button> </td>
             <td><button class="delete">Delete</button> </td>
-</tr>
+          </tr>
   <!-- php //if(count($user)): ?>
       php //foreach($person as $user): ?>
       <tr>
@@ -63,8 +63,5 @@ include 'clerk_sidebar.php';
       </tbody>
   </table> 
       </div>
-    <div class="footers">
-			<p>© Tactota Solutions All rights reserved </p>
-     </div>
      </div>
 </body>
