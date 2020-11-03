@@ -100,7 +100,8 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     width: 200px;
     height: 150px;
     margin-top: 30px;
-    margin-left: 40px;
+    margin-left: 50px;
+    
   }
 
   .dash2{
@@ -108,8 +109,8 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     border-radius: 5px;
     width: 200px;
     height: 150px;
-    margin-top: 30px;
-    margin-left: 280px;
+    margin-top: -150px;
+    margin-left: 300px;
   }
   
   .dash3{
@@ -118,7 +119,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     width: 200px;
     height: 150px;
     margin-top: 50px;
-    margin-left: 40px;
+    margin-left: 50px;
   }
 
   .dash4{
@@ -126,8 +127,8 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     border-radius: 5px;
     width: 200px;
     height: 150px;
-    margin-top: 50px;
-    margin-left: 280px;
+    margin-top: -150px;
+    margin-left: 300px;
   }
   /*.footer{
     text-align: center;
