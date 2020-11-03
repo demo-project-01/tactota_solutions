@@ -10,7 +10,16 @@ include 'clerk_sidebar.php';
     <div class="search">
       <input type="text" placeholder="Search..">
     </div>
+    <div class="alert" id="activate">
+    <span class="activebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <strong>Successfully Activated</strong>  the User "name here"
+  </div>
   
+  <div class="alert" id="diactivate">
+    <span class="activebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <strong>Successfully Diactivated</strong>  the User "name here"
+  </div>
+
 
   <div class="view-tbl">
     <table>
@@ -114,15 +123,6 @@ include 'clerk_sidebar.php';
       </tbody>
     </table> 
   </div>
-  <div class="alert" id="activate">
-    <span class="activebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-    <strong>Successfully Activated</strong>  the User "name here"
-  </div>
   
-  <div class="alert" id="diactivate">
-    <span class="activebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-    <strong>Successfully Diactivated</strong>  the User "name here"
-  </div>
-
 </div>
 </body>
