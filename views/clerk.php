@@ -3,13 +3,23 @@
 ?>
 <body>
 <div class="content">
-  <div>
-    <div class= "dash1"><h1>hello world</h1></div>
-    <div class= "dash2"></div>
+ <div>
+    <div class= "dash1">
+      <b><p class="dash">hello world</p></b>
     </div>
+
+    <div class= "dash2">
+        <b><p class="dash">hello world</p></b>
+    </div>
+    </div>
+
     <div> 
-    <div class= "dash3"></div>
-    <div class= "dash4"></div>
+    <div class= "dash3">
+        <b><p class="dash">hello world</p></b>
+    </div>
+    <div class= "dash4">
+        <b><p class="dash">hello world</p></b>
+    </div>
     </div>
     
     <div class="wrapper">
