@@ -109,21 +109,27 @@ html,body{
   .list_wrap ul li :last-child{
     margin-bottom: 0;
   }
+ .incomes{
+    font-size: large;
+    padding-top: 50px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
  .income1{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
   width: 200px;
   height: 150px;
   margin-top: 30px;
-  margin-left: 40px;
+  margin-left: 50px;
  }
  .income2{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
   width: 200px;
   height: 150px;
-  margin-top: 30px;
-  margin-left: 280px;
+  margin-top: -150px;
+  margin-left: 300px;
  }
  .income3{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -131,15 +137,15 @@ html,body{
   width: 200px;
   height: 150px;
   margin-top: 50px;
-  margin-left: 40px;
+  margin-left: 50px;
  }
  .income4{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
   width: 200px;
   height: 150px;
-  margin-top: 50px;
-  margin-left: 280px;
+  margin-top: -150px;
+  margin-left: 300px;
  }
  p{
    padding-top: 1.2%;
