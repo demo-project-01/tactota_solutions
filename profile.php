@@ -41,7 +41,7 @@
 				<div class="wthree-text">
 					<div class="clear"> </div>
 				</div>
-				<input type="submit" value="Update">
+				<input type="new-btn" value="Update">
 	  	</form>
 				
 			</div>
