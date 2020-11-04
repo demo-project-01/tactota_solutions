@@ -8,7 +8,7 @@ include 'dash.php';
 
   <div class="content">
  </br></br></br>
-    <div class="main-box" id="view-tbl">
+    <div class="view-tbl">
 
     
       <table>
