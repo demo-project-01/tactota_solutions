@@ -3,12 +3,20 @@
 ?>
 <body>
 <div class="content">
-    <div class="income1">
-        <div class="income2">   
+    <div>
+       <div class="income1">
+            <b><p class="incomes">hello world</p></b>
+        </div>
+        <div class="income2"> 
+            <b><p class="incomes">hello world</p></b>  
         </div>   
     </div>
-    <div class="income3">
-        <div class="income4">   
+    <div>
+        <div class="income3">
+            <b><p class="incomes">hello world</p></b>
+        </div>
+        <div class="income4">
+            <b><p class="incomes">hello world</p></b> 
         </div>   
     </div>
     <div class="wrapper">
