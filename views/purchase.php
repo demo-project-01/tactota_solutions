@@ -7,12 +7,12 @@ include 'dash.php';
   <link rel="stylesheet" href="css/view_user.css">
 
   <div class="content">
-  <div class="main-box" id="view-tbl">
+  
       <div class="search">
         <input type="text" placeholder="Search..">
       </div>
-</div>
-    <div class="main-box" id="view-tbl">
+<body>
+    <div class="view-tbl">
 
     
       <table>
@@ -28,6 +28,11 @@ include 'dash.php';
 
           </tr>
         </thead>
+
+        
+
+
+
         <tbody>
           <tr>
             <td>Laptop</td>
