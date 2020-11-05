@@ -2,9 +2,7 @@
 include 'dash.php';
 
 ?>
-
-<!--link rel="stylesheet" href="css/signup.css"-->
-  <link rel="stylesheet" href="css/view_user.css">
+  <link rel="stylesheet" href="../public/css/view_user.css">
 
   <div class="content">
  
