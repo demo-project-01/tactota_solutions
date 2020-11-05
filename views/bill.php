@@ -1,5 +1,5 @@
 <?php
-include 'dash.php';
+include 'header.php';
 
 ?>
   <link rel="stylesheet" href="../public/css/view_user.css">
@@ -21,7 +21,7 @@ include 'dash.php';
     </br>
         <div class="row">
     <div class="col-25">
-    <b><label1 for="fname">Product name</label1></b>
+    <b><label1>Product name</label1></b>
     </div>
     <div class="col-75">
     <input type="text" id="pname" name="productname">
@@ -30,7 +30,7 @@ include 'dash.php';
     
         <div class="row">
     <div class="col-25">
-    <label1 for="fname">Brand</label1>
+    <label1>Brand</label1>
     </div>
     <div class="col-75">
     <input type="text" id="brand" name="brand">
@@ -40,7 +40,7 @@ include 'dash.php';
     
           <div class="row">
     <div class="col-25">
-    <label1 for="fname">Model No</label1>
+    <label1>Model No</label1>
     </div>
     <div class="col-75">
     <input type="text" id="modelno" name="modelno">
@@ -49,7 +49,7 @@ include 'dash.php';
 
           <div class="row">
     <div class="col-25">
-    <label1 for="fname">Sales Price</label1>
+    <label1>Sales Price</label1>
     </div>
     <div class="col-75">
     <input type="text" id="salesprice" name="salesprice">
@@ -58,7 +58,7 @@ include 'dash.php';
 
           <div class="row">
     <div class="col-25">
-    <label1 for="fname">Quantity</label1>
+    <label1>Quantity</label1>
     </div>
     <div class="col-75">
     <input type="text" id="quantity" name="quantity">
@@ -67,16 +67,26 @@ include 'dash.php';
 
           <div class="row">
     <div class="col-25">
-    <label for="fname">Discount</label>
+    <label1>Discount</label1>
     </div>
     <div class="col-75">
     <input type="text" id="discount" name="discount">
     </div>
           </div>
+	   
+	   
+          <div class="row">
+    <div class="col-25">
+    <label1>Serial No</label1>
+    </div>
+    <div class="col-75">
+    <input type="text" id="serialno" name="serialno">
+    </div>
+          </div>
       
           <div class="row">
     <div class="col-25">
-    <b><label for="fname">Total Price</label></b>
+    <b><label1>Total Price</label1></b>
     </div>
     <div class="col-75">
     <input type="text" id="tprice" name="totalprice">
@@ -90,7 +100,7 @@ include 'dash.php';
         </br></br</br></br></br></br>
        <div class="row">
     <div class="col-25">
-    <label1 for="fname">Customer Name</label1>
+    <label1>Customer Name</label1>
     </div>
     <div class="col-75">
     <input type="text" id="cname" name="customername">
@@ -99,7 +109,7 @@ include 'dash.php';
 
         <div class="row">
     <div class="col-25">
-    <label1 for="fname">Address</label1>
+    <label1>Address</label1>
     </div>
     <div class="col-75">
     <input type="text" id="address" name="firstname">
@@ -108,7 +118,7 @@ include 'dash.php';
 
         <div class="row">
     <div class="col-25">
-    <label1 for="fname">Telephone No</label1>
+    <label1>Telephone No</label1>
     </div>
     <div class="col-75">
     <input type="text" id="telephoneno" name="telephoneno">
@@ -117,7 +127,7 @@ include 'dash.php';
     
         <div class="row">
     <div class="col-25">
-    <label1 for="fname">Email</label1>
+    <label1>Email</label1>
     </div>
     <div class="col-75">
     <input type="text" id="email" name="email">
@@ -136,7 +146,7 @@ include 'dash.php';
       
         <div class="row">
     <div class="col-25">
-    <label1 for="fname">Bank Name</label1>
+    <label1>Bank Name</label1>
     </div>
     <div class="col-75">
     <input type="text" id="bname" name="bankname">
@@ -146,7 +156,7 @@ include 'dash.php';
        
         <div class="row">
     <div class="col-25">
-    <label1 for="fname">Cheque No</label1>
+    <label1>Cheque No</label1>
     </div>
     <div class="col-75">
     <input type="text" id="chequeno" name="chequeno">
@@ -155,7 +165,7 @@ include 'dash.php';
     
         <div class="row">
     <div class="col-25">
-    <label1 for="fname">Due Date</label1>
+    <label1>Due Date</label1>
     </div>
     <div class="col-75">
     <input type="text" id="duedate" name="due date">
@@ -165,7 +175,7 @@ include 'dash.php';
     
         <div class="row">
     <div class="col-25">
-    <label1 for="fname">Recived Date</label1>
+    <label1>Recived Date</label1>
     </div>
     <div class="col-75">
     <input type="text" id="reciveddate" name="recived date">
