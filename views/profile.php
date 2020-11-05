@@ -5,7 +5,7 @@
 <head>
 <title>Tactota Solutions</title>
 
-<link href="css/signup.css" rel="stylesheet" type="text/css"/>
+<link href="../public/css/signup.css" rel="stylesheet" type="text/css"/>
 
 </head>
 <body>
