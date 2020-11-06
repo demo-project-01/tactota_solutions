@@ -1,0 +1,58 @@
+
+.view-tbl1
+{
+  display: flex;
+  margin: 2em auto;
+  background:/* #2f323a*/#ffffff;
+  background-size: cover;
+  border:none;
+  width:85%;
+  padding: 0px;
+  align-items: center;
+  text-align: center;
+
+  float:top; 
+ 
+}
+
+  .main-box1 {
+    border: 25px solid#3b503d;
+    display: flex;
+    margin: 2em auto;
+    width: 85%;
+    background: whitesmoke;
+    background-size: cover;
+     margin-left: 0%;
+     margin-top: 0%;
+     text-align: center;
+         
+     }
+  
+     .sub-box1{
+      padding: 1em;
+     margin: 2em auto;
+      height: 50%;
+      border:10px black;
+      float: left;
+    }
+  
+     .box-down1{
+       padding: 1em;
+       margin-left: 20%;
+       margin-right: 20%;
+       
+     }
+
+     
+.content1{
+    width: calc(100% - 0px);
+    margin-top: 100px;
+    padding: 20px;
+    margin-left: 50px;
+  
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    transition: 0.5s;
+  }
+  
