@@ -56,3 +56,21 @@
     transition: 0.5s;
   }
   
+  textarea {
+    width: 60%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    float: left;
+    margin-left: 20%;
+  }
+ 
+
+  .lbl2{
+   margin: 10px;
+    display: inline-block;
+    text-align: right;
+    font: bolder;
+    align-content: right;
+  }
