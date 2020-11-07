@@ -3,9 +3,9 @@ include 'dash.php';
 
 ?>
 
-  <link rel="stylesheet" href="bill.css">
-  <link rel="stylesheet" href="style1.css">
-  <link rel="stylesheet" href="css/view_user.css">
+  <link rel="stylesheet" href="../public/css/bill.css">
+  <link rel="stylesheet" href="../public/css/style1.css">
+  <link rel="stylesheet" href="../public/css/view_user.css">
 
   <div class="content">
   
