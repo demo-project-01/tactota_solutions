@@ -5,7 +5,7 @@
 <head>
 <title>Tactota Solutions</title>
 
-<link href="css/signup.css" rel="stylesheet" type="text/css"/>
+<link href="../public/css/signup.css" rel="stylesheet" type="text/css"/>
 
 </head>
 <body>
@@ -41,7 +41,7 @@
 				<div class="wthree-text">
 					<div class="clear"> </div>
 				</div>
-				<input type="submit" value="Update">
+				<input type="new-btn" value="Update">
 	  	</form>
 				
 			</div>

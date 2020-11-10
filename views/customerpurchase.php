@@ -3,12 +3,15 @@ include 'dash.php';
 
 ?>
 
-
-  
+  <link rel="stylesheet" href="../public/css/view_user.css">
 
   <div class="content">
- </br></br></br>
-    <div class="main-box" id="view-tbl">
+  
+      <div class="search">
+        <input type="text" placeholder="Search..">
+      </div>
+<body>
+    <div class="view-tbl">
 
     
       <table>
@@ -24,6 +27,11 @@ include 'dash.php';
 
           </tr>
         </thead>
+
+        
+
+
+
         <tbody>
           <tr>
             <td>Laptop</td>
@@ -34,9 +42,18 @@ include 'dash.php';
             <td>1500</td>
            
 </tr>
-
+<tr>
+          <td>Laptop</td>
+            <td>asd</td>
+            <td>145-476</td>
+            <td>6</td>
+            <td>8000</td>
+            <td>9000</td>
+           
+</tr>
 
   </table> 
       </div>
      </div>
 </body>
+

@@ -10,7 +10,16 @@ include 'clerk_sidebar.php';
     <div class="search">
       <input type="text" placeholder="Search..">
     </div>
+    <div class="alert" id="activate">
+    <span class="activebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <strong>Successfully Activated</strong>  the User "name here"
+  </div>
   
+  <div class="alert" id="diactivate">
+    <span class="activebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <strong>Successfully Diactivated</strong>  the User "name here"
+  </div>
+
 
   <div class="view-tbl">
     <table>
@@ -114,22 +123,6 @@ include 'clerk_sidebar.php';
       </tbody>
     </table> 
   </div>
+  
 </div>
 </body>
-
-  <!-- php //if(count($user)): ?>
-      php //foreach($person as $user): ?>
-      <tr>
-        <td>php// echo $person->emp_id; ?></td>
-        <td>php //echo $person->username; ?></td>
-        <td>php //echo $person->job_position; ?></td>
-        <
-        <td>
-      </tr>
-      php //endforeach; ?>
-      php //else: ?>
-        <tr>
-          <td>No Records Found !</td>
-        </tr>
-      php// endif; ?> -->
-      
