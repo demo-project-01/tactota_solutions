@@ -277,4 +277,12 @@ label #sidebar_btn:hover{
     display: table;
     clear: both;
   } 
-
+button {
+  background-color: #007042;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  color: #fff;
+}
