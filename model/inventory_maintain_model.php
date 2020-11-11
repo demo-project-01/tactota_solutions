@@ -159,5 +159,25 @@ class inventory_maintain_model
             return 0;
         }
     }
+    public function getcustid(){         //reshani ,add customer details
+        $query = $this->mysqli->query("SELECT * from customer order by cust_id desc LIMIT 1");
+        if ($query->num_rows > 0) {
+            while ($row = $query->fetch_assoc()) {
+                $result = $row['cust_id'];
+            }
+
+            $result = substr($result, 4, 6);
+            $result = (int) $result + 1;
+            $result = "CUST" . sprintf('%04s', $result);
+            return $result;
+        }else
+        {
+            $result = "CUST0001";
+
+            return $result;
+        }
+
+     }
+    
     
 }
