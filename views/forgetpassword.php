@@ -24,7 +24,7 @@
 			
 			<div class="sub-container">
 
-				<form action="#" method="post">
+				<form action="../controller/authenitication.php?action=forgotpassword" method="post">
                     <i class="fas fa-lock" class="align"></i>
                     <p class="align">Please fill your details</p>
 					
