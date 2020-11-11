@@ -19,7 +19,7 @@
 				<div><img src="../public/images/logo.jpeg" alt="logo" class="verticle-center" width=400 height=auto/></div>
 			</div>
 			<div class="sub-container">
-				<form action="#" method="post">
+				<form action="../controller/authenitication.php?action=login" method="post">
 					<input class="text" type="text" name="Username" placeholder="Username" required="">
 					<input class="text" type="password" name="password" placeholder="Password" required="">
 					<h6 class="right"><a href="forgetpassword.php">Forgot Password?</a></h6>
