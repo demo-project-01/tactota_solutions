@@ -132,4 +132,18 @@ class inventory_maintain_model
          }
          return $result;
      }
+     public function valid_email_address($email_address)        //reshani  ,add customer details
+    {
+        $result = "";
+        $query = $this->mysqli->query("SELECT * FROM  customer WHERE email_address='" . $email_address . "'");
+        if ($query->num_rows > 0) {
+            while ($row = $query->fetch_assoc()) {
+                $result = $row['cust_id'];
+            }
+            return $result;
+        }else
+        {
+            return 0;
+        }
+    }
 }
