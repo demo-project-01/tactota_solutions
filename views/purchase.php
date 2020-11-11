@@ -1,59 +1,64 @@
 <?php
-include 'dash.php';
+//view purchase details in shopkeeper
+include 'shopkeeper_sidebar.php';
+require '../controller/sales.php ';
+$data=new sales();
+$sql=$data->valid_prodcuts();
 
+//print_r($sql);
 ?>
 
+<div class="content">
 
-  <link rel="stylesheet" href="../public/css/view_user.css">
-
-  <div class="content">
-  
-      <div class="search">
-        <input type="text" placeholder="Search..">
-      </div>
-<body>
-    <div class="view-tbl">
-
-    
-      <table>
-       
-        <thead>
-          <tr>
-            <th>Product Name</th>
-            <th scope="col">Brand Name</th>
-            <th scope="col">Model Number</th>
-            <th scope="col">Warrenty(months)</th>
-            <th scope="col">Product Cost</th>
-            <th scope="col">Sales Price</th>
-
-          </tr>
-        </thead>
-
-        
+    <div class="main-container" id="view-tbl">
+        <div class="search">
+            <input type="text" placeholder="Search..">
+        </div>
+    </div>
+    <div class="main-container" id="view-tbl">
+        <table>
+            <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Brand Name</th>
+                <th>Model Name</th>
+                <th>Quantity</th>
+                <th>Warranty</th>
+                <th>Product Cost</th>
+                <th>Sale Price</th>
+                <th>Action</th>
 
 
+            </tr>
+            </thead>
+            <tbody>
+            <?php
 
-        <tbody>
-          <tr>
-            <td>Laptop</td>
-            <td>que</td>
-            <td>123-456</td>
-            <td>12</td>
-            <td>1000</td>
-            <td>1500</td>
-           
-</tr>
-<tr>
-          <td>Laptop</td>
-            <td>asd</td>
-            <td>145-476</td>
-            <td>6</td>
-            <td>8000</td>
-            <td>9000</td>
-           
-</tr>
+            foreach ($sql as $k => $v)
+            {
+                ?>
 
-  </table> 
-      </div>
-     </div>
+
+                <tr>
+                    <td><?php echo $sql[$k]["p_name"] ?>
+                    <td><?php echo $sql[$k]["brand_name"] ?>
+                    <td><?php echo $sql[$k]["model_no"] ?>
+                    <td><?php echo $sql[$k]["quantity"] ?>
+                    <td><?php echo $sql[$k]["warranty"] ?>
+                    <td><?php echo $sql[$k]["p_cost"] ?>
+                    <td><?php echo $sql[$k]["sales_price"] ?>
+                    <td><a href="../controller/sales.php?action=sell&id=<?php  echo $sql[$k]["p_id"]; ?>" class="view"><button>View</button></a>
+
+
+                </tr>
+                <?php
+
+            } ?>
+            </tbody>
+
+
+        </table>
+    </div>
+</div>
+</div>
 </body>
