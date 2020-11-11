@@ -124,6 +124,49 @@ class inventory_maintain
         //$_SESSION['reminderitem_suppliers']=$row;
         //print_r("hello");
     }
+    public function customer_details(){           //reshani
+        
+        $cust_name=$email_address=$address =$telephone_no ="";
+        $cust_name = $_POST['cust_name'];
+        $email_address = $_POST['email_address'];
+        $address = $_POST['address'];
+        $telephone_no = $_POST['telephone_no'];
+        
+
+        if (empty($cust_name)) {
+            $errors['lastname'] = "Lastname is required";
+        }
+        if (empty($email_address )) {
+            $errors['email_address '] = "Email is required";
+        }
+        if (empty($address)) {
+            $errors['address'] = "Address is required";
+        }
+        if (empty( $telephone_no)) {
+            $errors['telephone_no'] = "Mobile number is required";
+        }
+
+        $row = $this->inven->valid_email_address($email_address);
+        $row1 = $this->inven->valid_cust_name($cust_name);
+
+        if ($row != "0") {
+
+            echo "email already does not has";
+        }
+        else if($row1 != "0" )
+        {
+            echo "name already has";
+        }else{
+            $cust_id = $this->inven->getcustid();
+            //echo $cust_id;
+            if($this->inven->add_customer_details($cust_id,$cust_name,$email_address,$address,$telephone_no) !=0){
+                //echo "success";
+                header('location: ../views/add_customer_successful.php');
+            }else{
+                echo "wrong";
+            }
+        }
+    }
 }
 
 
@@ -151,3 +194,6 @@ else if(isset($_GET['action']) && $_GET['action'] == 'display_reminders'){  //re
 else if(isset($_GET['action']) && $_GET['action'] == 'reminderitems_suppliers'){  //reshani
    $controller->reminderitems_suppliers();
 }
+else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //reshani
+    $controller->customer_details();
+ }
