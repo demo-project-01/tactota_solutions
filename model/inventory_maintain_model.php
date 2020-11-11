@@ -178,6 +178,21 @@ class inventory_maintain_model
         }
 
      }
+     public function add_customer_details($cust_id,$cust_name,$email_address,$address,$telephone_no){    //reshani
+        $stmt = $this->mysqli->prepare("INSERT INTO customer (cust_id,cust_name,email_address,address)
+        VALUES (?,?,?,?)");
+        //var_dump($stmt);
+        if($stmt == false)
+        {
+            return 0;
+        }else{
+        $stmt->bind_param('ssss',$cust_id,$cust_name,$email_address,$address);
+        $stmt2 = $this->mysqli->prepare("INSERT INTO cust_telephone (cust_id,telephone_no) VALUES (?,?)");
+        $stmt->execute();
+        $stmt2->bind_param('ss',$cust_id,$telephone_no);
+        return $stmt2->execute();
+        }
+    }
     
     
 }
