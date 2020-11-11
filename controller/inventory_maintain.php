@@ -115,6 +115,9 @@ class inventory_maintain
             header('location: ../views/list_updateproduct.php');
         }
     }
+    public function display_reminders(){   //reshani
+        return $this->inven->display_stockreminders();
+    }
 }
 
 
@@ -135,4 +138,7 @@ if(isset($_GET['action']) && $_GET['action'] == "newsuppliers") {
 }else if(isset($_GET['action']) && $_GET['action'] == 'update_product_details') {
     $id=$_GET["id"];
     $controller->update_product_details($id);
+}
+else if(isset($_GET['action']) && $_GET['action'] == 'display_reminders'){  //reshani
+    $controller->display_reminders();
 }
