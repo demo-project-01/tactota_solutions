@@ -13,13 +13,8 @@ include 'clerk_sidebar.php';
   <div class="update-tbl">
     <table>
       <tbody>
-      <tr>
-            <th>Supplier Id</th>
-            <td>   
-            <input class="text" type="text" name="name" placeholder="First Name" required="">
-            </td>
-        </tr>
-        <tr>
+      
+       <tr>
             <th>Supplier Name</th>
             <td>   
             <input class="text" type="text" name="name" placeholder="First Name" required="">
