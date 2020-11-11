@@ -146,4 +146,18 @@ class inventory_maintain_model
             return 0;
         }
     }
+    public function valid_cust_name($cust_name){         //reshani ,add customer details
+        $result = "";
+        $query = $this->mysqli->query("SELECT * FROM customer WHERE cust_name='" . $cust_name . "'");
+        if ($query->num_rows > 0) {
+            while ($row = $query->fetch_assoc()) {
+                $result = $row['cust_id'];
+            }
+            return $result;
+        }else
+        {
+            return 0;
+        }
+    }
+    
 }
