@@ -44,16 +44,16 @@
 
 <div class="sidebar">
 
-  <a href="#"><i class="fas fa-home"></i></i><span>Dashboard</span></a>
-  <a href="#"><i class="fas fa-cart-plus"></i></i><span>Add Product</span></a>
-  <a href="#"><i class="fas fa-edit"></i></i><span>Update Product</span></a>
+  <a href="clerk.php"><i class="fas fa-home"></i></i><span>Dashboard</span></a>
+  <a href="newproduct.php"><i class="fas fa-cart-plus"></i></i><span>Add Product</span></a>
+  <a href="list_updateproduct.php"><i class="fas fa-edit"></i></i><span>Update Product</span></a>
   <a href="#"><i class="fas fa-inbox"></i></i><span>Indox</span></a>
   <a href="#"><i class="fas fa-cart-arrow-down"></i></i><span>Return Product</span></a>
-  <a href="#"><i class="fas fa-users"></i></i><span>Users</span></a>
+  <a href="clerk_active_user.php"><i class="fas fa-users"></i></i><span>Users</span></a>
   <a href="#"><i class="fas fa-shopping-cart"></i></i><span>Sold Item</span></a>
   <a href="#"><i class="fas fa-store"></i></i><span>Stock Details</span></a>
   <a href="#"><i class="fas fa-shopping-bag"></i></i></i><span>Purchase Details</span></a>
-  <a href="#"><i class="fas fa-people-carry"></i></i><span>Add Suppliers</span></a>
+  <a href="supplier_details.php"><i class="fas fa-people-carry"></i></i><span>Add Suppliers</span></a>
   <a href="#"><i class="fas fa-comments"></i></i></i><span>Feedback</span></a>
 </div>
 <!--sidebar end-->
