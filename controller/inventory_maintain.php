@@ -118,6 +118,12 @@ class inventory_maintain
     public function display_reminders(){   //reshani
         return $this->inven->display_stockreminders();
     }
+    public function reminderitems_suppliers(){   //reshani
+        header('location: ../views/stockreminders.php');
+        //return $this->inven->display_reminder_suppliers($id);
+        //$_SESSION['reminderitem_suppliers']=$row;
+        //print_r("hello");
+    }
 }
 
 
@@ -141,4 +147,7 @@ if(isset($_GET['action']) && $_GET['action'] == "newsuppliers") {
 }
 else if(isset($_GET['action']) && $_GET['action'] == 'display_reminders'){  //reshani
     $controller->display_reminders();
+}
+else if(isset($_GET['action']) && $_GET['action'] == 'reminderitems_suppliers'){  //reshani
+   $controller->reminderitems_suppliers();
 }
