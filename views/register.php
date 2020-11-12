@@ -19,7 +19,7 @@
 				<div><img src="../public/images/logo.jpeg" alt="logo" class="verticle-center" width=400 height=auto /></div>
 			</div>
 			<div class="sub-container">
-				<form action="#" method="post">
+				<form action="../controller/authenitication.php?action=register" method="post">
 					
 					<i class="fas fa-lock" class="align"></i><input class="text" type="text" name="firstname" placeholder="First Name" required="">
 					<i class="fas fa-lock" class="align"></i><input class="text" type="text" name="middlename" placeholder="Middle Name" required="">
