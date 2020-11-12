@@ -47,7 +47,7 @@ include 'clerk_sidebar.php';
         </td>
       </tr>
     </tbody>
-    <table>
+    </table>
    </body>
    </html>
    
