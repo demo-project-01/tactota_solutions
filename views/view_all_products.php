@@ -7,13 +7,13 @@ $sql=$data->update_product();
 <head>
 <link rel="stylesheet" href="../public/css/update.css">
 </head>
-<div class="content">
+<div class="content" style="width:auto;">
     <h1 id="tbl-heading">View All Products</h1>
     <div class="search">
         <input type="text" placeholder="Search..">
     </div>
     <div>
-        <a class="add_button" href="new_product.php">-|- Add new Product</a>
+        <a class="add_button" href="newproduct.php">-|- Add new Product</a>
     </div>
 
  <br>
