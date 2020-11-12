@@ -112,6 +112,7 @@ include 'header.php';
      <th scope="col">Warrenty(months)</th>
      <th scope="col">Quantity</th>
      <th scope="col">Sales Price</th>
+     <th scope="col">Discount</th>
      <th scope="col">Total Price</th>
 
    </tr>
@@ -125,6 +126,7 @@ include 'header.php';
      <td>12</td>
      <td>1</td>
      <td>1500</td>
+     <td>150</td>
      <td>1500</td>
 
     
