@@ -14,7 +14,7 @@
 
 #tbl-heading{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
+    text-align: left;  /*modified*/
     color: #000;
     font-weight: bold;
     margin-top: 10px;       
