@@ -178,6 +178,22 @@ class inventory_maintain
             }
         }
     }
+    public function view_one_product_details($id)
+    {
+        //print_r($id);
+        $row= $this->inven->get_view_product_details($id);
+        //$p=$row['pp_name'];
+     //     print_r($row);
+        // print_r($row['p_name']);
+        // echo "<br>";
+        //      print_r($row['p_id']);
+        $_SESSION['one_product_details']=$row;
+        // print_r($_SESSION['product_details']);
+      header('location: ../views/view_one_product.php');
+
+    }
+
+ 
 }
 
 
@@ -210,4 +226,11 @@ else if(isset($_GET['action']) && $_GET['action'] == 'display_few_reminders'){  
  }
 else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //reshani
     $controller->customer_details();
- }
+ }else if(isset($_GET['action']) && $_GET['action'] == 'delete_product_details') {
+    $id=$_GET["id"];
+    $controller->delete_product_details($id);
+}else if(isset($_GET['action']) && $_GET['action'] == 'view_one_product_details') {
+    $id=$_GET["id"];
+    $controller->view_one_product_details($id);
+}
+
