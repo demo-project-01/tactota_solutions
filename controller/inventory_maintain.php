@@ -192,7 +192,25 @@ class inventory_maintain
       header('location: ../views/view_one_product.php');
 
     }
-
+    
+    public function delete_product_details($id)
+    {
+        print_r($id);
+        $row= $this->inven->get_delete_product_details($id);
+        $quantity=$row['quantity'];
+        $count_serial_number=$row['COUNT(item.serial_no)'];
+        $value=false;
+        print_r($quantity);
+        echo "</br>";
+        print_r($count_serial_number);
+        $row= $this->inven->delete_product_details($id,$quantity,$count_serial_number,$value);
+        if($row=="0"){
+            echo "wrong";
+        }else{
+            header('location: ../view/list_updateproduct.php');
+        }
+        // header('location: ../view/list_updateproduct.php');
+    }
  
 }
 
