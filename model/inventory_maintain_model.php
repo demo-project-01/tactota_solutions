@@ -212,6 +212,27 @@ class inventory_maintain_model
         }
         return $result;
     }
+    public function delete_product_details($id,$quantity,$count_serial_number,$value){
+        if($quantity<$count_serial_number){
 
+            $stmt = $this->mysqli->prepare("UPDATE product INNER JOIN item ON product.p_id =item.p_id  SET  product.product_status= ?,  item.item_status= ? 
+                                        WHERE product.p_id=?");
+            if($stmt==FALSE)
+                return 0;
+            else{
+                $stmt->bind_param('sss',$value,$value,$id);
+                return $stmt->execute();
+            }
+
+        }else if($quantity==$count_serial_number){
+            $stmt = $this->mysqli->prepare("DELETE FROM product WHERE p_id=?");
+            if($stmt==FALSE)
+                return 0;
+            else{
+                $stmt->bind_param('s',$id);
+                return $stmt->execute();
+            }
+        }
+    }
     
 }
