@@ -25,7 +25,7 @@ $sql=$data->view_suppliers();
                     <th>Email Address</th>
                     <th>Address</th>
                     <th>Contact Number</th>
-                    <th >Action</th>
+                    <th colspan=3>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,10 +40,11 @@ $sql=$data->view_suppliers();
                     <td><?php echo $sql[$k]["address"] ?></td>
                     <td><?php echo $sql[$k]["telephone_no"] ?></td>
 
-                    <td>
-                        <a href="../controller/inventory_maintain.php?action=supplier_profile&id=<?php  echo $sql[$k]["sup_id"]; ?>" class="view"><button>View</button></a>
-                    </td>
-                    
+                   <td><a href="../controller/inventory_maintain.php?action=supplier_profile&id=<?php
+                      echo $sql[$k]["sup_id"]; ?>"><i class="fa fa-eye" aria-hidden="true"></i>
+                    </a></td>
+                    <td><i class="fa fa-pencil" aria-hidden="true"></i> </td>
+                    <td><i class="fa fa-trash" aria-hidden="true"></i></td>
                    </tr>
                 <?php
 
