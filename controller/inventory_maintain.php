@@ -132,6 +132,9 @@ class inventory_maintain
         //$_SESSION['reminderitem_suppliers']=$row;
         //print_r("hello");
     }
+    public function display_few_reminders(){   //reshani    display few reminder items in clerk dashboard
+        return $this->inven->display_few_stockreminders();
+    }
     public function customer_details(){           //reshani
         
         $cust_name=$email_address=$address =$telephone_no ="";
@@ -202,6 +205,9 @@ else if(isset($_GET['action']) && $_GET['action'] == 'display_reminders'){  //re
 else if(isset($_GET['action']) && $_GET['action'] == 'reminderitems_suppliers'){  //reshani
    $controller->reminderitems_suppliers();
 }
+else if(isset($_GET['action']) && $_GET['action'] == 'display_few_reminders'){   //reshani
+    $controller->display_few_reminders();
+ }
 else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //reshani
     $controller->customer_details();
  }
