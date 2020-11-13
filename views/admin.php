@@ -21,7 +21,7 @@
     </div>
     <div class="wrapper">
         <div class="list_wrap">
-        <div class="contentch"><h1><p>Cheque Reminders</p></h1></div>
+        <div class="contentch"><h1><p>Cheque <br/> Reminders</p></h1></div>
             <ul>
                 <li class="github">
                     <div class="list">
@@ -57,7 +57,7 @@
                             <b>Bill5</b>
                         </div> 
                     </div>
-                </li>
+                </li><br/>
                 <div class="view">
                 <b><a href="#"><span>View All Cheque</span></a></b>
                 </div>
