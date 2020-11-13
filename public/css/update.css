@@ -22,15 +22,29 @@ input[type="text"], input[type="email"], input[type="password"] {
     padding: 20px;
     align-items: center;
     text-align: center;
+    margin-top: 50px;  /*add*/
 }
 #tbl-heading
 {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
+    text-align: left; /*modified*/
     color: #000;
     font-weight: bold;
     margin-top: 10px;       /*reshani*/
-    font-size: larger;      /*reshani*/
+    font-size: 25px;      /*reshani*/
+}
+td{                                  
+    /*reshani*/
+    padding: 10px;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+}
+th{                  
+    /*reshani*/
+    font-size: 20px;
+    background-color: #4a746e;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 input[type="submit"] {
@@ -69,3 +83,13 @@ input[type="submit"] {
     font-weight: bolder;
     color: #fff;
 }
+.footerc{   /*reshani*/
+    text-align: center;
+    width:105%;
+    background:#2f323a;
+    height:37px;
+    
+    margin-left: -2%;
+    margin-top:280px ;
+}
+
