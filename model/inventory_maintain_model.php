@@ -78,18 +78,19 @@ class inventory_maintain_model
         }
     }
 
-    public function get_details(){
-        $query = $this->mysqli->query("SELECT sup_id,sup_name FROM  supplier ");
+    public function get_details(){      //michelle edited query
+        //$query = $this->mysqli->query("SELECT sup_id,sup_name FROM  supplier ");
+        $query = $this->mysqli->query("SELECT s.sup_id,s.sup_name,s.email_address,sa.address,st.telephone_no FROM  supplier AS s, sup_telephone AS st, sup_address AS sa where s.sup_id=sa.sup_id AND s.sup_id=st.sup_id");
         while ($row = $query->fetch_assoc()) {
             $result[] = $row;
         }
         return $result;
     }
 
-     public function get_view_details($id){
+     public function get_view_details($id){     //michelle edited query 
          $result = "";
-         $query = $this->mysqli->query("SELECT * FROM supplier INNER JOIN sup_address ON supplier.sup_id=sup_address.sup_id INNER JOIN sup_telephone ON sup_address.sup_id=sup_telephone.sup_id  AND supplier.sup_id='" . $id . "'");
-
+         //$query = $this->mysqli->query("SELECT * FROM supplier INNER JOIN sup_address ON supplier.sup_id=sup_address.sup_id INNER JOIN sup_telephone ON sup_address.sup_id=sup_telephone.sup_id  AND supplier.sup_id='" . $id . "'");
+         $query=$this->mysqli->query("SELECT s.sup_id,s.sup_name,s.email_address,sa.address,st.telephone_no FROM  supplier AS s, sup_telephone AS st, sup_address AS sa where s.sup_id=sa.sup_id AND s.sup_id=st.sup_id");
          while ($row = $query->fetch_assoc()) {
              $result = $row;
          }
