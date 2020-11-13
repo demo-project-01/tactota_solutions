@@ -58,7 +58,7 @@ class inventory_maintain
         return $this->inven->get_details();
     }
 
-    public function supplier_profile($id)
+    /*public function supplier_profile($id)         //michelle commented this and edited code is next to this
     {
         // print_r($id);
         $row = $this->inven->get_view_details($id);
@@ -71,7 +71,15 @@ class inventory_maintain
         echo "<br>";
         print_r($row['telephone_no']);
 
+    }*/
+     public function supplier_profile($id)      //this added by michelle
+    {
+        $row = $this->inven->get_view_details($id);
+        $_SESSION['supplier_profile_details']=$row;
+        header('location: ../views/view_one_supplier.php');
+
     }
+
 
     public function update_product(){
 
