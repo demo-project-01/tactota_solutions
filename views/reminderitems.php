@@ -7,7 +7,7 @@
 ?><head>
 <link rel="stylesheet" href="../public/css/reminderitems.css">
 </head>
-<div class="content">
+<div class="content"style="width:auto;">
     <h1 id="tbl-heading">Reminder Items</h1>
     <div class="searchs">
     <input type="text" placeholder="Search..">
@@ -16,8 +16,9 @@
        <table>
             <thead>
                 <tr>
-                    <th> Product ID</th>
                     <th> Product Name</th>
+                    <th> Brand Name</th>  
+                    <th> Model Number</th>
                     <th scope="col" colspan=2 border=0></th>
                 </tr>
             </thead>
@@ -28,8 +29,10 @@
             {
                 ?>
                 <tr>
-                    <td><?php echo $sql[$k]["p_id"] ?></td>
+                    
                     <td><?php echo $sql[$k]["p_name"] ?></td>
+		    <td><?php echo $sql[$k]["brand_name"] ?></td>
+                    <td><?php echo $sql[$k]["model_no"] ?></td>
                     <td><a href="../controller/inventory_maintain.php?action=reminderitems_suppliers&id=<?php  echo $sql[$k]["p_id"]; ?>" class="view"><button>View</button></a></td>
                 </tr>
                 <?php
