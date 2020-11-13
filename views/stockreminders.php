@@ -7,7 +7,10 @@ require '../controller/inventory_maintain.php';
 $sql=$data->reminderitems_suppliers();*/
 //print_r($sql);
 ?>
-  <div class="content">
+<head>
+<link rel="stylesheet" href="../public/css/reminderitems.css">
+</head>
+  <div class="content"style="width:auto;">
   <h1 id="tbl-heading"> SUPPLIERS</h1>
   
   <div class="search">
