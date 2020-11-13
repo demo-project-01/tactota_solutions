@@ -204,6 +204,14 @@ class inventory_maintain_model
         return $stmt2->execute();
         }
     }
-    
+     public function get_delete_product_details($id){
+        $result = "";
+        $query = $this->mysqli->query("SELECT product.quantity,COUNT(item.serial_no) FROM  product INNER JOIN item ON product.p_id=item.p_id AND product.p_id='" . $id . "'");
+        while ($row = $query->fetch_assoc()) {
+            $result = $row;
+        }
+        return $result;
+    }
+
     
 }
