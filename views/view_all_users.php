@@ -32,7 +32,7 @@ $sql=$data->user_details();
                     <td><?php echo $sql[$k]['emp_id']; ?></td>
                     <td><?php echo $sql[$k]['username']; ?></td>
                     <td><?php echo $sql[$k]['position']; ?></td>
-                    <td> <a href="../controller/authenitication.php?action=get_view_details&id=<?php 
+                    <td> <a href="../controller/authenitication.php?action=view_profile&id=<?php 
                     echo $sql[$k]["emp_id"]; ?>"><i class="fa fa-eye" aria-hidden="true">&nbsp View</i>
                     </a></td>
                     <td><i class="fa fa-trash" aria-hidden="true">&nbsp Delete</i></td>
