@@ -35,7 +35,7 @@ class sales_model
     }
 
 
-    public function add_new_product($product_id,$product_name,$product_cost,$brand_name,$reorder_level,$model_number,$quantity,$warranty,$product_status,$product_date,$serial_number,$sales_price,$item_status,$supplier_id){
+ public function add_new_product($product_id,$product_name,$product_cost,$brand_name,$reorder_level,$model_number,$quantity,$warranty,$product_status,$product_date,$serial_number,$sales_price,$item_status,$supplier_id){
        $stmt=$this->mysqli->prepare("INSERT INTO product (p_id,p_name,p_cost,brand_name,reorder_level,model_no,quantity,warranty,product_status,product_date)
                                         VALUES (?,?,?,?,?,?,?,?,?,?)");
         if($stmt == false){
@@ -44,20 +44,23 @@ class sales_model
 
               $stmt->bind_param('ssssssssss',$product_id,$product_name,$product_cost,$brand_name,$reorder_level,$model_number,$quantity,$warranty,$product_status,$product_date);
               $stmt->execute();
-            $stmt1 = $this->mysqli->prepare("INSERT INTO  item (serial_no,sales_price,p_id,item_status)
+            for($i=0;$i<$quantity;$i+=1){
+                $stmt1 = $this->mysqli->prepare("INSERT INTO  item (serial_no,sales_price,p_id,item_status)
                                         VALUES (?,?,?,?)");
 
-             $stmt2= $this->mysqli->prepare("INSERT INTO  supplier_product(sup_id,p_id)VALUES (?,?)");
+                $stmt1->bind_param('ssss',$serial_number[$i],$sales_price,$product_id,$item_status);
+                $stmt1->execute();
 
-              $stmt1->bind_param('ssss',$serial_number,$sales_price,$product_id,$item_status);
-                  $stmt1->execute();
+            }
+
+
+            $stmt2= $this->mysqli->prepare("INSERT INTO  supplier_product(sup_id,p_id)VALUES (?,?)");
               $stmt2->bind_param('ss',$supplier_id,$product_id);
                   return $stmt2->execute();
 
        }
 
     }
-
     public function view_products(){
         $query = $this->mysqli->query("SELECT product.quantity,product.p_id,product.p_name,product.brand_name,product.model_no,product.p_cost,product.warranty,item.sales_price FROM product INNER JOIN item ON product.p_id=item.p_id");
         while ($row = $query->fetch_assoc()) {
