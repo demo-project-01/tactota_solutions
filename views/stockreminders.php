@@ -71,7 +71,7 @@ $sql=$data->reminderitems_suppliers();*/
       </tbody>
   </table> 
       </div>
-      <div class="footers">
+      <div class="footerh">
 			<p>© Tactota Solutions All rights reserved </p>
       </div>
     </div>
