@@ -26,17 +26,28 @@ class sales
         $sales_price = $_POST['sales_price'];
         $serial_number = $_POST['serial_number'];
         $reorder_level = $_POST['reorder_level'];
-        $product_status="active";
-        $item_status="active";
+        $product_status=true;
+        $item_status=true;
         $product_date=date("Y-m-d");
         $product_id = $this->sale->get_product_id();
-     //   print_r($product_status);
+        //print_r($serial_number);
+      // $unique_serial_number= $this->unique_serial_number($serial_number,$product_id,$quantity);
+ 
+
+            //$row=$serial_number[1]."#".$product_id;
+           // print_r($row);
+
+            foreach ($serial_number as $key =>$value){
+                 $serial_number[$key]=$value."#".$product_id;
+            }
+//            print_r($serial_number);
+
       //  print_r($product_date);
        // print_r($item_status);
       //  print_r($product_id);
        // print_r($quantity);
-     if($this->sale->add_new_product($product_id,$product_name,$product_cost,$brand_name,$reorder_level,$model_number,$quantity,$warranty,$product_status,$product_date,$serial_number,$sales_price,$item_status,$supplier_id)){
-            echo "suess";
+    if($this->sale->add_new_product($product_id,$product_name,$product_cost,$brand_name,$reorder_level,$model_number,$quantity,$warranty,$product_status,$product_date,$serial_number,$sales_price,$item_status,$supplier_id)){
+        header('location: ../views/newproduct.php');
     }else{
             echo "dhskfshdj";
     }
