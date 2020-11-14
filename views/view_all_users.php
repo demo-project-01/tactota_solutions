@@ -35,7 +35,6 @@ $sql=$data->user_details();
                     <td> <a href="../controller/authenitication.php?action=get_view_details&id=<?php 
                     echo $sql[$k]["emp_id"]; ?>"><i class="fa fa-eye" aria-hidden="true">&nbsp View</i>
                     </a></td>
-                    <td><i class="fa fa-pencil" aria-hidden="true">&nbsp Update</i> </td>
                     <td><i class="fa fa-trash" aria-hidden="true">&nbsp Delete</i></td>
                 </tr>
                     <?php 
