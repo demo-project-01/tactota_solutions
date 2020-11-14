@@ -14,7 +14,7 @@ $row=$_SESSION['row'];
 <link rel="stylesheet" href="../public/css/email.css">
 </head>
 
-<div class="content">
+<div class="content" style="width: auto">
     <h1 id="tbl-heading">Compose Email</h1>
 
     <div class="email-tbl">
