@@ -20,7 +20,7 @@ $sql=$data->view_suppliers();
         <table>
             <thead>
                 <tr>
-                    <th>Supplier ID</th>
+                   
                     <th>Supplier Name</th>
                     <th>Email Address</th>
                     <th>Address</th>
@@ -34,7 +34,7 @@ $sql=$data->view_suppliers();
             {
                 ?>
                 <tr>
-                    <td><?php echo $sql[$k]["sup_id"] ?></td>
+                    
                     <td><?php echo $sql[$k]["sup_name"] ?></td>
                     <td><?php echo $sql[$k]["email_address"] ?></td>
                     <td><?php echo $sql[$k]["address"] ?></td>
