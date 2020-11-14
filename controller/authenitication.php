@@ -299,8 +299,9 @@ class authenitication
          }
      }
 
-     public function  user_details(){
-          print_r($_SESSION['emp_id']);
+     public function  user_details(){       //michelle edited function
+          //print_r($_SESSION['emp_id']);
+       return $this->auth->get_details();
      }
 
     public function active_user()
