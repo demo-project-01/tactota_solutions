@@ -5,18 +5,18 @@
 <div class="content" style="width:auto;">             
     <div>
        <div class="income1">
-            <b><p class="incomes">hello world</p></b>
+            <b><p class="incomes">EMPLOYEES</p></b>
         </div>
         <div class="income2"> 
-            <b><p class="incomes">hello world</p></b>  
+            <b><p class="incomes">PRODUCTS</p></b>  
         </div>   
     </div>
     <div>
         <div class="income3">
-            <b><p class="incomes">hello world</p></b>
+            <b><p class="incomes">SUPPLIERS</p></b>
         </div>
         <div class="income4">
-            <b><p class="incomes">hello world</p></b> 
+            <b><p class="incomes">CUSTOMERS</p></b> 
         </div>   
     </div>
     <div class="wrapper">
