@@ -3,9 +3,8 @@
 $row= $_SESSION['reminderitem_suppliers'];*/
 include 'clerk_sidebar.php';
 require '../controller/inventory_maintain.php';
-/*$data=new inventory_maintain();
-$sql=$data->reminderitems_suppliers();*/
-//print_r($sql);
+session_start();
+$row= $_SESSION['reminderitem_suppliers'];
 ?>
 <head>
 <link rel="stylesheet" href="../public/css/reminderitems.css">
@@ -29,28 +28,27 @@ $sql=$data->reminderitems_suppliers();*/
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>suppliers2</td>
-            <td>124,abc</td>
-            <td>900/=</td>
-            <td><button class="view">View</button> </td>
-            <td><button class="update">Delete</button> </td-->
-            <!--td><button class="delete">Delete</button> </td-->
-          </tr>
-          <tr>
-            <td>supplier3</td>
-            <td>125,abc</td>
-            <td>800/=</td>
-            <td><button class="view">View</button> </td>
-            <td><button class="update">Delete</button> </td>
-          <!--td><button class="delete">Delete</button> </td-->
-          </tr>
-          <tr>
-            <td>supplier4</td>
-            <td>126,abc</td>
-            <td>900/=</td>
-            <td><button class="view">View</button> </td>
-            <td><button class="update">Delete</button> </td>
+        <?php
+
+
+?>
+
+
+
+<tr> 
+
+
+    <td><?php echo $row["sup_name"] ?></td>
+    <td><?php echo $row["address"] ?></td>
+    <td><?php echo $row["p_cost"] ?></td>
+    <td><button class="view">View</button> </td>
+<td><button class="update">Delete</button> </td>
+</tr>
+<?php
+
+?>
+    
+            
           <!--td><button class="delete">Delete</button> </td-->
           <!--/tr-->
   <!-- php //if(count($user)): ?>
