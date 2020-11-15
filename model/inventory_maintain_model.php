@@ -203,6 +203,14 @@ class inventory_maintain_model
         $stmt2->bind_param('ss',$cust_id,$telephone_no);
         return $stmt2->execute();
         }
+         
+         public function display_reminder_suppliers($id){          //nuwan
+        $query=$this->mysqli->query("SELECT supplier.sup_name,sup_address.address,product.p_cost FROM supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN sup_address ON supplier_product.sup_id=sup_address.sup_id INNER JOIN product ON supplier_product.p_id=product.p_id AND product.p_id='" . $id . "'");
+        while ($row = $query->fetch_assoc()) {
+            $result= $row;
+        }
+        return $result;
+    }
     }
      public function get_delete_product_details($id){
         $result = "";
