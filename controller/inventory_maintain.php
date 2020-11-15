@@ -126,11 +126,10 @@ class inventory_maintain
     public function display_reminders(){   //reshani
         return $this->inven->display_stockreminders();
     }
-    public function reminderitems_suppliers(){   //reshani
+    public function reminderitems_suppliers($id){    //nuwan
+      $row=$this->inven->display_reminder_suppliers($id);       
+        $_SESSION['reminderitem_suppliers']=$row;
         header('location: ../views/stockreminders.php');
-        //return $this->inven->display_reminder_suppliers($id);
-        //$_SESSION['reminderitem_suppliers']=$row;
-        //print_r("hello");
     }
     public function display_few_reminders(){   //reshani    display few reminder items in clerk dashboard
         return $this->inven->display_few_stockreminders();
@@ -236,8 +235,9 @@ if(isset($_GET['action']) && $_GET['action'] == "newsuppliers") {
 else if(isset($_GET['action']) && $_GET['action'] == 'display_reminders'){  //reshani
     $controller->display_reminders();
 }
-else if(isset($_GET['action']) && $_GET['action'] == 'reminderitems_suppliers'){  //reshani
-   $controller->reminderitems_suppliers();
+else if(isset($_GET['action']) && $_GET['action'] == 'reminderitems_suppliers'){  //nuwan
+     $id=$_GET["id"];
+   $controller->reminderitems_suppliers($id);
 }
 else if(isset($_GET['action']) && $_GET['action'] == 'display_few_reminders'){   //reshani
     $controller->display_few_reminders();
