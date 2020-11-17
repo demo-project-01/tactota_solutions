@@ -298,6 +298,7 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
 .right
 {
   text-align: right;
+  float: right;
 }
 .right h6 a:hover {
   color: #005331;

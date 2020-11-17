@@ -112,7 +112,7 @@
 					</div>
 
 					<input type="submit" value="REGISTER">
-					<label for='login' id='left-p'>Already have an Account? <a id='login' href="login.php" style="font-size:1.5em;"> Login Now!</a></p>
+					<label for='login' id='left-p'>Already have an Account? <a id='login' href="login.php" style="font-size:1.3em;"> Login Now!</a></p>
 					
 
 				</form>
