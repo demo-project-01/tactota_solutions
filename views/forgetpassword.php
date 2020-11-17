@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="../public/css/signup.css" rel="stylesheet" type="text/css"/>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="https://kit.fontawesome.com/1b83d32a6d.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div>
@@ -16,24 +16,30 @@
 		<br/>
 		<br/>
 		<br/>
-		<br/>
 		<div class="main-container">
 			<div class="sub-container">
 				<div><img src="../public/images/logo.jpeg" alt="logo" class="verticle-center" width=400 height=auto /></div>
 			</div>
 			
 			<div class="sub-container">
-
+					<br/>
 				<form action="../controller/authenitication.php?action=forgotpassword" method="post">
-                    <i class="fas fa-lock" class="align"></i>
-                    <p class="align">Please fill your details</p>
-					
-					<input class="text email" type="email" name="email" placeholder="Email" required="">
-					
-					
+				<label id='left-p' style="font-size:1.3em; color:#007042">Please enter your Registered Email Address :</label>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					<label for='email' id='left-label'>
+						<i class="fa fa-envelope" aria-hidden="true"></i>
+						&nbsp&nbspEmail Address *
+					</label>					
+					<input id='email' class="text email" type="email" name="email" required="">
+
 					
 				</form>
-                <p>just rememberd? <a href="login.php"> SignIn</b></p>
+                <label for='forget' class="right">just rememberd? <a id='forget' href="login.php"> SignIn</b></label>
                 <input type="submit" value="NEXT">
 			</div>
 		</div>
