@@ -382,6 +382,33 @@ class authenitication
               }
 
     }
+  
+    
+    public function update_view_profile()  //nuwan
+    {
+        $emp_id=$this->auth->login($username, $password);
+       $update = $this->auth->get_profile_details($emp_id);
+       $_SESSION['upadate_profile_view']=$update;
+       header('location: ../views/profile.php');
+
+    }
+
+    public function update_profile($id){ //nuwan
+        $address=$telephone_no=$email="";
+        $address=$_POST['address'];
+        $mobile_no=$_POST['mobile_no'];
+        $email=$_POST['email'];
+        $row=$this->auth->update_profile_details($id);
+
+        //$row=$this->auth->update_profile_details($id,$address,$mobile_no,$email);
+        header('location: ../views/profile.php');
+               if ($row == "0") {
+            header('location: ../views/profile.php');
+        }else{
+            header('location: ../views/admin.php');
+        }
+    }
+ 
 
 
 }
@@ -412,8 +439,11 @@ class authenitication
 
              $controller->search_details();
          }else if(isset($_GET['action']) && $_GET['action'] == 'update_profile' ) {
-                 $emp_id=$_SESSION['emp_id'];
-               print_r($emp_id);
+                 $id=$_GET["id"];
+           $controller->update_profile($id);
+             
+                // $emp_id=$_SESSION['emp_id'];
+              // print_r($emp_id);
           //   $controller->search_details();
          }else if(isset($_GET['action']) && $_GET['action'] == 'verify_account' ) {
              $emp_id="";
@@ -422,4 +452,7 @@ class authenitication
              $token=$_GET['token'];
 
                $controller->verify_account($emp_id,$token);
+         }else if(isset($_GET['action']) && $_GET['action'] == 'profile' ) { //nuwan
+            $id=$_GET["id"];
+            $controller->update_view_profile();
          }
