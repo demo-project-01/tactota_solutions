@@ -384,9 +384,9 @@ class authenitication
     }
   
     
-    public function update_view_profile()  //nuwan
+    public function update_view_profile($emp_id)  //nuwan
     {
-        $emp_id=$this->auth->login($username, $password);
+    
        $update = $this->auth->get_profile_details($emp_id);
        $_SESSION['upadate_profile_view']=$update;
        header('location: ../views/profile.php');
@@ -398,14 +398,24 @@ class authenitication
         $address=$_POST['address'];
         $mobile_no=$_POST['mobile_no'];
         $email=$_POST['email'];
-        $row=$this->auth->update_profile_details($id);
+     //   $row=$this->auth->update_profile_details($id);
 
-        //$row=$this->auth->update_profile_details($id,$address,$mobile_no,$email);
+        $row=$this->auth->update_profile_details($id,$address,$mobile_no,$email);
         header('location: ../views/profile.php');
                if ($row == "0") {
             header('location: ../views/profile.php');
         }else{
-            header('location: ../views/admin.php');
+           $_SESSION['update_profile']="success update profile";
+            if ($_SESSION['role'] == "Admin") {
+
+                header('location: ../views/admin.php');
+            } elseif ($_SESSION['role']== "Clerk") {
+
+                header('location: ../views/clerk.php');
+            } elseif ($_SESSION['role'] == "Shopkeeper") {
+
+                header('location: ../views/shopkeeper_dashbord.php');
+            }
         }
     }
  
@@ -453,6 +463,6 @@ class authenitication
 
                $controller->verify_account($emp_id,$token);
          }else if(isset($_GET['action']) && $_GET['action'] == 'profile' ) { //nuwan
-            $id=$_GET["id"];
-            $controller->update_view_profile();
+            $id=$_SESSION['emp_id'];
+            $controller->update_view_profile($id);
          }
