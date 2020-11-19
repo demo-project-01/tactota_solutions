@@ -183,7 +183,7 @@ class authenitication_model{
 
     }
 
-    public function update_profile_details($id){//nuwan
+    public function update_profile_details($id,$address,$mobile_no,$email){//nuwan
         $stmt = $this->mysqli->prepare("UPDATE employee INNER JOIN user_account ON employee.emp_id=user_account.emp_id  SET  employee.address= ?,  employee.mobile_no= ? ,  user_account.email= ?  WHERE employee.emp_id=?");
           if($stmt==FALSE)
            return 0;
