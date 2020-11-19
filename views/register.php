@@ -63,13 +63,25 @@
 						&nbsp&nbspDOB *
 					</label>
 					<input id="dob" class="text" type="text" name="dob" required="">
-
-					<label for='job' id='left-label'>
-						<i class="fa fa-briefcase" aria-hidden="true"></i>
-						&nbsp&nbspJob Position *
-					</label>
-					<input id='job' class="text" type="radio" name="job_position" value="Clerk" required=""><span style="font-size:0.8em; color:#007042;">Clerk&nbsp&nbsp
-					<input id='job' class="text" type="radio" name="job_position" value="Shop Keeper" required="">Shop Keeper</span>
+					
+					<table>
+						<tr>
+							<td rowspan=3>
+								<label for='job' id='left-label'>
+									<i class="fa fa-briefcase" aria-hidden="true"></i>
+									&nbsp&nbspJob Position *
+								</label>
+							</td>
+							<td><input id='job' class="text" type="radio" name="job_position" value="Admin" required=""><span style="font-size:0.8em; color:#007042;">Admin</span></td>
+						</tr>
+						<tr>
+							<td><input id='job' class="text" type="radio" name="job_position" value="Clerk" required=""><span style="font-size:0.8em; color:#007042;">Clerk</span></td>
+						</tr>
+						<tr>
+							<td><input id='job' class="text" type="radio" name="job_position" value="Shop Keeper" required=""><span style="font-size:0.8em; color:#007042;">ShopKeeper</span></td>
+						</tr>
+					</table>
+					
 			</div>
 			<div class="sub-container">
 			

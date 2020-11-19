@@ -110,8 +110,10 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
     margin: 1em 0;
   }
   input[type="radio"]{
-    padding:10px;
-    margin: 10px;
+   /* padding:1px;*/
+    margin: 5px;
+    margin-left:2em;
+    text-align: left;
   }
   .text:focus, .text:valid {
     box-shadow: none;
@@ -318,4 +320,8 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
 a:hover
 {
   color:#02b96d;
+}
+td{
+  text-align: left;
+  vertical-align: top;
 }
