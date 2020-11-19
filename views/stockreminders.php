@@ -41,7 +41,7 @@ $row= $_SESSION['reminderitem_suppliers'];
     <td><?php echo $row["sup_name"] ?></td>
     <td><?php echo $row["address"] ?></td>
     <td><?php echo $row["p_cost"] ?></td>
-    <td><button class="view">View</button> </td>
+    <td><a href = "email.php" class="view"><button>View</button> </td>
 <td><button class="update">Delete</button> </td>
 </tr>
 <?php
