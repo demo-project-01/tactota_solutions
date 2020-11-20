@@ -29,7 +29,7 @@
 						<i class="fa fa-user" aria-hidden="true"></i>
 						&nbsp&nbspUsername *
 					</label>
-					<input id='username' class="text" type="text" name="Username" required="">
+					<input id='username' class="text" type="text" name="username" required="">
 					<label for='pswd1' id='left-label'>
 						<i class="fa fa-key" aria-hidden="true"></i>
 						&nbsp&nbspPassword *
