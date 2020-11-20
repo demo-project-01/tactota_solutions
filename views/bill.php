@@ -1,6 +1,8 @@
 <?php
 include 'clerk_sidebar.php';
-
+require '../controller/sales.php';
+$data=new sales();
+$sql=$data->get_product_details();
 ?>
 
   <link rel="stylesheet" href="../public/css/bill.css">
@@ -23,7 +25,7 @@ include 'clerk_sidebar.php';
                       <b><label1>Bill number</label1></b>
                     </div>
                     <div class="col-75">
-                     <input type="text" id="product_name" name="product_name" required="">
+                     <input type="text" id="bill_no" name="bill_no" required="">
                     </div>
                  </div>
     
@@ -111,7 +113,6 @@ include 'clerk_sidebar.php';
      <th scope="col">Model Number</th>
      <th scope="col">serial Number</th>
      <th scope="col">Warrenty</th>
-     <th scope="col">Quantity</th>
      <th scope="col">Sales Price</th>
      <th scope="col">Discount</th>
      <th scope="col">Total Price</th>
@@ -121,71 +122,81 @@ include 'clerk_sidebar.php';
 
  <tbody>
    <tr>
-   <td> <input class="text1" type="text1" name="product_number" placeholder="Product name" required=""></td>
-     <td> <input class="text1" type="text1" name="brand_name" placeholder="Brand name" required=""></td>
-     <td> <input class="text1" type="text1" name="Model_number" placeholder="Model number" required=""></td>
-     <td> <input class="text1" type="text1" name="serial_number" placeholder="Serial number" required=""></td>
-     <td> <input class="text1" type="text1" name="warrenty" placeholder="Warrenty" required=""></td>
-     <td> <input class="text1" type="text1" name="quantity" placeholder="Qyantity" required=""></td>
-     <td> <input class="text1" type="text1" name="sales_price" placeholder="sales price" required=""></td>
-     <td> <input class="text1" type="text1" name="discount" placeholder="Discount" required=""></td>
+           
+   <td>  <select class="text1" type="text1" name="product_number" placeholder="Product name" >
+                                    <?php
+
+                                    foreach ($sql as $k => $v){
+                                        ?>
+                                        <option value="<?php echo $sql[$k]["p_id"] ?>"><?php echo $sql[$k]["p_name"] ?></option>
+                                        <?php
+                                    }
+                                    ?>
+          </select>
+    </td>
+    <td>  <select class="text1" type="text1" name="brand_name" placeholder="brand name" >
+                                    <?php
+
+                                    foreach ($sql as $k => $v){
+                                        ?>
+                                        <option value="<?php echo $sql[$k]["p_id"] ?>"><?php echo $sql[$k]["brand_name"] ?></option>
+                                        <?php
+                                    }
+                                    ?>
+          </select>
+    </td>
+    <td>  <select class="text1" type="text1" name="model_no" placeholder="model number" >
+                                    <?php
+
+                                    foreach ($sql as $k => $v){
+                                        ?>
+                                        <option value="<?php echo $sql[$k]["p_id"] ?>"><?php echo $sql[$k]["model_no"] ?></option>
+                                        <?php
+                                    }
+                                    ?>
+          </select>
+    </td>
+    <td>  <select class="text1" type="text1" name="serial_no" placeholder="serial number" >
+                                    <?php
+
+                                    foreach ($sql as $k => $v){
+                                        ?>
+                                        <option value="<?php echo $sql[$k]["p_id"] ?>"><?php echo $sql[$k]["serial_no"] ?></option>
+                                        <?php
+                                    }
+                                    ?>
+          </select>
+    </td>
+    <td>  <select class="text1" type="text1" name="warranty" placeholder="warranty" >
+                                    <?php
+
+                                    foreach ($sql as $k => $v){
+                                        ?>
+                                        <option value="<?php echo $sql[$k]["p_id"] ?>"><?php echo $sql[$k]["warranty"] ?></option>
+                                        <?php
+                                    }
+                                    ?>
+          </select>
+    </td>
+    <td>  <select class="text1" type="text1" name="sales_price" placeholder="sales price" >
+                                    <?php
+
+                                    foreach ($sql as $k => $v){
+                                        ?>
+                                        <option value="<?php echo $sql[$k]["p_id"] ?>"><?php echo $sql[$k]["sales_price"] ?></option>
+                                        <?php
+                                    }
+                                    ?>
+          </select>
+    </td>
+    <td> <input class="text1" type="text1" name="discount" placeholder="Discount" required=""></td>
+
      <td> <input class="text1" type="text1" name="total_price" placeholder="Total Price" required=""></td>
 
     
 </tr>
 
-<tr>
-<td> <input class="text1" type="text1" name="product_number" placeholder="Product name" required=""></td>
-     <td> <input class="text1" type="text1" name="brand_name" placeholder="Brand name" required=""></td>
-     <td> <input class="text1" type="text1" name="Model_number" placeholder="Model number" required=""></td>
-     <td> <input class="text1" type="text1" name="serial_number" placeholder="Serial number" required=""></td>
-     <td> <input class="text1" type="text1" name="warrenty" placeholder="Warrenty" required=""></td>
-     <td> <input class="text1" type="text1" name="quantity" placeholder="Qyantity" required=""></td>
-     <td> <input class="text1" type="text1" name="sales_price" placeholder="sales price" required=""></td>
-     <td> <input class="text1" type="text1" name="discount" placeholder="Discount" required=""></td>
-     <td> <input class="text1" type="text1" name="total_price" placeholder="Total Price" required=""></td>
 
-    
-</tr>
-<tr>
-<td> <input class="text1" type="text1" name="product_number" placeholder="Product name" required=""></td>
-     <td> <input class="text1" type="text1" name="brand_name" placeholder="Brand name" required=""></td>
-     <td> <input class="text1" type="text1" name="Model_number" placeholder="Model number" required=""></td>
-     <td> <input class="text1" type="text1" name="serial_number" placeholder="Serial number" required=""></td>
-     <td> <input class="text1" type="text1" name="warrenty" placeholder="Warrenty" required=""></td>
-     <td> <input class="text1" type="text1" name="quantity" placeholder="Qyantity" required=""></td>
-     <td> <input class="text1" type="text1" name="sales_price" placeholder="sales price" required=""></td>
-     <td> <input class="text1" type="text1" name="discount" placeholder="Discount" required=""></td>
-     <td> <input class="text1" type="text1" name="total_price" placeholder="Total Price" required=""></td>
-
-    
-</tr>
-<tr>
-<td> <input class="text1" type="text1" name="product_number" placeholder="Product name" required=""></td>
-     <td> <input class="text1" type="text1" name="brand_name" placeholder="Brand name" required=""></td>
-     <td> <input class="text1" type="text1" name="Model_number" placeholder="Model number" required=""></td>
-     <td> <input class="text1" type="text1" name="serial_number" placeholder="Serial number" required=""></td>
-     <td> <input class="text1" type="text1" name="warrenty" placeholder="Warrenty" required=""></td>
-     <td> <input class="text1" type="text1" name="quantity" placeholder="Qyantity" required=""></td>
-     <td> <input class="text1" type="text1" name="sales_price" placeholder="sales price" required=""></td>
-     <td> <input class="text1" type="text1" name="discount" placeholder="Discount" required=""></td>
-     <td> <input class="text1" type="text1" name="total_price" placeholder="Total Price" required=""></td>
-
-    
-</tr>
-<tr>
-     <td> <input class="text1" type="text1" name="product_number" placeholder="Product name" required=""></td>
-     <td> <input class="text1" type="text1" name="brand_name" placeholder="Brand name" required=""></td>
-     <td> <input class="text1" type="text1" name="Model_number" placeholder="Model number" required=""></td>
-     <td> <input class="text1" type="text1" name="serial_number" placeholder="Serial number" required=""></td>
-     <td> <input class="text1" type="text1" name="warrenty" placeholder="Warrenty" required=""></td>
-     <td> <input class="text1" type="text1" name="quantity" placeholder="Qyantity" required=""></td>
-     <td> <input class="text1" type="text1" name="sales_price" placeholder="sales price" required=""></td>
-     <td> <input class="text1" type="text1" name="discount" placeholder="Discount" required=""></td>
-     <td> <input class="text1" type="text1" name="total_price" placeholder="Total Price" required=""></td>
-
-    
-</tr>
 
 </table>
 </div>
@@ -195,8 +206,8 @@ include 'clerk_sidebar.php';
         
          <div class="row">
          <h5 class="left">Payment Method</h5>
-					<input id="payment_method" class="text" type="radio" name="payment_method" value="cash" required="">Cash
-					<input id="payment_method" class="text" type="radio" name="payment_mehod" value="cheque" required="">Cheque
+					<input id="payment_method" class="text" type="radio" name="payment_method" value="cash">Cash
+					<input id="payment_method" class="text" type="radio" name="payment_method" value="cheque">Cheque
         </div>
     
         <b><h2>Cheque information</h2></b>
@@ -243,7 +254,7 @@ include 'clerk_sidebar.php';
         
         <div class="row">
     <div class="col-50">
-    <input type="new-btn" value="Pay">
+    <input type="submit" name="add_bill" value="pay">
     </div>
     <div class="col-50">
     <input type="new-btn" value="Cancel">
