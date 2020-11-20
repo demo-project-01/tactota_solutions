@@ -35,9 +35,10 @@ $sql=$data->user_details();
                     <td><?php echo $sql[$k]['first_name'];echo " "; echo $sql[$k]['last_name']; ?></td>
                     <td><?php echo $sql[$k]['position']; ?></td>
                     <td> <a href="../controller/authenitication.php?action=view_profile&id=<?php 
-                    echo $sql[$k]["emp_id"]; ?>"><i class="fa fa-eye" aria-hidden="true">&nbsp View</i>
+                    echo $sql[$k]["emp_id"]; ?>" title="view"><i class="fa fa-eye" aria-hidden="true"></i>
                     </a></td>
-                    <td><i class="fa fa-trash" aria-hidden="true">&nbsp Delete</i></td>
+                    <td><a href="#" title="delete" ><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                    
                 </tr>
                     <?php 
                 } ?>
