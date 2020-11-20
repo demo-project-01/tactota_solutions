@@ -82,7 +82,7 @@ class sales_model
     
     
      
-     public function add_bill($id,$bill_no,$date,$amountt,$payment_method,$emp_id,$cust_id,$cheque_id,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no){ //nuwan
+    public function add_bill($id,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no){ //nuwan
     
         $stmt = $this->mysqli->query("INSERT INTO bill (bill_no,date_time,amount,payment_method,emp_id,cust_id)
         VALUES (?,?,?,?,?)");
@@ -139,6 +139,14 @@ class sales_model
 
             return $result;
         }
+    }
+    
+      public function get_product(){//nuwan
+        $query = $this->mysqli->query("SELECT item.serial_no,product.p_id,product.p_name,product.brand_name,product.model_no,product.warranty,item.sales_price FROM product INNER JOIN item ON product.p_id=item.p_id");
+        while ($row = $query->fetch_assoc()) {
+            $result[] = $row;
+        }
+        return $result;
     }
 
 
