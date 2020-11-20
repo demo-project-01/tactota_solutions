@@ -111,7 +111,7 @@ class authenitication_model{
 
     public function get_details()
     {
-        $query = $this->mysqli->query("SELECT user_account.emp_id,username,position,verified FROM user_account INNER JOIN employee ON user_account.emp_id=employee.emp_id ORDER BY emp_id ASC");
+        $query = $this->mysqli->query("SELECT e.first_name, e.last_name, user_account.emp_id,username,position,verified FROM user_account INNER JOIN employee AS e ON user_account.emp_id=e.emp_id ORDER BY emp_id ASC");
         while ($row = $query->fetch_assoc()) {
             $result[] = $row;
         }

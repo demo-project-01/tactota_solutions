@@ -20,6 +20,7 @@ $sql=$data->user_details();
             <tr>
                 <th>User ID</th>
                 <th scope="col">User Name</th>
+                <th scope="col">Name</th>
                 <th scope="col">Job Position</th>
                 <th scope="col" colspan=3 border=0>Actions</th>
             </tr>
@@ -31,6 +32,7 @@ $sql=$data->user_details();
                 <tr>
                     <td><?php echo $sql[$k]['emp_id']; ?></td>
                     <td><?php echo $sql[$k]['username']; ?></td>
+                    <td><?php echo $sql[$k]['first_name'];echo " "; echo $sql[$k]['last_name']; ?></td>
                     <td><?php echo $sql[$k]['position']; ?></td>
                     <td> <a href="../controller/authenitication.php?action=view_profile&id=<?php 
                     echo $sql[$k]["emp_id"]; ?>"><i class="fa fa-eye" aria-hidden="true">&nbsp View</i>
