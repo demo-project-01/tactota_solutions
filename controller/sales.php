@@ -88,15 +88,16 @@ class sales
         //$product_date=date("Y-m-d");
         $product_id = $this->sale->get_product_id();
      
-        if($this->sale->add_bill($id,$bill_no,$date,$amountt,$payment_method,$emp_id,$cust_id,$cheque_id,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no)){
+     if($this->sale->add_bill($id,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no)){
             header('location: ../views/bill.php');
         }else{
                 echo "empty";
         }
 
-
     }
-
+     public function get_product_details(){//nuwan
+        return $this->sale->get_product();
+   }
 
 }
 $controller = new sales();
@@ -114,5 +115,7 @@ if(isset($_GET['action']) && $_GET['action'] == "get_supplier_names") {
     $controller->dashbord_search($id);
 }else if(isset($_GET['action']) && $_GET['action'] == 'add_bill') { //nuwan
     $controller->add_bill();
-
+}else if(isset($_GET['action']) && $_GET['action'] == 'get_product_details') {//nuwan
+    $controller->get_product_details();
+}
 
