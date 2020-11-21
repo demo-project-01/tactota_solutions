@@ -18,7 +18,7 @@ input[type="text"], input[type="email"], input[type="password"] {
     background:/* #2f323a*/#ffffff;
     background-size: cover;
     border:none;
-    width:60%;
+    width:85%;
     padding: 20px;
     align-items: center;
     text-align: center;
@@ -26,17 +26,17 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 #tbl-heading
 {
+    margin-left:3em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
     text-align: left; /*modified*/
     color: #000;
     font-weight: bold;
     margin-top: 10px;       /*reshani*/
-    font-size: 25px;      /*reshani*/
+    font-size: 2em;      /*reshani*/
 }
 td{                                  
     /*reshani*/
     padding: 10px;
-    text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 18px;
 }
@@ -96,4 +96,9 @@ input[type="submit"] {
     margin-left: -2%;
     margin-top:280px ;
 }
-
+.new
+{
+    margin-right:5em;
+    float: right;
+    margin-bottom:2em;
+}

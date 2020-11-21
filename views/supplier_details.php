@@ -10,14 +10,16 @@ $sql=$data->view_suppliers();
 </head>
 <div class="content" style="width:auto;">
     <h1 id="tbl-heading">Supplier Details</h1>
+    
+    <div class="new">
+        <a class="add_button" href="add_suppliers.php"><i class="fa fa-plus" aria-hidden="true"></i>
+Add new Suppliers</a>
+    </div>
+    <br/>
     <div class="search">
         <input type="text" placeholder="Search..">
     </div>
-    <div>
-        <a class="add_button" href="add_suppliers.php" class="next"><i class="fa fa-plus" aria-hidden="true"></i>
-Add new Suppliers</a>
-    </div>
- <br>
+
     <div class="view-tbl">
         <table>
             <thead>

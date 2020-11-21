@@ -16,6 +16,10 @@ $row=$_SESSION['row'];
     <div class="update-tbl">
         <table>
             <tbody>
+            <tr>
+                    <th>Employee Id</th>    
+                    <td><?php echo $row['emp_id']?></td>
+                </tr>
                 <tr>
                     <th>First Name</th>    
                     <td><?php echo $row['first_name']?></td>
