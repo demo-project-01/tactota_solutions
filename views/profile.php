@@ -19,13 +19,13 @@ $row= $_SESSION['upadate_profile_view'];
 
 ?>
 
-
+<link rel="stylesheet" href="../public/css/signup.css">
 <link rel="stylesheet" href="../public/css/style1.css">
 
 <div class="content">
 <form method="post" action="../controller/authenitication.php?action=update_profile&id=<?php echo $row['emp_id'] ?>">
- <div class="main-box">
-  <div class="sub-box">
+ <div class="main-container">
+  <div class="sub-container">
 
   <div class="row">
   <div class="col-75">
@@ -111,7 +111,7 @@ $row= $_SESSION['upadate_profile_view'];
 
       </div>
 
-  <div class="sub-box">
+  <div class="sub-container">
 
       </br></br</br></br></br></br>
      <div class="row">
