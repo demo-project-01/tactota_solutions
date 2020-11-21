@@ -20,7 +20,7 @@
                     <th> Product Name</th>
                     <th> Brand Name</th>  
                     <th> Model Number</th>
-                    <th scope="col" colspan=2 border=0></th>
+                    <th scope="col" colspan=2 border=0>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,7 +34,7 @@
                     <td><?php echo $sql[$k]["p_name"] ?></td>
 		    <td><?php echo $sql[$k]["brand_name"] ?></td>
                     <td><?php echo $sql[$k]["model_no"] ?></td>
-                    <td><a href="../controller/inventory_maintain.php?action=reminderitems_suppliers&id=<?php  echo $sql[$k]["p_id"]; ?>" class="view"><button>View</button></a></td>
+                    <td><a href="../controller/inventory_maintain.php?action=reminderitems_suppliers&id=<?php  echo $sql[$k]["p_id"]; ?>" itle="view"><i class="fa fa-eye" aria-hidden="true">&nbsp&nbspView</i></a></td>
                 </tr>
                 <?php
             } ?>
