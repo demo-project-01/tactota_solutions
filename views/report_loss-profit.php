@@ -47,8 +47,9 @@ include 'admin_sidebar.php';
       </tbody>
     </table>
   </div>
-  <div class="view-tbl">
   <h1 id="h1">Expences</h1>
+
+  <div class="view-tbl">
     <table>
       <thead>
         <tr>
