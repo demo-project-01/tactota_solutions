@@ -10,24 +10,21 @@ include 'admin_sidebar.php';
 </head>
 
 <div class="content" style="width:auto;">
-    <h1 id="tbl-heading">View Income Reports</h1>
-<br/>
-<br/>
-
-<ul>
-  <li><a class="button" href="#">Annual Report</a></li>
-  <li><a class="button" href="#">Monthly Report</a></li>
-  <li><a class="button" href="#">Weekly Report</a></li>
-
-
-  <li class="right">Custom Time Range 
-    <label for="f_date">From : </label><input type="date" id="f_date" name="f_date" placeholder="Select start date" min="2017-04-01" max="2020-11-21">
-    <label for="t_date">To : </label><input type="date" id="t_date" name="t_date" placeholder="Select End date" min="2017-04-01" max="2020-11-21">
-  </li>
+  <h1 id="tbl-heading">View Income Reports</h1>
+    <br/>
+    <br/>
+  <ul>
+    <li><a class="button" href="#">Annual Report</a></li>
+    <li><a class="button" href="#">Monthly Report</a></li>
+    <li><a class="button" href="#">Weekly Report</a></li>
+    <li class="right">Custom Time Range 
+      <label for="f_date">From : </label><input type="date" id="f_date" name="f_date" placeholder="Select start date" min="2017-04-01" max="2020-11-21">
+      <label for="t_date">To : </label><input type="date" id="t_date" name="t_date" placeholder="Select End date" min="2017-04-01" max="2020-11-21">
+    </li>
   </ul>
+
   <h1 id="h1">Income</h1>
   <div class="view-tbl">
-    
     <table>
       <thead>
         <tr>
@@ -88,7 +85,7 @@ include 'admin_sidebar.php';
     </table>
 
   </div>
-<h1 id="h1">Profit / Loss</h1>
+  <h1 id="h1">Profit / Loss</h1>
 
   <div class="view-tbl">
     <table>
@@ -105,10 +102,15 @@ include 'admin_sidebar.php';
           <td>Profit / Loss </td>
           <td>430.00</td>
         </tr>
-
-       
       </tbody>
     </table>
-    
   </div>
+  <a class="button" href="#" style="float:left;"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
+  <a class="button" href="#" style="float:right;"><i class="fa fa-download" aria-hidden="true">&nbsp&nbspDownload Report</i></a>
+</div>
+<div class="footer" style="color:#ffffff;">
+	<p>© Tactota Solutions All rights reserved </p>
+</div>
+
+
 
