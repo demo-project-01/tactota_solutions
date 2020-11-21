@@ -12,7 +12,7 @@ include 'clerk_sidebar.php';
 <link rel="stylesheet" href="../public/css/update.css">
 </head>
 
-  <div class="content">
+  <div class="content" style="width:auto;">
   <h1 id="tbl-heading">View Supplier</h1>
  
   <div class="update-tbl">

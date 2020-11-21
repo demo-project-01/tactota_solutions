@@ -2,7 +2,7 @@
 include 'clerk_sidebar.php';
 
 ?>
-  <div class="content">
+  <div class="content" style="width:auto;">
   <h1 id="tbl-heading"> View Product</h1>
   
   <div class="search">

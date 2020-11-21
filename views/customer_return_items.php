@@ -30,7 +30,7 @@ print($sql);*/
 <link rel="stylesheet" href="../public/css/update.css">
 </head>
 
-<div class="content">
+<div class="content" style="width:auto;">
   <h1 id="tbl-heading">Add Return Items</h1>
 
   <form action="../controller/inventory_maintain.php?action=customer_return_items" method="post">

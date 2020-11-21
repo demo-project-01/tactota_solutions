@@ -11,7 +11,7 @@ include 'clerk_sidebar.php';
     <link rel="stylesheet" href="../public/css/update.css">
 </head>
 
-<div class="content">
+<div class="content" style="width:auto;">
     <h1 id="tbl-heading"> View Product</h1>
     <div class="update-tbl">
         <table>

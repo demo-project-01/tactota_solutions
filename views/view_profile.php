@@ -10,7 +10,7 @@ $row=$_SESSION['row'];
 <link rel="stylesheet" href="../public/css/update.css">
 </head>
 
-<div class="content">
+<div class="content" style="width:auto;">
     <h1 id="tbl-heading"> View User Details</h1>
 
     <div class="update-tbl">

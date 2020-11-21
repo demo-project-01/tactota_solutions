@@ -8,7 +8,7 @@ $sql=$data->view_suppliers();
 <link rel="stylesheet" href="../public/css/update.css">
 
 </head>
-<div class="content">
+<div class="content" style="width:auto;">
     <h1 id="tbl-heading">Supplier Details</h1>
     <div class="search">
         <input type="text" placeholder="Search..">
