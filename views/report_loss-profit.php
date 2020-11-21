@@ -17,9 +17,9 @@ include 'admin_sidebar.php';
     <li><a class="button" href="#">Annual Report</a></li>
     <li><a class="button" href="#">Monthly Report</a></li>
     <li><a class="button" href="#">Weekly Report</a></li>
-    <li class="right">Custom Time Range 
-      <label for="f_date">From : </label><input type="date" id="f_date" name="f_date" placeholder="Select start date" min="2017-04-01" max="2020-11-21">
-      <label for="t_date">To : </label><input type="date" id="t_date" name="t_date" placeholder="Select End date" min="2017-04-01" max="2020-11-21">
+    <li class="right" style="font-weight:bold; font-size:1.2em;">Custom Time Range 
+      <label for="f_date" style="font-weight:bold; font-size:0.8em;">From : </label><input type="date" id="f_date" name="f_date" placeholder="Select start date" min="2017-04-01" max="2020-11-21">
+      <label for="t_date" style="font-weight:bold; font-size:0.8em;">To : </label><input type="date" id="t_date" name="t_date" placeholder="Select End date" min="2017-04-01" max="2020-11-21">
     </li>
   </ul>
 

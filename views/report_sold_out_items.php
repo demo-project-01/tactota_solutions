@@ -10,7 +10,7 @@ include 'admin_sidebar.php';
 </head>
 
 <div class="content" style="width:auto;">
-  <h1 id="tbl-heading">View Product Reports</h1>
+  <h1 id="tbl-heading">Sold out Item Report</h1>
     <br/>
     <br/>
   <ul>
@@ -23,7 +23,7 @@ include 'admin_sidebar.php';
     </li>
   </ul>
 
-  <h1 id="h1">Maximum Sold Items</h1>
+  <h1 id="h1">Sold Items</h1>
   <div class="view-tbl">
     <table>
       <thead>
@@ -54,38 +54,7 @@ include 'admin_sidebar.php';
       </tbody>
     </table>
   </div>
-  <h1 id="h1">Remaining Items</h1>
-
-  <div class="view-tbl">
-  <table>
-      <thead>
-        <tr>
-          <th>Product ID</th>
-          <th>Product Name</th>
-          <th>Brand Name</th>
-          <th>Model</th>
-          <th>Quantity</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>P001</td>
-          <td>Laptop</td>
-          <td>Asus</td>
-          <td>Vivobook X512J</td>
-        <td>2</td>
-        </tr>
-        <tr>
-          <td>P001</td>
-          <td>Printer</td>
-          <td>HP</td>
-          <td>Sw123</td>
-        <td>5</td>
-        </tr>
-        
-      </tbody>
-    </table>
-</div>
+  
   <a class="button" href="#" style="float:left;"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
   <a class="button" href="#" style="float:right;"><i class="fa fa-download" aria-hidden="true">&nbsp&nbspDownload Report</i></a>
 </div>
