@@ -1,58 +1,151 @@
 <?php
-  include 'clerk_sidebar.php';
+//require '../controller/authenitication.php';
+session_start();
+$row= $_SESSION['upadate_profile_view'];
+//$row=$_SESSION['row'];
+    /* if($_SESSION['role']=="Clerk")
+       require('clerk_sidebar.php');
+   elseif ($_SESSION['role']=="Admin")
+       require('admin_sidebar.php');
+   elseif($_SESSION['role']=='Shopkeeper')
+       require('shopkeeper_sidebar.php');
+*/
+
+//include 'clerk_sidebar.php';
+
+
+// print_r($_SESSION['emp_id']);
+
+
 ?>
+
+<link rel="stylesheet" href="../public/css/signup.css">
+<link rel="stylesheet" href="../public/css/style1.css">
+
 <div class="content">
-<head>
-<title>Tactota Solutions</title>
+<form method="post" action="../controller/authenitication.php?action=update_profile&id=<?php echo $row['emp_id'] ?>">
+ <div class="main-container">
+  <div class="sub-container">
 
-<link href="../public/css/signup.css" rel="stylesheet" type="text/css"/>
+  <div class="row">
+  <div class="col-75">
+  <b><h2>Edit Account Informations</h2></b>
+   </div>
 
-</head>
-<body>
-	<div>
+    </div>
+
+  </br>
+ 
+      <div class="row">
+  <div class="col-25">
+  <label1 for="firstname">First Name</label1>
+  </div>
+  <div class="col-75">
+  <input type="text" name="firstname" value="<?php echo $row['first_name'] ?>" disabled>
+  </div>
+      </div>
+  
+      <div class="row">
+  <div class="col-25">
+  <label1 for="middlename">Middle Name</label1>
+  </div>
+  <div class="col-75">
+  <input type="text" name="middlename" value="<?php echo $row['middle_name'] ?>" disabled>
+  </div>
+        </div>
+  
+  
+        <div class="row">
+  <div class="col-25">
+  <label1 for="lastname">Last Name</label1>
+  </div>
+  <div class="col-75">
+  <input type="text" name="lastname" value="<?php echo $row['last_name'] ?>" disabled>
+  </div>
+        </div>
+
+        <div class="row">
+  <div class="col-25">
+  <label1 for="address">Address</label1>
+  </div>
+  <div class="col-75">
+  <input type="text" name="adress" value="<?php echo $row['address'] ?>">
+  </div>
+        </div>
+
+        <div class="row">
+  <div class="col-25">
+  <label1 for="mobile_no">Mobile Number</label1>
+  </div>
+  <div class="col-75">
+  <input type="text" name="mobile_no" value="<?php echo $row['mobile_no'] ?>">
+  </div>
+        </div>
+
+        <div class="row">
+  <div class="col-25">
+  <label1 for="nic">NIC</label>
+  </div>
+  <div class="col-75">
+  <input type="text" name="nic" value="<?php echo $row['nic'] ?>" disabled>
+  </div>
+        </div>
+
+        
+        <div class="row">
+  <div class="col-25">
+  <label1 for ="dob">DOB</label>
+  </div>
+  <div class="col-75">
+  <input type="text" name="dob" value="<?php echo $row['dob'] ?>" disabled>
+  </div>
+        </div>
+        <br><br>
+
+        <!--div class="row">
+       <h5 class="left">Job Position</h5>
+                  <input class="text" type="radio" name="Job_position" value="cash" required="">Clerk
+                  <input class="text" type="radio" name="Job_position" value="cheque" required="">Shopkeeper
+      </div-->
     
 
-		<div class="main-form">
-   
-    	<div class="sub-container">
-     
-     <b><h2>Edit Account Info</h2></b>
+      </div>
 
-				<form action="#" method="post">
-					
-				  <input class="text" type="text" name="firstname" placeholder="First Name" required="">
-			  	<input class="text" type="text" name="middlename" placeholder="Middle Name" required="">
-				  <input class="text" type="text" name="lastname" placeholder="Last Name" required="">
-			  	<input class="text" type="text" name="address" placeholder="Address" required="">
-			  	<input class="text" type="text" name="moblile_no" placeholder="Mobile Number" required="">
-			  	<input class="text" type="text" name="nic" placeholder="NIC" required="">
-			    <input class="text" type="text" name="dob" placeholder="DOB" required="">
-					<h5 class="left">Job Position </h5>
-					<input class="text" type="radio" name="job_position" value="Clerk" required="">Clerk
-					<input class="text" type="radio" name="job_position" value="Shop Keeper" required="">Shop Keeper
-			</div>
-			<div class="sub-container">
-            </br></br>
-			<input class="text email" type="email" name="email" placeholder="Email" required="">
-			<h5 class="left">Image </h5><input class="text" type="file" name="nic" placeholder="Image" required="">
-			<input class="text" type="text" name="Username" placeholder="Username" required="">
-				<input class="text" type="password" name="password" placeholder="Password" required="">
-				<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
-				<div class="wthree-text">
-					<div class="clear"> </div>
-				</div>
-				<input type="new-btn" value="Update">
-	  	</form>
-				
-			</div>
-		</div>
-		
-		<div class="footer">
-			<p>© Tactota Solutions All rights reserved </p>
-		</div>
+  <div class="sub-container">
 
-	</div>
-</body>
+      </br></br</br></br></br></br>
+     <div class="row">
+  <div class="col-25">
+  <label1 for="email">Email</label1>
+  </div>
+  <div class="col-75">
+  <input type="text" name="email" value="<?php echo $row['email'] ?>" >
+  </div>
+      </div>
+      <br>
+      <!--h5 class="left">Image </h5><input class="text" type="file" name="nic" placeholder="Image" required=""-->
+
+  
+
+    
+   <br><br><br><br><br><br>
+  
+      
+      <div class="row">
+  <div class="col-75">
+  <input type="submit" name="update_profile" value="Update">
+  </div>
+      </div>
+  
+
+
+  </div>
+  
+ 
+
+  </div>
+  </form>
 </div>
+</body>
 
 

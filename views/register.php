@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <link href="../public/css/signup.css" rel="stylesheet" type="text/css"/>
+<script src="https://kit.fontawesome.com/1b83d32a6d.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -20,38 +21,110 @@
 			</div>
 			<div class="sub-container">
 				<form action="../controller/authenitication.php?action=register" method="post">
+
+					<label for='fname' id='left-label'>
+						<i class="fa fa-user" aria-hidden="true"></i></i>
+						&nbsp&nbspFirst Name *
+					</label>
+					<input id='fname' class="text" type="text" name="firstname" required=""> 
+
+					<label for='mname' id='left-label'>
+						<i class="fa fa-user" aria-hidden="true"></i></i>
+						&nbsp&nbspMiddle Name
+					</label>	
+					<input id='mname' class="text" type="text" name="middlename">
+
+					<label for='lname' id='left-label'>
+						<i class="fa fa-user" aria-hidden="true"></i></i>
+						&nbsp&nbspLast Name *
+					</label>
+					<input id='lname' class="text" type="text" name="lastname" required="">
+
+					<label for='address' id='left-label'>
+						<i class="fa fa-address-book" aria-hidden="true"></i>
+						&nbsp&nbspHome Address *
+					</label>
+					<input id="address" class="text" type="text" name="address"required="">
+
+					<label for='teleno' id='left-label'>
+						<i class="fa fa-phone" aria-hidden="true"></i>
+						&nbsp&nbspContact Number *
+					</label>
+					<input id='teleno' class="text" type="text" name="moblile_no" required="">
+
+					<label for='nic' id='left-label'>
+						<i class="fa fa-id-card-o" aria-hidden="true"></i>
+						&nbsp&nbspNIC *
+					</label>
+					<input id='nic' class="text" type="text" name="nic" required="">
+
+					<label for='dob' id='left-label'>
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+						&nbsp&nbspDOB *
+					</label>
+					<input id="dob" class="text" type="text" name="dob" required="">
 					
-					<i class="fas fa-lock" class="align"></i><input class="text" type="text" name="firstname" placeholder="First Name" required="">
-					<i class="fas fa-lock" class="align"></i><input class="text" type="text" name="middlename" placeholder="Middle Name" required="">
-					<i class="fas fa-lock" class="align"></i><input class="text" type="text" name="lastname" placeholder="Last Name" required="">
-					<i class="fas fa-lock" class="align"></i><input class="text" type="text" name="address" placeholder="Address" required="">
-					<i class="fas fa-lock" class="align"></i><input class="text" type="text" name="moblile_no" placeholder="Mobile Number" required="">
-					<i class="fas fa-lock" class="align"></i><input class="text" type="text" name="nic" placeholder="NIC" required="">
-					<i class="fas fa-lock" class="align"></i><input class="text" type="text" name="dob" placeholder="DOB" required="">
-					<h5 class="left">Job Position </h5>
-					<input class="text" type="radio" name="job_position" value="Clerk" required="">Clerk
-					<input class="text" type="radio" name="job_position" value="Shop Keeper" required="">Shop Keeper
+					<table>
+						<tr>
+							<td rowspan=3>
+								<label for='job' id='left-label'>
+									<i class="fa fa-briefcase" aria-hidden="true"></i>
+									&nbsp&nbspJob Position *
+								</label>
+							</td>
+							<td><input id='job' class="text" type="radio" name="job_position" value="Admin" required=""><span style="font-size:0.8em; color:#007042;">Admin</span></td>
+						</tr>
+						<tr>
+							<td><input id='job' class="text" type="radio" name="job_position" value="Clerk" required=""><span style="font-size:0.8em; color:#007042;">Clerk</span></td>
+						</tr>
+						<tr>
+							<td><input id='job' class="text" type="radio" name="job_position" value="Shop Keeper" required=""><span style="font-size:0.8em; color:#007042;">ShopKeeper</span></td>
+						</tr>
+					</table>
+					
 			</div>
 			<div class="sub-container">
-				
-					
-				<input class="text email" type="email" name="email" placeholder="Email" required="">
-					
-				<h5 class="left">Image </h5><input class="text" type="file" name="nic" placeholder="Image" required="">
-						
-
-				<input class="text" type="text" name="Username" placeholder="Username" required="">
-				<input class="text" type="password" name="password" placeholder="Password" required="">
-				<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
-				<div class="wthree-text">
-					<label class="anim">
-						<input type="checkbox" class="checkbox" required="">
-						<span>I Agree To The Terms & Conditions</span>
+			
+					<label for='email' id='left-label'>
+						<i class="fa fa-envelope" aria-hidden="true"></i>
+						&nbsp&nbspEmail Address *
 					</label>
-					<div class="clear"> </div>
-				</div>
-				<input type="submit" value="REGISTER">
-			<p>Already have an Account? <a href="login.php"> Login Now!</a></p>
+					<input id='email' class="text email" type="email" name="email" required="">
+
+					<label for='img' id='left-label'>
+						<i class="fa fa-file-image-o" aria-hidden="true"></i>
+						&nbsp&nbspImage 
+					</label>
+					<input id="img" class="text" type="file" name="nic" >
+
+					<label for='username' id='left-label'>
+						<i class="fa fa-user" aria-hidden="true"></i>
+						&nbsp&nbspUsername *
+					</label>
+					<input id='username' class="text" type="text" name="username" required="">
+
+					<label for='pswd1' id='left-label'>
+						<i class="fa fa-key" aria-hidden="true"></i>
+						&nbsp&nbspPassword *
+					</label>
+					<input id='pswd1' class="text" type="password" name="password" required="">
+
+					<label for='pswd2' id='left-label'>
+						<i class="fa fa-key" aria-hidden="true"></i>
+						&nbsp&nbspConfirm Password *
+					</label>
+					<input id='pswd2' class="text w3lpass" type="password" name="cpassword" required="">
+					
+					<div class="wthree-text">
+						<label class="anim">
+							<input type="checkbox" class="checkbox" required="">
+							<span >I Agree To The Terms & Conditions</span>
+						</label>
+						<div class="clear"> </div>
+					</div>
+
+					<input type="submit" value="REGISTER">
+					<label for='login' id='left-p'>Already have an Account? <a id='login' href="login.php" style="font-size:1.3em;"> Login Now!</a></p>
 					
 
 				</form>

@@ -6,7 +6,12 @@ $sql=$data->user_details();
 //session_start();
 //$row=$_SESSION['view_user_details'];
 ?>
-<div class="content">
+<head>
+<link rel="stylesheet" href="../public/css/update.css">
+
+</head>
+
+<div class="content" style="width:auto;">
   <h1 id="tbl-heading"> View Users</h1>
   
   <div class="search">
@@ -20,6 +25,7 @@ $sql=$data->user_details();
             <tr>
                 <th>User ID</th>
                 <th scope="col">User Name</th>
+                <th scope="col">Name</th>
                 <th scope="col">Job Position</th>
                 <th scope="col" colspan=3 border=0>Actions</th>
             </tr>
@@ -31,11 +37,13 @@ $sql=$data->user_details();
                 <tr>
                     <td><?php echo $sql[$k]['emp_id']; ?></td>
                     <td><?php echo $sql[$k]['username']; ?></td>
+                    <td><?php echo $sql[$k]['first_name'];echo " "; echo $sql[$k]['last_name']; ?></td>
                     <td><?php echo $sql[$k]['position']; ?></td>
                     <td> <a href="../controller/authenitication.php?action=view_profile&id=<?php 
-                    echo $sql[$k]["emp_id"]; ?>"><i class="fa fa-eye" aria-hidden="true">&nbsp View</i>
+                    echo $sql[$k]["emp_id"]; ?>" title="view"><i class="fa fa-eye" aria-hidden="true"></i>
                     </a></td>
-                    <td><i class="fa fa-trash" aria-hidden="true">&nbsp Delete</i></td>
+                    <td><a href="#" title="delete" ><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                    
                 </tr>
                     <?php 
                 } ?>

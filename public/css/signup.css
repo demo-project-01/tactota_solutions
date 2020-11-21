@@ -10,6 +10,8 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
   #007042*/
   a {
     text-decoration: none;
+    color: inherit;
+    color: #007042;
   }
 
   .clear {
@@ -91,6 +93,7 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
     color: #000000;
     font-weight: 100;
     width: 94.5%;
+    height: 0.6em;
     display: block;
     border: none;
     padding: 0.8em;
@@ -107,8 +110,10 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
     margin: 1em 0;
   }
   input[type="radio"]{
-    padding:10px;
-    margin: 10px;
+   /* padding:1px;*/
+    margin: 5px;
+    margin-left:2em;
+    text-align: left;
   }
   .text:focus, .text:valid {
     box-shadow: none;
@@ -147,13 +152,14 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
   }
   
   input[type="submit"] {
-    font-size: .9em;
-    color: rgb(0, 0, 0);
+    font-size: 1em;
+    font-weight: bolder;
+    color: #ffffff;
     background: #007042;
     outline: none;
     border: 1px solid #007042;
     cursor: pointer;
-    padding: 0.9em;
+    padding: 0.8em;
     -webkit-appearance: none;
     width: 100%;
     margin: 2em 0;
@@ -166,7 +172,7 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
     -o-transition: .5s all;
     -ms-transition: .5s all;
     transition: .5s all;
-    background:#007042;
+    opacity: 0.85;
   }
   
   .sub-container p {
@@ -188,12 +194,14 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
   }
   
   .sub-container p a:hover {
-    color: #007042;
+    color: #01502f;
   }
   
   /*-- //main --*/
   /*-- checkbox --*/
-  .wthree-text label {
+  .wthree-text label {    /*black box and the remaining text part*/
+    float: left;
+    color: #2f323a;
     font-size: 0.9em;
     color: #000000;
     font-weight: 200;
@@ -202,6 +210,8 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
   }
   
   input.checkbox {
+    float: left;
+
     background:#007042;
     cursor: pointer;
     width: 1.2em;
@@ -275,12 +285,25 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
 .left h5{
   text-align: left;
 }
+#left-label
+{
+  float: left;
+  color: #007042;
+  font-size: small;
+}
+#left-p
+{
+  float: left;
+  font-size: 0.9em;
+
+}
 .right
 {
   text-align: right;
+  float: right;
 }
 .right h6 a:hover {
-  color: #007042;
+  color: #005331;
 }
 .sub-container h6 a {
   color: #000000;
@@ -291,5 +314,14 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
 }
 
 .sub-container h6 a:hover {
-  color: #007042;
+  color: #014d2d;
+}
+
+a:hover
+{
+  color:#02b96d;
+}
+td{
+  text-align: left;
+  vertical-align: top;
 }

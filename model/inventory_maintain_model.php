@@ -89,8 +89,8 @@ class inventory_maintain_model
 
      public function get_view_details($id){     //michelle edited query 
          $result = "";
-         //$query = $this->mysqli->query("SELECT * FROM supplier INNER JOIN sup_address ON supplier.sup_id=sup_address.sup_id INNER JOIN sup_telephone ON sup_address.sup_id=sup_telephone.sup_id  AND supplier.sup_id='" . $id . "'");
-         $query=$this->mysqli->query("SELECT s.sup_id,s.sup_name,s.email_address,sa.address,st.telephone_no FROM  supplier AS s, sup_telephone AS st, sup_address AS sa where s.sup_id=sa.sup_id AND s.sup_id=st.sup_id");
+         $query = $this->mysqli->query("SELECT * FROM supplier INNER JOIN sup_address ON supplier.sup_id=sup_address.sup_id INNER JOIN sup_telephone ON sup_address.sup_id=sup_telephone.sup_id  AND supplier.sup_id='" . $id . "'");
+         //$query=$this->mysqli->query("SELECT s.sup_id,s.sup_name,s.email_address,sa.address,st.telephone_no FROM  supplier AS s, sup_telephone AS st, sup_address AS sa where s.sup_id=sa.sup_id AND s.sup_id=st.sup_id");
          while ($row = $query->fetch_assoc()) {
              $result = $row;
          }
@@ -254,6 +254,7 @@ class inventory_maintain_model
         $stmt2->bind_param('ss',$cust_id,$telephone_no);
         return $stmt2->execute();
         }
+
     }   
    
    public function delete_reminder_supplier($serial_no,$item_status){      //reshani
@@ -265,6 +266,17 @@ class inventory_maintain_model
             $stmt->execute();
         }
     }
+
+     }
+         public function display_reminder_suppliers($id){          //nuwan
+        $query=$this->mysqli->query("SELECT supplier.sup_name,sup_address.address,product.p_cost FROM supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN sup_address ON supplier_product.sup_id=sup_address.sup_id INNER JOIN product ON supplier_product.p_id=product.p_id AND product.p_id='" . $id . "'");
+        while ($row = $query->fetch_assoc()) {
+            $result= $row;
+        }
+        return $result;
+    }
+    
+
      public function get_delete_product_details($id){
         $result = "";
         $query = $this->mysqli->query("SELECT product.quantity,COUNT(item.serial_no) FROM  product INNER JOIN item ON product.p_id=item.p_id AND product.p_id='" . $id . "'");

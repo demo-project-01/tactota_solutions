@@ -7,7 +7,7 @@ include 'dash.php';
   <link rel="stylesheet" href="../public/css/style1.css">
   <link rel="stylesheet" href="../public/css/view_user.css">
 
-  <div class="content">
+  <div class="content" style="width:auto;">
   
   <!--div class="main-box"-->
   <div class="row">

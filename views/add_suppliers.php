@@ -6,7 +6,7 @@ include 'clerk_sidebar.php';
 <link rel="stylesheet" href="../public/css/update.css">
 </head>
 
-<div class="content">
+<div class="content"style="width:auto;">
   <h1 id="tbl-heading">Add new Supplier</h1>
 
   <form action="../controller/inventory_maintain.php?action=newsuppliers" method="post">
@@ -46,6 +46,6 @@ include 'clerk_sidebar.php';
         </tr>
       </tbody>
    
-   
+      </div>
   </form>
 

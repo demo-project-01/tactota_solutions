@@ -111,7 +111,7 @@ class authenitication_model{
 
     public function get_details()
     {
-        $query = $this->mysqli->query("SELECT user_account.emp_id,username,position,verified FROM user_account INNER JOIN employee ON user_account.emp_id=employee.emp_id ORDER BY emp_id ASC");
+        $query = $this->mysqli->query("SELECT e.first_name, e.last_name, user_account.emp_id,username,position,verified FROM user_account INNER JOIN employee AS e ON user_account.emp_id=e.emp_id ORDER BY emp_id ASC");
         while ($row = $query->fetch_assoc()) {
             $result[] = $row;
         }
@@ -171,4 +171,27 @@ class authenitication_model{
             return $stmt->execute();
         }
     }
+	 public function get_profile_details($id){//nuwan
+        $result = ""; 
+        $query = $this->mysqli->query("SELECT * FROM user_account INNER JOIN employee ON user_account.emp_id=employee.emp_id AND user_account.emp_id='" . $id . "'");
+
+            while ($row = $query->fetch_assoc()) {
+                $result = $row;
+            }
+            return $result;
+
+
+    }
+
+    public function update_profile_details($id,$address,$mobile_no,$email){//nuwan
+        $stmt = $this->mysqli->prepare("UPDATE employee INNER JOIN user_account ON employee.emp_id=user_account.emp_id  SET  employee.address= ?,  employee.mobile_no= ? ,  user_account.email= ?  WHERE employee.emp_id=?");
+          if($stmt==FALSE)
+           return 0;
+             else{
+              $stmt->bind_param('ssss',$address,$mobile_no,$email,$id);
+                return $stmt->execute();
+                    }
+
+    }
+
 }

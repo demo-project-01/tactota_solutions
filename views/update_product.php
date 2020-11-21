@@ -18,7 +18,7 @@ require '../controller/inventory_maintain.php';
     <link rel="stylesheet" href="../public/css/update.css">
 </head>
 
-<div class="content">
+<div class="content"style="width:auto;">
     <h1 id="tbl-heading"> Update Product</h1>
 
     <div class="update-tbl">
@@ -76,4 +76,11 @@ require '../controller/inventory_maintain.php';
                 </tr>
                 </tbody>
             </form>
+
         </table>
+     </div>
+        <div class="footer">
+	<p>© Tactota Solutions All rights reserved </p>
+   </div>
+   </div>
+

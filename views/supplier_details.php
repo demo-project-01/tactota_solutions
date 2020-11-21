@@ -6,16 +6,20 @@ $sql=$data->view_suppliers();
 ?>
 <head>
 <link rel="stylesheet" href="../public/css/update.css">
+
 </head>
-<div class="content">
+<div class="content" style="width:auto;">
     <h1 id="tbl-heading">Supplier Details</h1>
+    
+    <div class="new">
+        <a class="add_button" href="add_suppliers.php"><i class="fa fa-plus" aria-hidden="true"></i>
+Add new Suppliers</a>
+    </div>
+    <br/>
     <div class="search">
         <input type="text" placeholder="Search..">
     </div>
-    <div>
-        <a class="add_button" href="add_suppliers.php" class="next">-|- Add new Suppliers</a>
-    </div>
- <br>
+
     <div class="view-tbl">
         <table>
             <thead>
@@ -41,10 +45,10 @@ $sql=$data->view_suppliers();
                     <td><?php echo $sql[$k]["telephone_no"] ?></td>
 
                    <td><a href="../controller/inventory_maintain.php?action=supplier_profile&id=<?php
-                      echo $sql[$k]["sup_id"]; ?>"><i class="fa fa-eye" aria-hidden="true"></i>
+                      echo $sql[$k]["sup_id"]; ?>" title="view"><i class="fa fa-eye" aria-hidden="true"></i>
                     </a></td>
-                    <td><i class="fa fa-pencil" aria-hidden="true"></i> </td>
-                    <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+                    <td><a href ="#" title="Update"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                    <td><a href ="#" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                    </tr>
                 <?php
 

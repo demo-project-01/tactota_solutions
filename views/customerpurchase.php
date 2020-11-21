@@ -8,7 +8,7 @@ $sql=$data->valid_prodcuts();
 //print_r($sql);
 ?>
 
-<div class="content">
+<div class="content" style="width:auto;">
 
     <div class="main-container" id="view-tbl">
         <div class="search">

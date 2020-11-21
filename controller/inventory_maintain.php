@@ -76,7 +76,7 @@ class inventory_maintain
     {
         $row = $this->inven->get_view_details($id);
         $_SESSION['supplier_profile_details']=$row;
-        header('location: ../views/view_one_supplier.php');
+        header('location: ../views/supplier_profile.php');
 
     }
 

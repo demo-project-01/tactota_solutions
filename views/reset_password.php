@@ -10,14 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="../public/css/signup.css" rel="stylesheet" type="text/css"/>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://kit.fontawesome.com/1b83d32a6d.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div>
+    <br/>
     <h1>Reset Password</h1>
     <br/>
-
-
+    <br/>
+	<br/>
+	<br/>
     <div class="main-container">
         <div class="sub-container">
             <div><img src="../public/images/logo.jpeg" alt="logo" class="verticle-center" width=400 height=auto /></div>
@@ -26,14 +28,26 @@
         <div class="sub-container">
 
             <form action="../controller/authenitication.php?action=reset_password&key=<?php  echo $key; ?>" method="post">
-                <i class="fas fa-unlock" class="align"></i>
-                <p class="align">Enter New Password</p>
+            <br/> 
+            <label id='left-p' style="font-size:1.3em; color:#007042">Please enter New Password :</label>
+               
+					<br/>
+					<br/>
+					<br/>
+                <label for='pswd1' id='left-label'>
+						<i class="fa fa-key" aria-hidden="true"></i>
+						&nbsp&nbspOld Password *
+					</label>
+					<input id='pswd1' class="text" type="password" name="password" required="">
 
-
-                <input class="text" type="password" name="password" placeholder="New Password" required="">
-                <input class="text w3lpass" type="password" name="cpassword" placeholder="Confirm Password" required="">
-                <p>just rememberd? <a href="login.php"> Sign in</a></p>
-                  <input type="submit" value="UPDATE PASSWORD">
+					<label for='pswd2' id='left-label'>
+						<i class="fa fa-key" aria-hidden="true"></i>
+						&nbsp&nbspNew Password *
+					</label>
+					<input id='pswd2' class="text w3lpass" type="password" name="password" required="">
+                   
+                    <label for='forget' class="right">just rememberd? <a id='forget' href="login.php"> SignIn</b></label>
+                  <input type="submit" value="UPDATE">
             </form>
 
         </div>

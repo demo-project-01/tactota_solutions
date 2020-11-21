@@ -10,12 +10,16 @@ $row=$_SESSION['row'];
 <link rel="stylesheet" href="../public/css/update.css">
 </head>
 
-<div class="content">
+<div class="content" style="width:auto;">
     <h1 id="tbl-heading"> View User Details</h1>
 
     <div class="update-tbl">
         <table>
             <tbody>
+            <tr>
+                    <th>Employee Id</th>    
+                    <td><?php echo $row['emp_id']?></td>
+                </tr>
                 <tr>
                     <th>First Name</th>    
                     <td><?php echo $row['first_name']?></td>
@@ -58,8 +62,8 @@ $row=$_SESSION['row'];
                     </tr>
                 <tr>
                     <td colspan=2>
-                        <a class="add_button" href="view_all_users.php">Back</a>
-                        <a class="add_button" href="#" >Delete</a>
+                        <a class="add_button" href="view_all_users.php"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
+                        <a class="add_button" href="#" ><i class="fa fa-trash" aria-hidden="true">&nbsp&nbspDelete</i></a>
                     </td>
                 </tr>
             </tbody>
