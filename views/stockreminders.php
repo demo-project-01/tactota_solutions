@@ -29,15 +29,11 @@ $row= $_SESSION['reminderitem_suppliers'];
             <th>Supplier</th>
             <th scope="col">Address</th>
             <th scope="col">Price</th>
-            <th scope="col">Action</th>
-            <th scope="col" colspan=3 border=0></th>
+            <!--th scope="col">Action</th-->
+            <th scope="col" colspan=2 border=0>Action</th>
           </tr>
         </thead>
         <tbody>
-        <?php
-
-
-?>
 <tr> 
 
 <?php if($row["item_status"]=='1'){?>
@@ -56,7 +52,7 @@ $row= $_SESSION['reminderitem_suppliers'];
     <!--td><button class="update">Delete</button> </td-->
 </tr>
 <tr>
-    <td colspan=6 >
+    <td colspan=5 >
     <a class="add_button" href="reminderitems.php"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
     </td>
     </tr>
