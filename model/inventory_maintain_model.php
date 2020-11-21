@@ -58,7 +58,7 @@ class inventory_maintain_model
     }
     public function supplier_register($sup_id,$name,$address,$mobile_no,$email){
         $stmt = $this->mysqli->prepare("INSERT INTO supplier (sup_id,sup_name,email_address)
-                                        VALUES (?,?,?)");
+                                        VALUES (?,?,?)"); //modified by reshani
 
         if($stmt == false)
         {
@@ -143,6 +143,57 @@ class inventory_maintain_model
          }
          return $result;
     }
+    public function display_reminder_suppliers($id){          //nuwan
+        $query=$this->mysqli->query("SELECT supplier.sup_name,supplier.sup_id,sup_address.address,product.p_cost,item.serial_no,item.item_status FROM supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN sup_address ON supplier_product.sup_id=sup_address.sup_id INNER JOIN product ON supplier_product.p_id=product.p_id INNER JOIN item ON supplier_product.p_id=item.p_id AND item.item_status='1' AND product.p_id='" . $id . "'");
+        while ($row = $query->fetch_assoc()) {               
+            $result= $row;
+        }
+        return $result;
+    
+    }
+     public function diplay_return_items(){       //reshani, display retrun items
+           $query=$this->mysqli->query("SELECT * FROM product");
+           while ($row = $query->fetch_assoc()) {
+            $result[] = $row;
+        }
+        return $result;
+             
+    }
+    public function display_returnitem($id){          //reshani, display one return item details
+        $query=$this->mysqli->query("SELECT product.p_id,product.p_name,product.brand_name,product.model_no,item.serial_no FROM  product  INNER JOIN  item  ON product.p_id=item.p_id WHERE product.p_id='" . $id . "'");
+        while ($row = $query->fetch_assoc()) {
+            $result= $row;
+        }
+        return $result;
+    
+    }
+    public function get_supid_serial_no($serial_no){   //reshani
+        $result="";
+        $query=$this->mysqli->query("SELECT supplier.sup_id,item.serial_no FROM  supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN item ON supplier_product.p_id=item.p_id AND item.serial_no LIKE '$serial_no'");
+        while ($row = $query->fetch_assoc()) {
+            $result= $row['sup_id'];
+        }
+        return $result;
+    }
+  /*  public function get_supid_serial_no1(){   //reshani
+        $query=$this->mysqli->query("SELECT supplier.sup_id,item.serial_no FROM  supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN item ON supplier_product.p_id=item.p_id");
+       // $query=$this->mysqli->query("SELECT item.serial_no FROM  supplier_product INNER JOIN item ON supplier_product.p_id=item.p_id");
+        while ($row = $query->fetch_assoc()) {
+            $result= $row['serial_no'];
+        }
+        return $result;
+    }*/
+
+    public function add_return_item($sup_id,$serial_no,$returned_date,$description){   //reshani,add retrun items to return_items_table
+        $stmt=$this->mysqli->prepare("INSERT INTO shop_return_item(sup_id,serial_no,returned_date,description) VALUES(?,?,?,?)");
+        if($stmt==false){
+            return 0;
+        }else{
+            $stmt->bind_param('ssss',$sup_id,$serial_no,$returned_date,$description);
+            return $stmt->execute();
+        
+        }
+    }
      public function valid_email_address($email_address)        //reshani  ,add customer details
     {
         $result = "";
@@ -203,14 +254,16 @@ class inventory_maintain_model
         $stmt2->bind_param('ss',$cust_id,$telephone_no);
         return $stmt2->execute();
         }
-         
-         public function display_reminder_suppliers($id){          //nuwan
-        $query=$this->mysqli->query("SELECT supplier.sup_name,sup_address.address,product.p_cost FROM supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN sup_address ON supplier_product.sup_id=sup_address.sup_id INNER JOIN product ON supplier_product.p_id=product.p_id AND product.p_id='" . $id . "'");
-        while ($row = $query->fetch_assoc()) {
-            $result= $row;
+    }   
+   
+   public function delete_reminder_supplier($serial_no,$item_status){      //reshani
+        $stmt=$this->mysqli->prepare("UPDATE item SET item.item_status=? WHERE item.serial_no=?");
+        if($stmt==false){
+            return 0;
+        }else{
+            $stmt->bind_param('ss',$item_status,$serial_no);
+            $stmt->execute();
         }
-        return $result;
-    }
     }
      public function get_delete_product_details($id){
         $result = "";
