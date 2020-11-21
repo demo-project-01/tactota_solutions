@@ -1,0 +1,46 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    display: inline;
+  }
+  #tbl-heading
+{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
+    text-align: left; /*modified*/
+    color: #000;
+    font-weight: bold;
+    margin-top: 10px;       /*reshani*/
+    font-size: 25px;      /*reshani*/
+}
+.button
+{
+    border: 1px solid #000000;
+    border-radius: 2px;
+    padding: 10px;
+    background-color: #4a746e;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bolder;
+    color: #fff;
+    
+}
+.right
+{
+    margin-right: 2em;
+    float:right;
+}
+#h1
+{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    margin-top: 10px;     
+    font-size: 25px; 
+}
