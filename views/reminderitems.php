@@ -5,14 +5,15 @@
    $sql=$data->display_reminders();
    //print_r($sql);
 ?><head>
-<link rel="stylesheet" href="../public/css/reminderitems.css">
+<link rel="stylesheet" href="../public/css/update.css">
+
 </head>
 <div class="content"style="width:auto;">
     <h1 id="tbl-heading">Reminder Items</h1>
-    <div class="searchs">
+    <div class="search">
     <input type="text" placeholder="Search..">
   </div>
-    <div class="reminderitems-tbl">
+    <div class="update-tbl">
        <table>
             <thead>
                 <tr>
