@@ -127,10 +127,52 @@ class inventory_maintain
         return $this->inven->display_stockreminders();
     }
     public function reminderitems_suppliers($id){    //nuwan
-      $row=$this->inven->display_reminder_suppliers($id);       
+        $row=$this->inven->display_reminder_suppliers($id);       
         $_SESSION['reminderitem_suppliers']=$row;
         header('location: ../views/stockreminders.php');
     }
+    public function display_onereturnitem_details($id){    //reshani
+        $row=$this->inven->display_returnitem($id);       
+        $_SESSION['return_item']=$row;
+        header('location: ../views/view_one_returnitem.php');
+      }
+    public function add_returnitem_details(){       //reshani
+       // $description="";
+        $item_status=0;
+        $serial_no=$_POST['serial_no'];
+        $description=$_POST['description'];
+        $returned_date=date("Y-m-d");
+        $sup_id=$this->inven->get_supid_serial_no( $serial_no);
+       //$serial_no=$this->inven->get_supid_serial_no1();
+
+        if($this->inven->add_return_item($sup_id,$serial_no,$returned_date,$description)){
+            header('location: ../views/returnitems.php');
+        }else{
+            echo "error";
+        }
+
+    }
+
+    public function display_returnitem_details(){   //reshani
+        return $this->inven->diplay_return_items();
+    }
+
+   public function delete_reminder_suppliers($serial_no){   //reshani
+        $item_status=0;
+        $row= $this->inven->delete_reminder_supplier($serial_no,$item_status);
+        
+        if($row=="0"){
+            echo "wrong";
+        }else{
+            $row=$this->inven->display_reminder_suppliers($serial_no,$item_status);       
+            $_SESSION['reminderitem_suppliers']=$row;
+            header('location: ../views/stockreminders.php');
+        }
+        
+    }
+    /*public function delete(){
+        header('location: ../views/stockreminders.php');
+    }*/
     public function display_few_reminders(){   //reshani    display few reminder items in clerk dashboard
         return $this->inven->display_few_stockreminders();
     }
@@ -236,9 +278,27 @@ else if(isset($_GET['action']) && $_GET['action'] == 'display_reminders'){  //re
     $controller->display_reminders();
 }
 else if(isset($_GET['action']) && $_GET['action'] == 'reminderitems_suppliers'){  //nuwan
-     $id=$_GET["id"];
+    $id=$_GET["id"];
    $controller->reminderitems_suppliers($id);
 }
+else if(isset($_GET['action']) && $_GET['action'] == 'display_onereturnitem_details'){  //reshani
+    $id=$_GET["id"];
+    $controller->display_onereturnitem_details($id);
+}
+else if(isset($_GET['action']) && $_GET['action'] == 'display_returnitem_details'){  //reshani
+    $controller->display_returnitem_details();
+}
+else if(isset($_GET['action']) && $_GET['action'] == 'add_returnitem_details'){  //reshani
+    $controller->add_returnitem_details();
+}
+else if(isset($_GET['action']) && $_GET['action'] == 'delete_reminder_suppliers'){  //reshani
+    $serial_no=$_GET["id"];
+    $controller->delete_reminder_suppliers($serial_no);
+}
+/*else if(isset($_GET['action']) && $_GET['action'] == 'delete'){  //reshani
+    $controller->delete();
+  }*/
+
 else if(isset($_GET['action']) && $_GET['action'] == 'display_few_reminders'){   //reshani
     $controller->display_few_reminders();
  }
