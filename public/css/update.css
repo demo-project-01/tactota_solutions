@@ -1,4 +1,4 @@
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"] ,input[type="number"]{
     font-size: 0.9em;
     color: #000000;
     font-weight: 100;
