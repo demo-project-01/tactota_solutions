@@ -1,5 +1,9 @@
 <?php
 include 'clerk_sidebar.php';
+//require '../controller/inventory_maintain.php';
+session_start();
+$row= $_SESSION['return_item'];
+
 
 ?>
 <head>
@@ -11,46 +15,52 @@ include 'clerk_sidebar.php';
  
   <div class="update-tbl">
     <table>
-    <from>
+    <form action="../controller/inventory_maintain.php?action=add_returnitem_details" method="post">
       <tbody>
        
         <tr>
             <th>Type</th>
             <td>   
-              <input type='text'class="text"  placeholder="Cutomer Return" name="p_id" disabled>
+              <input type='text'class="text"  placeholder="Shop Return" name="p_id" value="Shop Return" disabled>
+              <input type='hidden' placeholder="" name="serial_no" value="<?php echo $row['serial_no']?>">
             </td>
         </tr>
         <tr>
             <th>Product Name</th>
             <td>   
-              <input type='text'class="text"  placeholder="Laptop" name="p_name"disabled>
+              <input type='text'class="text"  placeholder="Laptop" name="p_name"value="<?php echo $row['p_name'] ?>" disabled>
             </td>
         </tr>
         <tr>
             <th>Brand Name</th>
-            <td>  <input type='text' placeholder="Asus" name="brand_name"disabled>
-</td>
+            <td>  <input type='text' placeholder="Asus" name="brand_name" value="<?php echo $row['brand_name'] ?>"disabled>
+           </td>
         </tr>
         <tr>
             <th>Model Number</th>
-            <td> <input type='text'  placeholder="1234" name="model_no" disabled>
-</td>
+            <td> <input type='text'  placeholder="1234" name="model_no"value="<?php echo $row['model_no'] ?>"  disabled>
+            </td>
         </tr>
         
         <tr>
             <th>Reason</th>
-            <td>   <input type='text'  placeholder="Battery Issue" name="quantity"  disabled>
-</td>
+            <td>   <input type='text'  placeholder="Battery Issue" name="description" required="">
+            </td>
+        </tr>
+        <tr>
+          <td colspan=2>
+          <input type="submit" name="update_product" value="ADD"></td>
+           
         </tr>
         
         
       </tbody>
    </form>
+   
 </table>
 </div>
    </div>
     <div class="footerc">
 			<p>© Tactota Solutions All rights reserved </p>
       </div>  
-</div>
 </div>
