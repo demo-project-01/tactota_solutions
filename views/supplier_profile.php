@@ -41,9 +41,9 @@ include 'clerk_sidebar.php';
         </tr>
         <tr>
         <td colspan=2>
-          <a class="add_button" href="supplier_details.php">Back</a>
-          <a class="add_button" href="#" >Update</a>
-          <a class="add_button" href="#" >Delete</a>
+          <a class="add_button" href="supplier_details.php"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
+          <a class="add_button" href="#" ><i class="fa fa-pencil" aria-hidden="true">&nbsp&nbspUpdate</i></a>
+          <a class="add_button" href="#" ><i class="fa fa-trash" aria-hidden="true">&nbsp&nbspDelete</i></a>
         </td>
       </tr>
     </tbody>
