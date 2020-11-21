@@ -44,6 +44,18 @@ include 'admin_sidebar.php';
           <td>123456789</td>
           <td>5000.00</td>
         </tr>
+        <tr>
+          <td>21/11/2020</td>
+          <td>Purchase item</td>
+          <td>78956789</td>
+          <td>500.00</td>
+        </tr>
+
+        <tr>
+          <td>20/11/2020</td>
+          <td colspan=2>Total</td>
+          <td>5500.00</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -66,7 +78,37 @@ include 'admin_sidebar.php';
           <td>6549</td>
           <td>430.00</td>
         </tr>
+
+        <tr>
+          <td>20/11/2020</td>
+          <td colspan=2>Total</td>
+          <td>5500.00</td>
+        </tr>
       </tbody>
     </table>
+
+  </div>
+<h1 id="h1">Profit / Loss</h1>
+
+  <div class="view-tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>20/11/2020</td>
+          <td>Profit / Loss </td>
+          <td>430.00</td>
+        </tr>
+
+       
+      </tbody>
+    </table>
+    
   </div>
 
