@@ -302,33 +302,26 @@ class authenitication
 
     public function sent_view_profile($id)
     {
-       // echo "Hello world";
-     //   print_r($id);
-       $row = $this->auth->get_view_details($id);
+             $row = $this->auth->get_view_details($id);
 
-      /*  echo "<br>";
-        print_r($row['first_name']);
-        echo "<br>";
-        print_r($row['middle_name']);
-        echo "<br>";
-        print_r($row['last_name']);
-        echo "<br>";
-        print_r($row['email']);
-        echo "<br>";
-        print_r($row['nic']);
-        echo "<br>";
-        print_r($row['address']);
-      */
-       $_SESSION['row']=$row;
-       header('location: ../views/view_profile.php');
+        if($_SESSION['role']=="Clerk"){
+            $_SESSION['row'] = $row;
+            header('location: ../views/view_profile.php');
+        } elseif ($_SESSION['role']=="Admin") {
+            $_SESSION['row'] = $row;
+            header('location: ../views/delete_view_profile.php');
+        }
 
     }
 
     public function active_inactive_account($id,$id1)
     {
-       //  print_r($id);
-        // print_r($id1);
-        $this->auth->active_inactive_account($id,$id1);
+         $this->auth->active_inactive_account($id,$id1);
+        if($id1==1){
+            $_SESSION['active_deactive']="Successfully Activated";
+        }else if($id1==0){
+            $_SESSION['active_deactive']="Successfully Deactivated";
+        }
         header('location: ../views/clerk_active_user.php');
 
     }
@@ -432,7 +425,18 @@ class authenitication
             echo "not_taken";
         }
     }
-
+    public function delete_account($emp_id)
+    {
+       // print_r($emp_id);
+        $row=$this->auth->delete_account($emp_id);
+         if($row==true){
+             // echo "sucsess";
+              header('location: ../views/users.php');
+         }else{
+            // echo "not";
+             header('location: ../views/users.php');
+         }
+    }
 
 }
         $controller = new authenitication();
@@ -484,4 +488,7 @@ class authenitication
          }else if(isset($_GET['action']) && $_GET['action'] == 'check_username' ) {
 
              $controller->check_username();
+         }else if(isset($_GET['action']) && $_GET['action'] == 'delete_account' ) { //nuwan
+             $emp_id=$_GET["id"];
+             $controller->delete_account($emp_id);
          }
