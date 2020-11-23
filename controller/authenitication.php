@@ -123,7 +123,7 @@ class authenitication
          if($result==false){
              echo "worng";
          }else{
-             header('location: ../views/check_email');
+             header('location: ../views/check_email.php');
          }
 
      }
