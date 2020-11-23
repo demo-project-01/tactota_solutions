@@ -228,21 +228,11 @@ class authenitication
           $token=bin2hex(random_bytes(50));
 
           $verifed=false;
-          $row = $this->auth->valid_email($email);
-          $row1 = $this->auth->valid_username($username);
+       //   $row = $this->auth->valid_email($email);
+        //  $row1 = $this->auth->valid_username($username);
 
 
-              if($password != $cpassword){
-                  echo "passwords doesn't match";
-              }else if ($row != "0") {
-
-                     echo "email already doesnot mamtch";
-              }
-              else if($row1 != "0" )
-              {
-                     echo "username doesn't match";
-              }
-             else{
+             
                    $emp_id = $this->auth->getempid();
                    // echo $emp_id;
                     if($this->auth->emp_register($emp_id,$firstname,$middlename,$lastname,$nic,$address,$image,$job_position,$mobile_no,$dob,$username,$password,$email,$verifed,$token) !=0){
@@ -262,7 +252,7 @@ class authenitication
 
 
 
-              }
+              
 
 
 
@@ -419,6 +409,29 @@ class authenitication
         }
     }
  
+       public function check_email()
+    {
+        $email = $_POST['email'];
+        $row = $this->auth->valid_email($email);
+        if($row != "0" )
+        {
+            echo "taken";
+        }else{
+            echo "not_taken";
+        }
+    }
+
+    public function check_username()
+    {
+        $username = $_POST['username'];
+        $row1 = $this->auth->valid_username($username);
+        if($row1 != "0" )
+        {
+            echo "taken";
+        }else{
+            echo "not_taken";
+        }
+    }
 
 
 }
@@ -465,4 +478,10 @@ class authenitication
          }else if(isset($_GET['action']) && $_GET['action'] == 'profile' ) { //nuwan
             $id=$_SESSION['emp_id'];
             $controller->update_view_profile($id);
+         }else if(isset($_GET['action']) && $_GET['action'] == 'check_email' ) {
+
+             $controller->check_email();
+         }else if(isset($_GET['action']) && $_GET['action'] == 'check_username' ) {
+
+             $controller->check_username();
          }
