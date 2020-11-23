@@ -64,9 +64,13 @@ class sales
 
     public function dashbord_search($id)
     {
-        // print_r($id);
-        $row=$this->sale->dashbord_search($id);
-        echo $row;
+           $id=$_POST['query'];
+
+          $row= $this->sale->dashbord_search($id);
+       //   print_r($row);
+         //  print_r($row);
+        $_SESSION['dashbord_search']=$row;
+        header('location: ../views/search_product_result.php');
     }
     
       public function add_bill(){ //nuwan
@@ -98,6 +102,19 @@ class sales
      public function get_product_details(){//nuwan
         return $this->sale->get_product();
    }
+    
+     public function view_search_product($id,$model)
+    {
+        //print_r($id);
+      //  print_r($model);
+
+        $row= $this->sale->view_search_product($id,$model);
+        print_r($row);
+      //  $_SESSION['view_search_product']=$row;
+     //   print_r($row['product.p_name']);
+     //   header('location: ../views/view_search_product.php');
+
+    }
 
 }
 $controller = new sales();
@@ -117,5 +134,9 @@ if(isset($_GET['action']) && $_GET['action'] == "get_supplier_names") {
     $controller->add_bill();
 }else if(isset($_GET['action']) && $_GET['action'] == 'get_product_details') {//nuwan
     $controller->get_product_details();
+}else if(isset($_GET['action']) && $_GET['action'] == 'view_search_product') {
+     $id=$_GET['id'];
+     $model=$_GET['id1'];
+    $controller->view_search_product($id,$model);
 }
 
