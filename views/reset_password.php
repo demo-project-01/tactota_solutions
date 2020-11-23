@@ -36,15 +36,15 @@
 					<br/>
                 <label for='pswd1' id='left-label'>
 						<i class="fa fa-key" aria-hidden="true"></i>
-						&nbsp&nbspOld Password *
+						&nbsp&nbspNeww Password *
 					</label>
 					<input id='pswd1' class="text" type="password" name="password" required="">
 
 					<label for='pswd2' id='left-label'>
 						<i class="fa fa-key" aria-hidden="true"></i>
-						&nbsp&nbspNew Password *
+						&nbsp&nbspConfirm Password *
 					</label>
-					<input id='pswd2' class="text w3lpass" type="password" name="password" required="">
+					<input id='pswd2' class="text w3lpass" type="password" name="cpassword" required="">
                    
                     <label for='forget' class="right">just rememberd? <a id='forget' href="login.php"> SignIn</b></label>
                   <input type="submit" value="UPDATE">
