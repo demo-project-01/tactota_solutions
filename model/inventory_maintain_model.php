@@ -126,8 +126,8 @@ class inventory_maintain_model
         }
     }
      public function display_stockreminders(){   //reshani  ,view stock reminders
-        // $result="";
-         $query=$this->mysqli->query("SELECT * FROM product WHERE quantity<=reorder_level");  /*modified*/
+       // $result="";
+         $query=$this->mysqli->query("SELECT * FROM product WHERE quantity<=reorder_level AND YEAR(CURRENT_DATE())-YEAR(product_date)<1");  /*modified*/
          while ($row = $query->fetch_assoc()) {
              $result[] = $row;
          }
