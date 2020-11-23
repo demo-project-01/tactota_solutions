@@ -52,38 +52,73 @@ class inventory_maintain
         }
     }
 
-    public function view_suppliers()
+    public function view_suppliers($row)
     {
 
-        return $this->inven->get_details();
+          $row1=$this->inven->get_details1($row);
+     // print_r($row1);
+        if($row1!=""){
+                $_SESSION['supplier_details']=$row1;
+                header('location: ../views/supplier_details_search.php');
+       //     print_r($row1);
+        }else{
+            $row=$this->inven->get_details();
+            if($row!=""){
+         //       print_r($row);
+                $_SESSION['supplier_details']=$row;
+                header('location: ../views/supplier_details_search.php');
+               // print_r($row);
+            }else if($row==""){
+                //echo "not found";
+               $_SESSION['supplier_details']="Not Found";
+               header('location: ../views/supplier_details_search.php');
+
+            }
+        }
     }
 
-    /*public function supplier_profile($id)         //michelle commented this and edited code is next to this
-    {
-        // print_r($id);
-        $row = $this->inven->get_view_details($id);
-        echo "<br>";
-        print_r($row['sup_name']);
-        echo "<br>";
-        print_r($row['email_address']);
-        echo "<br>";
-        print_r($row['address']);
-        echo "<br>";
-        print_r($row['telephone_no']);
-
-    }*/
+ 
      public function supplier_profile($id)      //this added by michelle
     {
+         // print_r($id);
         $row = $this->inven->get_view_details($id);
-        $_SESSION['supplier_profile_details']=$row;
-        header('location: ../views/supplier_profile.php');
+        /* echo "<br>";
+         print_r($row['sup_name']);
+         echo "<br>";
+         print_r($row['email_address']);
+         echo "<br>";
+         print_r($row['address']);
+         echo "<br>";
+         print_r($row['telephone_no']);
+        */
+        $_SESSION['supplier_profile_details'] = $row;
+        header('location: ../views/view_one_supplier.php');
 
     }
 
 
-    public function update_product(){
+    public function update_product($row){
 
-       return $this->inven->get_product_details();
+            $row1=$this->inven->get_product_details_search($row);
+    //  print_r($row);
+        if($row1!=""){
+            $_SESSION['update_product']=$row1;
+            header('location: ../views/view_all_product_search.php');
+            //     print_r($row1);
+        }else{
+            $row=$this->inven-> get_product_details();
+            if($row!=""){
+                //       print_r($row);
+                $_SESSION['update_product']=$row;
+                header('location: ../views/view_all_product_search.php');
+                // print_r($row);
+            }else if($row==""){
+                //echo "not found";
+                $_SESSION['update_product']="Not Found";
+                header('location: ../views/view_all_product_search.php');
+
+            }
+        }
     }
 
     public function view_product_details($id)
@@ -252,6 +287,32 @@ class inventory_maintain
         }
         // header('location: ../view/list_updateproduct.php');
     }
+    
+       public function dashbord_return_search()
+    {     // print_r($value);
+           $id=$_POST['query'];
+
+            $row= $this->inven->dashbord_return_search($id);
+
+            if($row==0){
+                $row1= $this->inven->dashbord_customer_return_product($id);
+                if($row==0){
+                    $_SESSION['return_search']="Not found";
+                    header('location: ../views/returnitems_result.php');
+                }else{
+                    $_SESSION['return_search']=$row1;
+                    header('location: ../views/returnitems_result.php');
+                   // print_r($row1);
+                }
+            }else{
+                $_SESSION['return_search']=$row;
+                header('location: ../views/returnitems_result.php');
+               // print_r($row);
+            }
+
+
+    }
+    
  
 }
 
@@ -261,12 +322,16 @@ class inventory_maintain
 if(isset($_GET['action']) && $_GET['action'] == "newsuppliers") {
      $controller->newsuppliers();
 }else if(isset($_GET['action']) && $_GET['action'] == 'view_suppliers') {
-    $controller->view_suppliers();
+     $row=$_POST['query'];
+    //print_r($row);
+    $controller->view_suppliers($row);
 }else if(isset($_GET['action']) && $_GET['action'] == 'supplier_profile' ) {
     $id=$_GET["id"];
     $controller->supplier_profile($id);
 }else if(isset($_GET['action']) && $_GET['action'] == 'update_product') {
-    $controller->update_product();
+   $row=$_POST['query'];
+    //print_r($row);
+    $controller->update_product($row);
 }else if(isset($_GET['action']) && $_GET['action'] == 'view_product_details') {
     $id=$_GET["id"];
     $controller->view_product_details($id);
@@ -310,5 +375,8 @@ else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //re
 }else if(isset($_GET['action']) && $_GET['action'] == 'view_one_product_details') {
     $id=$_GET["id"];
     $controller->view_one_product_details($id);
+}else if(isset($_GET['action']) && $_GET['action'] == 'delete_product_details') {
+    $id=$_GET["id"];
+    $controller->delete_product_details($id);
 }
 
