@@ -77,7 +77,14 @@ class inventory_maintain_model
             return $stmt2->execute();
         }
     }
+        public function get_details1($id){
 
+        $query = $this->mysqli->query("SELECT * FROM  supplier INNER JOIN sup_address ON supplier.sup_id=sup_address.sup_id INNER JOIN sup_telephone ON sup_address.sup_id=sup_telephone.sup_id WHERE sup_name LIKE  '%" . $id . "%' OR email_address LIKE  '%" . $id . "%' OR address LIKE  '%" . $id . "%' OR telephone_no   LIKE  '%" . $id . "%'  ");
+        while ($row = $query->fetch_assoc()) {
+            $result[] = $row;
+        }
+        return $result;
+    }
      public function get_details(){
    
         $query = $this->mysqli->query("SELECT * FROM  supplier INNER JOIN sup_address ON supplier.sup_id=sup_address.sup_id INNER JOIN sup_telephone ON sup_address.sup_id=sup_telephone.sup_id");
@@ -87,15 +94,24 @@ class inventory_maintain_model
         return $result;
     }
 
-     public function get_view_details($id){     //michelle edited query 
+  public function get_view_details($id){
          $result = "";
          $query = $this->mysqli->query("SELECT * FROM supplier INNER JOIN sup_address ON supplier.sup_id=sup_address.sup_id INNER JOIN sup_telephone ON sup_address.sup_id=sup_telephone.sup_id  AND supplier.sup_id='" . $id . "'");
-         //$query=$this->mysqli->query("SELECT s.sup_id,s.sup_name,s.email_address,sa.address,st.telephone_no FROM  supplier AS s, sup_telephone AS st, sup_address AS sa where s.sup_id=sa.sup_id AND s.sup_id=st.sup_id");
+
          while ($row = $query->fetch_assoc()) {
              $result = $row;
          }
          return $result;
      }
+    
+    public function get_product_details_search($row){
+        //   $result = "";
+        $query = $this->mysqli->query("SELECT DISTINCT * FROM  product INNER JOIN supplier_product ON product.p_id=supplier_product.p_id INNER JOIN item ON product.p_id=item.p_id AND product_status=1 WHERE product.p_name LIKE  '%" . $row . "%' OR product.brand_name LIKE  '%" . $row . "%' OR product.model_no LIKE  '%" . $row . "%' ");
+        while ($row = $query->fetch_assoc()) {
+            $result[] = $row;
+        }
+        return $result;
+    }  
 
     public function get_product_details(){
 
@@ -301,5 +317,32 @@ class inventory_maintain_model
             }
         }
     }
+     public function dashbord_return_search($id){
+        $query = $this->mysqli->query("SELECT p_name FROM product INNER JOIN item ON product.p_id=item.p_id where item.serial_no LIKE   '%" . $id . "%'");
+
+        while ($row = $query->fetch_assoc()) {
+            $result[] = $row;
+            if($result==""){
+               return 0;
+            }else{
+                return $result;
+            }
+        }
+     //   return $result;
+    }
+
+    public function dashbord_customer_return_product($id){
+        $query = $this->mysqli->query("SELECT p_name FROM bill INNER JOIN purchase ON bill.bill_no=purchase.bill_no INNER JOIN item ON purchase.serial_no=item.serial_no INNER JOIN product ON item.p_id=product.p_id where bill.bill_no LIKE   '%" . $id . "%'");
+
+        while ($row = $query->fetch_assoc()) {
+            $result[] = $row;
+            if($result==""){
+                return 0;
+            }else{
+                return $result;
+            }
+        }
+    }
+
     
 }
