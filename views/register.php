@@ -61,7 +61,7 @@
                     &nbsp&nbspDOB *
                     <span id='dob1'></span>
                 </label>
-                <input id="dob" class="text" type="date" placeholder="ex:1999-10-20" name="dob" required="">
+                <input id="dob" class="text" type="date" placeholder="ex:1999-10-20" name="dob" min="1940-01-01" max="2005-12-31" required="">
 
                 <table>
                     <tr>
