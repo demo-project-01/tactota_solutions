@@ -36,7 +36,7 @@
 					<br/>
                 <label for='pswd1' id='left-label'>
 						<i class="fa fa-key" aria-hidden="true"></i>
-						&nbsp&nbspNeww Password *
+						&nbsp&nbspNew Password *
 					</label>
 					<input id='pswd1' class="text" type="password" name="password" required="">
 
