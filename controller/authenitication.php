@@ -139,7 +139,7 @@ class authenitication
        //  print_r($password);
         // print_r($cpassword);
         if($password != $cpassword){
-            header('location: ../views/forgotpassword.php');
+            header('location: ../views/forgetpassword.php');
         }else{
             $result=$this->auth->update_password($key,$password);
 
