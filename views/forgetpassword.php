@@ -36,11 +36,11 @@
 						&nbsp&nbspEmail Address *
 					</label>					
 					<input id='email' class="text email" type="email" name="email" required="">
-
+                <input type="submit" value="NEXT">
 					
 				</form>
-                <label for='forget' class="right">just rememberd? <a id='forget' href="login.php"> SignIn</b></label>
-                <input type="submit" value="NEXT">
+				<label for='forget' class="right">just rememberd? <a id='forget' href="login.php"> SignIn</b></label>
+
 			</div>
 		</div>
 		
