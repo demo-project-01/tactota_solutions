@@ -14,7 +14,7 @@ class authenitication_model{
            {
 
                $result = "";
-               $query = $this->mysqli->query("SELECT * FROM user_account WHERE username='" . $username . "' AND password='" . $password . "' AND verified=1");
+               $query = $this->mysqli->query("SELECT * FROM user_account WHERE username='" . $username . "' AND password='" . $password . "' AND verified=1 OR email='".$username."'");
                if ($query->num_rows > 0) {
                    while ($row = $query->fetch_assoc()) {
                        $result = $row['emp_id'];
