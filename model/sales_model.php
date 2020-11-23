@@ -81,6 +81,16 @@ class sales_model
      }
     
     
+     public function view_search_product($id,$model){
+
+         $query = $this->mysqli->query("SELECT product.p_name,product.quantity,product.brand_name,product.model_no,product.p_cost,product.warranty,item.sales_price FROM product INNER JOIN item ON product.p_id=item.p_id AND product.p_name='" . $id . "' AND product.model_no='" . $model . "'" );
+         while ($row = $query->fetch_assoc()) {
+
+             $result[] = $row;
+         }
+         return $result;
+     }
+    
      
     public function add_bill($id,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no){ //nuwan
     
