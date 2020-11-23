@@ -194,4 +194,11 @@ class authenitication_model{
 
     }
 
+	public function delete_account($emp_id){
+        if($this->mysqli->query("DELETE FROM employee INNER JOIN user_account ON employee.emp_id=user_account.emp_id WHERE employee.emp_id = ".$emp_id.";") == TRUE) {
+            return true;
+        }
+        else return false;
+    }
+
 }
