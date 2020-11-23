@@ -14,7 +14,7 @@ class authenitication_model{
            {
 
                $result = "";
-               $query = $this->mysqli->query("SELECT * FROM user_account WHERE username='" . $username . "' AND password='" . $password . "' AND verified=1");
+               $query = $this->mysqli->query("SELECT * FROM user_account WHERE username='" . $username . "' AND password='" . $password . "' AND verified=1 OR email='".$username."'");
                if ($query->num_rows > 0) {
                    while ($row = $query->fetch_assoc()) {
                        $result = $row['emp_id'];
@@ -192,6 +192,13 @@ class authenitication_model{
                 return $stmt->execute();
                     }
 
+    }
+
+	public function delete_account($emp_id){
+        if($this->mysqli->query("DELETE FROM employee INNER JOIN user_account ON employee.emp_id=user_account.emp_id WHERE employee.emp_id = ".$emp_id.";") == TRUE) {
+            return true;
+        }
+        else return false;
     }
 
 }
