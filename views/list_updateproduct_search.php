@@ -3,7 +3,10 @@ session_start();
 $sql=$_SESSION['update_product'];
 
 ?>
-
+<head>
+<link rel="stylesheet" href="../public/css/update.css">
+<head>
+<div class="update-tbl">
 <table>
     <thead>
     <tr>
@@ -38,3 +41,4 @@ $sql=$_SESSION['update_product'];
 
 
 </table>
+</div>
