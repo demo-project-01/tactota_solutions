@@ -267,7 +267,7 @@ class inventory_maintain_model
 
     }   
    
-   public function delete_reminder_supplier($serial_no,$item_status){      //reshani
+/*public function delete_reminder_supplier($serial_no,$item_status){      //reshani
         $stmt=$this->mysqli->prepare("UPDATE item SET item.item_status=? WHERE item.serial_no=?");
         if($stmt==false){
             return 0;
@@ -275,7 +275,7 @@ class inventory_maintain_model
             $stmt->bind_param('ss',$item_status,$serial_no);
             $stmt->execute();
         }
-    }
+    }*/
 
      
       
