@@ -5,6 +5,7 @@ session_start();
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <script src="../public/js/admin_users.js"></script>
+    <link rel="stylesheet" href="../public/css/update.css">
 </head>
 
 <div class="content" style="width: auto;">
@@ -21,7 +22,10 @@ session_start();
         </div>
     <?php endif; ?>
     <?php unset($_SESSION['active_deactive']); ?>
-    <div class="view-tbl" id="result">
+    <div class="update-tbl" id="result">
 
     </div>
+    <div class="footers">
+	 <p>© Tactota Solutions All rights reserved </p>
+      </div>
 </div>
