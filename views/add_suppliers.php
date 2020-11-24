@@ -45,7 +45,12 @@ include 'clerk_sidebar.php';
         <td colspan=2><input type="submit" name="add_supplier" value="Add"></td>
         </tr>
       </tbody>
-   
+   </table>
       </div>
   </form>
+  </div>
+  <div class="footerc">
+			<p>© Tactota Solutions All rights reserved </p>
+      </div>
+</div>
 
