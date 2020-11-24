@@ -294,7 +294,7 @@ class authenitication
        return $this->auth->get_details();
      }
 
-    public function active_user()
+    public function active_user($row)
     {
 
         $row1=$this->auth->get_details_search($row);
@@ -308,6 +308,18 @@ class authenitication
             echo "NOT FOUND";
         }
 
+    }
+  
+    public function admin_active_user($row)
+    {
+        $row1=$this->auth->admin_get_details_search($row);
+        if($row1!=""){
+            $_SESSION['admin_active_user']=$row1;
+            header('location: ../views/users_result.php');
+            //   print_r($row1);
+        }else if($row1==0) {
+            echo "NOT FOUND";
+        }
     }
 
     public function sent_view_profile($id)
