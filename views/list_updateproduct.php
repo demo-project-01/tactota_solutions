@@ -12,11 +12,11 @@ include 'clerk_sidebar.php';
     <div class="search">
         <input type="text" placeholder="Search.." id="search_text">
     </div>
-    <div class="main-container" id="result">
-
+    <div class="update-tbl" id="result">
+     
     </div>
 </div>
-<div class="footerc">
+<div class="footer">
 		<p>© Tactota Solutions All rights reserved </p>
     </div>
 </body>
