@@ -22,7 +22,7 @@ $row= $_SESSION['upadate_profile_view'];
 <link rel="stylesheet" href="../public/css/signup.css">
 <link rel="stylesheet" href="../public/css/style1.css">
 
-<div class="content">
+<div class="content"style="width:auto;">
 <form method="post" action="../controller/authenitication.php?action=update_profile&id=<?php echo $row['emp_id'] ?>">
  <div class="main-container">
   <div class="sub-container">
