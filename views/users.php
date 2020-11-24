@@ -1,43 +1,27 @@
 <?php
-   include 'admin_sidebar.php';
- //  require '../controller/inventory_maintain.php';
-  // $data=new inventory_maintain();
-   //$sql=$data->display_reminders();
-   //print_r($sql);
+require('admin_sidebar.php');
+session_start();
 ?>
-<link rel="stylesheet" href="..public/css/style1.css">
-<div class="content">
-    <h1 id="tbl-heading">Reminder Items</h1>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+    <script src="../public/js/admin_users.js"></script>
+</head>
+
+<div class="content" style="width: auto;">
+
+    <h1 id="tbl-heading">Users</h1>
+
     <div class="search">
-    <input type="text" placeholder="Search..">
-  </div>
-<!--div class="main-container" id="view-tbl">
-        <div class="search">
-            <input type="text" placeholder="Search..">
-        </div-->
-    <!--div class="main-container" id="view-tbl"-->
-    <div class="view-tbl">
-       <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-
-                    <th scope="col" colspan=2 border=0></th>
-                </tr>
-            </thead>
-            <tbody>
-           
-                    <td>Name</td>
-                    <td>Nsnajs</td>
-                    <td><a href><button>View</button></a></td>
-                    <td><a href><button>Delete</button></a></td>
-        
-
-            </tbody>
-       </table>
+        <input type="text" id="search_text" placeholder="Search..">
     </div>
-    <div class="footers">
-			<p>© Tactota Solutions All rights reserved </p>
-      </div>  
+    <?php if(isset($_SESSION['active_deactive'])): ?>
+        <div class="alert" id="activate">
+            <span class="activebtn">&times;</span>
+            <strong><?php echo $_SESSION['active_deactive']; ?></strong>
+        </div>
+    <?php endif; ?>
+    <?php unset($_SESSION['active_deactive']); ?>
+    <div class="view-tbl" id="result">
+
+    </div>
 </div>
