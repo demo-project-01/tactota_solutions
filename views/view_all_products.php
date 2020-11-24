@@ -9,13 +9,13 @@ session_start();
 </head>
 <div class="content" style="width:auto;">
     <h1 id="tbl-heading">View All Products</h1>
+    <div class="new">
+        <a class="add_button" href="newproduct.php">-|- Add new Product</a>
+    </div>
     <div class="search">
         <input type="text" placeholder="Search.."  id="search_text">
     </div>
-    <div>
-        <a class="add_button" href="newproduct.php">-|- Add new Product</a>
-    </div>
-
+   
     <?php if(isset($_SESSION['add_product'])): ?>
         <div class="alert" id="activate">
             <span class="activebtn">&times;</span>
@@ -27,5 +27,8 @@ session_start();
     <div class="view-tbl" id="result">
 
     </div>
+    <div class="footerc">
+			<p>© Tactota Solutions All rights reserved </p>
+      </div> 
 </div>
 
