@@ -54,6 +54,9 @@ $row=$_SESSION['row'];
             </form>
         </table> 
     </div>
+    <div class="footerc">
+			<p>© Tactota Solutions All rights reserved </p>
+      </div>
 </div>
 
 </body>
