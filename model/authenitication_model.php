@@ -109,13 +109,18 @@ class authenitication_model{
     }
 
 
-    public function get_details()
+      public function get_details_search($row)
     {
-        $query = $this->mysqli->query("SELECT e.first_name, e.last_name, user_account.emp_id,username,position,verified FROM user_account INNER JOIN employee AS e ON user_account.emp_id=e.emp_id ORDER BY emp_id ASC");
-        while ($row = $query->fetch_assoc()) {
-            $result[] = $row;
+        $query = $this->mysqli->query("SELECT user_account.emp_id,username,position,verified FROM user_account INNER JOIN employee ON user_account.emp_id=employee.emp_id WHERE position LIKE  '%" . $row . "%' OR username LIKE  '%" . $row . "%' ");
+        if ($query->num_rows > 0) {
+            while ($row = $query->fetch_assoc()) {
+                $result[] = $row;
+            }
+            return $result;
+        }else
+        {
+            return 0;
         }
-        return $result;
     }
 
     public function get_view_details($id){
