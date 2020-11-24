@@ -170,7 +170,7 @@ class inventory_maintain
         return $this->inven->diplay_return_items();
     }
 
-   public function delete_reminder_suppliers($serial_no){   //reshani
+   /*public function delete_reminder_suppliers($serial_no){   //reshani
         $item_status=0;
         $row= $this->inven->delete_reminder_supplier($serial_no,$item_status);
         
@@ -182,7 +182,7 @@ class inventory_maintain
             header('location: ../views/stockreminders.php');
         }
         
-    }
+    }*/
     /*public function delete(){
         header('location: ../views/stockreminders.php');
     }*/
@@ -334,10 +334,10 @@ else if(isset($_GET['action']) && $_GET['action'] == 'display_returnitem_details
 else if(isset($_GET['action']) && $_GET['action'] == 'add_returnitem_details'){  //reshani
     $controller->add_returnitem_details();
 }
-else if(isset($_GET['action']) && $_GET['action'] == 'delete_reminder_suppliers'){  //reshani
+/*else if(isset($_GET['action']) && $_GET['action'] == 'delete_reminder_suppliers'){  //reshani
     $serial_no=$_GET["id"];
     $controller->delete_reminder_suppliers($serial_no);
-}
+}*/
 /*else if(isset($_GET['action']) && $_GET['action'] == 'delete'){  //reshani
     $controller->delete();
   }*/
