@@ -80,19 +80,17 @@ class inventory_maintain_model
         public function get_details1($id){
 
         $query = $this->mysqli->query("SELECT * FROM  supplier INNER JOIN sup_address ON supplier.sup_id=sup_address.sup_id INNER JOIN sup_telephone ON sup_address.sup_id=sup_telephone.sup_id WHERE sup_name LIKE  '%" . $id . "%' OR email_address LIKE  '%" . $id . "%' OR address LIKE  '%" . $id . "%' OR telephone_no   LIKE  '%" . $id . "%'  ");
-        while ($row = $query->fetch_assoc()) {
-            $result[] = $row;
+           if ($query->num_rows > 0) {
+            while ($row = $query->fetch_assoc()) {
+                $result[] = $row;
+            }
+            return $result;
+        }else
+        {
+            return 0;
         }
-        return $result;
     }
-     public function get_details(){
-   
-        $query = $this->mysqli->query("SELECT * FROM  supplier INNER JOIN sup_address ON supplier.sup_id=sup_address.sup_id INNER JOIN sup_telephone ON sup_address.sup_id=sup_telephone.sup_id");
-        while ($row = $query->fetch_assoc()) {
-            $result[] = $row;
-        }
-        return $result;
-    }
+  
 
   public function get_view_details($id){
          $result = "";
@@ -107,20 +105,16 @@ class inventory_maintain_model
     public function get_product_details_search($row){
         //   $result = "";
         $query = $this->mysqli->query("SELECT DISTINCT * FROM  product INNER JOIN supplier_product ON product.p_id=supplier_product.p_id INNER JOIN item ON product.p_id=item.p_id AND product_status=1 WHERE product.p_name LIKE  '%" . $row . "%' OR product.brand_name LIKE  '%" . $row . "%' OR product.model_no LIKE  '%" . $row . "%' ");
-        while ($row = $query->fetch_assoc()) {
-            $result[] = $row;
+        if ($query->num_rows > 0) {
+            while ($row = $query->fetch_assoc()) {
+                $result[] = $row;
+            }
+            return $result;
+        }else
+        {
+            return 0;
         }
-        return $result;
     }  
-
-    public function get_product_details(){
-
-        $query = $this->mysqli->query("SELECT * FROM  product INNER JOIN supplier_product ON product.p_id=supplier_product.p_id INNER JOIN item ON product.p_id=item.p_id ");
-        while ($row = $query->fetch_assoc()) {
-            $result[] = $row;
-        }
-        return $result;
-    }
 
     public function get_view_product_details($id){
        $result = "";
