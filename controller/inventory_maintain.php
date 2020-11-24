@@ -57,23 +57,12 @@ class inventory_maintain
 
           $row1=$this->inven->get_details1($row);
      // print_r($row1);
-        if($row1!=""){
-                $_SESSION['supplier_details']=$row1;
-                header('location: ../views/supplier_details_search.php');
-       //     print_r($row1);
-        }else{
-            $row=$this->inven->get_details();
-            if($row!=""){
-         //       print_r($row);
-                $_SESSION['supplier_details']=$row;
-                header('location: ../views/supplier_details_search.php');
-               // print_r($row);
-            }else if($row==""){
-                //echo "not found";
-               $_SESSION['supplier_details']="Not Found";
-               header('location: ../views/supplier_details_search.php');
-
-            }
+          if($row1!=""){
+            $_SESSION['supplier_details']=$row1;
+            header('location: ../views/supplier_details_search.php');
+            //   print_r($row1);
+        }else if($row1==0) {
+            echo "NOT FOUND";
         }
     }
 
@@ -101,23 +90,12 @@ class inventory_maintain
 
             $row1=$this->inven->get_product_details_search($row);
     //  print_r($row);
-        if($row1!=""){
+       if($row1!=""){
             $_SESSION['update_product']=$row1;
             header('location: ../views/view_all_product_search.php');
-            //     print_r($row1);
-        }else{
-            $row=$this->inven-> get_product_details();
-            if($row!=""){
-                //       print_r($row);
-                $_SESSION['update_product']=$row;
-                header('location: ../views/view_all_product_search.php');
-                // print_r($row);
-            }else if($row==""){
-                //echo "not found";
-                $_SESSION['update_product']="Not Found";
-                header('location: ../views/view_all_product_search.php');
-
-            }
+            //   print_r($row1);
+        }else if($row1==0) {
+            echo "NOT FOUND";
         }
     }
 
