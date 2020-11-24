@@ -2,8 +2,6 @@
 include 'clerk_sidebar.php';
 ?>
 <?php
-session_start();
-$row=$_SESSION['row'];
 ?>
 
 <head>
@@ -12,7 +10,7 @@ $row=$_SESSION['row'];
 </head>
 
 <div class="content" style="width: auto;">
-    <h1 id="tbl-heading">Customer Feedback</h1>
+    <h1 id="tbl-heading">Supplier Reply</h1>
 
     <div class="email-tbl">
         <table class="email">
@@ -40,4 +38,3 @@ $row=$_SESSION['row'];
 </div>
 
 </body>
-
