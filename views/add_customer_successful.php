@@ -21,7 +21,8 @@
 
             </form>
             <br/>
-            <a href="add_customer_details.php" class="next">Back</a>
+           <a href="add_customer_details.php"><input type="submit" value="Back"></a>
+
 
         </div>
     </div>
