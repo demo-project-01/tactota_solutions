@@ -107,11 +107,10 @@ include 'admin_sidebar.php';
   </div>
   <a class="button" href="#" style="float:left;"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
   <a class="button" href="#" style="float:right;"><i class="fa fa-download" aria-hidden="true">&nbsp&nbspDownload Report</i></a>
-  
+  <div class="footer"style="color:#ffffff;">
+	  <p>© Tactota Solutions All rights reserved </p>
 </div>
-<div class="footer">
-	<p>© Tactota Solutions All rights reserved </p>
-</div>
+
 
 
 

@@ -64,7 +64,7 @@ include 'clerk_sidebar.php';
             </tbody>
         </table>
     </div>
-    <div class="footers">
+    <div class="footers"style="color:#ffffff;">
 	 <p>© Tactota Solutions All rights reserved </p>
       </div>
 </div>

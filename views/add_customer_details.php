@@ -59,7 +59,7 @@ print($sql);*/
    </div>
    
   </form>
-  <div class="footers">
+  <div class="footers"style="color:#ffffff;">
 			<p>© Tactota Solutions All rights reserved </p>
     </div>
   </div>

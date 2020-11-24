@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2020 at 06:12 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- Generation Time: Nov 16, 2020 at 06:56 AM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -83,6 +84,16 @@ CREATE TABLE `customer` (
   `address` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`cust_id`, `cust_name`, `email_address`, `address`) VALUES
+('CUST0001', 'shubangi', 'shubangi123@gmail.com', 'rgfueg'),
+('CUST0002', 'reshani', 'reshani123@gmail.com', 'rgfueg'),
+('CUST0003', 'Michelle', 'michelle123@gmail.com', 'jglujgh'),
+('CUST0004', 'Danu', 'danu123@gmail.com', 'hripue[ihncv');
+
 -- --------------------------------------------------------
 
 --
@@ -106,6 +117,16 @@ CREATE TABLE `cust_telephone` (
   `cust_id` varchar(30) NOT NULL,
   `telephone_no` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cust_telephone`
+--
+
+INSERT INTO `cust_telephone` (`cust_id`, `telephone_no`) VALUES
+('CUST0001', '0714526369'),
+('CUST0002', '0714526369'),
+('CUST0003', '0778562369'),
+('CUST0004', '0715963245');
 
 -- --------------------------------------------------------
 
@@ -150,7 +171,13 @@ INSERT INTO `employee` (`emp_id`, `first_name`, `middle_name`, `last_name`, `nic
 ('EMP0020', 'xzczcz', 'cxzczc', 'zxczc', '32432ffd', 'cxzxcz', '', 'Clerk', 324234, '12233'),
 ('EMP0021', 'ewrw', 'wqreq', 'wqrewqr', '43533546', '232dsfsd', '', 'Clerk', 876776, '1234'),
 ('EMP0022', 'ewrw', 'wqreq', 'wqrewqr', '43533546', '232dsfsd', '', 'Clerk', 876776, '1234'),
-('EMP0023', 'ewrw', 'wqreq', 'wqrewqr', '43533546', '232dsfsd', '', 'Clerk', 876776, '1234');
+('EMP0023', 'ewrw', 'wqreq', 'wqrewqr', '43533546', '232dsfsd', '', 'Clerk', 876776, '1234'),
+('EMP0024', 'reshani', 'sdfg', 'dilhari', '974440025v', 'rgfueg', '', 'Clerk', 714455221, '1995/02/02'),
+('EMP0025', 'nuwan', '', 'sasanka', '974525369v', 'gfvljshyudlgrw', '', 'Shopkeeper', 711112220, '1994/10/20'),
+('EMP0026', 'reshani', '', 'dilhari', '974440025v', 'adsfyfvg', '', 'Clerk', 714455221, '1992/5/5'),
+('EMP0027', 'rehani', '', 'dilhari', '974440025v', 'adsfyfvg', '', 'Clerk', 714455221, '1992/5/5'),
+('EMP0028', 'Ashika', '', 'abeysuriya', '974525369v', 'hfbvkjfdvb', '', 'Shopkeeper', 711112220, '1997/5/8'),
+('EMP0029', 'reshani', '', 'dilhari', '974525369v', 'abcd', '', 'Clerk', 714455221, '1995/02/02');
 
 -- --------------------------------------------------------
 
@@ -194,7 +221,11 @@ CREATE TABLE `item` (
 --
 
 INSERT INTO `item` (`serial_no`, `sales_price`, `p_id`, `item_status`) VALUES
+('12#P0027', 100000, 'P0027', '1'),
+('12#P0028', 60000, 'P0028', '1'),
 ('1999', 0, 'P0001', ''),
+('32', 10000, 'P0024', 'active'),
+('56', 500, 'P0025', 'active'),
 ('dfsd', 0, 'P0022', 'active');
 
 -- --------------------------------------------------------
@@ -221,7 +252,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`p_id`, `p_name`, `p_cost`, `brand_name`, `reorder_level`, `model_no`, `quantity`, `warranty`, `product_status`, `product_date`) VALUES
-('P0001', 'dssf', 1999, 'dsfdsfs', 4, 'sdfds', 0, 2, '', '0000-00-00'),
+('P0001', 'sssss', 1999, 'dsfdsfs', 4, 'sdfds', 0, 2, '', '0000-00-00'),
 ('P0002', 'dssf', 1999, 'dsfdsfs', 4, 'sdfds', 0, 2, '', '0000-00-00'),
 ('P0003', 'dssf', 1999, 'dsfdsfs', 4, 'sdfds', 0, 2, '', '0000-00-00'),
 ('P0004', 'dssf', 1999, 'dsfdsfs', 4, 'sdfds', 0, 2, '', '0000-00-00'),
@@ -243,7 +274,12 @@ INSERT INTO `product` (`p_id`, `p_name`, `p_cost`, `brand_name`, `reorder_level`
 ('P0020', 'dssf', 1232, 'dsfdsfs', 4, 'dfafad', 2, 9, 'active', '2020-10-30'),
 ('P0021', 'dssf', 300, 'dsfdsfs', 4, 'dfafad', 121, 9, 'active', '2020-10-30'),
 ('P0022', 'dssf', 0, 'dsfdsfs', 4, 'sdfds', 2, 9, 'active', '2020-10-30'),
-('P0023', 'dssf', 300, 'dsfdsfs', 4, 'dfafad', 2, 9, 'active', '2020-10-30');
+('P0023', 'dssf', 300, 'dsfdsfs', 4, 'dfafad', 2, 9, 'active', '2020-10-30'),
+('P0024', 'laptop', 50000, 'asus', 0, '1234', 5, 3, 'active', '2020-11-09'),
+('P0025', 'mouse', 10000, 'rtyjy', 20, '0112563958', 5, 5, 'active', '2020-11-09'),
+('P0026', 'mouse', 10000, 'rtyjy', 20, '0112563958', 5, 5, 'active', '2020-11-09'),
+('P0027', 'laptop', 85000, 'hp', 2, '123', 5, 3, '1', '2020-11-15'),
+('P0028', 'laptop', 50000, 'lenavo', 2, '12345', 1, 5, '1', '2020-11-15');
 
 -- --------------------------------------------------------
 
@@ -276,18 +312,24 @@ CREATE TABLE `shopkeeper` (
 CREATE TABLE `supplier` (
   `sup_id` varchar(30) NOT NULL,
   `sup_name` varchar(30) NOT NULL,
-  `email_address` varchar(50) NOT NULL
+  `email_address` varchar(50) NOT NULL,
+  `active_status` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `supplier`
 --
 
-INSERT INTO `supplier` (`sup_id`, `sup_name`, `email_address`) VALUES
-('SUP0001', 'ghgjkj', 'tosee497@gmail.com'),
-('SUP0002', 'vinu', 'mnjrathnayaka97@yahoo.com'),
-('SUP0003', 'van', '2018cs133@stu.ucsc.cmb.ac.lk'),
-('SUP0004', 'janith affafa', 'tose7@gmail.com');
+INSERT INTO `supplier` (`sup_id`, `sup_name`, `email_address`, `active_status`) VALUES
+('', '', '', '1'),
+('SUP0001', 'ghgjkj', 'tosee497@gmail.com', '0'),
+('SUP0002', 'vinu', 'mnjrathnayaka97@yahoo.com', '0'),
+('SUP0003', 'van', '2018cs133@stu.ucsc.cmb.ac.lk', '0'),
+('SUP0004', 'janith affafa', 'tose7@gmail.com', '0'),
+('SUP0005', 'abc', 'era123@gmail.com', '0'),
+('SUP0006', 'fxf', 'ridmi@gmail.com', '0'),
+('SUP0007', 'reshani', 'resh123@gmail.com', '0'),
+('SUP0008', 'eranga', 'abc@gmail.com', '1');
 
 -- --------------------------------------------------------
 
@@ -305,7 +347,12 @@ CREATE TABLE `supplier_product` (
 --
 
 INSERT INTO `supplier_product` (`sup_id`, `p_id`) VALUES
-('SUP0003', 'P0023');
+('SUP0002', 'P0024'),
+('SUP0003', 'P0023'),
+('SUP0005', 'P0025'),
+('SUP0005', 'P0026'),
+('SUP0008', 'P0027'),
+('SUP0008', 'P0028');
 
 -- --------------------------------------------------------
 
@@ -326,7 +373,11 @@ INSERT INTO `sup_address` (`sup_id`, `address`) VALUES
 ('SUP0001', '2123dd'),
 ('SUP0002', 'van'),
 ('SUP0003', '2344dfsfs'),
-('SUP0004', 'asfsaf');
+('SUP0004', 'asfsaf'),
+('SUP0005', 'jglujgh'),
+('SUP0006', 'fgcfhc'),
+('SUP0007', 'FVFHDFVBIS'),
+('SUP0008', 'abcd,colombo 10');
 
 -- --------------------------------------------------------
 
@@ -347,7 +398,11 @@ INSERT INTO `sup_telephone` (`sup_id`, `telephone_no`) VALUES
 ('SUP0001', '07835327'),
 ('SUP0002', 'adff'),
 ('SUP0003', '07832451'),
-('SUP0004', '9907297221');
+('SUP0004', '9907297221'),
+('SUP0005', '0412255663'),
+('SUP0006', '0714455221'),
+('SUP0007', '0714455221'),
+('SUP0008', '0742563981');
 
 -- --------------------------------------------------------
 
@@ -371,6 +426,7 @@ CREATE TABLE `user_account` (
 INSERT INTO `user_account` (`emp_id`, `username`, `password`, `email`, `verified`, `token`) VALUES
 ('EMP0008', 'admin', '9927404cdb6613495aef0ea69b8f9b23', 'mnjrathnayaka97@gmail.com', 0, ''),
 ('EMP0015', 'admin1234', '827ccb0eea8a706c4c34a16891f84e7b', 'xxdsdx@gmail.com', 0, ''),
+('EMP0028', 'Ashika', '07c5152932a3c8aead3a2e83174cea34', 'ashikaabeysuriya456@gmail.com', 0, '11de70e86edd7a0c17a3407eac46777314c574fd0b4519ab6fa9f0d6ac3b0af813f841a1eb9133b01c7e4ae92c9a11b9499d'),
 ('EMP0007', 'ben', '9927404cdb6613495aef0ea69b8f9b23', '2018cs133@stu.ucsc.cmb.ac.lk', 0, ''),
 ('EMP0012', 'bus', '827ccb0eea8a706c4c34a16891f84e7b', 'qqq@yahoo.com', 0, ''),
 ('EMP0005', 'ccc', '202cb962ac59075b964b07152d234b70', 'ccdd@gmail.comm', 0, ''),
@@ -383,7 +439,10 @@ INSERT INTO `user_account` (`emp_id`, `username`, `password`, `email`, `verified
 ('EMP0018', 'fdfdf', '827ccb0eea8a706c4c34a16891f84e7b', 'toseev@gmail.com', 0, ''),
 ('EMP0016', 'good', '827ccb0eea8a706c4c34a16891f84e7b', 'cdda@gmail.com', 0, ''),
 ('EMP0011', 'hi', '827ccb0eea8a706c4c34a16891f84e7b', 'van@gmail.com', 0, ''),
+('EMP0025', 'nuwan', '4e2c0568628fd242d542b786c77b7a47', 'nuwa@123gmail.com', 0, '9871133a7e84364acf00182dd471ab1e633504af1fc1bbecaa9021065621bf6deda67e959363b52d7fcade687a6c04f5dbce'),
 ('EMP0020', 'qwe', '827ccb0eea8a706c4c34a16891f84e7b', 'gggh@gmail.com', 0, 'e4254deafb647c16e06f1bc203155ecf9f5c6baf1a177fb03e89748287bbd66c5132f2dc4ce3c6a82fa436e9be1c23a64403'),
+('EMP0027', 'rehani', '28d71acde09e62d35419c1fb42d6758d', 'rehanidilhari@gmail.com', 0, 'cbf1440233da4d4f0c80b05c4b8d6d64aad3224a113d63b9eb2570586babd6e324048ab24e8c3337f8bf3003405f094bc9a0'),
+('EMP0029', 'reshani', '4c1736c9542990fcd28bc169602120e8', 'reshanidilhari97@gmail.com', 1, '6171664e80fbf79ed3701db030726baadf6d7c4e9739d95ac864bd9c87c4985fabe01e150953fb1391ada913bb9fd18ea546'),
 ('EMP0013', 'son', '827ccb0eea8a706c4c34a16891f84e7b', 'mnjrathnak11a@gmail.com', 0, ''),
 ('EMP0010', 'tosee', '827ccb0eea8a706c4c34a16891f84e7b', 'admin@gmail.com', 0, ''),
 ('EMP0006', 'unguardable', '81dc9bdb52d04dc20036dbd8313ed055', 'mnjrathnaka@gmail.com', 0, ''),

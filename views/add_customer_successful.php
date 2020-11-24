@@ -26,7 +26,7 @@
 
         </div>
     </div>
-    <div class="footer">
+    <div class="footer"style="color:#ffffff;">
         <p>© Tactota Solutions All rights reserved </p>
     </div>
 </div>
