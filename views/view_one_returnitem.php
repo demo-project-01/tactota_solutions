@@ -11,7 +11,7 @@ $row= $_SESSION['return_item'];
 </head>
 
   <div class="content"style="width:auto;">
-  <h1 id="tbl-heading"> Return Item Details</h1>
+  <h1 id="tbl-heading"> Shop Return Item Details</h1>
  
   <div class="update-tbl">
     <table>
