@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 $sql=$_SESSION['update_product'];
 ?>
@@ -28,7 +27,7 @@ foreach ($sql as $k => $v)
                     <td><?php echo $sql[$k]["quantity"] ?></td>
                     <td><?php echo $sql[$k]["p_cost"] ?></td>
                     <td>
-                        <a href="../controller/inventory_maintain.php?action=view_product_details&id=<?php  echo $sql[$k]["p_id"]; ?>" class="view"><button>View</button></a>
+                        <a href="../controller/inventory_maintain.php?action=view_product_details&id=<?php  echo $sql[$k]["p_id"]; ?>" title="view"><i class="fa fa-eye" aria-hidden="true">&nbsp&nbspView</i> </a>
                     </td>
 
                 </tr>
@@ -38,4 +37,4 @@ foreach ($sql as $k => $v)
             </tbody>
         </table>
 
--->
+
