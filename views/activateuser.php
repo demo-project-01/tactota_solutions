@@ -2,8 +2,11 @@
 include 'clerk_sidebar.php';
 
 ?>
+<head>
+<link rel="stylesheet" href="../public/css/update.css">
+</head>
   
-<div class="content">
+<div class="content"style="width:auto;">
   
   <h1 id="tbl-heading"> Activate Users</h1>
   
@@ -12,7 +15,7 @@ include 'clerk_sidebar.php';
     </div>
   
 
-  <div class="view-tbl">
+  <div class="update-tbl">
     <table>
       <thead>
         <tr>
@@ -33,7 +36,7 @@ include 'clerk_sidebar.php';
                 <span class="slider round"></span>
               </label>
           </td>
-          <td><button class="view">View</button> 
+          <td><a href="#" title="view"><i class="fa fa-eye" aria-hidden="true">&nbsp&nbspView</i></a> </td>
         </tr>
         <tr>
           <td>mish001</td>
@@ -44,7 +47,7 @@ include 'clerk_sidebar.php';
                 <span class="slider round"></span>
               </label>
           </td>
-          <td><button class="view">View</button> 
+          <td><a href="#" title="view"><i class="fa fa-eye" aria-hidden="true">&nbsp&nbspView</i></a> </td>
         </tr>
         <tr>
           <td>mish001</td>
@@ -55,7 +58,7 @@ include 'clerk_sidebar.php';
                 <span class="slider round"></span>
               </label>
           </td>
-          <td><button class="view">View</button> 
+          <td><a href="#" title="view"><i class="fa fa-eye" aria-hidden="true">&nbsp&nbspView</i></a> </td>
         </tr>
         <tr>
           <td>mish001</td>
@@ -66,7 +69,7 @@ include 'clerk_sidebar.php';
                 <span class="slider round"></span>
               </label>
           </td>
-          <td><button class="view">View</button> 
+          <td><a href="#" title="view"><i class="fa fa-eye" aria-hidden="true">&nbsp&nbspView</i></a> </td> 
         </tr>
         <tr>
           <td>mish001</td>
@@ -77,7 +80,7 @@ include 'clerk_sidebar.php';
                 <span class="slider round"></span>
               </label>
           </td>
-          <td><button class="view">View</button> 
+          <td><a href="#" title="view"><i class="fa fa-eye" aria-hidden="true">&nbsp&nbspView</i></a> </td>
         </tr>
         <tr>
           <td>mish001</td>
@@ -88,7 +91,7 @@ include 'clerk_sidebar.php';
                 <span class="slider round"></span>
               </label>
           </td>
-          <td><button class="view">View</button> 
+          <td><a href="#" title="view"><i class="fa fa-eye" aria-hidden="true">&nbsp&nbspView</i></a> </td> 
         </tr>
         <tr>
           <td>mish001</td>
@@ -99,7 +102,7 @@ include 'clerk_sidebar.php';
                 <span class="slider round"></span>
               </label>
           </td>
-          <td><button class="view">View</button> 
+          <td><a href="#" title="view"><i class="fa fa-eye" aria-hidden="true">&nbsp&nbspView</i></a> </td> 
         </tr><tr>
           <td>mish001</td>
           <td>mish</td>
@@ -109,27 +112,16 @@ include 'clerk_sidebar.php';
                 <span class="slider round"></span>
               </label>
           </td>
-          <td><button class="view">View</button> 
+          <td><a href="#" title="view"><i class="fa fa-eye" aria-hidden="true">&nbsp&nbspView</i></a> </td>
         </tr>
       </tbody>
     </table> 
   </div>
+  <div class="footer">
+			<p>© Tactota Solutions All rights reserved </p>
+      </div>
 </div>
 </body>
 
-  <!-- php //if(count($user)): ?>
-      php //foreach($person as $user): ?>
-      <tr>
-        <td>php// echo $person->emp_id; ?></td>
-        <td>php //echo $person->username; ?></td>
-        <td>php //echo $person->job_position; ?></td>
-        <
-        <td>
-      </tr>
-      php //endforeach; ?>
-      php //else: ?>
-        <tr>
-          <td>No Records Found !</td>
-        </tr>
-      php// endif; ?> -->
+  
       
