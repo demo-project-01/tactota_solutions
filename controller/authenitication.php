@@ -297,7 +297,17 @@ class authenitication
     public function active_user()
     {
 
-       return $this->auth->get_details();
+        $row1=$this->auth->get_details_search($row);
+    //    $row2=$this->auth-> get_details();
+    //            print_r($row1);
+        if($row1!=""){
+            $_SESSION['active_user']=$row1;
+           header('location: ../views/clerk_users_result.php');
+            //   print_r($row1);
+        }else if($row1==0) {
+            echo "NOT FOUND";
+        }
+
     }
 
     public function sent_view_profile($id)
