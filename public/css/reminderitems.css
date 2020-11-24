@@ -63,6 +63,7 @@ th{
 }
 .footerc{
     text-align: center;
+ 
     width:105%;
     background:#2f323a;
     height:37px;
@@ -70,8 +71,12 @@ th{
     margin-left: -2%;
     margin-top:280px ;
 }
+p{
+    padding-top: 1.2%;
+  }
 .footerh{  /*return item*/
     text-align: center;
+   
     width:105%;
     background:#2f323a;
     height:37px;
