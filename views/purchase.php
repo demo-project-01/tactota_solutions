@@ -8,14 +8,18 @@ $sql=$data->valid_prodcuts();
 //print_r($sql);
 ?>
 
-<div class="content">
+    <head>
+    <link rel="stylesheet" href="../public/css/update.css"> 
+    </head>
 
-    <div class="main-container" id="view-tbl">
+<div class="content"style="width:auto;">
+<h1 id="tbl-heading"> Purchase</h1>
+    <!--div class="update-tbl"-->
         <div class="search">
             <input type="text" placeholder="Search..">
-        </div>
+        <!--/div-->
     </div>
-    <div class="main-container" id="view-tbl">
+    <div class="update-tbl">
         <table>
             <thead>
             <tr>
@@ -47,7 +51,7 @@ $sql=$data->valid_prodcuts();
                     <td><?php echo $sql[$k]["warranty"] ?>
                     <td><?php echo $sql[$k]["p_cost"] ?>
                     <td><?php echo $sql[$k]["sales_price"] ?>
-                    <td><a href="../controller/sales.php?action=sell&id=<?php  echo $sql[$k]["p_id"]; ?>" class="view"><button>View</button></a>
+                    <td><a href="../controller/sales.php?action=sell&id=<?php  echo $sql[$k]["p_id"]; ?>" title="view"><i class="fa fa-eye" aria-hidden="true">&nbsp&nbspView</i></a>
 
 
                 </tr>
@@ -59,6 +63,9 @@ $sql=$data->valid_prodcuts();
 
         </table>
     </div>
+</div>
+<div class="footerc">
+	<p>© Tactota Solutions All rights reserved </p>
 </div>
 </div>
 </body>
