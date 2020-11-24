@@ -55,7 +55,7 @@ include 'shopkeeper_sidebar.php';
 </table>
 </div>
    </div>
-    <div class="footerc">
+    <div class="footerc"style="color:#ffffff;">
 			<p>© Tactota Solutions All rights reserved </p>
       </div>  
 </div>

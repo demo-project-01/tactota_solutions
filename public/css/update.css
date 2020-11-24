@@ -87,8 +87,12 @@ input[type="submit"] {
 .add_button:hover{
     background-color:#007042;
 }
+p{
+    padding-top: 1.2%;
+  }
 .footerc{   /*reshani*/
     text-align: center;
+    
     width:105%;
     background:#2f323a;
     height:37px;
