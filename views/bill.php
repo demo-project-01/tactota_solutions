@@ -3,6 +3,8 @@ include 'clerk_sidebar.php';
 require '../controller/sales.php';
 $data=new sales();
 $sql=$data->get_product_details();
+session_start();
+$row=$_SESSION['get_bill_no'];
 ?>
 
   <link rel="stylesheet" href="../public/css/bill.css">
