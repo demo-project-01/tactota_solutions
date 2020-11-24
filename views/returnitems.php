@@ -12,7 +12,7 @@
     <h1 id="tbl-heading">Return Items</h1><br/>
     <div class="new">
     <a class="add_button" href="view_one_returnitem.php">Shop Return Items</a>
-    <a class="add_button" href="view_one_returnitem.php">Customer Return Items</a>
+    <a class="add_button" href="view_one_customer_returnitem.php">Customer Return Items</a>
     </div>
     <div class="search">
     <input type="text" placeholder="Search..">
