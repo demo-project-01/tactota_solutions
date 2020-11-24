@@ -48,6 +48,11 @@ include 'clerk_sidebar.php';
       </tr>
     </tbody>
     </table>
+    </div>
+    <div class="footerc">
+	 <p>© Tactota Solutions All rights reserved </p>
+      </div>
+   
    </body>
    </html>
    
