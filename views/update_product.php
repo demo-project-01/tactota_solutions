@@ -1,6 +1,6 @@
 <?php
 include 'clerk_sidebar.php';
-require '../controller/inventory_maintain.php';
+//require '../controller/inventory_maintain.php';
 
 ?>
 <?php
