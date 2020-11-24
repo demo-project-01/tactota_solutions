@@ -21,6 +21,9 @@ Add new Suppliers</a>
    <div class="view-tbl" id="result">
 
     </div>
+    <div class="footer">
+	<p>© Tactota Solutions All rights reserved </p>
+   </div>
 </div>
 </body>
 
