@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="..public/css/style1.css">
 <link rel="stylesheet" href="../public/css/update.css">
 <link rel="stylesheet" href="../public/css/report.css">
-<div class="content">
+<div class="content"style="width:auto;">
 
 
 
