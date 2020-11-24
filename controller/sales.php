@@ -72,6 +72,14 @@ class sales
         $_SESSION['dashbord_search']=$row;
         header('location: ../views/search_product_result.php');
     }
+    public function bill_no() //nuwans
+    {
+       //$row=$this->sale->get_bill_number();
+       $row=$this->sale->cust_id();
+        $_SESSION['get_bill_no']=$row;
+     //print_r($row);
+        header('location: ../views/bill.php');
+    }
     
       public function add_bill(){ //nuwan
 
@@ -138,5 +146,7 @@ if(isset($_GET['action']) && $_GET['action'] == "get_supplier_names") {
      $id=$_GET['id'];
      $model=$_GET['id1'];
     $controller->view_search_product($id,$model);
+}else if(isset($_GET['action']) && $_GET['action'] == 'get_bill_no') {//nuwan
+    $controller->bill_no();
 }
 
