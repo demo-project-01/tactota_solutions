@@ -63,7 +63,7 @@ $sql=$data->valid_prodcuts();
 
         </table>
     </div>
-</div>
+
 <div class="footerc"style="color:#ffffff;">
 	<p>© Tactota Solutions All rights reserved </p>
 </div>

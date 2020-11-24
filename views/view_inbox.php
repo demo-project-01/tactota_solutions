@@ -35,6 +35,7 @@ include 'clerk_sidebar.php';
             </form>
         </table> 
     </div>
+    
 </div>
 
 </body>

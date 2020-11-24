@@ -15,10 +15,12 @@ include 'clerk_sidebar.php';
     <div class="update-tbl" id="result">
      
     </div>
-</div>
+
 <div class="footer"style="color:#ffffff;">
 		<p>© Tactota Solutions All rights reserved </p>
     </div>
+    </div> 
+
 </body>
 
 
