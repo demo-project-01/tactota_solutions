@@ -159,6 +159,25 @@ class sales_model
         return $result;
     }
 
+     public function get_bill_number(){
+        $result = "";
+        $query = $this->mysqli->query("SELECT * from bill order by bill_no desc LIMIT 1");
+        if ($query->num_rows > 0) {
+            while ($row = $query->fetch_assoc()) {
+                $result = $row['bill_no'];
+            }
+
+            $result = substr($result, 3, 5);
+            $result = (int) $result + 1;
+            $result = "B" . sprintf('%04s', $result);
+            return $result;
+        }else
+        {
+            $result = "B0001";
+
+            return $result;
+        }
+    }
 
 
 }
