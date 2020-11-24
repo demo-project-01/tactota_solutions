@@ -25,7 +25,5 @@ session_start();
     <div class="update-tbl" id="result">
 
     </div>
-    <div class="footers">
-	 <p>© Tactota Solutions All rights reserved </p>
-      </div>
+
 </div>
