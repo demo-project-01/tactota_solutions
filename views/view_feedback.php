@@ -1,29 +1,43 @@
 <?php
-include 'dash.php';
-
+include 'clerk_sidebar.php';
+?>
+<?php
+session_start();
+$row=$_SESSION['row'];
 ?>
 
-  <link rel="stylesheet" href="../public/css/bill.css">
-  <link rel="stylesheet" href="../public/css/style1.css">
-  <link rel="stylesheet" href="../public/css/view_user.css">
+<head>
+<link rel="stylesheet" href="../public/css/update.css">
+<link rel="stylesheet" href="../public/css/email.css">
+</head>
 
-  <div class="content" style="width:auto;">
-  
-  <!--div class="main-box"-->
-  <div class="row">
-    <div class="col-10">
-  <div class="lbl2"><b>From</b></div>
+<div class="content" style="width: auto;">
+    <h1 id="tbl-heading">Customer Feedback</h1>
+
+    <div class="email-tbl">
+        <table class="email">
+            <form action="" method="post">
+            <tbody>
+                <tr id="email-tr">
+                    <td class="bold">From</td>
+                    <td><input id="email-text" type="text" name="to" placeholder=""/></td>
+                </tr>
+              
+                <tr id="email-tr">
+                    <td class="bold">Message</td>
+                    <td><textarea id="email-textarea" name="message" placeholder="" rows=4 cols=60></textarea></td>
+                </tr>
+                <tr id="email-tr">
+                    <td colspan=2>
+                        <a class="add_button" href="#" ><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp&nbspClear</a>
+                    </td>
+                </tr>
+
+            </tbody>
+            </form>
+        </table> 
     </div>
-    <div class="col-75">
-    <textarea id="email" name="email"></textarea>
-    </div>
-          </div>
-     <br><br><br>
-         <textarea id="email" name="email" height="800px" width="600px"></textarea>
-<!--/div-->
+</div>
 
-
-
- 
-    </div>
 </body>
+
