@@ -40,12 +40,12 @@ $row= $_SESSION['reminderitem_suppliers'];
     <td><?php echo $row["sup_name"] ?></td>
     <td><?php echo $row["address"] ?></td>
     <td><?php echo $row["p_cost"] ?></td>
-    <td><a href = "email.php"  title="view"><i class="fa fa-eye" aria-hidden="true">&nbsp&nbspView</i> </td>
+    <td><a href = "email.php"  title="view"><i class="fa fa-eye" aria-hidden="true">&nbsp&nbspView</i> </td><?php }?>
     <!--?php
     foreach ($sql as $k => $v){
 
     {?-->
-    <td><a href="../controller/inventory_maintain.php?action=delete_reminder_suppliers&id=<?php echo str_replace('#','%23',$row["serial_no"]); ?>" title="delete"><i class="fa fa-trash-o" aria-hidden="true">&nbsp&nbspDelete</i></a></td><?php }?>
+    <!--td><a href="../controller/inventory_maintain.php?action=delete_reminder_suppliers&id=<!-?php echo str_replace('#','%23',$row["serial_no"]); ?>" title="delete"><i class="fa fa-trash-o" aria-hidden="true">&nbsp&nbspDelete</i></a></td-->
     
     
   <!--?php  $row["active_status"]=='0' ;?-->
