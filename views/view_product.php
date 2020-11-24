@@ -2,6 +2,9 @@
 include 'clerk_sidebar.php';
 
 ?>
+<head>
+<link rel="stylesheet" href="../public/css/update.css">
+</head>
   <div class="content" style="width:auto;">
   <h1 id="tbl-heading"> View Product</h1>
   
@@ -10,7 +13,7 @@ include 'clerk_sidebar.php';
   </div>
 
 
-<div class="view-tbl">
+<div class="update-tbl">
       <table>
         <thead>
           <tr>
@@ -29,34 +32,19 @@ include 'clerk_sidebar.php';
             <td>hp</td>
             <td>Unity Solutions</td>
             <td>Rs.500.00</td>
-            <td><button class="view">View</button> </td>
-            <td><button class="update">Update</button> </td>
-            <td><button class="delete">Delete</button> </td>
+            <td><a href ="#" title="View"><i class="fa fa-eye" aria-hidden="true">&nbsp&nbspView</i></a> </td>
+            <td><a href ="#" title="Update"><i class="fa fa-pencil" aria-hidden="true">&nbsp&nbspUpdate</i></a></td>
+            <td><a href ="#" title="Delete"><i class="fa fa-trash" aria-hidden="true">&nbsp&nbspDelete</i></a></td>
           </tr> <tr>
             <td>p001</td>
             <td>keyboard</td>
             <td>hp</td>
             <td>Unity Solutions</td>
             <td>Rs.500.00</td>
-            <td><button class="view">View</button> </td>
-            <td><button class="update">Update</button> </td>
-            <td><button class="delete">Delete</button> </td>
+            <td><a href ="#" title="View"><i class="fa fa-eye" aria-hidden="true">&nbsp&nbspView</i></a> </td>
+            <td><a href ="#" title="Update"><i class="fa fa-pencil" aria-hidden="true">&nbsp&nbspUpdate</i></a></td>
+            <td><a href ="#" title="Delete"><i class="fa fa-trash" aria-hidden="true">&nbsp&nbspDelete</i></a></td>
           </tr>
-  <!-- php //if(count($user)): ?>
-      php //foreach($person as $user): ?>
-      <tr>
-        <td>php// echo $person->emp_id; ?></td>
-        <td>php //echo $person->username; ?></td>
-        <td>php //echo $person->job_position; ?></td>
-        <
-        <td>
-      </tr>
-      php //endforeach; ?>
-      php //else: ?>
-        <tr>
-          <td>No Records Found !</td>
-        </tr>
-      php// endif; ?> -->
       </tbody>
   </table> 
       </div>
