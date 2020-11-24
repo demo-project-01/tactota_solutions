@@ -81,7 +81,7 @@ class inventory_maintain
          print_r($row['telephone_no']);
         */
         $_SESSION['supplier_profile_details'] = $row;
-        header('location: ../views/view_one_supplier.php');
+        header('location: ../views/supplier_profile.php');
 
     }
 
