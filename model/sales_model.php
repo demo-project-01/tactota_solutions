@@ -92,47 +92,38 @@ class sales_model
      }
     
      
-    public function add_bill($id,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no){ //nuwan
-    
-        $stmt = $this->mysqli->query("INSERT INTO bill (bill_no,date_time,amount,payment_method,emp_id,cust_id)
-        VALUES (?,?,?,?,?)");
+    public function insert_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no,$email_address,$address){ //nuwan
+        $stmt=$this->mysqli->prepare("INSERT INTO customer(cust_id,cust_name,email_address,cust_address)
+        VALUES (?,?,?,?)");
+ 
+    $stmt->bind_param('ssss',$cust_id,$cust_name,$email_address,$address);
+    $stmt->execute();
 
-
-      $stmt->bind_param('ssss',$bill_no,$date,$amountt,$payment_method,$id,$cust_id);
-      $stmt->execute();
-        $stmt1 = $this->mysqli->prepare("INSERT INTO  customer(cust_id,cust_name,email_address,address)
-                                VALUES (?,?,?,?)");
-
-        $stmt1->bind_param('ssss',$cust_id,$cust_name,$emai_address,$address);
-        $stmt1->execute();
-
-
-         $stmt2 = $this->mysqli->prepare("INSERT INTO  cheque(bill_no,cheque_id,recived_date,due_date,bank_name)
-         VALUES (?,?,?,?,?)");
-
-        $stmt2->bind_param('sssss',$bill_no,$cheque_id,$recived_date,$due_date,$bank_name);
-        $stmt2->execute();
-
-         $stmt3= $this->mysqli->prepare("INSERT INTO  cust_telephone(cust_id,telephone_no)
+    $stmt1= $this->mysqli->prepare("INSERT INTO  cust_telephone(cust_id,telephone_no)
          VALUES (?,?)");
 
-         $stmt3->bind_param('ss',$cust_id,$telephone_no);
-         $stmt3->execute();
+         $stmt1->bind_param('ss',$cust_id,$telephone_no);
+         $stmt1->execute();
+     
+         $stmt2 = $this->mysqli->prepare("INSERT INTO bill (bill_no,date_time,amount,payment_method,emp_id) VALUES (?,?,?,?,?)");
+      $stmt2->bind_param('sssss',$bill_no,$date_time,$amount,$payment_method,$id);
+    $stmt2->execute();
+    
+      $stmt3 = $this->mysqli->prepare("INSERT INTO  cheque(bill_no,cheque_id,received_date,due_date,bank_name)
+      VALUES (?,?,?,?,?)");
 
-         $stmt4= $this->mysqli->prepare("INSERT INTO  purchase(bill_no,serial_no,cust_id)
-         VALUES (?,?,?)");
+     $stmt3->bind_param('sssss',$bill_no,$cheque_no,$recived_date,$due_date,$bank_name);
+     $stmt3->execute();
 
-         $stmt4->bind_param('sss',$bill_no,$serial_no,$cust_id);
-         $stmt4->execute();
+    $stmt4= $this->mysqli->prepare("INSERT INTO  purchase(bill_no,serial_no,cust_id)
+     VALUES (?,?,?)");
 
-
-
-
-       
+     $stmt4->bind_param('sss',$bill_no,$serial_no,$cust_id);
+     return $stmt4->execute();    
      
     }
 
-    public function cust_id(){ //nuwan
+    public function get_cust_id(){ //nuwan
         $query = $this->mysqli->query("SELECT * from customer order by cust_id desc LIMIT 1");
         if ($query->num_rows > 0) {
             while ($row = $query->fetch_assoc()) {
@@ -151,15 +142,9 @@ class sales_model
         }
     }
     
-      public function get_product(){//nuwan
-        $query = $this->mysqli->query("SELECT item.serial_no,product.p_id,product.p_name,product.brand_name,product.model_no,product.warranty,item.sales_price FROM product INNER JOIN item ON product.p_id=item.p_id");
-        while ($row = $query->fetch_assoc()) {
-            $result[] = $row;
-        }
-        return $result;
-    }
+     
 
-     public function get_bill_number(){
+     public function get_bill_no(){
         $result = "";
         $query = $this->mysqli->query("SELECT * from bill order by bill_no desc LIMIT 1");
         if ($query->num_rows > 0) {
@@ -178,6 +163,25 @@ class sales_model
             return $result;
         }
     }
+   public function get_product(){//nuwan
+    
+        $query = $this->mysqli->query("SELECT item.serial_no,product.p_id,product.p_name,product.brand_name,product.model_no,product.warranty,item.sales_price FROM product INNER JOIN item ON product.p_id=item.p_id");
+        while ($row = $query->fetch_assoc()) {
+            $result[] = $row;
+        }
+        return $result;
+    }
 
+    public function product_id($serial_no){ //nuwan new
+        $query = $this->mysqli->query("SELECT p_id from item WHERE serial_no='" . $serial_no . "'");
+  
+    }
+    public function get_emp_id(){
+        $query = $this->mysqli->query("SELECT emp_id from employee order by emp_id desc LIMIT 1");
+        while ($row = $query->fetch_assoc()) {
+            $result = $row['emp_id'];
+        }
+      return $result;
+    }
 
 }
