@@ -72,19 +72,17 @@ class sales
         $_SESSION['dashbord_search']=$row;
         header('location: ../views/search_product_result.php');
     }
-    public function bill_no() //nuwans
+  public function get_bill_no() //nuwans
     {
-       //$row=$this->sale->get_bill_number();
-       $row=$this->sale->cust_id();
-        $_SESSION['get_bill_no']=$row;
-     //print_r($row);
-        header('location: ../views/bill.php');
+       $row=$this->sale->get_bill_no();
+       return $row;
+     
     }
     
       public function add_bill(){ //nuwan
 
-        
-        $bill_no= $_POST['bill_no'];
+        $id= $this->sale->get_emp_id();
+        $bill_no= $this->sale->get_bill_no();
         $date_time = $_POST['date_time'];
         $amount = $_POST['amount'];
         $cust_name = $_POST['cust_name'];
@@ -97,13 +95,14 @@ class sales
         $cheque_no = $_POST['cheque_no'];
         $recived_date = $_POST['recived_date'];
         $due_date = $_POST['due_date'];
-        //$product_date=date("Y-m-d");
-        $product_id = $this->sale->get_product_id();
+        $product_id = $this->sale->product_id($serial_no); //new
+        $cust_id= $this->sale->get_cust_id();
      
-     if($this->sale->add_bill($id,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no)){
-            header('location: ../views/bill.php');
-        }else{
-                echo "empty";
+     if($this->sale->insert_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no,$email_address,$address)){
+         header('location: ../views/bill.php');
+        }
+        else{
+                echo "error";
         }
 
     }
@@ -147,6 +146,6 @@ if(isset($_GET['action']) && $_GET['action'] == "get_supplier_names") {
      $model=$_GET['id1'];
     $controller->view_search_product($id,$model);
 }else if(isset($_GET['action']) && $_GET['action'] == 'get_bill_no') {//nuwan
-    $controller->bill_no();
+    $controller->get_bill_no();
 }
 
