@@ -59,7 +59,7 @@ $row= $_SESSION['reminderitem_suppliers'];
   </tbody>
   </table> 
       </div>
-      <div class="footerh"style="color:#ffffff;">
+      <div class="footerh">
 			<p>© Tactota Solutions All rights reserved </p>
       </div>
     </div>

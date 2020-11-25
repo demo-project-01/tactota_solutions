@@ -18,10 +18,10 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     color: black;
   
   }*/
-  .content{
-    background-color: #c8cf94;
+  /*.content{
+    background-color: white;
 
-  }
+  }*/
   .subcontent{
     
     margin-top: 5px;
@@ -40,11 +40,14 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     box-sizing: content-box;
     font-family: 'Montserrat', sans-serif;
   }
-  .view{
+  .views{
     margin-left: 60px;
     font-size: 22px;
     color: white;
     font-family: 'Times New Roman', Times, serif;
+  }
+  .buttons{
+     background-color:#3b503d ;
   }
   
 
@@ -60,7 +63,9 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
    
 
   .list_wrap{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: gray(56, 53, 53);
+    box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
     border-radius: 5px;
     margin-left: 900px;  /*modifed*/
     background: darkblue(0,0,0,0.4);
@@ -73,7 +78,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   }
 
   .list_wrap ul li{
-    background:#007042;
+    background:#3b503d;
     margin-top: 2px;
     margin-left: 50px;
     margin-bottom: 10px;
@@ -95,17 +100,24 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   }
  
   .dash1{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: black;
+    
+    background-color: gray(56, 53, 53);
+    box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
     border-radius: 5px;
     width: 300px;    /*modifed*/
-  height: 200px;   /*modifed*/
-  margin-top: 30px;  /*modifed*/
-  margin-left: 60px;  /*modifed*/
+    height: 200px;   /*modifed*/
+    margin-top: 30px;  /*modifed*/
+    margin-left: 60px;  /*modifed*/
     
   }
 
   .dash2{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: black;
+    background-color:  gray(56, 53, 53);
+    box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
     border-radius: 5px;
    width: 300px;   /*modifed*/
   height: 200px;  /*modifed*/
@@ -115,13 +127,18 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
    
  .dash{
    font-size: 25px;  /*modifed*/
-  padding-top: 70px;  /*modifed*/
-  text-align: center;
+   margin-left: 8%;
+  padding-top: 30px;  /*modifed*/
+  
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;  /*modifed*/
   }
   
   .dash3{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: black;
+    background-color: gray(56, 53, 53);
+    box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;
+   
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
     border-radius: 5px;
     width: 300px;  /*modifed*/
   height: 200px;  /*modifed*/
@@ -130,7 +147,11 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   }
 
   .dash4{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: black;
+    background-color: gray(56, 53, 53);
+    box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;
+  
+   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
     border-radius: 5px;
     width: 300px;  /*modifed*/
   height: 200px;  /*modifed*/
@@ -151,6 +172,12 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   margin-top: 250px;   /*modified*/
   margin-left: -2%;
   } 
+  .icon-right{
+    opacity: 0.2;
+    color: rgb(28, 43, 28);
+    margin-left: 65%;
+    margin-top: -12%;
+  }
     
 
 

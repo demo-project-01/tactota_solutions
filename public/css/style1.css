@@ -13,7 +13,7 @@ a {text-decoration:none;}
 header{
   z-index: 1;
   position: fixed;
-  background: #22242A;
+  background: white;
   padding: 20px;
   width: calc(100% - 0%);
   top: 0;
@@ -77,14 +77,15 @@ header .name
 
 .profile {
   padding:10px;
-  border:1px solid  #22242A;
+  border:1px solid  #007042;
   border-radius:3px;
-  box-shadow:0 1px 0  #22242A inset, 0 1px 7px  #22242A;
-  background:-webkit-linear-gradient( #22242A,  #22242A);
+  box-shadow:0 1px 0  #007042 inset, 0 1px 7px  #007042;
+  background:-webkit-linear-gradient( #007042,  #007042);
 }
 .profile:hover {
   cursor:pointer;
-  background:-webkit-linear-gradient( #22242A,  #22242A);
+  color: white;
+  background:-webkit-linear-gradient( #eaf7e6,  #eaf7e6);
 }
 
 .menu {
@@ -127,7 +128,7 @@ header .name
 .sidebar{
   z-index: 1;
   top: 0;
-  background: #3b503d;
+  background: #007042;
   margin-top: 70px;
   padding-top: 5px;
   position: fixed;
@@ -164,7 +165,7 @@ header .name
 
 label #sidebar_btn{
   z-index: 1;
-  color: #fff;
+  color: #007042;
   position: fixed;
   cursor: pointer;
   left: 300px;
@@ -193,7 +194,7 @@ label #sidebar_btn:hover{
 }
 
 .content{
-  width: calc(100% - 250px);
+  width: calc(100% );
   margin-top: 60px;
   padding: 20px;
   margin-left: 250px;
