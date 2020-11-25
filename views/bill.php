@@ -1,10 +1,9 @@
 <?php
-include 'clerk_sidebar.php';
+include 'shopkeeper_sidebar.php';
 require '../controller/sales.php';
 $data=new sales();
 $sql=$data->get_product_details();
-session_start();
-$row=$_SESSION['get_bill_no'];
+$row=$data->get_bill_no();
 ?>
 
   <link rel="stylesheet" href="../public/css/bill.css">
@@ -27,7 +26,7 @@ $row=$_SESSION['get_bill_no'];
                       <b><label1>Bill number</label1></b>
                     </div>
                     <div class="col-75">
-                     <input type="text" id="bill_no" name="bill_no" required="">
+                     <input type="text" id="bill_no" name="bill_no" value="<?php echo $row?>" disabled>
                     </div>
                  </div>
     
@@ -36,7 +35,7 @@ $row=$_SESSION['get_bill_no'];
                      <label1>Date</label1>
                    </div>
                    <div class="col-75">
-                     <input type="text" id="date_time" name="date_time" required="">
+                    <input id="date" class="text" type="date" name="date_time" value="<?php echo date("Y/m/d")?>" required="">
                    </div>
                  </div>
     
@@ -163,7 +162,7 @@ $row=$_SESSION['get_bill_no'];
 
                                     foreach ($sql as $k => $v){
                                         ?>
-                                        <option value="<?php echo $sql[$k]["p_id"] ?>"><?php echo $sql[$k]["serial_no"] ?></option>
+                                        <option value="<?php echo $sql[$k]["serial_no"] ?>"><?php echo $sql[$k]["serial_no"] ?></option>
                                         <?php
                                     }
                                     ?>
@@ -240,7 +239,7 @@ $row=$_SESSION['get_bill_no'];
     <label1>Due Date</label1>
     </div>
     <div class="col-75">
-    <input type="text" id="due_date" name="due_date" required="">
+    <input id="date" class="text" type="date" name="due_date" required="">
     </div>
         </div>
                
@@ -249,7 +248,7 @@ $row=$_SESSION['get_bill_no'];
     <label1>Recived Date</label1>
     </div>
     <div class="col-75">
-    <input type="text" id="recived_date" name="recived_date" required="">
+     <input id="date" class="text" type="date" name="recived_date" required="">
     </div>
         </div>
     
