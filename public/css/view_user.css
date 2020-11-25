@@ -12,7 +12,7 @@ tbody tr:nth-child(odd) {
 }
 
 tbody tr:nth-child(even) {
-    background-color: #dbdddc;
+    background-color: #eaf7e6;
 }
 td{
     padding: 10px;
@@ -121,14 +121,14 @@ input:checked + .slider:before {
 .search
 {
     padding:10px;
-
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 2em auto;
     background:/* #2f323a*/#ffffff;
     background-size: cover;
-    border: 1px solid #ccc;
+    border: 1px solid #c1e9d8;
     width: 85%;
     overflow: hidden;
-    background-color: #e9e9e9;
+    background-color: white;
     text-align: center;
 }
 .search input[type=text] {

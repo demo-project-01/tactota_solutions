@@ -33,9 +33,9 @@
  * {
    box-sizing: content-box;
  }
- .content{
+ /*.content{
    background-color:rgb(244, 248, 247);
- }
+ }*/
  
  form.example input[type=text] {
    padding: 10px;

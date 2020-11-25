@@ -27,6 +27,7 @@ input[type="text"], input[type="email"], input[type="password"] ,input[type="num
 }
 #tbl-heading
 {
+    
     margin-left:3em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
     text-align: left; /*modified*/
@@ -78,7 +79,7 @@ input[type="submit"] {
     border: 3px solid #000000;
     padding: 10px;
 
-    background-color: #4a746e;
+    background-color: #007042;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -88,7 +89,7 @@ input[type="submit"] {
     
 }
 .add_button:hover{
-    background-color:#007042;
+    background-color:#09b88f;
 }
 p{
     padding-top: 1.2%;
