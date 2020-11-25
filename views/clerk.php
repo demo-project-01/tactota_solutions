@@ -4,12 +4,16 @@
    $data=new inventory_maintain();
    $sql=$data->display_few_reminders();
    //print_r($sql);
-?>
+?><head>
+<link rel="stylesheet" href="../public/css/update.css">
+</head>
 <body>
 <div class="content" style="width:auto;">
  <div>
     <div class= "dash1">
+    <!--i class="fa fa-users fa-4x icon-right" aria-hidden="true"></i-->
       <b><p class="dash">SUPPLIERS</p></b>
+     
     </div>
 
     <div class= "dash2">
@@ -51,7 +55,7 @@
             </ul>
         </div>
     </div>
-    <div class="footer"style="color:#ffffff;">
+    <div class="footerc"style="color:#ffffff;">
 	<p>© Tactota Solutions All rights reserved </p>
    </div>
 </div>

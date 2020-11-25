@@ -47,7 +47,7 @@
             </tbody>
        </table>
     </div>
-    <div class="footer"style="color:#ffffff;">
+    <div class="footerc"style="color:#ffffff;">
 		<p>© Tactota Solutions All rights reserved </p>
     </div>  
 </div>
