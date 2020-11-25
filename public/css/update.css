@@ -29,9 +29,9 @@ input[type="text"], input[type="email"], input[type="password"] ,input[type="num
     margin-left:3em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
     text-align: left; /*modified*/
-    color: #000;
+    color: #007042;
     font-weight: bold;
-    margin-top: 10px;       /*reshani*/
+    margin-top: 20px;       /*reshani*/
     font-size: 2em;      /*reshani*/
 }
 td{                                  
@@ -42,8 +42,10 @@ td{
 }
 th{                  
     /*reshani*/
+    
     font-size: 20px;
-    background-color: #4a746e;
+    color: white;
+    background-color: #007042;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -92,11 +94,10 @@ p{
   }
 .footerc{   /*reshani*/
     text-align: center;
-    
-    width:105%;
-    background:#2f323a;
-    height:37px;
-    
+    color: black;
+    width:103.5%;
+    background:white;
+    height:50px;
     margin-left: -2%;
     margin-top:280px ;
 }

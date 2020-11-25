@@ -32,7 +32,7 @@
 
     </div>
 
-    <div class="footer"style="color:#ffffff;">
+    <div class="footer">
         <p>© Tactota Solutions All rights reserved </p>
     </div>
 </div>
