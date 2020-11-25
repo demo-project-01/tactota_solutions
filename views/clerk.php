@@ -17,6 +17,7 @@
 
     <div class= "dash2">
         <b><p class="dash">PRODUCTS</p></b>
+        <i class="fa fa-table fa-4x icon-right" aria-hidden="true"></i>
     </div>
     </div>
 
@@ -47,8 +48,8 @@
                     </div>
                     
             </li><?php }?>
-                <div class="views"><br/>
-                    <b><a href="reminderitems.php"><span><button>View All Reminders</button></span></a></b>
+                <div><br/>
+                    <b><a href="reminderitems.php" class="viewsAll" ><span><button>View All Reminders</button></span></a></b>
                 </div>
                 
             </ul>

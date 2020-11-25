@@ -12,7 +12,7 @@ tbody tr:nth-child(odd) {
 }
 
 tbody tr:nth-child(even) {
-    background-color: #eaf7e6;
+    background-color: #dff8e5;
 }
 td{
     padding: 10px;

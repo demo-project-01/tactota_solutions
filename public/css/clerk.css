@@ -40,14 +40,16 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     box-sizing: content-box;
     font-family: 'Montserrat', sans-serif;
   }
-  .views{
+  .viewsAll{
+    width: 220px;
     margin-left: 60px;
     font-size: 22px;
     color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-family: 'Times New Roman', Times, serif;
   }
   .buttons{
-     background-color:#3b503d ;
+     background-color:#007042 ;
   }
   
 
@@ -64,8 +66,8 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
 
   .list_wrap{
     background-color: gray(56, 53, 53);
-    box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;
-    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+   /* box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     margin-left: 900px;  /*modifed*/
     background: darkblue(0,0,0,0.4);
@@ -78,7 +80,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   }
 
   .list_wrap ul li{
-    background:#3b503d;
+    background:#007042;
     margin-top: 2px;
     margin-left: 50px;
     margin-bottom: 10px;
@@ -87,7 +89,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     padding-right:1px ;
     color: white;
     font-size: 25px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     line-height: 25px; /*modified*/
     border-radius: 50px;
     position: -webkit-sticky;
@@ -103,26 +105,32 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     color: black;
     
     background-color: gray(56, 53, 53);
-    box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;
-    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    /*box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     width: 300px;    /*modifed*/
     height: 200px;   /*modifed*/
     margin-top: 30px;  /*modifed*/
     margin-left: 60px;  /*modifed*/
+    border-left: #007042;
+    border-width: 10px;
+    border-left-style: solid;
     
   }
 
   .dash2{
     color: black;
     background-color:  gray(56, 53, 53);
-    box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;
-    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    /*box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
    width: 300px;   /*modifed*/
   height: 200px;  /*modifed*/
   margin-top: -200px;  /*modifed*/
   margin-left: 450px;  /*modifed*/
+  border-left: #374970;
+    border-width: 10px;
+    border-left-style: solid;
   }
    
  .dash{
@@ -136,27 +144,33 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   .dash3{
     color: black;
     background-color: gray(56, 53, 53);
-    box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;
+    /*box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
    
-    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     width: 300px;  /*modifed*/
   height: 200px;  /*modifed*/
   margin-top: 50px;  /*modifed*/
   margin-left: 60px;  /*modifed*/
+  border-left: #5e0336;
+    border-width: 10px;
+    border-left-style: solid;
   }
 
   .dash4{
     color: black;
     background-color: gray(56, 53, 53);
-    box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;
+    /*box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
   
-   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     width: 300px;  /*modifed*/
   height: 200px;  /*modifed*/
   margin-top: -200px;  /*modifed*/
   margin-left: 450px;  /*modifed*/
+  border-left: #572e08;
+    border-width: 10px;
+    border-left-style: solid;
   }
  
   p{

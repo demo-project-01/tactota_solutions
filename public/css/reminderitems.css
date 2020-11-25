@@ -15,7 +15,7 @@
 #tbl-heading{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: left;  /*modified*/
-    color: #000;
+    color: #007042;
     font-weight: bold;
     margin-top: 10px;       
     font-size: 25px;
@@ -33,7 +33,7 @@ th{
    
     height: 50px;
     font-size: 20px;
-    background-color: #4a746e;
+    background-color: #007042;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .searchs{
