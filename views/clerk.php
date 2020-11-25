@@ -4,15 +4,14 @@
    $data=new inventory_maintain();
    $sql=$data->display_few_reminders();
    //print_r($sql);
-?><head>
-<link rel="stylesheet" href="../public/css/update.css">
-</head>
+?>
 <body>
 <div class="content" style="width:auto;">
  <div>
     <div class= "dash1">
-    <!--i class="fa fa-users fa-4x icon-right" aria-hidden="true"></i-->
-      <b><p class="dash">SUPPLIERS</p></b>
+    <b><p class="dash">SUPPLIERS</p></b>
+    <i class="fa fa-users fa-4x icon-right" aria-hidden="true"></i>
+      
      
     </div>
 
@@ -48,14 +47,14 @@
                     </div>
                     
             </li><?php }?>
-                <div class="view"><br/>
-                    <b><a href="reminderitems.php"><span>View All Reminders</span></a></b>
+                <div class="views"><br/>
+                    <b><a href="reminderitems.php"><span><button>View All Reminders</button></span></a></b>
                 </div>
                 
             </ul>
         </div>
     </div>
-    <div class="footerc"style="color:#ffffff;">
+    <div class="footerc">
 	<p>© Tactota Solutions All rights reserved </p>
    </div>
 </div>
