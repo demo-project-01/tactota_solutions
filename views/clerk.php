@@ -10,14 +10,14 @@
  <div>
     <div class= "dash1">
     <b><p class="dash">SUPPLIERS</p></b>
-    <i class="fa fa-users fa-4x icon-right" aria-hidden="true"></i>
+    <i class="fa fa-users fa-3x icon-right" aria-hidden="true"></i>
       
      
     </div>
 
     <div class= "dash2">
         <b><p class="dash">PRODUCTS</p></b>
-        <i class="fa fa-table fa-4x icon-right" aria-hidden="true"></i>
+        <i class="fa fa-table fa-3x icon-right" aria-hidden="true"></i>
     </div>
     </div>
 
@@ -33,7 +33,8 @@
    <div class="wrapper">
         <div class="list_wrap">
             <div class="subcontent">
-                <h1><p>Stock <br/>Reminders</p></h1>
+            <i class="fa fa-list icon-li" aria-hidden="true"></i>
+                <h1><p>Stock Reminders</p></h1>
             </div>
             <ul>
             <?php
@@ -42,14 +43,15 @@
                 <li class="github">
                     <div class="list">
                         <div class="contentc">
-                            <b><?php echo $sql[$k]["p_name"] ?></b>
+                        <i class="fa fa-list-ul icon-list" aria-hidden="true"></i>
+                            <?php echo $sql[$k]["p_name"] ?>
                         </div>
                         
                     </div>
                     
             </li><?php }?>
                 <div><br/>
-                    <b><a href="reminderitems.php" class="viewsAll" ><span><button>View All Reminders</button></span></a></b>
+                    <a href="reminderitems.php" class="viewsAll" ><span>View All Reminders</span></a>
                 </div>
                 
             </ul>
