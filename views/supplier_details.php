@@ -14,7 +14,7 @@ include 'clerk_sidebar.php';
     </div>
     <br/>
     <div class="search">
-        <input type="text" placeholder="Search..">
+        <input type="text" id="search_text" placeholder="Search..">
     </div>
 
    <div class="view-tbl" id="result">
