@@ -45,7 +45,7 @@
     <div class= "dash6">
         <b><p class="dash">CURRENT STOCKS</p></b>
         <i class="fas fa-store fa-2x icon-right"></i>
-        <b><p class="info">5 Record(s)</p></b>
+        <b><p class="infor">5 Record(s)</p></b>
     </div>
     </div>
     

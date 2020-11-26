@@ -12,10 +12,12 @@
  }
  .centers {
    margin-left: -4px;
-   width: 75%;
+   width: 610px;
+   height: 250px;
    border: 3px solid #007042;
    padding: 10px;
    text-align: center;
+   box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
  
  }
  .image{
@@ -23,6 +25,8 @@
    padding: 10px;
    width: 65%;   /*add*/
    border: #007042;
+   
+   
    
  }
  
@@ -44,22 +48,25 @@
    float: left;
    width: 80%;
    background: #f1f1f1;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
+
  }
  
  form.example button {
    float: left;
    width: 12%;
    padding: 10px;
-   background: #2f323a;
+   background: #007042;
    color: white;
    font-size: 17px;
    border: 1px solid grey;
    border-left: none;
    cursor: pointer;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
  }
  
  form.example button:hover {
-   background: #c8cf94;
+   background: #61ca7d;
  }
  
  form.example::after {

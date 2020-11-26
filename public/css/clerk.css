@@ -113,7 +113,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     
     /*background-color: gray(56, 53, 53);
     box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     width: 260px;    /*modifed*/
     height: 150px;   /*modifed*/
@@ -129,7 +129,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     color: #1e3464;
     /*background-color:  gray(56, 53, 53);
     box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     width: 260px;   /*modifed*/
     height: 150px;  /*modifed*/
@@ -151,7 +151,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     color: #82a856;
     /*background-color: gray(56, 53, 53);
     box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     width: 260px;  /*modifed*/
     height: 150px;  /*modifed*/
@@ -166,7 +166,8 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     color: rgb(7, 145, 67);
    /* background-color: gray(56, 53, 53);
     box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     width: 260px;  /*modifed*/
     height: 150px;  /*modifed*/
@@ -178,7 +179,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   }
   .dash5{
     color: #3b503d;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     width: 260px;   /*modifed*/
     height: 150px;  /*modifed*/
@@ -190,7 +191,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   }
   .dash6{
     color: rgb(131, 91, 5);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     width: 260px;   /*modifed*/
     height: 150px;  /*modifed*/

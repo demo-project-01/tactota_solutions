@@ -8,7 +8,7 @@
 </head>
 <div class="content"style="width:auto;">
 
-<br><br><div class="image"><img src="../public/images/logo.jpeg" alt="logo" class="centers" width=200 height=300/></div>
+<br><br><div class="image"><img src="../public/images/logo.jpeg" alt="logo" class="centers"/></div>
 
 <br><br>
 <div class="center">
