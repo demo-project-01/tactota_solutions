@@ -12,7 +12,13 @@ tbody tr:nth-child(odd) {
 }
 
 tbody tr:nth-child(even) {
-    background-color: #dff8e5;
+    background-color: #eef3ef;
+}
+tbody tr:nth-child(odd):hover{
+    background-color: rgb(187, 230, 180);
+}
+tbody tr:nth-child(even):hover {
+    background-color:  rgb(187, 230, 180);
 }
 td{
     padding: 10px;
