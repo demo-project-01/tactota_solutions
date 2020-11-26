@@ -154,9 +154,10 @@ class inventory_maintain_model
          return $result;
     }
     public function display_reminder_suppliers($id){          //nuwan
-        $query=$this->mysqli->query("SELECT supplier.sup_name,supplier.sup_id,sup_address.address,product.p_cost,item.serial_no,item.item_status FROM supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN sup_address ON supplier_product.sup_id=sup_address.sup_id INNER JOIN product ON supplier_product.p_id=product.p_id INNER JOIN item ON supplier_product.p_id=item.p_id AND item.item_status='1' AND product.p_id='" . $id . "'");
+       // $result="";
+        $query=$this->mysqli->query("SELECT supplier.email_address,supplier.sup_name,supplier.sup_id,sup_address.address,product.p_id,product.p_cost,item.serial_no,item.item_status FROM supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN sup_address ON supplier_product.sup_id=sup_address.sup_id INNER JOIN product ON supplier_product.p_id=product.p_id INNER JOIN item ON supplier_product.p_id=item.p_id AND item.item_status='1' AND product.p_id='" . $id . "'");
         while ($row = $query->fetch_assoc()) {               
-            $result= $row;
+            $result[] = $row;
         }
         return $result;
     

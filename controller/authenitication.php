@@ -298,15 +298,15 @@ class authenitication
     {
 
         $row1=$this->auth->get_details_search($row);
-    //    $row2=$this->auth-> get_details();
-    //            print_r($row1);
+
         if($row1!=""){
             $_SESSION['active_user']=$row1;
-           header('location: ../views/clerk_users_result.php');
+            header('location: ../views/clerk_users_result.php');
             //   print_r($row1);
         }else if($row1==0) {
             echo "NOT FOUND";
         }
+
 
     }
   
@@ -476,7 +476,8 @@ class authenitication
       }else if(isset($_GET['action']) && $_GET['action'] == 'user_details') {
           $controller->user_details();
       }else if(isset($_GET['action']) && $_GET['action'] == 'active_user') {
-             $controller->active_user();
+             $row=$_POST['query'];
+             $controller->active_user($row);
          }else if(isset($_GET['action']) && $_GET['action'] == 'view_profile' ) {
                $id=$_GET["id"];
             $controller->sent_view_profile($id);
@@ -513,4 +514,7 @@ class authenitication
          }else if(isset($_GET['action']) && $_GET['action'] == 'delete_account' ) { //nuwan
              $emp_id=$_GET["id"];
              $controller->delete_account($emp_id);
+         }else if(isset($_GET['action']) && $_GET['action'] == 'admin_active_user') {
+             $row=$_POST['query'];
+             $controller->admin_active_user($row);
          }

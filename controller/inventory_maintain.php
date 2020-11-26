@@ -1,5 +1,8 @@
 <?php
 require_once("../model/inventory_maintain_model.php");
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 session_start();
 class inventory_maintain
 {
@@ -140,9 +143,11 @@ class inventory_maintain
         return $this->inven->display_stockreminders();
     }
     public function reminderitems_suppliers($id){    //nuwan
-        $row=$this->inven->display_reminder_suppliers($id);       
+      //  print_r($id);
+        $row=$this->inven->display_reminder_suppliers($id);
+     //  print_r($row);
         $_SESSION['reminderitem_suppliers']=$row;
-        header('location: ../views/stockreminders.php');
+       header('location: ../views/stockreminders.php');
     }
     public function display_onereturnitem_details($id){    //reshani
         $row=$this->inven->display_returnitem($id);       
@@ -290,8 +295,59 @@ class inventory_maintain
 
 
     }
-    
- 
+
+    public function send_email_form($id,$id1)
+    {
+        $_SESSION['send_suplier_email']=$id;
+
+        header('location: ../views/email.php');
+
+    }
+
+    public function send_email_supplier()
+    {
+        $sup_email=$_POST['to'];
+        $subject=$_POST['subject'];
+        $message=$_POST['message'];
+        //print_r($sup_email);
+        //print_r($subject);
+        //print_r($message);
+        $this->email_sent_supplier($sup_email,$subject,$message);
+    }
+
+    public function   email_sent_supplier($sup_email,$subject,$message){
+        require_once "../vendor/autoload.php";
+        $mail = new PHPMailer(true);
+        // $mail->SMTPDebug = SMTP::DEBUG_SERVER; // for detailed debug output
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
+
+        $mail->Username = 'projectt541@gmail.com'; // YOUR gmail email
+        $mail->Password = '#project32'; // YOUR gmail password
+
+        // Sender and recipient settings
+        $mail->setFrom('projectt541@gmail.com', 'Tactota Solution');
+        $mail->addAddress($sup_email);
+        //$mail->addReplyTo('example@gmail.com', 'Sender Name'); // to set the reply to
+
+        // Setting the email content
+        $mail->IsHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body = $message;
+        $mail->AltBody = '';
+
+        $result=$mail->send();
+        if($result==false){
+            echo "worng";
+        }else{
+           // header('location: ../views/check_email.php');
+            echo "true";
+        }
+   }
+
 }
 
 
@@ -356,5 +412,13 @@ else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //re
 }else if(isset($_GET['action']) && $_GET['action'] == 'delete_product_details') {
     $id=$_GET["id"];
     $controller->delete_product_details($id);
+}else if(isset($_GET['action']) && $_GET['action'] == 'send_email_form') {
+    $id=$_GET["id"];
+    $id1=$_GET["id1"];
+    $controller->send_email_form($id,$id1);
+}else if(isset($_GET['action']) && $_GET['action'] == 'send_email_supplier') {
+
+    $controller->send_email_supplier();
 }
+
 
