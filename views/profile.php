@@ -17,9 +17,9 @@ if($row['position']=="Clerk"){
 <link rel="stylesheet" href="../public/css/view_user.css"> 
 
 <div class="content"style="width:auto;">
-    <br><br><br><br><br> 
+    <br><br>
 <form method="post" action="../controller/authenitication.php?action=update_profile&id=<?php echo $row['emp_id'] ?>">
- <div class="main-container">
+ <div class="main-form">
   <div class="sub-container">
 
   <div class="row">
