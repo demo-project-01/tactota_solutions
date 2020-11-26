@@ -71,7 +71,7 @@ class inventory_maintain
     {
          // print_r($id);
         $row = $this->inven->get_view_details($id);
-        $row2 = $this->inven->get_view_supplier_product_details($id);
+        $row2 = $this->inven->get_view_supplier_product_details($id);  //mish
 
         /* echo "<br>";
          print_r($row['sup_name']);
@@ -307,9 +307,6 @@ if(isset($_GET['action']) && $_GET['action'] == "newsuppliers") {
 }else if(isset($_GET['action']) && $_GET['action'] == 'supplier_profile' ) {
     $id=$_GET["id"];
     $controller->supplier_profile($id);
-}else if(isset($_GET['action']) && $_GET['action'] == 'supplier_profile' ) {
-        $id=$_GET["id"];
-        $controller->supplier_product_profile($id);
 }else if(isset($_GET['action']) && $_GET['action'] == 'update_product') {
    $row=$_POST['query'];
     //print_r($row);
