@@ -461,7 +461,8 @@ class authenitication
       }else if(isset($_GET['action']) && $_GET['action'] == 'user_details') {
           $controller->user_details();
       }else if(isset($_GET['action']) && $_GET['action'] == 'active_user') {
-             $controller->active_user();
+             $row=$_POST['query'];
+             $controller->active_user($row);
          }else if(isset($_GET['action']) && $_GET['action'] == 'view_profile' ) {
                $id=$_GET["id"];
             $controller->sent_view_profile($id);
