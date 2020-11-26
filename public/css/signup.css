@@ -37,16 +37,6 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
     text-align: center;
 
   }
-  .vertical-center img {
-    /*border: 3px solid #007042;*/
-    padding: 10px;
-    text-align: center;
-    margin-right: 10px;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
   h1 {
     font-size: 2.5em;
     text-align: center;
@@ -73,27 +63,54 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
     text-align: center;
     border-radius: 10px;
     border-left:10px solid #17704b ;
+   
+  }
 
-    
-  }
-  .main-form{
-    border: 25px solid#007042;
-    display: flex;
-    margin: 1em auto;
-    width: 80%;
-    background:/* #2f323a*/#ffffff;
-    background-size: cover;
-  }
   
+  .img{
+    width:50%;
+    margin-top: 10px;
+  }
+    
   .sub-container {
+    width:50%;
+    border-left:2px solid rgb(238, 238, 238);
     padding: 1.5em;
-    width: 50%;
+    padding-left: 2.5em;
+    padding-right: 1.5em;
+
+  }
+
+
+/* registration form div classes  -------------------*/
+  #reg-main {
+    width: 65%;
+  }
+  #img-sub
+  {
+    width: 30%;
+    padding-left: 10px;
+    padding-right: 20px;
+    margin-top: 170px;
   }
   #sub1
   {
-    border-left:2px solid #17704b;
+    width:35%;
+    border-left:2px solid rgb(238, 238, 238);
+    padding-left: 30px;
+    padding: 1.5em;
   }
-  
+  #sub2
+  {
+    width:35%;
+    /*border-left:2px solid rgb(238, 238, 238);*/
+    padding-left: 30px;
+    padding: 1.5em;
+  }
+
+  /*----------------------------------------------------*/  
+
+
   input[type="text"], input[type="email"], input[type="password"], input[type="date"]{
     font-size: 0.9em;
     color: #000000;
@@ -283,16 +300,7 @@ html, body, div, h1, h2, h3, h4, h5, h6, p{
     font-weight: 100;
   }
   
-#reg-main {
-  width: 70%;
-}
-#img-sub
-{
-  width: 30%;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-top: 140px;
-}
+
 .left h5{
   text-align: left;
 }

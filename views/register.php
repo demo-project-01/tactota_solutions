@@ -17,11 +17,11 @@
     <br/>
     
     <div class="main-container" id="reg-main">
-        <div class="sub-container" id="img-sub">
-            <div><img src="../public/images/logo-s.jpeg" alt="logo" class="verticle-center" width=300 height=auto />
+        <div id="img-sub">
+            <div><img src="../public/images/logo-s.jpeg" alt="logo" width=300 height=auto />
         </div>
         </div>
-        <div class="sub-container" id="sub1">
+        <div id="sub1">
             <form action="../controller/authenitication.php?action=register" method="post" enctype="">
                 <label for='fname' id='left-label'>
                     <i class="fa fa-user" aria-hidden="true"></i></i>
@@ -85,7 +85,7 @@
                 </table>
 
         </div>
-        <div class="sub-container">
+        <div id="sub2">
             <div id="error_msg"></div>
             <label for='email' id='left-label'>
                 <i class="fa fa-envelope" aria-hidden="true"></i>

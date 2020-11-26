@@ -10,21 +10,26 @@
 <body>
 	<div>
 		<br/>
-		<h1>Successful Register</h1>
+		<h1>Successfully Registered</h1>
         <br/>
 		<br/>
 		<br/>
 		<br/>
 		
 		<div class="main-container">
-			
-            <div class="sub-container">
+			<div class="img">
+				<div><img src="../public/images/logo-m.jpeg" alt="logo" width=300 height=auto /></div>
+			</div>
+            <div class="sub-container" style="padding-top:3.5em;padding-bottom:2.5em;">
 				<form action="#" method="post">
                    
-				<label id='left-p' style="font-size:1.3em; color:#007042">Check email to activate your account !</label>	
+				<label id='left-p' style="font-size:1.3em; color:#007042">Check and Verify email to activate your account!</label>	
                     
 				</form>
-				<br/>
+				<br/><br/>
+		<br/>
+		<br/>
+		<br/>
 				<a href="login.php"><input type="submit" value="Login"></a>
 			</div>
 			

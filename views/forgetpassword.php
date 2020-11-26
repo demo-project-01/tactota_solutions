@@ -17,8 +17,8 @@
 		<br/>
 		<br/>
 		<div class="main-container">
-			<div class="sub-container">
-				<div><img src="../public/images/logo.jpeg" alt="logo" class="verticle-center" width=400 height=auto /></div>
+			<div class="img">
+				<div><img src="../public/images/logo-m.jpeg" alt="logo" width=300 height=auto /></div>
 			</div>
 			
 			<div class="sub-container">
