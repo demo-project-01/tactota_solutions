@@ -12,13 +12,16 @@
 <body>
 <div>
     <br/>
-    <h1> Registration Form</h1>
+    
+        <h1> Registration</h1>
     <br/>
+    
     <div class="main-container" id="reg-main">
         <div class="sub-container" id="img-sub">
-            <div><img src="../public/images/logo.jpeg" alt="logo" class="verticle-center" width=400 height=auto /></div>
+            <div><img src="../public/images/logo-s.jpeg" alt="logo" class="verticle-center" width=300 height=auto />
         </div>
-        <div class="sub-container">
+        </div>
+        <div class="sub-container" id="sub1">
             <form action="../controller/authenitication.php?action=register" method="post" enctype="">
                 <label for='fname' id='left-label'>
                     <i class="fa fa-user" aria-hidden="true"></i></i>

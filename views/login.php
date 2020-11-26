@@ -36,11 +36,11 @@
 					</label>
 					<input id='pswd1' class="text" type="password" name="password" required="">
 
-					<label for='forget' class="right"><a id='forget' href="forgetpassword.php">Forgot Password?</a></h6>
+					<label for='forget' class="right"><a id='forget' href="forgetpassword.php">Forgot Password?</a></label>
 					
 					<input type="submit" value="LOGIN">
 				</form>
-				<label for='login' id='left-p'>Don't have an Account? <a id='login' href="register.php" style="font-size:1.3em;"> Register Now!</a></p>
+				<label for='login' id='left-p'>Don't have an Account? <a id='login' href="register.php" style="font-size:1.3em;"> Register Now!</a></label>
 			</div>
 		</div>
 		
