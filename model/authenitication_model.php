@@ -111,7 +111,7 @@ class authenitication_model{
 
       public function get_details_search($row)
     {
-        $query = $this->mysqli->query("SELECT user_account.emp_id,username,position,verified FROM user_account INNER JOIN employee ON user_account.emp_id=employee.emp_id WHERE position LIKE  '%" . $row . "%' OR username LIKE  '%" . $row . "%' ");
+        $query = $this->mysqli->query("SELECT * FROM user_account INNER JOIN employee ON user_account.emp_id=employee.emp_id WHERE  position LIKE  '%" . $row . "%' OR username LIKE  '%" . $row . "%'  ");
         if ($query->num_rows > 0) {
             while ($row = $query->fetch_assoc()) {
                 $result[] = $row;
