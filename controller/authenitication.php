@@ -499,4 +499,7 @@ class authenitication
          }else if(isset($_GET['action']) && $_GET['action'] == 'delete_account' ) { //nuwan
              $emp_id=$_GET["id"];
              $controller->delete_account($emp_id);
+         }else if(isset($_GET['action']) && $_GET['action'] == 'admin_active_user') {
+             $row=$_POST['query'];
+             $controller->admin_active_user($row);
          }

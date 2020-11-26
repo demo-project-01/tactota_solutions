@@ -1,8 +1,11 @@
-<?php
-include 'clerk_sidebar.php';
-?>
+
 <?php
 session_start();
+if($_SESSION['role']=="Admin"){
+    include 'admin_sidebar.php';
+}else if($_SESSION['role']=="Clerk"){
+    include 'clerk_sidebar.php';
+}
 $row=$_SESSION['row'];
 //print_r($_SESSION['emp_id']);
 ?>
