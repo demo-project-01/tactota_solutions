@@ -1,28 +1,23 @@
 <?php
-//require '../controller/authenitication.php';
+require '../controller/authenitication.php';
 session_start();
 $row= $_SESSION['upadate_profile_view'];
-//$row=$_SESSION['row'];
-    /* if($_SESSION['role']=="Clerk")
-       require('clerk_sidebar.php');
-   elseif ($_SESSION['role']=="Admin")
-       require('admin_sidebar.php');
-   elseif($_SESSION['role']=='Shopkeeper')
-       require('shopkeeper_sidebar.php');
-*/
-
-//include 'clerk_sidebar.php';
-
-
-// print_r($_SESSION['emp_id']);
-
-
+if($row['position']=="Clerk"){
+    require('clerk_sidebar.php');
+ }elseif ($row['position']=="Admin"){
+  require('admin_sidebar.php');
+ }elseif($row['position']=='Shopkeeper'){
+    require('shopkeeper_sidebar.php');
+ }
 ?>
 
 <link rel="stylesheet" href="../public/css/signup.css">
 <link rel="stylesheet" href="../public/css/style1.css">
+<link rel="stylesheet" href="../public/css/update.css"> 
+<link rel="stylesheet" href="../public/css/view_user.css"> 
 
 <div class="content"style="width:auto;">
+    <br><br><br><br><br> 
 <form method="post" action="../controller/authenitication.php?action=update_profile&id=<?php echo $row['emp_id'] ?>">
  <div class="main-container">
   <div class="sub-container">
@@ -69,7 +64,7 @@ $row= $_SESSION['upadate_profile_view'];
   <label1 for="address">Address</label1>
   </div>
   <div class="col-75">
-  <input type="text" name="adress" value="<?php echo $row['address'] ?>">
+  <input type="text" name="address" value="<?php echo $row['address'] ?>">
   </div>
         </div>
 
