@@ -25,12 +25,14 @@ header .name
   float: right;
 
 }
-.left_area h3{
-  color: #fff;
+
+
+.left_area img{
+  width:auto;
+  height:70px;
+
   margin: 0;
-  text-transform: uppercase;
-  font-size: 22px;
-  font-weight: 900;
+  margin-top: -18px;
 }
 
 .left_area span{
@@ -42,7 +44,7 @@ header .name
    background: #19B3D3;*/
   text-decoration: none;
   float: right;
-  margin-top: -35px;
+  margin-top: -10px;
   margin-right: 40px;
   border-radius: 10px;
   color: #fff;

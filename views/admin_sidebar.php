@@ -19,18 +19,18 @@
 <input type="checkbox" id="check">
 <!--header area start-->
 <header>
-    <label for="check">
+   <label for="check"> 
         <i class="fas fa-bars" id="sidebar_btn"></i>
     </label>
     <div class="left_area">
-        <h3>TACTOTA<span> SOLUTION</span></h3>
-    </div>
+        <img src="../public/images/logo-s.jpeg" alt="Logo">
+    
     <ul class="profile-wrapper">
         <li>
 
             <div class="profile">
 
-                <i class="far fa-user-circle fa-5x"></i>
+                <i class="far fa-user-circle fa-2x"></i>
                 <ul class="menu">
                     <li><a href="../controller/authenitication.php?action=profile"><i class="fas fa-user-alt"></i>Profile</a></li>
                     <li><a href="../controller/authenitication.php?action=logout"><i class="fas fa-sign-out-alt"></i>Log out</a></li>
@@ -39,6 +39,7 @@
         </li>
 
     </ul>
+    </div>
 </header>
 <!--header area end-->
 <div class="sidebar">
