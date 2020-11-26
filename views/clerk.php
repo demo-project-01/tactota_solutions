@@ -20,6 +20,7 @@
      
     <div class= "dash5">
         <b><p class="dash">PURCHASE</p></b>
+        <i class="fas fa-money-bill-alt fa-2x icon-right"></i>
        
     </div>
 
@@ -29,12 +30,15 @@
     <div> 
     <div class= "dash3">
         <b><p class="dash">REMINDERS</p></b>
+        <i class="fa fa-bell-o fa-2x icon-right" aria-hidden="true"></i>
     </div>
     <div class= "dash4">
         <b><p class="dash">RETURN ITEMS</p></b>
+        <i class="fas fa-cart-arrow-down fa-2x icon-right"></i>
     </div>
     <div class= "dash6">
         <b><p class="dash">CURRENT STOCKS</p></b>
+        <i class="fas fa-store fa-2x icon-right"></i>
     </div>
     </div>
     
