@@ -26,9 +26,9 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     
     margin-top: 20px;
     margin-bottom: 5px;
-    margin-left: 20px;
+    margin-left: 5px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 35px;
+    font-size: 30px;
     color:#007042;
     text-align: center;
   }
@@ -49,7 +49,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     font-family: 'Times New Roman', Times, serif;
   }
   .viewsAll:hover{
-    color: rgb(228, 160, 82);
+    color: #61ca7d;
   }
   .buttons{
      background-color:#007042 ;
@@ -72,7 +72,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
    /* box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
-    margin-left: 900px;  /*modifed*/
+    margin-left: 950px;  /*modifed*/
     background: darkblue(0,0,0,0.4);
     width: 280px;     /*modified*/
     margin-top: -270px;  /*modifed*/
@@ -115,10 +115,10 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     /*box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
-    width: 300px;    /*modifed*/
+    width: 260px;    /*modifed*/
     height: 150px;   /*modifed*/
     margin-top: 30px;  /*modifed*/
-    margin-left: 60px;  /*modifed*/
+    margin-left: 20px;  /*modifed*/
     border-left: #007042;
     border-width: 10px;
     border-left-style: solid;
@@ -131,19 +131,19 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     /*box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
-    width: 300px;   /*modifed*/
+    width: 260px;   /*modifed*/
     height: 150px;  /*modifed*/
     margin-top: -150px;  /*modifed*/
-    margin-left: 450px;  /*modifed*/
+    margin-left: 330px;  /*modifed*/
     border-left: #374970;
     border-width: 10px;
     border-left-style: solid;
   }
    
  .dash{
-   font-size: 25px;  /*modifed*/
-   margin-left: 8%;
-  padding-top: 40px;  /*modifed*/
+  font-size: 20px;  /*modifed*/
+  margin-left: 8%;
+  padding-top: 30px;  /*modifed*/
   
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;  /*modifed*/
   }
@@ -155,10 +155,10 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
    
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
-    width: 300px;  /*modifed*/
+    width: 260px;  /*modifed*/
     height: 150px;  /*modifed*/
     margin-top: 50px;  /*modifed*/
-    margin-left: 60px;  /*modifed*/
+    margin-left: 20px;  /*modifed*/
     border-left: #5e0336;
     border-width: 10px;
     border-left-style: solid;
@@ -171,11 +171,35 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
-    width: 300px;  /*modifed*/
+    width: 260px;  /*modifed*/
     height: 150px;  /*modifed*/
     margin-top: -150px;  /*modifed*/
-    margin-left: 450px;  /*modifed*/
+    margin-left: 330px;  /*modifed*/
     border-left: #572e08;
+    border-width: 10px;
+    border-left-style: solid;
+  }
+  .dash5{
+    color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    width: 260px;   /*modifed*/
+    height: 150px;  /*modifed*/
+    margin-top: -150px;  /*modifed*/
+    margin-left: 640px;  /*modifed*/
+    border-left: #374970;
+    border-width: 10px;
+    border-left-style: solid;
+  }
+  .dash6{
+    color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    width: 260px;   /*modifed*/
+    height: 150px;  /*modifed*/
+    margin-top: -150px;  /*modifed*/
+    margin-left: 640px;  /*modifed*/
+    border-left: #374970;
     border-width: 10px;
     border-left-style: solid;
   }
@@ -205,7 +229,8 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     
   }
   .icon-li{
-    margin-left: 10%;
+    
+    float: left;
   }
 
 

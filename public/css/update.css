@@ -71,7 +71,7 @@ input[type="submit"] {
    -o-transition: .5s all;
    -ms-transition: .5s all;
     transition: .5s all;
-    background:rgb(228, 160, 82);
+    background:#61ca7d;
 }
 .add_button
 {
@@ -89,7 +89,7 @@ input[type="submit"] {
     
 }
 .add_button:hover{
-    background-color:rgb(228, 160, 82);
+    background-color:#61ca7d;
 }
 p{
     padding-top: 1.2%;

@@ -26,7 +26,7 @@ header .name
 
 }
 .left_area h3{
-  color: rgb(228, 160, 82);
+  color: #fff;
   margin: 0;
   text-transform: uppercase;
   font-size: 22px;
@@ -106,18 +106,18 @@ header .name
 }
 
 .menu li:hover{
-  border-left: 1px solid rgb(228, 160, 82);
+  border-left: 1px solid #61ca7d;
 
-  border-right: 1px solid rgb(228, 160, 82);
-  border-bottom: 1px solid rgb(228, 160, 82);
+  border-right: 1px solid #61ca7d;
+  border-bottom: 1px solid #61ca7d;
   border-top: 1px solidrgb(228, 160, 82);
   border-radius: 3px;
-  background-color: rgb(228, 160, 82);
+  background-color: #61ca7d;
 }
 
 /* hover profile show menu */
 .profile:hover .menu {
-  color: rgb(228, 160, 82);
+  color: #61ca7d;
   display:block;
 
 
@@ -156,7 +156,7 @@ header .name
 }
 
 .sidebar a:hover{
-  background:rgb(228, 160, 82);
+  background:#61ca7d;
 }
 
 .sidebar i{
@@ -176,7 +176,7 @@ label #sidebar_btn{
 }
 
 label #sidebar_btn:hover{
-  color:rgb(228, 160, 82);
+  color:#61ca7d;
 }
 
 #check:checked ~ .sidebar{
@@ -308,5 +308,5 @@ button {
   }
   
   .btn-group .button1:hover {
-    background-color: rgb(228, 160, 82);
+    background-color: rgb(45, 100, 37);
   }

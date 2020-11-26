@@ -10,15 +10,20 @@
  <div>
     <div class= "dash1">
     <b><p class="dash">SUPPLIERS</p></b>
-    <i class="fa fa-users fa-3x icon-right" aria-hidden="true"></i>
-      
-     
+    <i class="fa fa-users fa-3x icon-right" aria-hidden="true"></i> 
     </div>
 
     <div class= "dash2">
         <b><p class="dash">PRODUCTS</p></b>
         <i class="fa fa-table fa-3x icon-right" aria-hidden="true"></i>
     </div>
+     
+    <div class= "dash5">
+        <b><p class="dash">PRODUCTS</p></b>
+        <i class="fa fa-table fa-3x icon-right" aria-hidden="true"></i>
+    </div>
+
+
     </div>
 
     <div> 
@@ -26,6 +31,9 @@
         <b><p class="dash">REMINDERS</p></b>
     </div>
     <div class= "dash4">
+        <b><p class="dash">RETURN ITEMS</p></b>
+    </div>
+    <div class= "dash6">
         <b><p class="dash">RETURN ITEMS</p></b>
     </div>
     </div>
