@@ -26,10 +26,10 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     
     margin-top: 20px;
     margin-bottom: 5px;
-    margin-left: 5px;
+    margin-left: 110px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 30px;
-    color:#007042;
+    color:black;
     text-align: center;
   }
 
@@ -77,7 +77,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     width: 280px;     /*modified*/
     margin-top: -270px;  /*modifed*/
     /* orientation: portrait; */
-    height:520px;    /*modified*/
+    height:420px;    /*modified*/
     /* margin-left: -200px; */
     /*box-shadow: -1px -1px 60px 10px black inset;*/
   }
@@ -109,10 +109,10 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   }
  
   .dash1{
-    color: black;
+    color: #007042;
     
-    background-color: gray(56, 53, 53);
-    /*box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
+    /*background-color: gray(56, 53, 53);
+    box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     width: 260px;    /*modifed*/
@@ -126,80 +126,77 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   }
 
   .dash2{
-    color: black;
-    background-color:  gray(56, 53, 53);
-    /*box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
+    color: #1e3464;
+    /*background-color:  gray(56, 53, 53);
+    box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     width: 260px;   /*modifed*/
     height: 150px;  /*modifed*/
     margin-top: -150px;  /*modifed*/
     margin-left: 330px;  /*modifed*/
-    border-left: #374970;
+    border-left: #1e3464;
     border-width: 10px;
     border-left-style: solid;
   }
    
  .dash{
-  font-size: 20px;  /*modifed*/
+  font-size: 17px;  /*modifed*/
   margin-left: 8%;
   padding-top: 30px;  /*modifed*/
-  
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;  /*modifed*/
   }
   
   .dash3{
-    color: black;
-    background-color: gray(56, 53, 53);
-    /*box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
-   
+    color: #82a856;
+    /*background-color: gray(56, 53, 53);
+    box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     width: 260px;  /*modifed*/
     height: 150px;  /*modifed*/
     margin-top: 50px;  /*modifed*/
     margin-left: 20px;  /*modifed*/
-    border-left: #5e0336;
+    border-left:#82a856;
     border-width: 10px;
     border-left-style: solid;
   }
 
   .dash4{
-    color: black;
-    background-color: gray(56, 53, 53);
-    /*box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
-  
-   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: rgb(7, 145, 67);
+   /* background-color: gray(56, 53, 53);
+    box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     width: 260px;  /*modifed*/
     height: 150px;  /*modifed*/
     margin-top: -150px;  /*modifed*/
     margin-left: 330px;  /*modifed*/
-    border-left: #572e08;
+    border-left: rgb(7, 145, 67);
     border-width: 10px;
     border-left-style: solid;
   }
   .dash5{
-    color: black;
+    color: #3b503d;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     width: 260px;   /*modifed*/
     height: 150px;  /*modifed*/
     margin-top: -150px;  /*modifed*/
     margin-left: 640px;  /*modifed*/
-    border-left: #374970;
+    border-left: #3b503d;
     border-width: 10px;
     border-left-style: solid;
   }
   .dash6{
-    color: black;
+    color: rgb(131, 91, 5);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     width: 260px;   /*modifed*/
     height: 150px;  /*modifed*/
     margin-top: -150px;  /*modifed*/
     margin-left: 640px;  /*modifed*/
-    border-left: #374970;
+    border-left: rgb(131, 91, 5);
     border-width: 10px;
     border-left-style: solid;
   }
@@ -221,7 +218,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     opacity: 0.2;
     color: rgb(28, 43, 28);
     margin-left: 72%;
-    margin-top: -30px;
+    margin-top: -35px;
     padding-top: -30px;
   }
   .icon-list{
@@ -229,8 +226,8 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     
   }
   .icon-li{
-    
-    float: left;
+    opacity: 0.8;
+    margin-left: -62%;
   }
 
 

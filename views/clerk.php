@@ -10,17 +10,17 @@
  <div>
     <div class= "dash1">
     <b><p class="dash">SUPPLIERS</p></b>
-    <i class="fa fa-users fa-3x icon-right" aria-hidden="true"></i> 
+    <i class="fa fa-users fa-2x icon-right" aria-hidden="true"></i> 
     </div>
 
     <div class= "dash2">
         <b><p class="dash">PRODUCTS</p></b>
-        <i class="fa fa-table fa-3x icon-right" aria-hidden="true"></i>
+        <i class="fa fa-table fa-2x icon-right" aria-hidden="true"></i>
     </div>
      
     <div class= "dash5">
-        <b><p class="dash">PRODUCTS</p></b>
-        <i class="fa fa-table fa-3x icon-right" aria-hidden="true"></i>
+        <b><p class="dash">PURCHASE</p></b>
+       
     </div>
 
 
@@ -34,15 +34,15 @@
         <b><p class="dash">RETURN ITEMS</p></b>
     </div>
     <div class= "dash6">
-        <b><p class="dash">RETURN ITEMS</p></b>
+        <b><p class="dash">CURRENT STOCKS</p></b>
     </div>
     </div>
     
    <div class="wrapper">
         <div class="list_wrap">
             <div class="subcontent">
-            <i class="fa fa-list icon-li" aria-hidden="true"></i>
-                <h1><p>Stock Reminders</p></h1>
+            <i class="fa fa-list  icon-li" aria-hidden="true"> Stock Reminders</i>
+                
             </div>
             <ul>
             <?php
