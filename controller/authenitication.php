@@ -403,25 +403,10 @@ class authenitication
         $address=$_POST['address'];
         $mobile_no=$_POST['mobile_no'];
         $email=$_POST['email'];
-     //   $row=$this->auth->update_profile_details($id);
 
         $row=$this->auth->update_profile_details($id,$address,$mobile_no,$email);
         header('location: ../views/profile.php');
-               if ($row == "0") {
-            header('location: ../views/profile.php');
-        }else{
-           $_SESSION['update_profile']="success update profile";
-            if ($_SESSION['role'] == "Admin") {
-
-                header('location: ../views/admin.php');
-            } elseif ($_SESSION['role']== "Clerk") {
-
-                header('location: ../views/clerk.php');
-            } elseif ($_SESSION['role'] == "Shopkeeper") {
-
-                header('location: ../views/shopkeeper_dashbord.php');
-            }
-        }
+   
     }
  
        public function check_email()
