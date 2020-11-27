@@ -23,15 +23,9 @@
 
             </form>
             <br/>
-
-
-
             <a href="login.php"><input type="submit" value="Login"></a>
-
         </div>
-
     </div>
-
     <div class="footer">
         <p>© Tactota Solutions All rights reserved </p>
     </div>

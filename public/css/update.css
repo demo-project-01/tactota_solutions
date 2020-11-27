@@ -6,7 +6,7 @@ input[type="text"], input[type="email"], input[type="password"] ,input[type="num
     display: block;
     border: none;
     padding: 0.8em;
-    background:#dff8e5;
+    background:#eef3ef;
 
     font-family: 'Roboto', sans-serif;
 }
