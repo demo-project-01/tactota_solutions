@@ -19,6 +19,27 @@ input[type="text"], input[type="email"], input[type="password"] ,input[type="num
     width:85%;
     padding: 20px;
 }
+.update-tbl tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.update-tbl tbody tr:nth-child(even) {
+    background-color: #eef3ef;
+}
+.update-tbl th{
+    font-size: 1.2em;
+    padding:10px;
+    background-color:#cccfcd;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
+
+}
+.update-tbl td{
+    font-size: 1em;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
+
+}
 
 
 input[type="submit"] {

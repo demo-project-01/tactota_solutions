@@ -49,23 +49,23 @@ table{
     margin-bottom: 1rem;
 }
 
-tbody tr:nth-child(odd) {
+.view-tbl tbody tr:nth-child(odd) {
     background-color: #fff;
 }
 
-tbody tr:nth-child(even) {
+.view-tbl tbody tr:nth-child(even) {
     background-color: #eef3ef;
 }
 
 
-th{
+.view-tbl th{
     font-size: 1.2em;
     padding:10px;
     background-color:#cccfcd;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
 
 }
-td{
+.view-tbl td{
     font-size: 1em;
     padding: 10px;
     text-align: center;
