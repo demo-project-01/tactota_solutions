@@ -80,7 +80,7 @@
                         <td><input id='job' class="text" type="radio" name="job_position" value="Clerk" required=""><span style="font-size:0.8em; color:#007042;">Clerk</span></td>
                     </tr>
                     <tr>
-                        <td><input id='job' class="text" type="radio" name="job_position" value="Shopkeeper" required=""><span style="font-size:0.8em; color:#007042;">ShopKeeper</span></td>
+                        <td><input id='job' class="text" type="radio" name="job_position" value="Shopkeeper" required=""><span style="font-size:0.8em; color:#007042;">Shopkeeper</span></td>
                     </tr>
                 </table>
 

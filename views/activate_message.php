@@ -125,7 +125,7 @@ include 'clerk_sidebar.php';
       </tbody>
     </table> 
   </div>
-  <div class="footerc">
+  <div class="footer">
 			<p>© Tactota Solutions All rights reserved </p>
       </div>
 </div>

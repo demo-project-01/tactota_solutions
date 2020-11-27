@@ -39,6 +39,7 @@ header .name
   color: #067D68;
 }
 
+
 .profile-wrapper{
   /*  padding: 5px;
    background: #19B3D3;*/
@@ -147,6 +148,8 @@ header .name
 
 .sidebar a{
   color: #fff;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 16px;
   display: block;
   width: 100%;
   line-height: 60px;

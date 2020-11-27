@@ -2,7 +2,6 @@
 include 'clerk_sidebar.php';
 ?>
 <head>
-    <link rel="stylesheet" href="../public/css/update.css">
     <script src="../public/js/list_update.js"></script>
 </head>
 <div class="content" style="width: auto;">
@@ -16,10 +15,10 @@ include 'clerk_sidebar.php';
      
     </div>
 
-<div class="footerc">
+    <div class="footer">
 		<p>© Tactota Solutions All rights reserved </p>
     </div>
-    </div> 
+</div> 
 
 </body>
 

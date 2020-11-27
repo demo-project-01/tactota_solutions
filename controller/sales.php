@@ -62,7 +62,7 @@ class sales
    //   header('location: ../views/bill.php');
     }
 
-    public function dashbord_search($id)
+    public function dashbord_search()
     {
            $id=$_POST['query'];
 
@@ -134,9 +134,9 @@ if(isset($_GET['action']) && $_GET['action'] == "get_supplier_names") {
 }else if(isset($_GET['action']) && $_GET['action'] == 'sell') {
     $id=$_GET["id"];
     $controller->sell($id);
-}else if(isset($_GET['action']) && $_GET['action'] == '') {
-     $id=$_POST['search'];
-    $controller->dashbord_search($id);
+}else if(isset($_GET['action']) && $_GET['action'] == 'dashbord_search') {
+
+    $controller->dashbord_search();
 }else if(isset($_GET['action']) && $_GET['action'] == 'add_bill') { //nuwan
     $controller->add_bill();
 }else if(isset($_GET['action']) && $_GET['action'] == 'get_product_details') {//nuwan

@@ -58,7 +58,7 @@ include 'admin_sidebar.php';
   <a class="button" href="#" style="float:left;"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
   <a class="button" href="#" style="float:right;"><i class="fa fa-download" aria-hidden="true">&nbsp&nbspDownload Report</i></a>
 </div>
-<div class="footerc">
+<div class="footer">
 	<p>© Tactota Solutions All rights reserved </p>
 </div>
 
