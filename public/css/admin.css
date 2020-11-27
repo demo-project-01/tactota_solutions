@@ -41,7 +41,7 @@ html,body{
   
  
   .income{
-      margin-top: 20px;
+      margin-top: 10px;
       margin-left: 50px;
       margin-right: auto;
       border: 2px solid black;
@@ -61,10 +61,11 @@ html,body{
   }
   
   .view{
-    margin-left: 60px;
-    font-size: 22px;
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
+    margin-top: 450px;
+    margin-left: -370px;
+    font-size: 20px;
+    color: rgb(27, 13, 13);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
   
   .wrapper{
@@ -84,7 +85,7 @@ html,body{
     width: 700px;   /*modifed*/
     margin-top: 500px;  /*modifed*/
    /* orientation: portrait; */
-    height:400px;  /*modifed*/
+    height:460px;  /*modifed*/
      /*margin-left: -200px; */
    /* box-shadow: -1px -1px 60px 10px black inset;*/
   }
@@ -125,8 +126,9 @@ html,body{
   height: 150px;      
   margin-top: 30px; 
   border-left: #007042;
-    border-width: 10px;
-    border-left-style: solid; 
+  border-width: 10px;
+  border-left-style: solid; 
+  margin-left: 30px;
  }
  .income2{
   color: #1e3464;
@@ -136,38 +138,77 @@ html,body{
   width: 260px;     
   height: 150px;     
   margin-top: -150px;   
-  margin-left: 330px;   
+  margin-left: 340px;   
   border-left: #1e3464;
   border-width: 10px;
   border-left-style: solid;
  }
  .income3{
-  color: #82a856;
+  color: #6D6E31;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
   width: 260px;   /*modifed*/
   height: 150px;  /*modifed*/
   margin-top: -150px;  /*modifed*/
-  margin-left: 640px;  /*modifed*/
-  border-left:#82a856;
+  margin-left: 650px;  /*modifed*/
+  border-left:#6D6E31;
   border-width: 10px;
   border-left-style: solid;
  }
  .income4{
-  color: rgb(7, 145, 67);
+  color: #6a933e;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
   width: 260px;   /*modifed*/
   height: 150px;  /*modifed*/
   margin-top: -150px;  /*modifed*/
-  margin-left: 940px;  /*modifed*/
-  border-left: rgb(7, 145, 67);
-    border-width: 10px;
-    border-left-style: solid;
+  margin-left: 960px;  /*modifed*/
+  border-left: #6a933e;
+  border-width: 10px;
+  border-left-style: solid;
  }
  p{
    padding-top: 1.2%;
  }
+ .icon-left{
+   opacity: 0.6;
+   margin-left: 5%;
+   margin-top: 10px;
+   padding-top: -30px;
+ }
+ .admin-tbl table{
+  
+  width: 95%;
+  margin-bottom: 1rem; 
+  
+ }
+ .admin-tbl{
+  display: flex;
+  margin: 2em auto;
+  margin-top: 120px;
+  margin-left: 30px;
+  height: 50px;
+  padding: 10px;
+  align-items: center;
+  text-align: left;
+ }
+ .admin-tbl td{
+  outline: none;
+  border-bottom: 1px solid #000;
+  color:  #3b503d;
+  font-size: 17px;
+  padding: 15px;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 17px;  
+}
+.admin-tbl th{
+  font-size: 1.2em;
+  padding:10px;
+  background-color:#cccfcd;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
+  text-align: center;
+}
  
