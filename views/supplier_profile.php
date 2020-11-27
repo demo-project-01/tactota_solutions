@@ -57,7 +57,7 @@ $row2=$_SESSION['supplier_product_details'];
     <div id="product">
       <table style="float:top;">
         <tr>
-          <th colspan=4>Product List :</td>
+          <td colspan=4>Product List :</td>
         </tr>
   <?php if(empty($arr)){  ?>
         <tr>
@@ -84,7 +84,7 @@ $row2=$_SESSION['supplier_product_details'];
       </table>
     </div>
   </div>
-  <div class="footer">
+  <div class="footerc">
 	    <p>© Tactota Solutions All rights reserved </p>
   </div>
 </div>

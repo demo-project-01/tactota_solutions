@@ -1,13 +1,13 @@
 
 .main{
     margin:0.5rem;
-    max-width:650px;
-    width:200%;
+    max-width:400px;
+    width:100%;
     height:10px;
 }
-@media(max-width:36em){
+@media(max-width:34em){
     .main{
-        min-width:650px;
+        min-width:150px;
         width:auto;
     }
 }
@@ -20,7 +20,7 @@ select {
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#40FFFFFF', endColorstr='#00FFFFFF', GradientType=0);
     background-color: #ccc;
-    border-radius: 1px;
+    border-radius: 6px;
     border: solid 1px #ffffff;
     box-shadow: 0px 2px 5px 0px rgba(155, 155, 155, 0.5);
     box-sizing: border-box;
@@ -57,7 +57,7 @@ select {
 .dropdown-select:active,
 .dropdown-select.open {
     background-color: #fff !important;
-    border-color: #eef3ef;
+    border-color: #bbb;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05) inset;
 }
 
@@ -66,7 +66,7 @@ select {
     width: 0;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-top: 4px solid #eef3ef;
+    border-top: 4px solid #777;
     -webkit-transform: origin(50% 20%);
     transform: origin(50% 20%);
     transition: all 0.125s ease-in-out;
@@ -188,5 +188,5 @@ select {
 }
 
 .dropdown-select a:hover {
-    color: #eef3ef;
+    color: #666;
 }

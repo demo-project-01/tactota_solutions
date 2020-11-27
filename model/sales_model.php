@@ -71,10 +71,11 @@ class sales_model
     }
 
      public function dashbord_search($id){
-         $query = $this->mysqli->query("SELECT DISTINCT p_name,model_no,brand_name FROM product where p_name LIKE   '%" . $id . "%'");
+         $result = "";
+         $query = $this->mysqli->query("SELECT p_name FROM product where p_id='" . $id . "'");
 
          while ($row = $query->fetch_assoc()) {
-             $result[] = $row;
+             $result = $row;
          }
          return $result;
      }

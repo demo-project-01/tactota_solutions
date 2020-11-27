@@ -8,7 +8,7 @@ $sql=$data->get_supplier_names();
 
 <head>
     <link rel="stylesheet" href="../public/css/update.css">
-    <link rel="stylesheet" href="../public/css/newproduct.css">
+    <link rel="stylesheet" href="../public/css/test.css">
 </head>
 <div class="content" style="width: auto;">
     <h1 id="tbl-heading"  >Add new Product</h1>
@@ -138,7 +138,7 @@ $sql=$data->get_supplier_names();
             </table>
         </div>
     </form>
-<div class="footer">
+<div class="footerc">
 			<p>© Tactota Solutions All rights reserved </p>
       </div>
 </div>

@@ -54,35 +54,28 @@
             <div class="subcontent">
             <i class="fa fa-list  icon-li" aria-hidden="true"> Stock Reminders</i>  
             </div>
-            <div class="clerk-tbl">
-            <table>
-            <tboady>
-            <ul>    
+            <ul>
             <?php
             foreach ($sql as $k => $v){
-                ?><tr>
-                <td><li class="github">
+                ?>
+                <li class="github">
                     <div class="list">
-                    <div class="contentc">
-                         <i class="fa fa-list-ul icon-list" aria-hidden="true"></i>
-                            <b><?php echo $sql[$k]["p_name"] ?></b>
-                        </div>   
-                    </div>       
-                   </li>
-                </td>
-            </tr>
-            <?php }?>
-            </ul>
-            </tboady>
-            </table>
-            </div>
-            </br></br>
+                        <div class="contentc">
+                        <i class="fa fa-list-ul icon-list" aria-hidden="true"></i>
+                            <?php echo $sql[$k]["p_name"] ?>
+                        </div>
+                        
+                    </div>
+                    
+            </li><?php }?>
                 <div><br/>
                     <a href="reminderitems.php" class="viewsAll" ><span>View All Reminders</span></a>
-                </div>    
+                </div>
+                
+            </ul>
         </div>
     </div>
-    <div class="footer">
+    <div class="footerc">
 	<p>© Tactota Solutions All rights reserved </p>
    </div>
 </div>

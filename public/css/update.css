@@ -1,17 +1,16 @@
-input[type="text"], input[type="email"], input[type="password"] ,input[type="number"],input[type="date"]{
-    font-size: 1em;
+input[type="text"], input[type="email"], input[type="password"] ,input[type="number"]{
+    font-size: 0.9em;
     color: #000000;
     font-weight: 100;
     width: 94.6%;
     display: block;
     border: none;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
+    padding: 0.8em;
+    background:#dff8e5;
+
+    font-family: 'Roboto', sans-serif;
 }
-.update-tbl table{
-    border: 3px solid #000;
-    width: 100%;
-    margin-bottom: 1rem;
-}
+
 .update-tbl
 {
     box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
@@ -22,35 +21,41 @@ input[type="text"], input[type="email"], input[type="password"] ,input[type="num
     border:none;
     width:85%;
     padding: 20px;
-}
-.update-tbl tbody tr:nth-child(odd) {
-    background-color: #fff;
-}
-
-.update-tbl tbody tr:nth-child(even) {
-    background-color: #eef3ef;
-}
-.update-tbl th{
-    font-size: 1.2em;
-    padding:10px;
-    background-color:#cccfcd;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
-
-}
-.update-tbl td{
-    font-size: 1em;
-    padding: 10px;
+    align-items: center;
     text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
-
+    margin-top: 50px;  /*add*/
 }
-
+#tbl-heading
+{
+    
+    margin-left:3em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
+    text-align: left; /*modified*/
+    color: #007042;
+    font-weight: bold;
+    margin-top: 20px;       /*reshani*/
+    font-size: 2em;      /*reshani*/
+}
+td{                                  
+    /*reshani*/
+    padding: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+}
+th{                  
+    /*reshani*/
+    
+    font-size: 20px;
+    color: white;
+    background-color: #007042;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
 input[type="submit"] {
     font-weight: bolder;
     font-size: 1.5em;
     color: rgb(0, 0, 0);
-    background: #007042;
+    background: #4a746e;
     outline: none;
     border: 1px solid #007042;
     cursor: pointer;
@@ -68,9 +73,39 @@ input[type="submit"] {
     transition: .5s all;
     background:#61ca7d;
 }
+.add_button
+{
+    right: 0px;
+    border: 3px solid #000000;
+    padding: 10px;
 
+    background-color: #007042;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bolder;
+    color: #fff;
+    
+}
+.add_button:hover{
+    background-color:#61ca7d;
+}
 p{
     padding-top: 1.2%;
   }
-
-
+.footerc{   /*reshani*/
+    text-align: center;
+    color: black;
+    width:103.4%;
+    background:white;
+    height:50px;
+    margin-left: -2%;
+    margin-top:280px ;
+}
+.new
+{
+    margin-right:5em;
+    float: right;
+    margin-bottom:2em;
+}
