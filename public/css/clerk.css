@@ -207,16 +207,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   p{
     padding-top: 1.2%;
   }
-  .footer{
-    text-align: center;
- /* position:absolute;*/
-  /*bottom:0;*/
-  width:104%;
-  background:#2f323a;
-  height:37px;
-  margin-top: 250px;   /*modified*/
-  margin-left: -2%;
-  } 
+ 
   .icon-right{
     opacity: 0.2;
     color: rgb(28, 43, 28);
