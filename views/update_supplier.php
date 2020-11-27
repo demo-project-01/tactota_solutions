@@ -13,7 +13,7 @@ require '../controller/inventory_maintain.php';
 </head>
 
 <div class="content"style="width:auto;">
-    <h1 id="tbl-heading"> Update Product</h1>
+    <h1 id="tbl-heading"> Update Supplier</h1>
 
     <div class="update-tbl">
         <table>
