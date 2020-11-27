@@ -1,17 +1,3 @@
-input[type="text"], input[type="email"], input[type="password"] ,input[type="number"],input[type="date"]{
-    font-size: 1em;
-    color: #000000;
-    font-weight: 100;
-    width: 94.6%;
-    display: block;
-    border: none;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
-}
-.update-tbl table{
-    border: 3px solid #000;
-    width: 100%;
-    margin-bottom: 1rem;
-}
 .update-tbl
 {
     box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
@@ -23,6 +9,12 @@ input[type="text"], input[type="email"], input[type="password"] ,input[type="num
     width:85%;
     padding: 20px;
 }
+.update-tbl table{
+    border: 3px solid #000;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
 .update-tbl tbody tr:nth-child(odd) {
     background-color: #fff;
 }
@@ -31,20 +23,45 @@ input[type="text"], input[type="email"], input[type="password"] ,input[type="num
     background-color: #eef3ef;
 }
 .update-tbl th{
+    width:40%;
     font-size: 1.2em;
     padding:10px;
-    background-color:#cccfcd;
+    background-color: #e2e5e3;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
-
 }
+
 .update-tbl td{
+    text-align: left;
+    width: 60%;;
     font-size: 1em;
     padding: 10px;
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
-
 }
 
+/* update text boxes ----------------------------*/
+
+input[type="text"], input[type="email"], input[type="password"] ,input[type="number"],input[type="date"]{
+    font-size: 1.2em;
+    color: #000000;
+    width: 94.6%;
+    background: none;
+    border:none;
+    border-bottom:1px solid #000;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
+}
+input:focus {
+    outline-width:0.1;
+    border-radius:none;
+    height: 1.5em;
+}
+input[type="text"]:disabled {
+    outline: none;
+    border-bottom: none;
+  }
+/*--------------------------------------------------*/
+
+/* update button --------------------------------------*/
 
 input[type="submit"] {
     font-weight: bolder;
@@ -68,9 +85,8 @@ input[type="submit"] {
     transition: .5s all;
     background:#61ca7d;
 }
+/* -----------------------------------------*/
 
-p{
-    padding-top: 1.2%;
-  }
+
 
 
