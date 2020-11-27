@@ -43,7 +43,7 @@ body{
 }
 /*------------------------------------*/
 
-table{
+.view-tbl table{
     border: 3px solid #000;
     width: 100%;
     margin-bottom: 1rem;
