@@ -84,7 +84,7 @@ $row2=$_SESSION['supplier_product_details'];
       </table>
     </div>
   </div>
-  <div class="footerc">
+  <div class="footer">
 	    <p>© Tactota Solutions All rights reserved </p>
   </div>
 </div>
