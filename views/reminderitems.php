@@ -13,7 +13,7 @@
     <div class="search">
     <input type="text" placeholder="Search..">
   </div>
-    <div class="update-tbl">
+    <div class="view-tbl">
        <table>
             <thead>
                 <tr>
