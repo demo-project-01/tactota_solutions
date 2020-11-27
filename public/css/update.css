@@ -24,6 +24,7 @@
 }
 .update-tbl th{
     width:40%;
+    height: 1.2em;
     font-size: 1.2em;
     padding:10px;
     background-color: #e2e5e3;
@@ -32,7 +33,8 @@
 
 .update-tbl td{
     text-align: left;
-    width: 60%;;
+    width: 60%;
+    height: 1.2em;
     font-size: 1em;
     padding: 10px;
     text-align: center;
@@ -47,6 +49,7 @@ input[type="text"], input[type="email"], input[type="password"] ,input[type="num
     width: 94.6%;
     background: none;
     border:none;
+    outline: none;
     border-bottom:1px solid #000;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
 }
