@@ -6,10 +6,6 @@ $sql=$data->user_details();
 //session_start();
 //$row=$_SESSION['view_user_details'];
 ?>
-<head>
-<link rel="stylesheet" href="../public/css/update.css">
-
-</head>
 
 <div class="content" style="width:auto;">
   <h1 id="tbl-heading"> View Users</h1>

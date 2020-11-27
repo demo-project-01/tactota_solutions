@@ -1,12 +1,54 @@
 body{
     background-color:rgb(238, 238, 238);
 }
+
+#tbl-heading
+{    
+    margin-left:3em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
+    text-align: left; /*modified*/
+    color: #007042;
+    font-weight: bold;
+    margin-top: 20px;       /*reshani*/
+    margin-bottom: 20px;       
+    font-size: 2em;      /*reshani*/
+}
+.new
+{
+    margin-right:5em;
+    float: right;
+    margin-bottom:2em;
+}
+
+
+/* add button ----------------------*/
+.add_button
+{
+    right: 0px;
+    padding: 10px;
+    box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 2px solid #eef3ef;
+    background-color: #007042;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bolder;
+    color: #fff;
+}
+
+
+.add_button:hover{
+    background-color:#61ca7d;
+}
+/*------------------------------------*/
+
 table{
     border: 3px solid #000;
     width: 100%;
     margin-bottom: 1rem;
-
 }
+
 tbody tr:nth-child(odd) {
     background-color: #fff;
 }
@@ -15,34 +57,25 @@ tbody tr:nth-child(even) {
     background-color: #eef3ef;
 }
 
+
+th{
+    font-size: 1.2em;
+    padding:10px;
+    background-color:#cccfcd;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
+
+}
 td{
+    font-size: 1em;
     padding: 10px;
     text-align: center;
-}
-th{
-    height: 50px;
-    font-size: 18px;
-    background-color: #007042;
-}
-#tbl-heading
-{
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    color: #007042;
-}
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
 
-button {
-    background-color: #007042;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    color: #fff;
 }
 
 .view-tbl
 {
+    box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     margin: 2em auto;
     background:/* #2f323a*/#ffffff;
@@ -52,8 +85,7 @@ button {
     padding: 20px;
     align-items: center;
     text-align: center;
-    box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
-}
+   }
 
 
 /* The switch - the box around the slider */
@@ -182,10 +214,11 @@ input:checked + .slider:before {
     text-align: center;
     /* position:absolute;*/
      /*bottom:0;*/
-     color:#ffffff;
-     width:100%;
-     background:#2f323a;
-     height:37px;
-     margin-top: 200px;
+     text-align: center;
+     color:#007042;
+     width:103.4%;
+     background:white;
+     height:50px;
      margin-left: -2%;
+     margin-top:280px ;
   }

@@ -57,7 +57,7 @@ $row2=$_SESSION['supplier_product_details'];
     <div id="product">
       <table style="float:top;">
         <tr>
-          <td colspan=4>Product List :</td>
+          <th colspan=4>Product List :</td>
         </tr>
   <?php if(empty($arr)){  ?>
         <tr>

@@ -1,14 +1,11 @@
-input[type="text"], input[type="email"], input[type="password"] ,input[type="number"]{
-    font-size: 0.9em;
+input[type="text"], input[type="email"], input[type="password"] ,input[type="number"],input[type="date"]{
+    font-size: 1em;
     color: #000000;
     font-weight: 100;
     width: 94.6%;
     display: block;
     border: none;
-    padding: 0.8em;
-    background:#eef3ef;
-
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
 }
 
 .update-tbl
@@ -21,35 +18,8 @@ input[type="text"], input[type="email"], input[type="password"] ,input[type="num
     border:none;
     width:85%;
     padding: 20px;
-    align-items: center;
-    text-align: center;
-    margin-top: 50px;  /*add*/
 }
-#tbl-heading
-{
-    
-    margin-left:3em;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
-    text-align: left; /*modified*/
-    color: #007042;
-    font-weight: bold;
-    margin-top: 20px;       /*reshani*/
-    font-size: 2em;      /*reshani*/
-}
-td{                                  
-    /*reshani*/
-    padding: 10px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 18px;
-}
-th{                  
-    /*reshani*/
-    
-    font-size: px;
-    color: white;
-    background-color: #007042;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
+
 
 input[type="submit"] {
     font-weight: bolder;
@@ -73,39 +43,9 @@ input[type="submit"] {
     transition: .5s all;
     background:#61ca7d;
 }
-.add_button
-{
-    right: 0px;
-    border: 3px solid #000000;
-    padding: 10px;
 
-    background-color: #007042;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1em;
-    font-weight: bolder;
-    color: #fff;
-    
-}
-.add_button:hover{
-    background-color:#61ca7d;
-}
 p{
     padding-top: 1.2%;
   }
-.footerc{   /*reshani*/
-    text-align: center;
-    color: black;
-    width:103.4%;
-    background:white;
-    height:50px;
-    margin-left: -2%;
-    margin-top:280px ;
-}
-.new
-{
-    margin-right:5em;
-    float: right;
-    margin-bottom:2em;
-}
+
+
