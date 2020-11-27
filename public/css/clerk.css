@@ -245,8 +245,8 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   }
  
   .icon-right{
-    opacity: 0.2;
-    color: rgb(28, 43, 28);
+    opacity: 0.6;
+    /*color: rgb(28, 43, 28);*/
     margin-left: 72%;
     margin-top: -35px;
     padding-top: -30px;
@@ -279,7 +279,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     align-items: center;
     text-align: left;
   }
-  td{
+  .clerk-tbl td{
     outline: none;
     border-bottom: 1px solid #000;
     color:  #3b503d;

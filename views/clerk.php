@@ -12,7 +12,7 @@
         <a href ="supplier_details.php">
             <div class= "dash1">
                 <b><p class="dash">SUPPLIERS</p></b>
-                <i class="fa fa-users fa-2x icon-right" aria-hidden="true"></i> 
+                <i class="fa fa-users fa-3x icon-right" aria-hidden="true"></i> 
                 <b><p class="infor">10 Record(s)</p></b>
             </div>
         </a>    
@@ -20,7 +20,7 @@
         <a href ="view_all_products.php">
             <div class= "dash2">
                 <b><p class="dash">PRODUCTS</p></b>
-                <i class="fa fa-table fa-2x icon-right" aria-hidden="true"></i>
+                <i class="fa fa-table fa-3x icon-right" aria-hidden="true"></i>
                 <b><p class="infor">25 Record(s)</p></b>
             </div>
         </a>
@@ -28,7 +28,7 @@
         <a href ="purchase.php">
             <div class= "dash5"> 
                 <b><p class="dash">PURCHASE</p></b>
-                <i class="fas fa-money-bill-alt fa-2x icon-right"></i>
+                <i class="fas fa-money-bill-alt fa-3x icon-right"></i>
                 <b><p class="infor">15 Record(s)</p></b>   
             </div>
         </a>
@@ -39,7 +39,7 @@
         <a href ="reminderitems.php">   
             <div class= "dash3">
                 <b><p class="dash">REMINDERS</p></b>
-                <i class="fa fa-bell-o fa-2x icon-right" aria-hidden="true"></i>
+                <i class="fa fa-bell-o fa-3x icon-right" aria-hidden="true"></i>
                 <b><p class="infor">5 Record(s)</p></b>
             </div>
         </a>    
@@ -47,7 +47,7 @@
         <a href ="customerpurchase.php"> 
             <div class= "dash4">
                 <b><p class="dash">SOLD ITEMS</p></b>
-                <i class="fas fa-cart-arrow-down fa-2x icon-right"></i>
+                <i class="fas fa-cart-arrow-down fa-3x icon-right"></i>
                 <b><p class="infor">5 Record(s)</p></b>
             </div>
          </a>
@@ -55,7 +55,7 @@
         <a href ="supplier_details.php"> 
             <div class= "dash6">
                 <b><p class="dash">STOCK DETAILS</p></b>
-                <i class="fas fa-store fa-2x icon-right"></i>
+                <i class="fas fa-store fa-3x icon-right"></i>
                 <b><p class="infor">5 Record(s)</p></b>
             </div>
          </a>
