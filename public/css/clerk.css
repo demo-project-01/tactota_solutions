@@ -113,6 +113,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     }
  
   .dash1{
+    transition: transform .2s;
     color: #007042;
     background-color: white;
     /*background-color: gray(56, 53, 53);
@@ -128,8 +129,14 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     border-left-style: solid;
     
   }
+  .dash1:hover {
+    -ms-transform: scale(1.2); 
+    -webkit-transform: scale(1.2); 
+    transform: scale(1.2); 
+  }
 
   .dash2{
+    transition: transform .2s;
     color: #1e3464;
     background-color: white;
     /*background-color:  gray(56, 53, 53);
@@ -144,8 +151,14 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     border-width: 10px;
     border-left-style: solid;
   }
+  .dash2:hover {
+    -ms-transform: scale(1.2); 
+    -webkit-transform: scale(1.2); 
+    transform: scale(1.2); 
+  }
    
   .dash3{
+    transition: transform .2s;
     color: #82a856;
     background-color: white;
     /*background-color: gray(56, 53, 53);
@@ -160,8 +173,14 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     border-width: 10px;
     border-left-style: solid;
   }
+  .dash3:hover {
+    -ms-transform: scale(1.2); 
+    -webkit-transform: scale(1.2); 
+    transform: scale(1.2); 
+  }
 
   .dash4{
+    transition: transform .2s;
     color: rgb(7, 145, 67);
     background-color: white;
    /* background-color: gray(56, 53, 53);
@@ -177,7 +196,13 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     border-width: 10px;
     border-left-style: solid;
   }
+  .dash4:hover {
+    -ms-transform: scale(1.2); 
+    -webkit-transform: scale(1.2); 
+    transform: scale(1.2); 
+  }
   .dash5{
+    transition: transform .2s;
     color: #3b503d;
     background-color: white;
     box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
@@ -190,7 +215,13 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     border-width: 10px;
     border-left-style: solid;
   }
+  .dash5:hover {
+    -ms-transform: scale(1.2); 
+    -webkit-transform: scale(1.2); 
+    transform: scale(1.2); 
+  }
   .dash6{
+    transition: transform .2s;
     background-color: white;
     color: rgb(131, 91, 5);
     box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
@@ -202,6 +233,11 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     border-left: rgb(131, 91, 5);
     border-width: 10px;
     border-left-style: solid;
+  }
+  .dash6:hover {
+    -ms-transform: scale(1.2); 
+    -webkit-transform: scale(1.2); 
+    transform: scale(1.2); 
   }
  
   p{
@@ -218,6 +254,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   }
   .icon-list{
     opacity: 0.5; 
+    
   }
   .icon-li{
     opacity: 0.8;
@@ -240,14 +277,16 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
    /* height: 30px;*/
     padding: 10px;
     align-items: center;
-    text-align: center;
+    text-align: left;
   }
   td{
+    outline: none;
+    border-bottom: 1px solid #000;
     color:  #3b503d;
     
     font-size: 17px;
     padding: 15px;
-    text-align: 25px;
+    text-align: left;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 17px;  
 }
@@ -263,7 +302,10 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   border-radius: 5px;
   width: 90%;
   margin-bottom: 1rem; 
+  
 }
+
+
 
 
   
