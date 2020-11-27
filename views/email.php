@@ -50,7 +50,7 @@ $row= $_SESSION['send_suplier_email'];
                     <td colspan=2>
 
                         <button class="add_button" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>&nbsp&nbspSend</button>
-                        <button class="add_button" href="#" ><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp&nbspClear</button>
+                        <button class="add_button" type="reset" ><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp&nbspClear</button>
                     </td>
                 </tr>
             </form>
