@@ -166,7 +166,6 @@ input:checked + .slider:before {
     text-align: center;
 }
 .search input[type=text] {
-    float: right;
     padding: 6px;
     border: none;
     margin-top: 8px;
@@ -212,7 +211,6 @@ input:checked + .slider:before {
 }
 
 .footer{
-    text-align: center;
     /* position:absolute;*/
      /*bottom:0;*/
      text-align: center;
@@ -222,5 +220,6 @@ input:checked + .slider:before {
      height:50px;
      margin-left: -2%;
     margin-top:280px ;
+    font-family: 'Times New Roman', Times, serif;
     
   }
