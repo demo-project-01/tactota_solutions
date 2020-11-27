@@ -7,7 +7,11 @@ input[type="text"], input[type="email"], input[type="password"] ,input[type="num
     border: none;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
 }
-
+.update-tbl table{
+    border: 3px solid #000;
+    width: 100%;
+    margin-bottom: 1rem;
+}
 .update-tbl
 {
     box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
