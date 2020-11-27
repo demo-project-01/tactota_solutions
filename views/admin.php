@@ -63,7 +63,7 @@
             </ul>
         </div>
     </div>
-    <div class="footerc">
+    <div class="footer">
 	<p>© Tactota Solutions All rights reserved </p>
 </div>
 </div>
