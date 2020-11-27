@@ -39,18 +39,7 @@ html,body{
     text-align: center;
   }
   
-  .list_wrap{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
-    margin-left: 880px;  /*modifed*/
-    background: darkblue(0,0,0,0.4);
-    width: 320px;   /*modifed*/
-    margin-top: -20px;  /*modifed*/
-    /* orientation: portrait; */
-    height:520px;  /*modifed*/
-    /* margin-left: -200px; */
-    /*box-shadow: -1px -1px 60px 10px black inset;*/
-  }
+ 
   .income{
       margin-top: 20px;
       margin-left: 50px;
@@ -87,65 +76,96 @@ html,body{
    
     
   }
+   .list_wrap{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    margin-left: 20px;  /*modifed*/
+    background: white;
+    width: 700px;   /*modifed*/
+    margin-top: 500px;  /*modifed*/
+   /* orientation: portrait; */
+    height:400px;  /*modifed*/
+     /*margin-left: -200px; */
+   /* box-shadow: -1px -1px 60px 10px black inset;*/
+  }
 
-  .list_wrap ul li{
+  /*.list_wrap ul li{
     background:#007042;
     margin-top: 2px;
     margin-left: 50px;
     margin-bottom: 10px;
     padding: 15px 15px;
-    width: 220px;  /*modifed*/
+    width: 220px;  
     padding-right:1px ;
     color: white;
     font-size: 25px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    line-height: 25px;  /*modifed*/
+    line-height: 25px; 
     border-radius: 50px;
     position: -webkit-sticky;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
      
-  }
+  }*/
   .list_wrap ul li :last-child{
     margin-bottom: 0;
   }
  .incomes{
-    font-size: 25px;     /*modifed*/
-    padding-top: 70px;    /*modifed*/
+    font-size: 17px;     /*modifed*/
+    padding-top: 30px;    /*modifed*/
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
  .income1{
+  color: #007042;
+  background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
-  width: 300px;        /*modifed*/
-  height: 200px;      /*modifed*/
-  margin-top: 30px;   /*modifed*/
-  margin-left: 60px;  /*modifed*/
+  width: 260px;        
+  height: 150px;      
+  margin-top: 30px; 
+  border-left: #007042;
+    border-width: 10px;
+    border-left-style: solid; 
  }
  .income2{
+  color: #1e3464;
+  background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
-  width: 300px;      /*modifed*/
-  height: 200px;     /*modifed*/
-  margin-top: -200px;   /*modifed*/
-  margin-left: 450px;   /*modifed*/
+  width: 260px;     
+  height: 150px;     
+  margin-top: -150px;   
+  margin-left: 330px;   
+  border-left: #1e3464;
+  border-width: 10px;
+  border-left-style: solid;
  }
  .income3{
+  color: #82a856;
+  background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
-  width: 300px;   /*modifed*/
-  height: 200px;  /*modifed*/
-  margin-top: 50px;  /*modifed*/
-  margin-left: 60px;  /*modifed*/
+  width: 260px;   /*modifed*/
+  height: 150px;  /*modifed*/
+  margin-top: -150px;  /*modifed*/
+  margin-left: 640px;  /*modifed*/
+  border-left:#82a856;
+  border-width: 10px;
+  border-left-style: solid;
  }
  .income4{
+  color: rgb(7, 145, 67);
+  background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
-  width: 300px;   /*modifed*/
-  height: 200px;  /*modifed*/
-  margin-top: -200px;  /*modifed*/
-  margin-left: 450px;  /*modifed*/
+  width: 260px;   /*modifed*/
+  height: 150px;  /*modifed*/
+  margin-top: -150px;  /*modifed*/
+  margin-left: 940px;  /*modifed*/
+  border-left: rgb(7, 145, 67);
+    border-width: 10px;
+    border-left-style: solid;
  }
  p{
    padding-top: 1.2%;

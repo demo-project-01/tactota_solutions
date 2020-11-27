@@ -10,8 +10,7 @@
         <div class="income2"> 
             <b><p class="incomes">PRODUCTS</p></b>  
         </div>   
-    </div>
-    <div>
+    
         <div class="income3">
             <b><p class="incomes">SUPPLIERS</p></b>
         </div>
