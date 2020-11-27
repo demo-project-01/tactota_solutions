@@ -69,6 +69,7 @@ body{
     font-size: 1em;
     padding: 10px;
     text-align: center;
+    outline: none;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
 
 }
@@ -150,14 +151,15 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
--------------------------------------------------------------
-*/
+-------------------------------------------------------------*/
+
+
+/* search bar -----------------------------------------------*/
 .search
 {
     padding:10px;
     box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 2em auto;
-    background:/* #2f323a*/#ffffff;
     background-size: cover;
     border: 1px solid #c1e9d8;
     width: 85%;
@@ -167,13 +169,17 @@ input:checked + .slider:before {
 }
 .search input[type=text] {
     padding: 6px;
+    background-color:  #eef3ef;
     border: none;
     margin-top: 8px;
     margin-right: 16px;
     font-size: 17px;
+    width:96%;
     widows: 80%;
     height: 30px;
 }
+/*-----------------------------------------------------------------*/
+
 
 /*user activate message*/
 .alert {
