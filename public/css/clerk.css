@@ -42,10 +42,11 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   }
   .viewsAll{
     width: 220px;
-    margin-left: 60px;
-    font-size: 20px;
+    margin-left: 42px;
+    font-size: 22px;
     color: black;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+    font-family: 'Times New Roman', Times, serif;
   }
   .viewsAll:hover{
     color: #61ca7d;
@@ -60,11 +61,13 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     orientation: landscape;
     margin-top: -80px;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
+    
+    
   }
+   
 
   .list_wrap{
-    background-color: white;
     background-color: gray(56, 53, 53);
    /* box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -92,8 +95,8 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     width: 220px; /*modified*/
     padding-right:1px ;
     color: black;
-    font-size: 22px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     line-height: 18px; /*modified*/
     border-radius: 50px;
     position: -webkit-sticky;
@@ -104,17 +107,10 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   .list_wrap ul li :last-child{
     margin-bottom: 0;
   }
-
-  .dash{
-    font-size: 17px;  /*modifed*/
-    margin-left: 8%;
-    padding-top: 30px;  /*modifed*/
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;  /*modifed*/
-    }
  
   .dash1{
     color: #007042;
-    background-color: white;
+    
     /*background-color: gray(56, 53, 53);
     box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
     box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
@@ -131,7 +127,6 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
 
   .dash2{
     color: #1e3464;
-    background-color: white;
     /*background-color:  gray(56, 53, 53);
     box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
     box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
@@ -145,9 +140,15 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     border-left-style: solid;
   }
    
+ .dash{
+  font-size: 17px;  /*modifed*/
+  margin-left: 8%;
+  padding-top: 30px;  /*modifed*/
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;  /*modifed*/
+  }
+  
   .dash3{
     color: #82a856;
-    background-color: white;
     /*background-color: gray(56, 53, 53);
     box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
     box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
@@ -163,7 +164,6 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
 
   .dash4{
     color: rgb(7, 145, 67);
-    background-color: white;
    /* background-color: gray(56, 53, 53);
     box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
     /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
@@ -179,7 +179,6 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   }
   .dash5{
     color: #3b503d;
-    background-color: white;
     box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     width: 260px;   /*modifed*/
@@ -191,7 +190,6 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     border-left-style: solid;
   }
   .dash6{
-    background-color: white;
     color: rgb(131, 91, 5);
     box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
@@ -223,10 +221,10 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     margin-left: 72%;
     margin-top: -35px;
     padding-top: -30px;
-    
   }
   .icon-list{
-    opacity: 0.5; 
+    opacity: 0.5;
+    
   }
   .icon-li{
     opacity: 0.8;
@@ -238,41 +236,6 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     color: black;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
-  .clerk-tbl{
-    
-    display: flex;
-    margin: 2em auto;
-    margin-top: 100px;
-    margin-left: 30px;
-    height: 50px;
-   
-   /* height: 30px;*/
-    padding: 10px;
-    align-items: center;
-    text-align: center;
-  }
-  td{
-    color:  #3b503d;
-    
-    font-size: 17px;
-    padding: 15px;
-    text-align: 25px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 17px;  
-}
-.clerk-tbl tbody tr:nth-child(odd) {
-  background-color: #fff; 
-}
-
-.clerk-tbl tbody tr:nth-child(even) {
-  background-color: #eef3ef;
-}
-.clerk-tbl table{
-  border: 1px solid #000;
-  border-radius: 5px;
-  width: 90%;
-  margin-bottom: 1rem; 
-}
 
 
   

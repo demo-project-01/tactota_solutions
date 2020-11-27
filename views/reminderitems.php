@@ -13,7 +13,7 @@
     <div class="search">
     <input type="text" placeholder="Search..">
   </div>
-    <div class="view-tbl">
+    <div class="update-tbl">
        <table>
             <thead>
                 <tr>
@@ -41,7 +41,7 @@
             </tbody>
        </table>
     </div>
-    <div class="footer">
+    <div class="footerc">
 	 <p>© Tactota Solutions All rights reserved </p>
       </div>  
 </div>

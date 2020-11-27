@@ -1,81 +1,48 @@
 body{
     background-color:rgb(238, 238, 238);
 }
-
-#tbl-heading
-{    
-    margin-left:3em;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
-    text-align: left; /*modified*/
-    color: #007042;
-    font-weight: bold;
-    margin-top: 20px;       /*reshani*/
-    margin-bottom: 20px;       
-    font-size: 2em;      /*reshani*/
-}
-.new
-{
-    margin-right:5em;
-    float: right;
-    margin-bottom:2em;
-}
-
-
-/* add button ----------------------*/
-.add_button
-{
-    right: 0px;
-    padding: 10px;
-    box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
-    border: 2px solid #eef3ef;
-    background-color: #007042;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1em;
-    font-weight: bolder;
-    color: #fff;
-}
-
-
-.add_button:hover{
-    background-color:#61ca7d;
-}
-/*------------------------------------*/
-
-.view-tbl table{
+table{
     border: 3px solid #000;
     width: 100%;
     margin-bottom: 1rem;
-}
 
-.view-tbl tbody tr:nth-child(odd) {
+}
+tbody tr:nth-child(odd) {
     background-color: #fff;
 }
 
-.view-tbl tbody tr:nth-child(even) {
+tbody tr:nth-child(even) {
     background-color: #eef3ef;
 }
 
-
-.view-tbl th{
-    font-size: 1.2em;
-    padding:10px;
-    background-color:#cccfcd;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
-
-}
-.view-tbl td{
-    font-size: 1em;
+td{
     padding: 10px;
     text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
+}
+th{
+    height: 50px;
+    font-size: large;
+    background-color: #007042;
+}
+#tbl-heading
+{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #007042;
+}
 
+button {
+    background-color: #007042;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    color: #fff;
 }
 
 .view-tbl
 {
-    box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     margin: 2em auto;
     background:/* #2f323a*/#ffffff;
@@ -85,10 +52,11 @@ body{
     padding: 20px;
     align-items: center;
     text-align: center;
-   }
+    box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
-/*-------------------------------------------------
-/* The switch - the box around the slider *
+
+/* The switch - the box around the slider */
 .switch {
     position: relative;
     display: inline-block;
@@ -96,14 +64,14 @@ body{
     height: 34px;
 }
 
-/* Hide default HTML checkbox *
+/* Hide default HTML checkbox */
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-/* The slider 
+/* The slider */
 .slider {
     position: absolute;
     cursor: pointer;
@@ -142,7 +110,7 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-/* Rounded sliders 
+/* Rounded sliders */
 .slider.round {
     border-radius: 34px;
 }
@@ -150,8 +118,7 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
--------------------------------------------------------------
-*/
+
 .search
 {
     padding:10px;
@@ -215,11 +182,10 @@ input:checked + .slider:before {
     text-align: center;
     /* position:absolute;*/
      /*bottom:0;*/
-     text-align: center;
-     color:#007042;
-     width:103.4%;
-     background:white;
-     height:50px;
+     color:#ffffff;
+     width:100%;
+     background:#2f323a;
+     height:37px;
+     margin-top: 200px;
      margin-left: -2%;
-     margin-top:280px ;
   }

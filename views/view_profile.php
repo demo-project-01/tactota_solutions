@@ -1,11 +1,8 @@
-
+<?php
+include 'clerk_sidebar.php';
+?>
 <?php
 session_start();
-if($_SESSION['role']=="Admin"){
-    include 'admin_sidebar.php';
-}else if($_SESSION['role']=="Clerk"){
-    include 'clerk_sidebar.php';
-}
 $row=$_SESSION['row'];
 //print_r($_SESSION['emp_id']);
 ?>
@@ -72,7 +69,7 @@ $row=$_SESSION['row'];
             </tbody>
         </table> 
     </div>
-    <div class="footer">
+    <div class="footerc">
 	 <p>© Tactota Solutions All rights reserved </p>
       </div> 
 </div>
