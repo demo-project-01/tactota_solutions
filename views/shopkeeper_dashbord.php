@@ -19,7 +19,7 @@
         </form>
 </div>
    <div id="result" style="text-align: center"></div>
-<div class="footerc">
+<div class="footer">
       <p>© Tactota Solutions All rights reserved </p>
 </div>
 </div>

@@ -72,7 +72,7 @@ $row=$_SESSION['row'];
             </tbody>
         </table> 
     </div>
-    <div class="footerc">
+    <div class="footer">
 	 <p>© Tactota Solutions All rights reserved </p>
       </div> 
 </div>

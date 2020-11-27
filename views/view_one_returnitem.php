@@ -60,7 +60,7 @@ $row= $_SESSION['return_item'];
 </table>
 </div>
   
-    <div class="footerc">
+    <div class="footer">
 			<p>© Tactota Solutions All rights reserved </p>
       </div>  
 </div>

@@ -138,7 +138,7 @@ $sql=$data->get_supplier_names();
             </table>
         </div>
     </form>
-<div class="footerc">
+<div class="footer">
 			<p>© Tactota Solutions All rights reserved </p>
       </div>
 </div>
