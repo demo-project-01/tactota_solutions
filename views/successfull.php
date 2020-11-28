@@ -1,31 +1,23 @@
 <?php
-include 'header.php';
+include 'shopkeeper_sidebar.php';
 
 ?>
-<link rel="stylesheet" href="style1.css">
-<div class="content">
-
+<head>
+	<link rel="stylesheet" href="../public/css/style1.css">
 </head>
-<body>
-	<div>
-		
-</br></br></br>
-		<div class="main-box">
-			
-            <div class="sub-box">
-			</br></br></br>
+	
+<div class="content" style="width:auto;">
+		</br></br></br>
+			<div class="sub-box">
+				</br></br></br>
 				<form action="#" method="post">
-                   
-               <b><h2>Payment Successful</h2></b>	
-                    
+					<b><h2>Payment Successful</h2></b>
+					<br/>	
+					<input type="new-btn" value="Home">
 				</form>
-				<br/>
-				<input type="new-btn" value="Home">
-                
 			</div>
-			
-		</div>
+	
 		
-	</div>
+</div>
 
 </body>
