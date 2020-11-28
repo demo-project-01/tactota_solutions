@@ -45,7 +45,7 @@
     <a href="clerk.php"><i class="fas fa-home"></i></i><span>Dashboard</span></a>
     <a href="view_all_products.php"><i class="fas fa-cart-plus"></i></i><span>Product</span></a>
     <!--a href="list_updateproduct.php"><i class="fas fa-edit"></i></i><span>Update Product</span></a-->
-    <a href="inbox.php"><i class="fas fa-inbox"></i></i><span>Inbox</span></a>
+    <a href="inbox_supplier_reply.php"><i class="fas fa-inbox"></i></i><span>Inbox</span></a>
     <a href="returnitems.php"><i class="fas fa-cart-arrow-down"></i></i><span>Return Product</span></a>
     <a href="clerk_active_user.php"><i class="fas fa-users"></i></i><span>Users</span></a>
     <a href="solditem.php"><i class="fas fa-shopping-cart"></i></i><span>Sold Item</span></a>
