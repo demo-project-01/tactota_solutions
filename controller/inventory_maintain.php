@@ -137,7 +137,7 @@ class inventory_maintain
         if ($row == "0") {
             header('location: ../views/update_product.php');
         }else{
-            header('location: ../views/list_updateproduct.php');
+            header('location: ../views/view_all_products.php');
         }
     }
     public function display_reminders(){   //reshani
@@ -267,7 +267,7 @@ class inventory_maintain
         if($row=="0"){
             echo "wrong";
         }else{
-            header('location: ../view/list_updateproduct.php');
+            header('location: ../views/view_all_products.php');
         }
         // header('location: ../view/list_updateproduct.php');
     }
@@ -410,9 +410,6 @@ else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //re
 }else if(isset($_GET['action']) && $_GET['action'] == 'view_one_product_details') {
     $id=$_GET["id"];
     $controller->view_one_product_details($id);
-}else if(isset($_GET['action']) && $_GET['action'] == 'delete_product_details') {
-    $id=$_GET["id"];
-    $controller->delete_product_details($id);
 }else if(isset($_GET['action']) && $_GET['action'] == 'send_email_form') {
     $id=$_GET["id"];
     $id1=$_GET["id1"];
