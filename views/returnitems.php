@@ -6,18 +6,22 @@
  
 ?>
 <head>
-<link rel="stylesheet" href="../public/css/update.css">
+<link rel="stylesheet" href="../public/css/view_user.css">
 </head>
 <div class="content" style="width:auto;">
     <h1 id="tbl-heading">Return Items</h1><br/>
     <div class="new">
-    <a class="add_button" href="view_one_returnitem.php">Shop Return Items</a>
-    <a class="add_button" href="view_one_customer_returnitem.php">Customer Return Items</a>
+    <a class="add_button" href="view_one_returnitem.php">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        &nbsp&nbspShop Return Items</a>
+    <a class="add_button" href="view_one_customer_returnitem.php">
+        <i class="fa fa-user-o" aria-hidden="true"></i>
+        &nbsp&nbspCustomer Return Items</a>
     </div>
     <div class="search">
     <input type="text" placeholder="Search..">
     </div>
-    <div class="update-tbl">
+    <div class="view-tbl">
        <table>
             <thead>
                 <tr>
@@ -40,7 +44,8 @@
                     <td><?php echo $sql[$k]["p_name"] ?></td>
 		            <td><?php echo $sql[$k]["brand_name"] ?></td>
                     <td><?php echo $sql[$k]["model_no"] ?></td>
-                    <td><a href="../controller/inventory_maintain.php?action=display_onereturnitem_details&id=<?php  echo $sql[$k]["p_id"]; ?>" class="view"><button>View</button></a></td>
+                    <td><a href="../controller/inventory_maintain.php?action=display_onereturnitem_details&id=<?php  echo $sql[$k]["p_id"]; ?>" class="view">
+                    <i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
                 </tr>
                 <?php
             } ?>

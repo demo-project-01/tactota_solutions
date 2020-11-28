@@ -29,10 +29,10 @@ $sql=$_SESSION['supplier_details'];
    <td><?php echo $sql[$k]["telephone_no"] ?></td>
 
    <td><a href="../controller/inventory_maintain.php?action=supplier_profile&id=<?php
-    echo $sql[$k]["sup_id"]; ?>" title="view"><i class="fa fa-eye" aria-hidden="true"></i>
+    echo $sql[$k]["sup_id"]; ?>" title="view"><i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i>
     </a></td>
-   <td><a href ="#" title="Update"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-   <td><a href ="#" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+   <td><a href ="#" title="Update"><i class="fa fa-pencil" aria-hidden="true" id="tbl-icon"></i></a></td>
+   <td><a href ="#" title="Delete"><i class="fa fa-trash" aria-hidden="true" id="tbl-icon"></i></a></td>
   </tr>
   <?php
 

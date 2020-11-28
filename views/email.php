@@ -18,7 +18,7 @@ $row= $_SESSION['send_suplier_email'];
     <h1 id="tbl-heading">Compose Email</h1>
 
     <div class="email-tbl">
-        <table class="email">
+        <table>
             <form action="../controller/inventory_maintain.php?action=send_email_supplier" method="post">
             <tbody>
                 <tr id="email-tr">

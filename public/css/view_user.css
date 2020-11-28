@@ -88,6 +88,10 @@ body{
     text-align: center;
    }
 
+   #tbl-icon{
+    color:#007042;
+   }
+
 /*-------------------------------------------------
 /* The switch - the box around the slider *
 .switch {
@@ -172,7 +176,7 @@ input:checked + .slider:before {
     background-color:  #eef3ef;
     border: none;
     margin-top: 8px;
-    margin-right: 16px;
+    margin-right: 10px;
     font-size: 17px;
     width:96%;
     widows: 80%;

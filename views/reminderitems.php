@@ -34,7 +34,8 @@
                     <td><?php echo $sql[$k]["p_name"] ?></td>
 		    <td><?php echo $sql[$k]["brand_name"] ?></td>
                     <td><?php echo $sql[$k]["model_no"] ?></td>
-                    <td><a href="../controller/inventory_maintain.php?action=reminderitems_suppliers&id=<?php  echo $sql[$k]["p_id"]; ?>" title="view"><i class="fa fa-eye" aria-hidden="true">&nbsp&nbspView</i></a></td>
+                    <td><a href="../controller/inventory_maintain.php?action=reminderitems_suppliers&id=<?php  echo $sql[$k]["p_id"]; ?>" title="view">
+                        <i class="fa fa-eye" aria-hidden="true" id="tbl-icon">&nbsp&nbspView</i></a></td>
                 </tr>
                 <?php
             } ?>

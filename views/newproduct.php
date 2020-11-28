@@ -21,47 +21,47 @@ $sql=$data->get_supplier_names();
                 <tr>
                     <th>Product Name</th>
                     <td>
-                        <input class="text" type="text" name="product_name" placeholder="Product Name" required="">
+                        <input class="text" type="text" name="product_name" required="">
                     </td>
                 </tr>
                 <tr>
                     <th>Brand Name</th>
                     <td>
-                        <input class="text" type="text" name="brand_name" placeholder="brand_name" required="">
+                        <input class="text" type="text" name="brand_name" required="">
                     </td>
                 </tr>
                 <tr>
                     <th>Model Number</th>
                     <td>
-                        <input class="text" type="text" name="model_number" placeholder="model_number" required="">
+                        <input class="text" type="text" name="model_number" required="">
 
                     </td>
                 </tr>
                 <tr>
                     <th>Quantity</th>
                     <td>
-                        <input class="text" type="number" name="quntity" placeholder="Quantity" required="">
+                        <input class="text" type="number" name="quntity" required="">
 
                     </td>
                 </tr>
                 <tr>
                     <th>Product Cost</th>
                     <td>
-                        <input class="text" type="text" name="product_cost" placeholder="product_cost" required="">
+                        <input class="text" type="text" name="product_cost" required="">
 
                     </td>
                 </tr>
                 <tr>
                     <th>Sales Price</th>
                     <td>
-                        <input class="text" type="text" name="sales_price" placeholder="sales_price" required="">
+                        <input class="text" type="text" name="sales_price" required="">
 
                     </td>
                 </tr>
                 <tr>
                     <th>Warranty</th>
                     <td>
-                        <input class="text" type="text" name="warranty" placeholder="warranty" required="">
+                        <input class="text" type="text" name="warranty" required="">
 
                     </td>
                 </tr>
@@ -69,8 +69,6 @@ $sql=$data->get_supplier_names();
                 <tr>
                     <th>Supplier</th>
                     <td>
-                        <div class="container">
-                            <div class="main">
 
                                 <select class="select_supplier" name="supplier" >
                                     <?php
@@ -83,51 +81,39 @@ $sql=$data->get_supplier_names();
                                     ?>
                                 </select>
 
-                            </div>
-                        </div>
-
                     </td>
                 </tr>
 
                 <tr>
                     <th>Re-Order Level</th>
                     <td>
-                        <input class="text" type="text" name="reorder_level" placeholder="reorder_level" required="">
+                        <input class="text" type="text" name="reorder_level" required="">
 
                     </td>
                 </tr>
 
                 <tr>
                     <th>Serial Number</th>
-
-
-
                     <td>
                         <table id="mytable">
                             <tbody>
                             <tr id="template">
                                 <td>
-                                    <input id="name" class="text" type="text" name="serial_number[]" placeholder="serial_number" required="" />
+                                    <input class="text" type="text" name="serial_number[]" placeholder="serial_number" required="" />
                                 </td>
                             </tr>
                             </tbody>
 
                         </table>
-                    </td>
-
-
-
-
-                </tr>
-
-                <tr>
-
-                    <td>
                         <button id="add" style="float: right;">Add new row</button>
 
                     </td>
 
+
+
+
                 </tr>
+
 
 
 
@@ -138,9 +124,9 @@ $sql=$data->get_supplier_names();
             </table>
         </div>
     </form>
-<div class="footer">
-			<p>© Tactota Solutions All rights reserved </p>
-      </div>
+    <div class="footer">
+	    <p>© Tactota Solutions All rights reserved </p>
+    </div>
 </div>
 
 <script>
