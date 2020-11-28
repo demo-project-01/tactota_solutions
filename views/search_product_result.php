@@ -1,7 +1,7 @@
 <?php
 session_start();
 $sql=$_SESSION['dashbord_search'];
- // print_r($rows);
+
 ?>
 <head>
     <link rel="stylesheet" href="../public/css/search.css">
