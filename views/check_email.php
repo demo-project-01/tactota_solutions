@@ -10,12 +10,16 @@
 </head>
 <body>
 <div>
-    <h1>Successful Register</h1>
+    <h1>Reset Password</h1>
     <br/>
-
+    </br>
+    <br/>
+	<br/>
 
     <div class="main-container">
-
+        <div class="img">
+				<div><img src="../public/images/logo-m.jpeg" alt="logo" width=300 height=auto /></div>
+		</div>
         <div class="sub-container">
             <form action="#" method="post">
 
