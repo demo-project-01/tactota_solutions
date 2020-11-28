@@ -7,15 +7,6 @@ ul {
   li {
     display: inline;
   }
-  #tbl-heading
-{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
-    text-align: left; /*modified*/
-    color: #000;
-    font-weight: bold;
-    margin-top: 10px;       /*reshani*/
-    font-size: 25px;      /*reshani*/
-}
 .button
 {
     border: 1px solid #000000;
