@@ -13,6 +13,9 @@ $(document).ready(function(){
                     $('#result').html(data);
                 }
             });
+        }else{
+            $('#result').fadeIn();
+            $('#result').html("");
         }
     });
     $(document).on('click', 'li', function(){
