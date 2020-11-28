@@ -56,9 +56,9 @@ include 'clerk_sidebar.php';
             </tr>
             <tr>
                 <td colspan=2>
-                    <a class="add_button" href="list_updateproduct.php">Back</a>
-                    <a class="add_button" href="update_product.php" >Update</a>     <!-- methana update ekata hariyata link karann -->
-                    <a class="add_button" href="../controller/inventory_maintain.php?action=delete_product_details&id=<?php  echo $sql[$k]["p_id"]; ?>" >Delete</a>
+                    <a class="add_button" href="list_updateproduct.php"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
+                    <a class="add_button" href="update_product.php" ><i class="fa fa-pencil" aria-hidden="true">&nbsp&nbspUpdate</i></a>     <!-- methana update ekata hariyata link karann -->
+                    <a class="add_button" href="../controller/inventory_maintain.php?action=delete_product_details&id=<?php  echo $sql[$k]["p_id"]; ?>" ><i class="fa fa-trash" aria-hidden="true">&nbsp&nbspDelete</i></a>
                 </td>
             </tr>
             </tbody>
