@@ -6,28 +6,22 @@
      border: #007042;*/
    margin-left: 320px; /*add*/
    width: 50%;  /*modified*/
-   border: 3px solid #007042;
    padding: 10px;
    text-align: center;
  }
  .centers {
-   margin-left: -4px;
-   width: 610px;
-   height: 250px;
-   border: 3px solid #007042;
+   margin-left: 3em;;
+   width: 500px;
+   height: auto;
    padding: 10px;
-   text-align: center;
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
- 
  }
  .image{
    margin-left: 320px; /*modified*/
    padding: 10px;
    width: 65%;   /*add*/
    border: #007042;
-   
-   
-   
+      
  }
  
  * {

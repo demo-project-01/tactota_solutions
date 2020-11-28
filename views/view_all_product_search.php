@@ -11,7 +11,7 @@ $sql=$_SESSION['update_product'];
                 <th>Model No</th>
                 <th>Quantity</th>
                 <th >Product Cost</th>
-                <th >Action</th>
+                <th colspan=3>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -26,9 +26,10 @@ foreach ($sql as $k => $v)
                     <td><?php echo $sql[$k]["model_no"] ?></td>
                     <td><?php echo $sql[$k]["quantity"] ?></td>
                     <td><?php echo $sql[$k]["p_cost"] ?></td>
-                    <td>
-                        <a href="../controller/inventory_maintain.php?action=view_product_details&id=<?php  echo $sql[$k]["p_id"]; ?>" title="view"><i class="fa fa-eye" aria-hidden="true">&nbsp&nbspView</i> </a>
-                    </td>
+                    <td><a href="../controller/inventory_maintain.php?action=view_one_product_details&id=<?php  echo $sql[$k]["p_id"]; ?>" title="view"><i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
+                    <td><a href="../controller/inventory_maintain.php?action=view_product_details&id=<?php  echo $sql[$k]["p_id"]; ?>" title="update"><i class="fa fa-pencil" aria-hidden="true" id="tbl-icon"></i></a></td>
+                    <td><a href="../controller/inventory_maintain.php?action=delete_product_details&id=<?php  echo $sql[$k]["p_id"]; ?>" title="Delete"><i class="fa fa-trash" aria-hidden="true" id="tbl-icon"></i></a></td>
+                                        
 
                 </tr>
                 <?php

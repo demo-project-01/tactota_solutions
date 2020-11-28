@@ -29,7 +29,8 @@ $row=$_SESSION['row'];
                 </tr>
                 <tr id="email-tr">
                     <td colspan=2>
-                        <a class="add_button" href="#" ><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp&nbspClear</a>
+                        <a class="add_button" href="review.php"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
+                        <a class="add_button" href="#" ><i class="fa fa-trash" aria-hidden="true">&nbsp&nbspDelete</i></a>
                     </td>
                 </tr>
 

@@ -31,7 +31,7 @@ $sql=$_SESSION['active_user'];
 
 
 
-        <td><a href="../controller/authenitication.php?action=view_profile&id=<?php  echo $sql[$k]["emp_id"]; ?>" class="view"><button>View</button></a></td>
+        <td><a href="../controller/authenitication.php?action=view_profile&id=<?php  echo $sql[$k]["emp_id"]; ?>" class="view"><i class="fa fa-eye" aria-hidden="true" title="view" id="tbl-icon"></i></a></td>
 
         <?php
 

@@ -46,12 +46,12 @@ include 'clerk_sidebar.php';
 
                 <tr>
                     <th>Quantity</th>
-                    <td>   <input type='text'  placeholder="" name="quantity" value="<?php echo $row['quantity'] ?>" disabled>
+                    <td>   <input type='text'  placeholder="quantity" value="<?php echo $row['quantity'] ?>" disabled>
                     </td>
                 </tr>
                 <tr>
                     <th>Product Cost</th>
-                    <td>   <input type='text' class="text" placeholder="Product Cost" name="p_cost" value="<?php echo $row['p_cost'] ?>" >
+                    <td>   <input type='text' class="text" name="p_cost" value="<?php echo $row['p_cost'] ?>" >
                     </td>
                 </tr>
                 <tr>
