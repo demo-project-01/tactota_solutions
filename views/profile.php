@@ -20,7 +20,7 @@ if($row['position']=="Clerk"){
             <table>
                 <tbody>
 
-                <tr><td></td>
+                <tr>
                 <td><h1 id="tbl-heading"  >Edit User Account Info</h1></td>                
                 </tr>
 
