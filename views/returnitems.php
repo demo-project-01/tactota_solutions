@@ -11,10 +11,10 @@
 <div class="content" style="width:auto;">
     <h1 id="tbl-heading">Return Items</h1><br/>
     <div class="new">
-    <a class="add_button" href="view_one_returnitem.php">
+    <a class="add_button" href="#">
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         &nbsp&nbspShop Return Items</a>
-    <a class="add_button" href="view_one_customer_returnitem.php">
+    <a class="add_button" href="#">
         <i class="fa fa-user-o" aria-hidden="true"></i>
         &nbsp&nbspCustomer Return Items</a>
     </div>
