@@ -7,6 +7,7 @@
 
     <link href="../public/css/signup.css" rel="stylesheet" type="text/css"/>
     <script src="https://kit.fontawesome.com/1b83d32a6d.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <script src="../public/js/register.js" ></script>
 </head>
 <body>
@@ -93,12 +94,16 @@
                 <span id='email1'></span>
             </label>
             <input id='email' class="text email" type="email" name="email" required="">
+            
+            
             <label for='img' id='left-label'>
                 <i class="fa fa-file-image-o" aria-hidden="true"></i>
                 &nbsp&nbspImage
                 <span id='img1'></span>
             </label>
             <input id="img" class="text" type="file" name="nic" >
+            
+            
             <label for='username' id='left-label'>
                 <i class="fa fa-user" aria-hidden="true"></i>
                 &nbsp&nbspUsername *
@@ -138,5 +143,4 @@
 </div>
 </body>
 </html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 
