@@ -45,7 +45,7 @@
     <a href="shopkeeper_dashbord.php"><i class="fas fa-home"></i></i><span>Dashboard</span></a>
     <a href="customerpurchase.php"><i class="fas fa-cart-plus"></i></i><span>Customer Purchase </span></a>
     <a href="purchase.php"><i class="fas fa-money-bill-alt"></i>Purchase</span></a>
-    <a href="returnitems.php"><i class="fab fa-product-hunt"></i>Return Product</span></a>
+    <a href="#"><i class="fab fa-product-hunt"></i>Return Product</span></a>
 
 </div>
 
