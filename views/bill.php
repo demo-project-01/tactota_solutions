@@ -8,7 +8,7 @@ $row=$data->get_bill_no();
 
   <link rel="stylesheet" href="../public/css/bill.css">
   <link rel="stylesheet" href="../public/css/view_user.css">
-
+  <link rel="stylesheet" href="../public/css/update.css">
   <div class="content1">
  
      <div class="main-box1">
@@ -252,13 +252,13 @@ $row=$data->get_bill_no();
     </div>
         </div>
     
-        
+        <br>
         <div class="row">
     <div class="col-50">
-    <input type="submit" name="add_bill" value="pay">
+    <input type="submit" name="add_bill" value="Pay">
     </div>
     <div class="col-50">
-    <input type="new-btn" value="Cancel">
+    <input type="submit" name="cancel" value="Cancel">
     </div>
         </div>
   
