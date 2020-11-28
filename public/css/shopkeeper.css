@@ -4,20 +4,20 @@
      margin-left: 172px;
      width: 60%;
      border: #007042;*/
-   margin-left: 320px; /*add*/
+   margin-left: 290px; /*add*/
    width: 50%;  /*modified*/
    padding: 10px;
    text-align: center;
  }
  .centers {
-   margin-left: 3em;;
+   margin-left: 2em;;
    width: 500px;
    height: auto;
    padding: 10px;
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
  }
  .image{
-   margin-left: 320px; /*modified*/
+   margin-left: 300px; /*modified*/
    padding: 10px;
    width: 65%;   /*add*/
    border: #007042;

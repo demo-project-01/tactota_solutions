@@ -35,7 +35,7 @@ html,body{
     margin-left: 20px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 35px;
-    color:#2f323a;
+    color:#007042;
     text-align: center;
   }
   
@@ -61,11 +61,15 @@ html,body{
   }
   
   .view{
-    margin-top: 450px;
-    margin-left: -370px;
+    text-decoration: none;
+    margin-top: 600px;
+    margin-left: 280px;
     font-size: 20px;
-    color: rgb(27, 13, 13);
+    color:black;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  .view:hover{
+    color:#007042;
   }
   
   .wrapper{
@@ -112,12 +116,14 @@ html,body{
     margin-bottom: 0;
   }
  .incomes{
+   margin-top: -25px;
     font-size: 17px;     /*modifed*/
     padding-top: 30px;    /*modifed*/
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
  .income1{
+  transition: transform .2s;
   color: #007042;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -130,7 +136,13 @@ html,body{
   border-left-style: solid; 
   margin-left: 30px;
  }
+ .income1:hover {
+  -ms-transform: scale(1.2); 
+  -webkit-transform: scale(1.2); 
+  transform: scale(1.2); 
+}
  .income2{
+  transition: transform .2s;
   color: #1e3464;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -143,7 +155,13 @@ html,body{
   border-width: 10px;
   border-left-style: solid;
  }
+ .income2:hover {
+  -ms-transform: scale(1.2); 
+  -webkit-transform: scale(1.2); 
+  transform: scale(1.2); 
+}
  .income3{
+  transition: transform .2s;
   color: #6D6E31;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -156,8 +174,14 @@ html,body{
   border-width: 10px;
   border-left-style: solid;
  }
+ .income3:hover {
+  -ms-transform: scale(1.2); 
+  -webkit-transform: scale(1.2); 
+  transform: scale(1.2); 
+}
  .income4{
-  color: #6a933e;
+  transition: transform .2s;
+  color: rgb(6, 68, 25);
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
@@ -165,10 +189,15 @@ html,body{
   height: 150px;  /*modifed*/
   margin-top: -150px;  /*modifed*/
   margin-left: 960px;  /*modifed*/
-  border-left: #6a933e;
+  border-left: rgb(6, 68, 25);
   border-width: 10px;
   border-left-style: solid;
  }
+ .income4:hover {
+  -ms-transform: scale(1.2); 
+  -webkit-transform: scale(1.2); 
+  transform: scale(1.2); 
+}
  p{
    padding-top: 1.2%;
  }
@@ -210,5 +239,12 @@ html,body{
   background-color:#cccfcd;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*modified*/
   text-align: center;
+}
+.inform{
+    margin-left: 80px;
+    font-size: 16px;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
  
