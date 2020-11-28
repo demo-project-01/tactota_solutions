@@ -16,7 +16,7 @@ include 'shopkeeper_sidebar.php';
         <tr>
             <th>Type</th>
             <td>   
-              <input type='text'class="text"  placeholder="Customet Return" name="p_id" value="Customer Return" disabled>
+              <input type='text'class="text"  placeholder="Customer Return" name="p_id" value="Customer Return" disabled>
               
             </td>
         </tr>
