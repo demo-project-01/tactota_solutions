@@ -138,10 +138,13 @@ include 'header.php';
          <div class="box-down1">
             
          <div class="row">
-         <h5 class="left">Payment Method</h5>
-					<input class="text" type="radio" name="payment_method" value="cash" required="">Cash
-					<input class="text" type="radio" name="payment_mehod" value="cheque" required="">Cheque
-        </div>
+    <div class="col-25">
+    <label1>Payment Method</label1>
+    </div>
+    <div class="col-75">
+    <input type="text" id="payment_method" name="payment_method">
+    </div>
+        </div> <br><br>
     
         <b><h2>Cheque information</h2></b>
 
