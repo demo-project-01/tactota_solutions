@@ -25,10 +25,10 @@
             </div>
         </a>
 
-        <a href ="purchase.php">
+        <a href ="view_inbox.php">
             <div class= "dash5"> 
-                <b><p class="dash">PURCHASE</p></b>
-                <i class="fas fa-money-bill-alt fa-3x icon-right"></i>
+                <b><p class="dash">INBOX</p></b>
+                <i class="fas fa-inbox fa-3x icon-right"></i>
                 <b><p class="infor">15 Record(s)</p></b>   
             </div>
         </a>
@@ -44,7 +44,7 @@
             </div>
         </a>    
     
-        <a href ="customerpurchase.php"> 
+        <a href ="#"> 
             <div class= "dash4">
                 <b><p class="dash">SOLD ITEMS</p></b>
                 <i class="fas fa-cart-arrow-down fa-3x icon-right"></i>
@@ -52,7 +52,7 @@
             </div>
          </a>
 
-        <a href ="supplier_details.php"> 
+        <a href ="#"> 
             <div class= "dash6">
                 <b><p class="dash">STOCK DETAILS</p></b>
                 <i class="fas fa-store fa-3x icon-right"></i>

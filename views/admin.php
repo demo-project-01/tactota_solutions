@@ -4,22 +4,30 @@
 <body>
 <div class="content" style="width:auto;">             
     <div>
+    <a href ="users.php">
        <div class="income1">
-            <i class="fas fa-users fa-3x icon-left"></i></i>
+            <i class="fas fa-users fa-3x icon-left"></i>
             <b><p class="incomes">USERS</p></b>
+            <b><p class="inform">10 Record(s)</p></b>
+            
         </div>
+        </a>
+        <a href ="review.php">
         <div class="income2"> 
             <i class="fas fa-thumbs-up fa-3x icon-left"></i>
-            <b><p class="incomes">REVIEW</p></b>  
+            <b><p class="incomes">REVIEW</p></b> 
+            <b><p class="inform">10 Record(s)</p></b> 
         </div>   
-    
+        </a>
         <div class="income3">
             <i class="fas fa-cart-plus fa-3x icon-left"></i>
             <b><p class="incomes">INCOME</p></b>
+            <b><p class="inform">10 Record(s)</p></b>
         </div>
         <div class="income4">
             <i class="fas fa-store fa-3x icon-left"></i>
             <b><p class="incomes">STOCK DETAILS</p></b> 
+            <b><p class="inform">10 Record(s)</p></b>
         </div>   
     </div>
     <div class="wrapper">
@@ -44,32 +52,35 @@
                         <td>2020-11-10</td>
                     </tr>
                     <tr>
-                        <td>CHE001</td>
+                        <td>CHE002</td>
                         <td>BOC</td>
                         <td>20,000/=</td>
-                        <td>2020-11-10</td>
+                        <td>2020-11-15</td>
                     </tr>
                     <tr>
-                        <td>CHE001</td>
-                        <td>BOC</td>
-                        <td>20,000/=</td>
-                        <td>2020-11-10</td>
+                        <td>CHE003</td>
+                        <td>NSB</td>
+                        <td>50,000/=</td>
+                        <td>2020-11-12</td>
                     </tr>
                     <tr>
-                        <td>CHE001</td>
-                        <td>BOC</td>
+                        <td>CHE004</td>
+                        <td>HNB</td>
                         <td>20,000/=</td>
-                        <td>2020-11-10</td>
+                        <td>2020-12-10</td>
                     </tr>
                     <tr>
-                        <td>CHE001</td>
-                        <td>BOC</td>
-                        <td>20,000/=</td>
-                        <td>2020-11-10</td>
+                        <td>CHE005</td>
+                        <td>NDB</td>
+                        <td>60,000/=</td>
+                        <td>2020-10-10</td>
+                    </tr>
+                    <tr>
+                        <td colspan=4 style="text-align:center;"><b><a href="view_all_cheques.php"class="view">View All Cheque</a></b></td>
                     </tr>
                 </tboady>
             </table>
-      
+            </div>
             <!--ul>
                 <li class="github">
                     <div class="list">
@@ -106,12 +117,10 @@
                         </div> 
                     </div>
                 </li><br/></ul-->
-                <
-                <b><a href="#" class="view">View All Cheque</a></b>
                 
             
         </div>
-</div>
+
     </div>
     <div class="footer">
 	<p>© Tactota Solutions All rights reserved </p>

@@ -331,7 +331,7 @@ class authenitication
             header('location: ../views/view_profile.php');
         } elseif ($_SESSION['role']=="Admin") {
             $_SESSION['row'] = $row;
-            header('location: ../views/delete_view_profile.php');
+            header('location: ../views/view_profile.php');
         }
 
     }
@@ -344,7 +344,7 @@ class authenitication
         }else if($id1==0){
             $_SESSION['active_deactive']="Successfully Deactivated";
         }
-        header('location: ../views/clerk_active_user.php');
+        header('location: ../views/users.php');
 
     }
 

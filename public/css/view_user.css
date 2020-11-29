@@ -188,21 +188,24 @@ input:checked + .slider:before {
 /*user activate message*/
 .alert {
     padding:10px;
-
     margin: 2em auto;
     text-align: center;
     padding: 20px;
-    color: white;
+    color: rgb(0, 0, 0);
+    background-color: #c1e9d8;
     width:60%;
     height:40px;
 }
-#diactivate
-{
-    background-color: #f44336;
+
+.deact{
+    background-color: rgb(244, 67, 54,0.85);
+    border-radius: 15px;
+    border: 1px solid #fff ;
 }
-#activate
-{
-    background-color: #007042;
+.act{
+    background-color: rgb(0, 112, 66,0.85);
+    border-radius: 15px;
+    border: 1px solid #fff ;
 }
 
 .activebtn {
