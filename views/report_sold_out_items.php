@@ -10,7 +10,7 @@ include 'admin_sidebar.php';
 </head>
 
 <div class="content" style="width:auto;">
-  <h1 id="tbl-heading">Sold out Item Report</h1>
+  <h1 id="tbl-heading">Sold out Products Report</h1>
   <div class="nav-bar">
       <table>
         <tr>
@@ -32,7 +32,6 @@ include 'admin_sidebar.php';
     </div>
     <div class="page">
 
-  <h1 id="h1">Sold Items</h1>
   <div class="view-tbl" id="view-tbl1">
     <table>
       <thead>

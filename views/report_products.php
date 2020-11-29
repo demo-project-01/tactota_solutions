@@ -10,7 +10,7 @@ include 'admin_sidebar.php';
 </head>
 
 <div class="content" style="width:auto;">
-  <h1 id="tbl-heading">View Product Reports</h1>
+  <h1 id="tbl-heading">View Stock Reports</h1>
   <div class="nav-bar">
       <table>
         <tr>
@@ -63,8 +63,8 @@ include 'admin_sidebar.php';
         
       </tbody>
     </table>
-  </div>
-  <h1 id="h1">Remaining Products</h1>
+  </div> 
+  <h1 id="h1">Current Stock</h1>
 
   <div class="view-tbl" id="view-tbl1">
   <table>
