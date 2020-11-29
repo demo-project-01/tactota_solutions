@@ -19,16 +19,20 @@
             <b><p class="inform">10 Record(s)</p></b> 
         </div>   
         </a>
+        <a href="report_loss_profit.php">
         <div class="income3">
-            <i class="fas fa-cart-plus fa-3x icon-left"></i>
+            <i class="fa fa-money fa-3x icon-left"></i>
             <b><p class="incomes">INCOME</p></b>
             <b><p class="inform">10 Record(s)</p></b>
         </div>
+        </a>
+        <a href="report_products.php">
         <div class="income4">
             <i class="fas fa-store fa-3x icon-left"></i>
             <b><p class="incomes">STOCK DETAILS</p></b> 
             <b><p class="inform">10 Record(s)</p></b>
-        </div>   
+        </div>
+        </a>   
     </div>
     <div class="wrapper">
         <div class="list_wrap">

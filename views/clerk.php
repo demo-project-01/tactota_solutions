@@ -25,7 +25,7 @@
             </div>
         </a>
 
-        <a href ="view_inbox.php">
+        <a href ="inbox_supplier_reply.php">
             <div class= "dash5"> 
                 <b><p class="dash">INBOX</p></b>
                 <i class="fas fa-inbox fa-3x icon-right"></i>
