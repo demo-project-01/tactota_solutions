@@ -53,7 +53,7 @@ session_start();
                 <tr>
                     <th>Quantity</th>
                     <td>
-                        <input class="text" id="quantity" min="1" type="number" name="quntity" required="">
+                        <input class="text" id="quantity" min="1" type="number" name="quantity" required="">
 
                     </td>
                 </tr>
