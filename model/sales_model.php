@@ -183,4 +183,12 @@ class sales_model
       return $result;
     }
 
+    public function view_customers(){
+        $query = $this->mysqli->query("SELECT purchase.bill_no,customer.cust_name,cust_telephone.telephone_no,bill.date_time from bill INNER JOIN purchase ON bill.bill_no=purchase.bill_no INNER JOIN customer ON purchase.cust_id=customer.cust_id INNER JOIN cust_telephone ON customer.cust_id=cust_telephone.cust_id");
+        while ($row = $query->fetch_assoc()) {
+            $result[] = $row;
+        }
+      return $result;
+    }
+
 }

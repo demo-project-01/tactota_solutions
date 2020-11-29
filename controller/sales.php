@@ -122,6 +122,9 @@ class sales
      //   header('location: ../views/view_search_product.php');
 
     }
+    public function display_customers_details(){
+        return $this->sale->view_customers();
+    }
 
 }
 $controller = new sales();
@@ -147,5 +150,7 @@ if(isset($_GET['action']) && $_GET['action'] == "get_supplier_names") {
     $controller->view_search_product($id,$model);
 }else if(isset($_GET['action']) && $_GET['action'] == 'get_bill_no') {//nuwan
     $controller->get_bill_no();
+}else if(isset($_GET['action']) && $_GET['action'] == 'display_customers_details') {//nuwan n
+    $controller->display_customers_details();
 }
 
