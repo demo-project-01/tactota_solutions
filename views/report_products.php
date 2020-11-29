@@ -11,20 +11,30 @@ include 'admin_sidebar.php';
 
 <div class="content" style="width:auto;">
   <h1 id="tbl-heading">View Product Reports</h1>
-    <br/>
-    <br/>
-  <ul>
-    <li><a class="button" href="#">Annual Report</a></li>
-    <li><a class="button" href="#">Monthly Report</a></li>
-    <li><a class="button" href="#">Weekly Report</a></li>
-    <li class="right" style="font-weight:bold; font-size:1.2em;">Custom Time Range 
-      <label for="f_date" style="font-weight:bold; font-size:0.8em;">From : </label><input type="date" id="f_date" name="f_date" placeholder="Select start date" min="2017-04-01" max="2020-11-21">
-      <label for="t_date" style="font-weight:bold; font-size:0.8em;">To : </label><input type="date" id="t_date" name="t_date" placeholder="Select End date" min="2017-04-01" max="2020-11-21">
-    </li>
-  </ul>
+  <div class="nav-bar">
+      <table>
+        <tr>
+          <td class="button-bar">
+            <ul>
+              <li><a class="button" href="#">Annual</a>
+              <li><a class="button" href="#">Monthly</a>
+              <li><a class="button" href="#">Weekly</a>           
+          </td>
+          <td class="date-bar">
+            <li><a class="button" href="#">Custom Time Range: </a>   
+            <label for="f_date" style="font-weight:bold; font-size:0.8em; width:20%;">From : </label>
+              <input type="date" id="f_date" name="f_date" placeholder="Select start date" min="2017-04-01" max="2020-11-21">
+            <label for="t_date" style="font-weight:bold; font-size:0.8em;">To : </label>
+              <input type="date" id="t_date" name="t_date" placeholder="Select End date" min="2017-04-01" max="2020-11-21">
+          </td>
+        </tr>
+      </table>
+    </div>
+  
+  <div class="page">
 
-  <h1 id="h1">Maximum Sold Items</h1>
-  <div class="view-tbl">
+  <h1 id="h1">Maximum Sold Products</h1>
+  <div class="view-tbl" id="view-tbl1">
     <table>
       <thead>
         <tr>
@@ -54,9 +64,9 @@ include 'admin_sidebar.php';
       </tbody>
     </table>
   </div>
-  <h1 id="h1">Remaining Items</h1>
+  <h1 id="h1">Remaining Products</h1>
 
-  <div class="view-tbl">
+  <div class="view-tbl" id="view-tbl1">
   <table>
       <thead>
         <tr>
@@ -86,9 +96,18 @@ include 'admin_sidebar.php';
       </tbody>
     </table>
 </div>
-  <a class="button" href="#" style="float:left;"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
-  <a class="button" href="#" style="float:right;"><i class="fa fa-download" aria-hidden="true">&nbsp&nbspDownload Report</i></a>
-  <div class="footer">
+<table>
+        <tr>
+          <td class="center-btn">
+            <a class="button" href="admin.php" style="float:left;"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
+          </td>
+          <td class="center-btn">
+            <a class="button" href="#" style="float:right;"><i class="fa fa-download" aria-hidden="true">&nbsp&nbspDownload Report</i></a>
+          </td>
+        </tr>
+      </table>
+  </div>
+<div class="footer">
 	<p>© Tactota Solutions All rights reserved </p>
 </div>
 </div>
