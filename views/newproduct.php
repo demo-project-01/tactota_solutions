@@ -6,6 +6,7 @@ $data=new sales();
 $sql=$data->get_supplier_names();
 //print_r($sql);
 session_start();
+//print_r($_SESSION['addnewproduct']);
 ?>
 
 <head>

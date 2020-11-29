@@ -19,7 +19,7 @@ class sales
         $product_name = $_POST['product_name'];
         $brand_name = $_POST['brand_name'];
         $model_number = $_POST['model_number'];
-        $quantity = $_POST['quntity'];
+        $quantity = $_POST['quantity'];
         $product_cost= $_POST['product_cost'];
         $supplier_id = $_POST['supplier'];
         $warranty = $_POST['warranty'];
@@ -39,6 +39,7 @@ class sales
                  $quantity_error="password must be more than 0";
                  $count++;
          }
+
          if($product_cost>$sales_price){
              $count++;
          }
@@ -48,24 +49,26 @@ class sales
          if($quantity<$reorder_level){
              $count++;
          }
-         if($quantity=!$arr){
+
+         if($quantity!=$arr){
              $count++;
          }
 
-   //   echo $count;
+         //print_r($quantity);
+
     if($count==0) {
-        if ($this->sale->add_new_product($product_id, $product_name, $product_cost, $brand_name, $reorder_level, $model_number, $quantity, $warranty, $product_status, $product_date, $serial_number, $sales_price, $item_status, $supplier_id)) {
+       if ($this->sale->add_new_product($product_id, $product_name, $product_cost, $brand_name, $reorder_level, $model_number, $quantity, $warranty, $product_status, $product_date, $serial_number, $sales_price, $item_status, $supplier_id)) {
             $_SESSION['addnewproduct']="Add new product is successful ";
-           header('location: ../views/newproduct.php');
-               //echo "fsdhjfhdsjfs";
+           header('location: ../views/view_all_products.php');
+              //echo "successful";
         } else {
             $_SESSION['addnewproduct']="Add new product is unsuccessful ";
               header('location: ../views/newproduct.php');
-             // echo "kdjfdjs";
+              //echo "unsuccessful1";
         }
     }else{
         $_SESSION['addnewproduct']="Add new product is unsuccessful ";
-       // echo "dshfhsdgs";
+       //echo "unsuccessfull2";
            header('location: ../views/newproduct.php');
         //$_SESSION['addnewproduct']="Add new product is unsuccessful ";
 
