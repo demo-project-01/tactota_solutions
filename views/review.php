@@ -24,10 +24,10 @@
           </td>
           <td class="date-bar">
             <li><a class="button" href="#">Custom Time Range: </a>   
-            <label for="f_date" style="font-weight:bold; font-size:0.8em; width:20%;">From : </label>
+            <label for="f_date" class="date-lbl">From : </label>
               <input type="date" id="f_date" name="f_date" placeholder="Select start date" min="2017-04-01" max="2020-11-21">
-            <label for="t_date" style="font-weight:bold; font-size:0.8em;">To : </label>
-              <input type="date" id="t_date" name="t_date" placeholder="Select End date" min="2017-04-01" max="2020-11-21">
+            <label for="t_date" class="date-lbl">To : </label>
+                <input type="date" id="t_date" name="t_date" placeholder="Select End date" min="2017-04-01" max="2020-11-21">
           </td>
         </tr>
       </table>

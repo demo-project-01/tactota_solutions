@@ -1,5 +1,5 @@
 <?php
-require('admin_sidebar.php');
+include 'admin_sidebar.php';
 session_start();
 ?>
 <head>
@@ -25,5 +25,8 @@ session_start();
     <div class="view-tbl" id="result">
 
     </div>
+    <div class="footer">
+	 <p>© Tactota Solutions All rights reserved </p>
+      </div> 
 
 </div>

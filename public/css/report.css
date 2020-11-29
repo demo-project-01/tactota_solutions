@@ -106,7 +106,7 @@ input[type="text"]:disabled {
   outline: none;
   border-bottom: none;
 }
-label{
+.date-lbl{
   color: #007042;
   padding-left: 10px;
 }
