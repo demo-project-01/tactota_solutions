@@ -5,6 +5,7 @@ $sql=$_SESSION['admin_active_user']
 <table>
     <thead>
         <tr>
+            <th scope="col">User Id</th>
             <th scope="col">User Name</th>
             <th scope="col">Job Position</th>
             <th scope="col">View Details</th>
@@ -16,6 +17,7 @@ $sql=$_SESSION['admin_active_user']
             foreach ($sql as $k => $v){
             ?>
             <tr>
+                <td><?php echo $sql[$k]["emp_id"] ?></td>
                 <td><?php echo $sql[$k]["username"] ?></td>
                 <td><?php echo $sql[$k]["position"] ?></td>
                 <td>

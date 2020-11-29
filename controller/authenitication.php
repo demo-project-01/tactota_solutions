@@ -331,7 +331,7 @@ class authenitication
             header('location: ../views/view_profile.php');
         } elseif ($_SESSION['role']=="Admin") {
             $_SESSION['row'] = $row;
-            header('location: ../views/delete_view_profile.php');
+            header('location: ../views/view_profile.php');
         }
 
     }
