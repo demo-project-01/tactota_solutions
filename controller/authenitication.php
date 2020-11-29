@@ -344,7 +344,7 @@ class authenitication
         }else if($id1==0){
             $_SESSION['active_deactive']="Successfully Deactivated";
         }
-        header('location: ../views/clerk_active_user.php');
+        header('location: ../views/users.php');
 
     }
 
