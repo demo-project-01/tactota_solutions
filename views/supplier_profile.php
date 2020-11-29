@@ -59,7 +59,7 @@ $row2=$_SESSION['supplier_product_details'];
         <tr>
           <th colspan=4>Product List :</td>
         </tr>
-  <?php if(empty($arr)){  ?>
+  <?php if(empty($row2)){  ?>
         <tr>
           <td colspan=4><?php echo "No products to show !"; ?></td>
   <?php }

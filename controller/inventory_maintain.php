@@ -75,7 +75,16 @@ class inventory_maintain
          // print_r($id);
         $row = $this->inven->get_view_details($id);
         $row2 = $this->inven->get_view_supplier_product_details($id);  //mish
+        //print_r($row2);
+        if ($row2=='0')
+        {
+            $_SESSION['supplier_product_details'] = $row2;
+            
+        }
 
+        else{
+            $_SESSION['supplier_product_details'] = $row2;
+        }
         /* echo "<br>";
          print_r($row['sup_name']);
          echo "<br>";
@@ -86,7 +95,6 @@ class inventory_maintain
          print_r($row['telephone_no']);
         */
         $_SESSION['supplier_profile_details'] = $row;
-        $_SESSION['supplier_product_details'] = $row2;
         header('location: ../views/supplier_profile.php');
     }
     
