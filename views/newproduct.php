@@ -1,67 +1,80 @@
 <?php
 include 'clerk_sidebar.php';
+
 require '../controller/sales.php';
 $data=new sales();
 $sql=$data->get_supplier_names();
 //print_r($sql);
+session_start();
 ?>
 
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="../public/css/update.css">
     <link rel="stylesheet" href="../public/css/newproduct.css">
+    <script src="../public/js/"></script>
+
 </head>
 <div class="content" style="width: auto;">
     <h1 id="tbl-heading"  >Add new Product</h1>
+    <?php if(isset($_SESSION['addnewproduct'])): ?>
+        <div class="alert" id="activate">
+            <span class="activebtn">&times;</span>
+            <strong><?php echo $_SESSION['addnewproduct']; ?></strong>
+        </div>
+    <?php endif; ?>
+    <?php unset($_SESSION['addnewproduct']); ?>
 
-    <form action="../controller/sales.php?action=add_product" method="post">
+    <form action="../controller/sales.php?action=add_product" id="myForm"  method="post">
         <div class="update-tbl">
             <table>
                 <tbody>
 
                 <tr>
+
                     <th>Product Name</th>
                     <td>
-                        <input class="text" type="text" name="product_name" required="">
+                        <input class="text" id="product_name" type="text" name="product_name" required="">
                     </td>
                 </tr>
                 <tr>
                     <th>Brand Name</th>
                     <td>
-                        <input class="text" type="text" name="brand_name" required="">
+                        <input class="text" id="brand_name" type="text" name="brand_name" required="">
                     </td>
                 </tr>
                 <tr>
                     <th>Model Number</th>
                     <td>
-                        <input class="text" type="text" name="model_number" required="">
+                        <input class="text" id="model_no" type="text" name="model_number" required="">
 
                     </td>
                 </tr>
                 <tr>
                     <th>Quantity</th>
                     <td>
-                        <input class="text" type="number" name="quntity" required="">
+                        <input class="text" id="quantity" min="1" type="number" name="quntity" required="">
 
                     </td>
                 </tr>
                 <tr>
                     <th>Product Cost</th>
                     <td>
-                        <input class="text" type="text" name="product_cost" required="">
+                        <input class="text" id="product_cost" type="number" min="1" name="product_cost" required="">
 
                     </td>
                 </tr>
                 <tr>
                     <th>Sales Price</th>
-                    <td>
-                        <input class="text" type="text" name="sales_price" required="">
+                    <td>  <labal id="sales_price1"> </labal>
+                        <input class="text" id="sales_price" type="number" min="1" name="sales_price" required="">
 
                     </td>
                 </tr>
                 <tr>
                     <th>Warranty</th>
                     <td>
-                        <input class="text" type="text" name="warranty" required="">
+                        <input class="text" id="warranty" type="number" min="1" name="warranty" required="">
 
                     </td>
                 </tr>
@@ -70,7 +83,7 @@ $sql=$data->get_supplier_names();
                     <th>Supplier</th>
                     <td>
 
-                                <select class="select_supplier" name="supplier" >
+                                <select class="select_supplier" id="supplier" name="supplier" >
                                     <?php
 
                                     foreach ($sql as $k => $v){
@@ -87,7 +100,8 @@ $sql=$data->get_supplier_names();
                 <tr>
                     <th>Re-Order Level</th>
                     <td>
-                        <input class="text" type="text" name="reorder_level" required="">
+                        <labal id="reorder1"> </labal>
+                        <input class="text" id="reorder"  type="number"  min="1" name="reorder_level" required="">
 
                     </td>
                 </tr>
@@ -99,7 +113,7 @@ $sql=$data->get_supplier_names();
                             <tbody>
                             <tr id="template">
                                 <td>
-                                    <input class="text" type="text" name="serial_number[]" placeholder="serial_number" required="" />
+                                    <input class="text" id type="text" name="serial_number[]" placeholder="serial_number" required="" />
                                 </td>
                             </tr>
                             </tbody>
@@ -118,7 +132,7 @@ $sql=$data->get_supplier_names();
 
 
                 <tr>
-                    <td colspan=2><input type="submit" name="add_product" value="Add"></td>
+                    <td colspan=2><input type="submit" id="submit" name="add_product" value="Add"></td>
                 </tr>
                 </tbody>
             </table>
@@ -249,19 +263,58 @@ $sql=$data->get_supplier_names();
 </script>
 -->
 <script>
-    var row = 1;
+    var row = 2;
     $(function() {
         $('#add').click(function(e) {
-            e.preventDefault();
-            var template = $('#template')
-                .clone()                        // CLONE THE TEMPLATE
-                .attr('id', 'row' + (row++))    // MAKE THE ID UNIQUE
-                .appendTo($('#mytable tbody'))  // APPEND TO THE TABLE
-                .show();
-            // SHOW IT
-            $('#mytable tbody>tr:last #name').val('');
+                 var sa=$('#quantity').val();
+              //   console.log(sa);
+          if(sa >= row){
+             //   $('#quantity1').html('need higher than sales cost ').css('color', 'red');
+              //  console.log(sa);
+              e.preventDefault();
+              var template = $('#template')
+                  .clone()                        // CLONE THE TEMPLATE
+                  .attr('id', 'row' + (row++))    // MAKE THE ID UNIQUE
+                  .appendTo($('#mytable tbody'))  // APPEND TO THE TABLE
+                  .show();
+              // SHOW IT
+           //   $('#mytable tbody>tr:last #name').val('');
+            }else{
+              e.preventDefault();
+              var template = $('#template')
+
+          }
+
+
         });
 
     });
 </script>
+<script>
+    $('#product_cost, #sales_price').on('keyup', function () {
+        if (parseFloat($('#product_cost').val()) < parseFloat($('#sales_price').val())) {
+            $('#sales_price1').html('').css('color', '');
+        } else
+            $('#sales_price1').html('need higher than sales cost ').css('color', 'red');
+
+    });
+
+    $('#quantity, #reorder').on('keyup', function () {
+        if (parseFloat($('#reorder').val()) < parseFloat($('#quantity').val())) {
+            $('#reorder1').html('').css('color', '');
+        } else
+            $('#reorder1').html('need to less than quantity').css('color', 'red');
+
+    });
+
+</script>
+
+<script>
+
+    setTimeout(function() {
+        let alert = document.querySelector(".alert");
+        alert.remove();
+    }, 1600000);
+</script>
+
 
