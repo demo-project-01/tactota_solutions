@@ -205,6 +205,17 @@ input:checked + .slider:before {
     background-color: #007042;
 }
 
+.act{
+    background-color: rgb(244, 67, 54,0.85);
+    border-radius: 15px;
+    border: 1px solid #fff ;
+}
+.deact{
+    background-color: rgb(0, 112, 66,0.85);
+    border-radius: 15px;
+    border: 1px solid #fff ;
+}
+
 .activebtn {
     margin-left: 15px;
     color: white;

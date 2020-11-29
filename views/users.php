@@ -22,7 +22,7 @@ session_start();
         </div>
     <?php endif; ?>
     <?php unset($_SESSION['active_deactive']); ?>
-    <div class="update-tbl" id="result">
+    <div class="view-tbl" id="result">
 
     </div>
 
