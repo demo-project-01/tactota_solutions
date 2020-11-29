@@ -75,6 +75,9 @@
                         <td>60,000/=</td>
                         <td>2020-10-10</td>
                     </tr>
+                    <tr>
+                        <td colspan=4 style="text-align:center;"><b><a href="view_all_cheques.php"class="view">View All Cheque</a></b></td>
+                    </tr>
                 </tboady>
             </table>
             </div>
@@ -114,9 +117,7 @@
                         </div> 
                     </div>
                 </li><br/></ul-->
-                <div >
-                <b><a href="view_all_cheques.php"class="view">View All Cheque</a></b>
-                </div>
+                
             
         </div>
 
