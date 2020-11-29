@@ -165,7 +165,7 @@ class inventory_maintain
        //$serial_no=$this->inven->get_supid_serial_no1();
 
         if($this->inven->add_return_item($sup_id,$serial_no,$returned_date,$description)){
-            header('location: ../views/returnitems.php');
+            header('location: ../views/shopkeeper_return_items.php');
         }else{
             echo "error";
         }
@@ -174,6 +174,9 @@ class inventory_maintain
 
     public function display_returnitem_details(){   //reshani
         return $this->inven->diplay_return_items();
+    }
+    public function display_shopkeeper_return_items(){
+        return $this->inven->shopkeeper_return_items();
     }
 
    /*public function delete_reminder_suppliers($serial_no){   //reshani
@@ -390,6 +393,9 @@ else if(isset($_GET['action']) && $_GET['action'] == 'display_returnitem_details
 }
 else if(isset($_GET['action']) && $_GET['action'] == 'add_returnitem_details'){  //reshani
     $controller->add_returnitem_details();
+}
+else if(isset($_GET['action']) && $_GET['action'] == 'display_shopkeeper_return_items'){  //reshani
+    $controller->display_shopkeeper_return_items();
 }
 /*else if(isset($_GET['action']) && $_GET['action'] == 'delete_reminder_suppliers'){  //reshani
     $serial_no=$_GET["id"];

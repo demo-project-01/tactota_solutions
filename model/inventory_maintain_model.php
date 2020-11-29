@@ -178,7 +178,7 @@ class inventory_maintain_model
     
     }
      public function diplay_return_items(){       //reshani, display retrun items
-           $query=$this->mysqli->query("SELECT * FROM product");
+           $query=$this->mysqli->query("SELECT * FROM shop_return_item INNER JOIN item ON shop_return_item.serial_no=item.serial_no INNER JOIN  product ON item.p_id=product.p_id");
            while ($row = $query->fetch_assoc()) {
             $result[] = $row;
         }
@@ -186,12 +186,19 @@ class inventory_maintain_model
              
     }
     public function display_returnitem($id){          //reshani, display one return item details
-        $query=$this->mysqli->query("SELECT product.p_id,product.p_name,product.brand_name,product.model_no,item.serial_no FROM  product  INNER JOIN  item  ON product.p_id=item.p_id WHERE product.p_id='" . $id . "'");
+        $query=$this->mysqli->query("SELECT product.p_id,product.p_name,product.brand_name,product.model_no,item.serial_no FROM  product  INNER JOIN  item  ON product.p_id=item.p_id WHERE item.serial_no='" . $id . "'");
         while ($row = $query->fetch_assoc()) {
             $result= $row;
         }
         return $result;
     
+    }
+    public function shopkeeper_return_items(){
+        $query=$this->mysqli->query("SELECT * FROM  product INNER JOIN item ON product.p_id=item.p_id");
+        while ($row = $query->fetch_assoc()) {
+            $result[]= $row;
+        }
+        return $result;
     }
     public function get_supid_serial_no($serial_no){   //reshani
         $result="";

@@ -1,5 +1,5 @@
 <?php
-include 'clerk_sidebar.php';
+include 'shopkeeper_sidebar.php';
 //require '../controller/inventory_maintain.php';
 session_start();
 $row= $_SESSION['return_item'];
@@ -22,8 +22,13 @@ $row= $_SESSION['return_item'];
             <th>Type</th>
             <td>   
               <input type='text'class="text"  placeholder="Shop Return" name="p_id" value="Shop Return" disabled>
-              <input type='hidden' placeholder="" name="serial_no" value="<?php echo $row['serial_no']?>">
             </td>
+        </tr>
+        <tr>
+        <th>Serial Number</th>
+           <td>
+           <input type='text' placeholder="" name="serial_no" value="<?php echo $row['serial_no']?>"disabled>
+           </td>
         </tr>
         <tr>
             <th>Product Name</th>

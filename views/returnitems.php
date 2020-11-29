@@ -29,7 +29,8 @@
                     <th> Product Name</th>
                     <th> Brand Name</th>  
                     <th> Model Number</th>
-                    <th> Action</th>
+                    <th>Returned Date</th>
+                    <th>Description</th>
                     <!--th scope="col" colspan=2 border=0></th-->
                 </tr>
             </thead>
@@ -44,8 +45,10 @@
                     <td><?php echo $sql[$k]["p_name"] ?></td>
 		            <td><?php echo $sql[$k]["brand_name"] ?></td>
                     <td><?php echo $sql[$k]["model_no"] ?></td>
-                    <td><a href="../controller/inventory_maintain.php?action=display_onereturnitem_details&id=<?php  echo $sql[$k]["p_id"]; ?>" class="view">
-                    <i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
+                    <td><?php echo $sql[$k]["returned_date"] ?></td>
+                    <td><?php echo $sql[$k]["description"] ?></td>
+                    <!--td><a href="../controller/inventory_maintain.php?action=display_onereturnitem_details&id=<!-?php  echo $sql[$k]["p_id"]; ?>" class="view"-->
+                    <!--i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td-->
                 </tr>
                 <?php
             } ?>
