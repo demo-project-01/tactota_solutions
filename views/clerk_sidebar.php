@@ -44,15 +44,14 @@
 
     <a href="clerk.php"><i class="fas fa-home"></i></i><span>Dashboard</span></a>
     <a href="view_all_products.php"><i class="fas fa-cart-plus"></i></i><span>Product</span></a>
-    <!--a href="list_updateproduct.php"><i class="fas fa-edit"></i></i><span>Update Product</span></a-->
-    <a href="inbox_supplier_reply.php"><i class="fas fa-inbox"></i></i><span>Inbox</span></a>
     <a href="returnitems.php"><i class="fas fa-cart-arrow-down"></i></i><span>Return Product</span></a>
-    <!--a href="clerk_active_user.php"><i class="fas fa-users"></i></i><span>Users</span></a-->
-    <a href="solditem.php"><i class="fas fa-shopping-cart"></i></i><span>Sold Item</span></a>
-    <a href="stockreport.php"><i class="fas fa-store"></i></i><span>Stock Details</span></a>
-    <!--a href="purchasedetails.php"><i class="fas fa-shopping-bag"></i></i></i><span>Purchase Details</span></a-->
     <a href="supplier_details.php"><i class="fas fa-people-carry"></i></i><span>Add Suppliers</span></a>
-    <a href="view_all_feedbacks.php"><i class="fas fa-comments"></i></i></i><span>Feedback</span></a>
+    <a href="inbox_supplier_reply.php"><i class="fas fa-inbox"></i></i><span>Supplier Inbox</span></a>
+    <!--a href="clerk_active_user.php"><i class="fas fa-users"></i></i><span>Users</span></a-->
+    <a href="report_sold_out_items_clerk.php"><i class="fas fa-shopping-cart"></i></i><span>Sold Item</span></a>
+    <a href="report_products_clerk.php"><i class="fas fa-store"></i></i><span>Stock Details</span></a>
+    <!--a href="purchasedetails.php"><i class="fas fa-shopping-bag"></i></i></i><span>Purchase Details</span></a-->
+    <a href="review_clerk.php"><i class="fas fa-comments"></i></i></i><span>Feedback</span></a>
 </div>
 <!--sidebar end-->
 
