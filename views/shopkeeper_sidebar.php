@@ -43,9 +43,10 @@
 <!--header area end-->
 <div class="sidebar">
     <a href="shopkeeper_dashbord.php"><i class="fas fa-home"></i></i><span>Dashboard</span></a>
-    <a href="customerpurchase.php"><i class="fas fa-cart-plus"></i></i><span>Customer Purchase </span></a>
+    <!--a href="customerpurchase.php"><i class="fas fa-cart-plus"></i></i><span>Customer Purchase </span></a-->
     <a href="purchase.php"><i class="fas fa-money-bill-alt"></i>Purchase</span></a>
-    <a href="#"><i class="fab fa-product-hunt"></i>Return Product</span></a>
+    <a href="purchased_bills_details.php"><i class="fa fa-money" aria-hidden="true"></i><span>Bill Details</span></a>
+    <a href="shopkeeper_return_items.php"><i class="fa fa-plus-square" aria-hidden="true"></i>Add Return Product</span></a>
 
 </div>
 

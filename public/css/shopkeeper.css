@@ -72,5 +72,15 @@
    padding-top: 1.2%;
  }
  
+ .page
+{
+  margin: 1em auto;
+  background:/* #2f323a*/#fff;
+  background-size: cover;
+  border:none;
+  width:85%;
+  padding: 20px;
+}
+ 
  
  
