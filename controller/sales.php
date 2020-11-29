@@ -30,26 +30,45 @@ class sales
         $item_status=true;
         $product_date=date("Y-m-d");
         $product_id = $this->sale->get_product_id();
-        //print_r($serial_number);
-      // $unique_serial_number= $this->unique_serial_number($serial_number,$product_id,$quantity);
- 
-
-            //$row=$serial_number[1]."#".$product_id;
-           // print_r($row);
-
-            foreach ($serial_number as $key =>$value){
-                 $serial_number[$key]=$value."#".$product_id;
+             $count=0; $arr=0;
+        foreach ($serial_number as $key =>$value){
+                 $serial_number[$key]=$value."@".$product_id;
+                 $arr++;
             }
-//            print_r($serial_number);
+         if($quantity<0){
+                 $quantity_error="password must be more than 0";
+                 $count++;
+         }
+         if($product_cost>$sales_price){
+             $count++;
+         }
+         if($product_cost<0 || $sales_price<0){
+              $count++;
+         }
+         if($quantity<$reorder_level){
+             $count++;
+         }
+         if($quantity=!$arr){
+             $count++;
+         }
 
-      //  print_r($product_date);
-       // print_r($item_status);
-      //  print_r($product_id);
-       // print_r($quantity);
-    if($this->sale->add_new_product($product_id,$product_name,$product_cost,$brand_name,$reorder_level,$model_number,$quantity,$warranty,$product_status,$product_date,$serial_number,$sales_price,$item_status,$supplier_id)){
-        header('location: ../views/newproduct.php');
+   //   echo $count;
+    if($count==0) {
+        if ($this->sale->add_new_product($product_id, $product_name, $product_cost, $brand_name, $reorder_level, $model_number, $quantity, $warranty, $product_status, $product_date, $serial_number, $sales_price, $item_status, $supplier_id)) {
+            $_SESSION['addnewproduct']="Add new product is successful ";
+           header('location: ../views/newproduct.php');
+               //echo "fsdhjfhdsjfs";
+        } else {
+            $_SESSION['addnewproduct']="Add new product is unsuccessful ";
+              header('location: ../views/newproduct.php');
+             // echo "kdjfdjs";
+        }
     }else{
-            echo "dhskfshdj";
+        $_SESSION['addnewproduct']="Add new product is unsuccessful ";
+       // echo "dshfhsdgs";
+           header('location: ../views/newproduct.php');
+        //$_SESSION['addnewproduct']="Add new product is unsuccessful ";
+
     }
 
     }
