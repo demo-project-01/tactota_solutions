@@ -125,7 +125,7 @@
             <div class="wthree-text">
                 <label class="anim">
                     <input type="checkbox" class="checkbox" required="">
-                    <span >I Agree To The Terms & Conditions</span>
+                    <span>I Agree To The Terms & Conditions <a href="terms_and_conditions.txt" target="_blank">Read file</a></span>
                 </label>
                 <div class="clear"> </div>
             </div>
