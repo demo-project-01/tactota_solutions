@@ -27,7 +27,7 @@ include 'clerk_sidebar.php';
                 </tr>
                 <tr id="email-tr">
                     <td colspan=2>
-                        <a class="add_button" href="#"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
+                        <a class="add_button" href="inbox_supplier_reply.php"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
                         <a class="add_button" href="#" ><i class="fa fa-trash" aria-hidden="true">&nbsp&nbspDelete</i></a>
                     </td>
                 </tr>

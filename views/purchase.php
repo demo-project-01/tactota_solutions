@@ -50,7 +50,8 @@ $sql=$data->valid_prodcuts();
                     <td><?php echo $sql[$k]["warranty"] ?></td>
                     <td><?php echo $sql[$k]["p_cost"] ?></td>
                     <td><?php echo $sql[$k]["sales_price"] ?></td>
-                    <td><a href="../controller/sales.php?action=sell&id=<?php  echo $sql[$k]["p_id"]; ?>" title="view">
+                    <!--td><a href="../controller/sales.php?action=sell&id=<!-?php  echo $sql[$k]["p_id"]; ?>" title="view"-->
+                    <td><a href="bill.php" title="view">
                         <i class="fa fa-eye" aria-hidden="true" id="tbl-icon">&nbsp&nbsp</i></a></td>
 
 

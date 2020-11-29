@@ -31,14 +31,14 @@
                     <td>20/11/2020</td>
                     <td>nuwansasanka1@gmail.com</td>
                     <td>Customer Service was good. I got good quality products</td>
-                    <td><a href="#" title="View"><i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
+                    <td><a href="view_inbox.php" title="View"><i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
                     <td><a href="#" title="Delete"><i class="fa fa-trash-o" aria-hidden="true" id="tbl-icon"></i></a></td>
                 </tr>
                 <tr>
                     <td>20/11/2020</td>
                     <td>mufernando02@gmail.com</td>
                     <td>Excellent service</td>
-                    <td><a href="#" title="View"><i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
+                    <td><a href="view_inbox.php" title="View"><i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
                     <td><a href="#" title="Delete"><i class="fa fa-trash-o" aria-hidden="true" id="tbl-icon"></i></a></td>
                 </tr>
             </tbody>

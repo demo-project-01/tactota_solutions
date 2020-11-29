@@ -5,12 +5,13 @@
    //$sql=$data->display_reminders();
    //print_r($sql);
 ?>
-<link rel="stylesheet" href="..public/css/style1.css">
-<link rel="stylesheet" href="../public/css/update.css">
+<head>
+<!--link rel="stylesheet" href="..public/css/style1.css">
+<link rel="stylesheet" href="../public/css/update.css"-->
 <link rel="stylesheet" href="../public/css/report.css">
+</head>
 
-
-<div class="content"style="width:auto;">
+<div class="content" style="width:auto;">
 <h1 id="tbl-heading">Customer Reviews</h1>
 
 <div class="nav-bar">
