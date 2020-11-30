@@ -360,6 +360,15 @@ class inventory_maintain_model
             }
         }
     }
+    public function update_supplier_details($id,$name,$email,$address,$telephone){
+        $stmt = $this->mysqli->prepare("UPDATE supplier AS s INNER JOIN  sup_address AS sa ON s.sup_id=sa.sup_id INNER JOIN sup_telephone AS st ON s.sup_id=st.sup_id SET s.sup_name= ? , s.email_address= ? , sa.address=?, st.telephone_no=? where s.sup_id=?");
+        if($stmt==FALSE)
+            return 0;
+        else{
+            $stmt->bind_param('sssss',$name,$email,$address,$telephone,$id);
+            return $stmt->execute();
+        }
+    }
 
     
 }

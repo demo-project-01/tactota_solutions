@@ -46,7 +46,7 @@ $row2=$_SESSION['supplier_product_details'];
           <tr>
           <td colspan=2>
             <a class="add_button" href="supplier_details.php"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
-            <a class="add_button" href="#" ><i class="fa fa-pencil" aria-hidden="true">&nbsp&nbspUpdate</i></a>
+            <a class="add_button" href="../controller/inventory_maintain.php?action=update_supplier_details&id=<?php  echo $row["sup_id"]; ?>" ><i class="fa fa-pencil" aria-hidden="true">&nbsp&nbspUpdate</i></a>
             <a class="add_button" href="#" ><i class="fa fa-trash" aria-hidden="true">&nbsp&nbspDelete</i></a>
           </td>
         </tr>

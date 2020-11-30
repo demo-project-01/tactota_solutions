@@ -360,6 +360,31 @@ class inventory_maintain
         }
    }
 
+   public function view_supplier_details($id)      //michelle 123456789 
+   {
+       $row= $this->inven->get_view_details($id);
+       $_SESSION['update_supplier']=$row;
+       header('location: ../views/update_supplier.php');
+
+   }
+   public function update_supplier($id)     // omg
+   {
+
+       $name=$email=$address=$telephone="";
+       $name=$_POST['sup_name'];
+       $email=$_POST['email_address'];
+       $address=$_POST['address'];
+       $telephone=$_POST['telephone_no'];
+       $row=$this->inven->update_supplier_details($id,$name,$email,$address,$telephone);
+       if ($row == "0") {
+           header('location: ../views/update_supplier.php');
+       }else{
+           header('location: ../views/supplier_details.php');
+       }
+   }
+
+
+
 }
 
 
@@ -384,6 +409,13 @@ if(isset($_GET['action']) && $_GET['action'] == "newsuppliers") {
 }else if(isset($_GET['action']) && $_GET['action'] == 'update_product_details') {
     $id=$_GET["id"];
     $controller->update_product_details($id);
+}else if(isset($_GET['action']) && $_GET['action'] == 'update_supplier') {
+    $id=$_GET["id"];
+    $controller->update_supplier($id);
+}
+else if(isset($_GET['action']) && $_GET['action'] == 'update_supplier_details') {
+    $id=$_GET["id"];
+    $controller->view_supplier_details($id);
 }
 else if(isset($_GET['action']) && $_GET['action'] == 'display_reminders'){  //reshani
     $controller->display_reminders();
