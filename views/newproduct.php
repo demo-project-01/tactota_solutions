@@ -114,7 +114,7 @@ session_start();
                             <tbody>
                             <tr id="template">
                                 <td>
-                                    <input class="text" id type="text" name="serial_number[]" placeholder="serial_number" required="" />
+                                    <input class="text" id type="text" name="serial_number[]" required="" />
                                 </td>
                             </tr>
                             </tbody>
