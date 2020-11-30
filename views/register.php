@@ -1,3 +1,9 @@
+<?php
+    session_start();
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,19 +35,19 @@
                     &nbsp&nbspFirst Name *
                     <span id='firstname'></span>
                 </label>
-                <input id='fname' class="text" type="text" name="firstname" required="">
+                <input id='fname' class="text" type="text" pattern="[A-Za-z]{1,32}" name="firstname" required="">
                 <label for='mname' id='left-label'>
                     <i class="fa fa-user" aria-hidden="true"></i></i>
                     &nbsp&nbspMiddle Name
                     <span id='middlename'></span>
                 </label>
-                <input id='mname' class="text" type="text" name="middlename">
+                <input id='mname' class="text" type="text" pattern="[A-Za-z]{1,32}" name="middlename">
                 <label for='lname' id='left-label'>
                     <i class="fa fa-user" aria-hidden="true"></i></i>
                     &nbsp&nbspLast Name *
                     <span id='lastname'></span>
                 </label>
-                <input id='lname' class="text" type="text" name="lastname" required="">
+                <input id='lname' class="text" type="text" pattern="[A-Za-z]{1,32}" name="lastname" required="">
                 <label for='address' id='left-label'>
                     <i class="fa fa-address-book" aria-hidden="true"></i>
                     &nbsp&nbspHome Address *
@@ -53,7 +59,7 @@
                     &nbsp&nbspContact Number *
                     <span id='cnumber'></span>
                 </label>
-                <input id='teleno' class="text" type="text" name="moblile_no" required="">
+                <input id='teleno' class="text" type="text" pattern="07[1,2,5,6,7,8][0-9]+" name="moblile_no" required="">
                 <label for='nic' id='left-label'>
                     <i class="fa fa-id-card-o" aria-hidden="true"></i>
                     &nbsp&nbspNIC *
@@ -109,12 +115,12 @@
                 &nbsp&nbspUsername *
                 <span id='uname'></span>
             </label>
-            <input id='username' class="text" type="text" name="username" required="">
+            <input id='username' class="text" type="text" pattern="[A-Za-z0-9\w]{4,20}" name="username" required="">
             <label for='pswd1' id='left-label'>
                 <i class="fa fa-key" aria-hidden="true"></i>
                 &nbsp&nbspPassword *
             </label>
-            <input id='pswd1' class="text" type="password" name="password" required="">
+            <input id='pswd1' class="text" type="password" min="8" name="password" required="">
             <label for='pswd2' id='left-label'>
                 <i class="fa fa-key" aria-hidden="true"></i>
                 &nbsp&nbspConfirm Password *
@@ -136,6 +142,13 @@
 
         </div>
     </div>
+    <?php if(isset($_SESSION['register_error'])): ?>
+        <div class="alert" id="activate">
+            <span class="activebtn">&times;</span>
+            <strong><?php echo $_SESSION['register_error']; ?></strong>
+        </div>
+    <?php endif; ?>
+    <?php unset($_SESSION['register_error']); ?>
 
     <div class="footer">
         <p>© Tactota Solutions All rights reserved </p>
@@ -143,4 +156,21 @@
 </div>
 </body>
 </html>
+<script>
+    $('#search_text').keyup(function(){
+        var search = $(this).val();
+        if(search != '')
+        {
+            load_data(search);
+        }
+        else
+        {
+            load_data();
+        }
+    });
+
+
+
+</script>
+
 
