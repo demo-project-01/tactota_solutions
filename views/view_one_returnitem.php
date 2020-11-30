@@ -11,7 +11,7 @@ $row= $_SESSION['return_item'];
 </head>
 
   <div class="content"style="width:auto;">
-  <h1 id="tbl-heading"> Shop Return Item Details</h1>
+  <h1 id="tbl-heading"> Return Item Details</h1>
  
   <div class="update-tbl">
     <table>
@@ -21,13 +21,13 @@ $row= $_SESSION['return_item'];
         <tr>
             <th>Type</th>
             <td>   
-              <input type='text'class="text"  placeholder="Shop Return" name="p_id" value="Shop Return" disabled>
+              <input type='text'class="text"  placeholder="Shop Return"  value="Shop Return" disabled>
             </td>
         </tr>
         <tr>
         <th>Serial Number</th>
            <td>
-           <input type='text' placeholder="" name="serial_no" value="<?php echo $row['serial_no']?>"disabled>
+           <input type='text' placeholder="" name="serial_no" value="<?php echo $row['serial_no']?>"readonly>
            </td>
         </tr>
         <tr>

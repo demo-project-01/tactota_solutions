@@ -29,7 +29,7 @@ include 'clerk_sidebar.php';
         <tr>
             <th>Contact Number</th>
             <td> 
-            <input class="text" type="text" name="moblile_no" placeholder="Mobile Number" required="">
+            <input class="text" type="text" name="moblile_no" placeholder="0714526398" pattern="[0-9]{3}[0-9]{3}[0-9]{4}"required="">
   
             </td>
         </tr>
