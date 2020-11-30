@@ -178,12 +178,11 @@ class inventory_maintain_model
     
     }
      public function diplay_return_items(){       //reshani, display retrun items
-           $query=$this->mysqli->query("SELECT * FROM shop_return_item INNER JOIN item ON shop_return_item.serial_no=item.serial_no INNER JOIN  product ON item.p_id=product.p_id");
+           $query=$this->mysqli->query("SELECT * FROM shop_return_items INNER JOIN item ON shop_return_items.serial_no=item.serial_no INNER JOIN  product ON item.p_id=product.p_id");
            while ($row = $query->fetch_assoc()) {
-            $result[] = $row;
+            $result[]= $row;
         }
         return $result;
-             
     }
     public function display_returnitem($id){          //reshani, display one return item details
         $query=$this->mysqli->query("SELECT product.p_id,product.p_name,product.brand_name,product.model_no,item.serial_no FROM  product  INNER JOIN  item  ON product.p_id=item.p_id WHERE item.serial_no='" . $id . "'");
@@ -194,7 +193,7 @@ class inventory_maintain_model
     
     }
     public function shopkeeper_return_items(){
-        $query=$this->mysqli->query("SELECT * FROM  product INNER JOIN item ON product.p_id=item.p_id");
+        $query=$this->mysqli->query("SELECT * FROM  product INNER JOIN item ON product.p_id=item.p_id AND item.item_status='1'");
         while ($row = $query->fetch_assoc()) {
             $result[]= $row;
         }
@@ -218,7 +217,7 @@ class inventory_maintain_model
     }*/
 
     public function add_return_item($sup_id,$serial_no,$returned_date,$description){   //reshani,add retrun items to return_items_table
-        $stmt=$this->mysqli->prepare("INSERT INTO shop_return_item(sup_id,serial_no,returned_date,description) VALUES(?,?,?,?)");
+        $stmt=$this->mysqli->prepare("INSERT INTO shop_return_items(sup_id,serial_no,returned_date,description) VALUES(?,?,?,?)");
         if($stmt==false){
             return 0;
         }else{
@@ -226,6 +225,16 @@ class inventory_maintain_model
             return $stmt->execute();
         
         }
+    }
+    public function add_item_status($item_status,$serial_no){
+        $stmt = $this->mysqli->prepare("UPDATE item  SET item_status= ? WHERE serial_no=?");
+        if($stmt==FALSE)
+            return 0;
+        else{
+            $stmt->bind_param('ss',$item_status,$serial_no);
+            return $stmt->execute();
+        }
+
     }
      public function valid_email_address($email_address)        //reshani  ,add customer details
     {

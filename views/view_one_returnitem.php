@@ -3,11 +3,10 @@ include 'shopkeeper_sidebar.php';
 //require '../controller/inventory_maintain.php';
 session_start();
 $row= $_SESSION['return_item'];
-
-
 ?>
 <head>
 <link rel="stylesheet" href="../public/css/update.css">
+<link rel="stylesheet" href="../public/css/email.css">
 </head>
 
   <div class="content"style="width:auto;">
@@ -49,7 +48,7 @@ $row= $_SESSION['return_item'];
         
         <tr>
             <th>Reason</th>
-            <td>   <input type='text'  placeholder="Battery Issue" name="description" required="">
+            <td>   <textarea id="email-textarea"  placeholder="Battery Issue" name="description"  rows=4 cols=60 required></textarea>
             </td>
         </tr>
         <tr>

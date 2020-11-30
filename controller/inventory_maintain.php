@@ -173,7 +173,11 @@ class inventory_maintain
        //$serial_no=$this->inven->get_supid_serial_no1();
 
         if($this->inven->add_return_item($sup_id,$serial_no,$returned_date,$description)){
-            header('location: ../views/shopkeeper_return_items.php');
+            if($this->inven->add_item_status($item_status,$serial_no)){
+                header('location: ../views/shopkeeper_return_items.php');
+            }
+            
+
         }else{
             echo "error";
         }
