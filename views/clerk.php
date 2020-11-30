@@ -78,7 +78,7 @@
                     <div class="list">
                     <div class="contentc">
                          <i class="fa fa-list-ul icon-list" style="left:0;" aria-hidden="true"></i>
-                            <b><?php echo $sql[$k]["p_name"] ?></b>
+                            <b><?php echo $sql[$k]["brand_name"] ?></b>
                         </div>   
                     </div>       
                    </li>
