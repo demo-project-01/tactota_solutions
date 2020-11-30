@@ -22,7 +22,7 @@ session_start();
         </div>
     <?php endif; ?>
     <?php unset($_SESSION['add_product']); ?>
-    <br>
+    
     <div class="view-tbl" id="result">
 
     </div>
