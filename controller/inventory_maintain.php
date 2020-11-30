@@ -132,7 +132,7 @@ class inventory_maintain
         $reorder_level=$warranty=$p_cost=$sales_price="";
         $reorder_level=$_POST['reorder_level'];
         $warranty=$_POST['warranty'];
-        $p_cost=$_POST['p_cost'];
+        //$p_cost=$_POST['p_cost'];
         $sales_price=$_POST['sales_price'];
       //  print_r($reorder_level);
         //echo "<br>";
@@ -141,7 +141,7 @@ class inventory_maintain
        // print_r($p_cost);
         // echo "<br>";
        // print_r($sales_price);
-        $row=$this->inven->update_product_details($id,$reorder_level,$warranty,$p_cost,$sales_price);
+        $row=$this->inven->update_product_details($id,$reorder_level,$warranty,$sales_price);
         if ($row == "0") {
             header('location: ../views/update_product.php');
         }else{

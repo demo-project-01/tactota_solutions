@@ -51,7 +51,7 @@ include 'clerk_sidebar.php';
                 </tr>
                 <tr>
                     <th>Product Cost</th>
-                    <td>   <input type='text' class="text" name="p_cost" value="<?php echo $row['p_cost'] ?>" >
+                    <td>   <input type='text' class="text" name="p_cost" value="<?php echo $row['p_cost'] ?>"disabled >
                     </td>
                 </tr>
                 <tr>
