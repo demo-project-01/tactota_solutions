@@ -13,7 +13,7 @@
 <body>
 	<div>
 		<br/>
-		<h1> Login/ SignIn</h1>
+		<h1> User Login</h1>
 		<br/>
 		<br/>
 		<br/>
