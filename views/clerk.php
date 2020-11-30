@@ -44,7 +44,7 @@
             </div>
         </a>    
     
-        <a href ="#"> 
+        <a href ="report_sold_out_items_clerk.php"> 
             <div class= "dash4">
                 <b><p class="dash">SOLD ITEMS</p></b>
                 <i class="fas fa-cart-arrow-down fa-3x icon-right"></i>
@@ -52,7 +52,7 @@
             </div>
          </a>
 
-        <a href ="#"> 
+        <a href ="report_products_clerk.php"> 
             <div class= "dash6">
                 <b><p class="dash">STOCK DETAILS</p></b>
                 <i class="fas fa-store fa-3x icon-right"></i>

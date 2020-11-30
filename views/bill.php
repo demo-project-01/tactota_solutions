@@ -17,10 +17,7 @@ $row=$data->get_bill_no();
             <div class="col-50">
 
              <div class="sub-box1">
-
-             
-
-                  
+   
                  <div class="row">
                     <div class="col-25">
                       <b><label1>Bill number</label1></b>
@@ -196,12 +193,8 @@ $row=$data->get_bill_no();
 
     
 </tr>
-
-
-
 </table>
 </div>
-
 
          <div class="box-down1">
         
@@ -223,8 +216,6 @@ $row=$data->get_bill_no();
     <!--input id="address" class="text" type="text" name="address"required=""-->
     </div>
         </div>
-
-       
         <div class="row">
     <div class="col-25">
     <label1>Cheque No</label1>
