@@ -86,6 +86,7 @@ body{
     padding: 20px;
     align-items: center;
     text-align: center;
+    opacity: 80%;
    }
 
    #tbl-icon{
@@ -195,6 +196,7 @@ input:checked + .slider:before {
     background-color: #c1e9d8;
     width:60%;
     height:40px;
+    opacity: 0.7;
 }
 
 .deact{
@@ -226,8 +228,10 @@ input:checked + .slider:before {
 .footer{
     /* position:absolute;*/
      /*bottom:0;*/
+     opacity: 0.75;
      text-align: center;
      color:#007042;
+     font-weight: bolder;
      width:103.4%;
      background:white;
      height:50px;

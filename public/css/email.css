@@ -1,5 +1,6 @@
 .email-tbl
 {
+    box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     margin: 2em auto;
     background:/* #2f323a*/#ffffff;
@@ -9,6 +10,7 @@
     padding: 2em;
     align-items: center;
     text-align: center;
+    opacity: 0.85;
 }
 .email-tbl table{
     width:96%;

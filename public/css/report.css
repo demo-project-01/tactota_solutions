@@ -6,6 +6,7 @@
   border:none;
   width:85%;
   padding: 20px;
+  opacity: 80%;
 }
 
 .nav-bar
@@ -17,6 +18,7 @@
     border:none;
     width:85%;
     padding: 20px;
+    opacity: 90%;
 }
 table{
   width: 100%;
