@@ -8,6 +8,7 @@
 <head>
     <title>Tactota Solutions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="../public/css/signup.css" rel="stylesheet" type="text/css"/>
     <script src="https://kit.fontawesome.com/1b83d32a6d.js" crossorigin="anonymous"></script>
@@ -43,6 +44,7 @@
 					<label for='pswd2' id='left-label'>
 						<i class="fa fa-key" aria-hidden="true"></i>
 						&nbsp&nbspConfirm Password *
+                        <span id='password'></span>
 					</label>
 					<input id='pswd2' class="text w3lpass" type="password" name="cpassword" required="">
                    
@@ -59,5 +61,17 @@
 </div>
 </body>
 </html>
+<script>
+    $('#pswd1, #pswd2').on('keyup', function () {
+        if ($('#pswd1').val() == $('#pswd2').val()) {
+            $('#password').html('     Matching').css('color', 'green');
+        } else
+            $('#password').html('     Not Matching').css('color', 'red');
+
+    });
+</script>
+
+
+
 
 
