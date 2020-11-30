@@ -39,7 +39,7 @@ class authenitication
                 $errors['password'] = "Password is required";
             }
 
-
+             $username=strtolower($username);
             $row = $this->auth->login($username, $password);
 
              //print $row;
@@ -180,7 +180,7 @@ class authenitication
 
     public function register()
     {
-        $firstname=$middlename=$lastname =$nic=$dob=$job_position=$image=$username = $email =$password = $cpassword = "" ;
+       $firstname=$middlename=$lastname =$nic=$dob=$job_position=$image=$username = $email =$password = $cpassword = "" ;
 
           $firstname = $_POST['firstname'];
           $middlename = $_POST['middlename'];
@@ -196,6 +196,7 @@ class authenitication
           $password = md5($_POST['password']);
           $cpassword = md5($_POST['cpassword']);
 
+          $username=strtolower($username);
 
 
           if (empty($firstname)) {
@@ -228,27 +229,49 @@ class authenitication
           $token=bin2hex(random_bytes(50));
 
           $verifed=false;
-       //   $row = $this->auth->valid_email($email);
-        //  $row1 = $this->auth->valid_username($username);
+          $count=0;
+         $row = $this->auth->valid_email($email);
+          $row1 = $this->auth->valid_username($username);
+         if($row!="0"){
+             $count++;
+         }
+         if($row1!="0"){
+             $count++;
+         }
+         if($cpassword!=$password){
+             $count++;
+         }
+        if(!preg_match('/^[A-Za-z0-9\w]{4,20}$/', $username)) { // for english chars + numbers only
+            $count++;
+        }
 
 
-             
-                   $emp_id = $this->auth->getempid();
-                   // echo $emp_id;
-                    if($this->auth->emp_register($emp_id,$firstname,$middlename,$lastname,$nic,$address,$image,$job_position,$mobile_no,$dob,$username,$password,$email,$verifed,$token) !=0){
+              if($count==0){
+                  $emp_id = $this->auth->getempid();
+                  // echo $emp_id;
+                  if($this->auth->emp_register($emp_id,$firstname,$middlename,$lastname,$nic,$address,$image,$job_position,$mobile_no,$dob,$username,$password,$email,$verifed,$token) !=0){
 
-                        // header('location:authenitication.php?action=sendverifiedemail&id=$email&id2=$token');
+                      $result=$this->send_email($email,$firstname,$token,$emp_id);
+                      if($result==true){
+                          header('location: ../views/successful_register.php');
+                      } else
+                          $_SESSION['register_error']="Register Unsuccessful";
+                      header('location: ../views/register.php');
 
-                        //header('location: ../views/successful_register.php');
+                  }else{
+                      $_SESSION['register_error']="Register Unsuccessful";
+                      header('location: ../views/register.php');
 
-                        $result=$this->send_email($email,$firstname,$token,$emp_id);
-                        if($result==true){
-                            header('location: ../views/successful_register.php');
-                        } else
-                          echo "Error in sending email";
-                    }else{
-                          echo "wrong";
-                   }
+                  }
+
+
+              }else{
+                  $_SESSION['register_error']="Register Unsuccessful";
+                  header('location: ../views/register.php');
+
+              }
+
+
 
 
 
