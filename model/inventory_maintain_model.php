@@ -161,7 +161,7 @@ class inventory_maintain_model
      public function display_few_stockreminders(){   //reshani  ,view few stock reminders in clerk dashbaord
         // $result="";
    //$query=$this->mysqli->query("SELECT * FROM product WHERE quantity<=reorder_level ORDER BY p_id LIMIT 5");
-   $query=$this->mysqli->query("SELECT DISTINCT p_name FROM product WHERE quantity<=reorder_level ORDER BY p_name LIMIT 5");
+   $query=$this->mysqli->query("SELECT DISTINCT p_name,brand_name FROM product WHERE quantity<=reorder_level ORDER BY p_name LIMIT 5");
 
          while ($row = $query->fetch_assoc()) {
              $result[] = $row;
