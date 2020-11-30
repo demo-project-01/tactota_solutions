@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2020 at 06:56 AM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Generation Time: Nov 30, 2020 at 12:08 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -152,32 +151,15 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`emp_id`, `first_name`, `middle_name`, `last_name`, `nic`, `address`, `image`, `position`, `mobile_no`, `dob`) VALUES
+('EMP0001', 'Michelle', '', 'Fernando', '986370730V', 'wennappuwa', '', 'Admin', 768757722, '16/05/1998'),
 ('EMP0004', 'nipuna', 'janith', 'rathnayaka', '971160730V', '212.fjak', 'WIN_20180620_10_55_00_Pro.jpg', 'Clerk', 713559368, '2013/131/1313'),
-('EMP0005', 'xddda', 'asdad', 'dasasd', '971160V', '212.fjak', '', 'Clerk', 723535, '1997/04.25'),
-('EMP0006', 'jannith', 'jgjsfsdfjkhsdj', 'sdhfjshl', '798908989v', 'hdskdksjf', '', 'Shop Keeper', 9809898, '1998.2.4'),
-('EMP0007', 'ben', 'tenistion', 'go', '971160730v', '1233fff', '', 'Shopkeeper', 713559368, '1997/04.25'),
-('EMP0008', 'xxx', 'aaaa', 'ddddd', '933849283832', '212.fjak', '', 'Shopkeeper', 713559368, '1997/04.25'),
-('EMP0009', 'ertyuio', 'awresdtfyguhijok', 'serdtfyguhijk', '96788V', '3456tghjk', '', 'Clerk', 567890, '1998.2.4'),
-('EMP0010', 'van', 'bab', 'nav', '9711694V', '212,mafdfdsf', '', 'Admin', 713559368, '1997/04.25'),
-('EMP0011', 'JaNith', 'nipun', 'esfdsfsd', '971160V', 'dfsdfdasf3', '', 'Clerk', 0, '1998.2.4'),
-('EMP0012', 'sjfhsjfhjfdsf', 'fsdfsdf', 'sfddsds', '971160730V', '212.fjak', '', 'Clerk', 723535, '1998.2.4'),
-('EMP0013', 'fhjgjhj', 'fjhgjhj', 'fghfhjgjkhjk', '099908080', 'gfghgj', '', 'Clerk', 0, '1997/04.25'),
-('EMP0014', 'fdgdgdfhd', 'sdgshgsd', 'sdggsdsg', 'sgdgsgsg', 'sdgsdgsd', '', 'Clerk', 713559368, '1998.2.4'),
-('EMP0015', 'ccddff', 'sadafa', 'affafas', 'asffafsa', 'fafafa', '', 'Shopkeeper', 0, 'afsafsffas'),
-('EMP0016', 'fghjkl;', 'sdfghjkl', 'iujkkl', '098765', 'ruyghujkl;', '', 'Shopkeeper', 4567890, '1997/04.25'),
-('EMP0017', 'hdflhalf', 'afafa', 'affafa', '32425f', 'asfsaf', '', 'Clerk', 2147483647, '12233'),
-('EMP0018', 'dsfsfs', 'fdsgsg', 'sdfsdfs', '2342fd', 'dsfsfs', '', 'Clerk', 32525, '12233'),
-('EMP0019', 'fdfsdfds', 'dsfsdfds', 'sdfsdfsdf', '3424f', 'erwtwe', '', 'Clerk', 452252, '1232ff'),
-('EMP0020', 'xzczcz', 'cxzczc', 'zxczc', '32432ffd', 'cxzxcz', '', 'Clerk', 324234, '12233'),
-('EMP0021', 'ewrw', 'wqreq', 'wqrewqr', '43533546', '232dsfsd', '', 'Clerk', 876776, '1234'),
-('EMP0022', 'ewrw', 'wqreq', 'wqrewqr', '43533546', '232dsfsd', '', 'Clerk', 876776, '1234'),
-('EMP0023', 'ewrw', 'wqreq', 'wqrewqr', '43533546', '232dsfsd', '', 'Clerk', 876776, '1234'),
-('EMP0024', 'reshani', 'sdfg', 'dilhari', '974440025v', 'rgfueg', '', 'Clerk', 714455221, '1995/02/02'),
 ('EMP0025', 'nuwan', '', 'sasanka', '974525369v', 'gfvljshyudlgrw', '', 'Shopkeeper', 711112220, '1994/10/20'),
 ('EMP0026', 'reshani', '', 'dilhari', '974440025v', 'adsfyfvg', '', 'Clerk', 714455221, '1992/5/5'),
-('EMP0027', 'rehani', '', 'dilhari', '974440025v', 'adsfyfvg', '', 'Clerk', 714455221, '1992/5/5'),
-('EMP0028', 'Ashika', '', 'abeysuriya', '974525369v', 'hfbvkjfdvb', '', 'Shopkeeper', 711112220, '1997/5/8'),
-('EMP0029', 'reshani', '', 'dilhari', '974525369v', 'abcd', '', 'Clerk', 714455221, '1995/02/02');
+('EMP0029', 'reshani', '', 'dilhari', '974525369v', 'abcd', '', 'Clerk', 714455221, '1995/02/02'),
+('EMP0030', 'reshani', 'dilhari', 'vfdcwe', 'Clark.JPG', ' vnbtoij', '', 'Clerk', 256349872, '1992/5/5'),
+('EMP0042', 'admin2', 'sbdhbc', 'smcdkc', '978542201v', '', '', 'Admin', 0, ''),
+('EMP0043', 'Michelle', '', 'Fernando', '', 'bambalapitiya, colombo 05', '', 'Clerk', 768757722, '2005-12-08'),
+('EMP0044', 'Michelle', '', 'Fernando', '', 'bambalapitiya, colombo 05', '', 'Shopkeeper', 768757722, '2005-12-21');
 
 -- --------------------------------------------------------
 
@@ -213,7 +195,7 @@ CREATE TABLE `item` (
   `serial_no` varchar(50) NOT NULL,
   `sales_price` float NOT NULL,
   `p_id` varchar(30) NOT NULL,
-  `item_status` varchar(15) NOT NULL
+  `item_status` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -221,12 +203,89 @@ CREATE TABLE `item` (
 --
 
 INSERT INTO `item` (`serial_no`, `sales_price`, `p_id`, `item_status`) VALUES
-('12#P0027', 100000, 'P0027', '1'),
-('12#P0028', 60000, 'P0028', '1'),
-('1999', 0, 'P0001', ''),
-('32', 10000, 'P0024', 'active'),
-('56', 500, 'P0025', 'active'),
-('dfsd', 0, 'P0022', 'active');
+('000000030@P0003', 230000, 'P0003', 1),
+('000000031@P0003', 230000, 'P0003', 1),
+('000000032@P0003', 230000, 'P0003', 1),
+('0000001@P0002', 75000, 'P0002', 1),
+('00000020@P0001', 82000, 'P0001', 1),
+('00000021@P0001', 82000, 'P0001', 1),
+('00000022@P0001', 82000, 'P0001', 1),
+('00000023@P0001', 82000, 'P0001', 1),
+('0000002@P0002', 75000, 'P0002', 1),
+('0000003@P0002', 75000, 'P0002', 1),
+('00000040@P0004', 1950, 'P0004', 1),
+('00000041@P0004', 1950, 'P0004', 1),
+('00000042@P0004', 1950, 'P0004', 1),
+('00000043@P0004', 1950, 'P0004', 1),
+('00000044@P0004', 1950, 'P0004', 1),
+('00000045@P0004', 1950, 'P0004', 1),
+('00000046@P0004', 1950, 'P0004', 1),
+('00000047@P0004', 1950, 'P0004', 1),
+('00000048@P0004', 1950, 'P0004', 1),
+('00000049@P0004', 1950, 'P0004', 1),
+('0000004@P0002', 75000, 'P0002', 1),
+('00000050@P0005', 18500, 'P0005', 1),
+('00000051@P0005', 18500, 'P0005', 1),
+('00000052@P0005', 18500, 'P0005', 1),
+('00000053@P0005', 18500, 'P0005', 1),
+('00000054@P0005', 18500, 'P0005', 1),
+('0000005@P0002', 75000, 'P0002', 1),
+('00000060@P0006', 1750, 'P0006', 1),
+('00000061@P0006', 1750, 'P0006', 1),
+('00000062@P0006', 1750, 'P0006', 1),
+('00000063@P0006', 1750, 'P0006', 1),
+('00000064@P0006', 1750, 'P0006', 1),
+('00000065@P0006', 1750, 'P0006', 1),
+('00000066@P0006', 1750, 'P0006', 1),
+('00000067@P0006', 1750, 'P0006', 1),
+('0000006@P0002', 75000, 'P0002', 1),
+('00000070@P0007', 2490, 'P0007', 1),
+('00000071@P0007', 2490, 'P0007', 1),
+('00000072@P0007', 2490, 'P0007', 1),
+('00000073@P0007', 2490, 'P0007', 1),
+('00000074@P0007', 2490, 'P0007', 1),
+('00000075@P0007', 2490, 'P0007', 1),
+('00000080@P0008', 84200, 'P0008', 1),
+('00000081@P0008', 84200, 'P0008', 1),
+('00000082@P0008', 84200, 'P0008', 1),
+('00000083@P0008', 84200, 'P0008', 1),
+('00000084@P0008', 84200, 'P0008', 1),
+('00000090@P0009', 1450, 'P0009', 1),
+('00000091@P0009', 1450, 'P0009', 1),
+('00000092@P0009', 1450, 'P0009', 1),
+('00000093@P0009', 1450, 'P0009', 1),
+('00000094@P0009', 1450, 'P0009', 1),
+('00000095@P0009', 1450, 'P0009', 1),
+('00000096@P0009', 1450, 'P0009', 1),
+('00000097@P0009', 1450, 'P0009', 1),
+('00000098@P0009', 1450, 'P0009', 1),
+('00000120@P0011', 33500, 'P0011', 1),
+('00000121@P0011', 33500, 'P0011', 1),
+('00000122@P0011', 33500, 'P0011', 1),
+('00000123@P0011', 33500, 'P0011', 1),
+('00000130@P0012', 26700, 'P0012', 1),
+('00000132@P0012', 26700, 'P0012', 1),
+('00000133@P0012', 26700, 'P0012', 1),
+('00000140@P0013', 200, 'P0013', 1),
+('00000141@P0013', 200, 'P0013', 1),
+('00000142@P0013', 200, 'P0013', 1),
+('00000143@P0013', 200, 'P0013', 1),
+('00000144@P0013', 200, 'P0013', 1),
+('00000145@P0013', 200, 'P0013', 1),
+('00000150@P0014', 2700, 'P0014', 1),
+('00000151@P0014', 2700, 'P0014', 1),
+('00000152@P0014', 2700, 'P0014', 1),
+('00000153@P0014', 2700, 'P0014', 1),
+('00000160@P0015', 185000, 'P0015', 1),
+('00000161@P0015', 185000, 'P0015', 1),
+('00000162@P0015', 185000, 'P0015', 1),
+('00000163@P0015', 185000, 'P0015', 1),
+('0000110@P0010', 153600, 'P0010', 1),
+('0000111@P0010', 153600, 'P0010', 1),
+('0000112@P0010', 153600, 'P0010', 1),
+('0000113@P0010', 153600, 'P0010', 1),
+('0000114@P0010', 153600, 'P0010', 1),
+('0000115@P0010', 153600, 'P0010', 1);
 
 -- --------------------------------------------------------
 
@@ -252,34 +311,21 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`p_id`, `p_name`, `p_cost`, `brand_name`, `reorder_level`, `model_no`, `quantity`, `warranty`, `product_status`, `product_date`) VALUES
-('P0001', 'sssss', 1999, 'dsfdsfs', 4, 'sdfds', 0, 2, '', '0000-00-00'),
-('P0002', 'dssf', 1999, 'dsfdsfs', 4, 'sdfds', 0, 2, '', '0000-00-00'),
-('P0003', 'dssf', 1999, 'dsfdsfs', 4, 'sdfds', 0, 2, '', '0000-00-00'),
-('P0004', 'dssf', 1999, 'dsfdsfs', 4, 'sdfds', 0, 2, '', '0000-00-00'),
-('P0005', 'dssf', 1999, 'dsfdsfs', 4, 'sdfds', 0, 2, 'SUP0002', '0000-00-00'),
-('P0006', 'dssf', 1999, 'dsfdsfs', 4, 'sdfds', 0, 2, 'SUP0002', '0000-00-00'),
-('P0007', 'chorem', 200, 'dsadadas', 4, 'dfafa', 0, 12, 'SUP0002', '0000-00-00'),
-('P0008', 'chorem', 200, 'dsadadas', 4, 'dfafa', 0, 12, 'SUP0002', '0000-00-00'),
-('P0009', 'choremd', 200, 'dsadadasd', 4, 'dfafad', 0, 121, '200', '0000-00-00'),
-('P0010', 'choremd', 200, 'dsadadasd', 4, 'dfafad', 0, 121, '200', '0000-00-00'),
-('P0011', 'choremd', 200, 'dsadadasd', 4, 'dfafad', 121, 4, 'active', '2020-10-30'),
-('P0012', 'dssf', 300, 'dsadadasd', 4, 'sdfds', 121, 9, 'active', '2020-10-30'),
-('P0013', 'dssf', 300, 'dsadadasd', 4, 'sdfds', 1212, 9, 'active', '2020-10-30'),
-('P0014', 'dssf', 300, 'dsadadasd', 4, 'sdfds', 1212, 9, 'active', '2020-10-30'),
-('P0015', 'dssf', 300, 'dsadadasd', 4, 'sdfds', 1212, 9, 'active', '2020-10-30'),
-('P0016', 'dssf', 300, 'dsadadasd', 4, 'sdfds', 1212, 9, 'active', '2020-10-30'),
-('P0017', 'dssf', 300, 'dsadadasd', 4, 'sdfds', 1212, 9, 'active', '2020-10-30'),
-('P0018', 'dssf', 1232, 'dsfdsfs', 4, 'dfafad', 2, 9, 'active', '2020-10-30'),
-('P0019', 'dssf', 1232, 'dsfdsfs', 4, 'dfafad', 2, 9, 'active', '2020-10-30'),
-('P0020', 'dssf', 1232, 'dsfdsfs', 4, 'dfafad', 2, 9, 'active', '2020-10-30'),
-('P0021', 'dssf', 300, 'dsfdsfs', 4, 'dfafad', 121, 9, 'active', '2020-10-30'),
-('P0022', 'dssf', 0, 'dsfdsfs', 4, 'sdfds', 2, 9, 'active', '2020-10-30'),
-('P0023', 'dssf', 300, 'dsfdsfs', 4, 'dfafad', 2, 9, 'active', '2020-10-30'),
-('P0024', 'laptop', 50000, 'asus', 0, '1234', 5, 3, 'active', '2020-11-09'),
-('P0025', 'mouse', 10000, 'rtyjy', 20, '0112563958', 5, 5, 'active', '2020-11-09'),
-('P0026', 'mouse', 10000, 'rtyjy', 20, '0112563958', 5, 5, 'active', '2020-11-09'),
-('P0027', 'laptop', 85000, 'hp', 2, '123', 5, 3, '1', '2020-11-15'),
-('P0028', 'laptop', 50000, 'lenavo', 2, '12345', 1, 5, '1', '2020-11-15');
+('P0001', 'Laptop', 75800, 'Lenovo', 2, 'IdeaPad 310', 1, 18, '1', '2020-11-30'),
+('P0002', 'Laptop', 64500, 'Asus', 2, 'Vivobook X512', 6, 24, '1', '2020-11-30'),
+('P0003', 'Laptop', 200000, 'HP', 1, 'Envy20', 3, 24, '1', '2020-11-30'),
+('P0004', 'Wireless Mouse - USB', 1500, 'Logitech', 2, 'W56', 10, 6, '1', '2020-11-30'),
+('P0005', 'Head Phones', 14000, 'AKG', 2, 'Y50BT', 5, 12, '1', '2020-11-30'),
+('P0006', 'Multimedia office keyboard', 1450, 'Fantech ', 5, 'K210', 8, 3, '1', '2020-11-30'),
+('P0007', 'Keyboard - Gaming', 2300, 'Fantech', 3, 'k613', 6, 12, '1', '2020-11-30'),
+('P0008', 'Laptop', 75000, 'Dell', 1, 'Inspiron 532', 5, 24, '1', '2020-11-30'),
+('P0009', 'Keyboard - wireless slim', 1200, 'K1000', 5, '78 chocolate', 4, 3, '1', '2020-11-30'),
+('P0010', 'Laptop', 140000, 'Acer', 2, 'Swift3', 2, 24, '1', '2020-11-30'),
+('P0011', 'Printers', 30500, 'Cannon', 2, 'LBP-611CN', 4, 12, '1', '2020-11-30'),
+('P0012', 'Printer', 23650, 'Cannon', 1, 'LBP-253X', 3, 12, '1', '2020-11-30'),
+('P0013', 'CMOS battery', 130, 'Sony', 2, 'CMOS 2032', 6, 1, '1', '2020-11-30'),
+('P0014', 'UPS battery', 2100, 'CyberPower', 1, 'HHL12v', 4, 6, '1', '2020-11-30'),
+('P0015', 'Laptop', 170000, 'Asus', 1, 'Zenbook 15', 4, 24, '1', '2020-11-30');
 
 -- --------------------------------------------------------
 
@@ -321,15 +367,17 @@ CREATE TABLE `supplier` (
 --
 
 INSERT INTO `supplier` (`sup_id`, `sup_name`, `email_address`, `active_status`) VALUES
-('', '', '', '1'),
-('SUP0001', 'ghgjkj', 'tosee497@gmail.com', '0'),
-('SUP0002', 'vinu', 'mnjrathnayaka97@yahoo.com', '0'),
-('SUP0003', 'van', '2018cs133@stu.ucsc.cmb.ac.lk', '0'),
-('SUP0004', 'janith affafa', 'tose7@gmail.com', '0'),
-('SUP0005', 'abc', 'era123@gmail.com', '0'),
-('SUP0006', 'fxf', 'ridmi@gmail.com', '0'),
-('SUP0007', 'reshani', 'resh123@gmail.com', '0'),
-('SUP0008', 'eranga', 'abc@gmail.com', '1');
+('SUP0010', 'Barclays computers', 'Barclays@gmail.com', '1'),
+('SUP0011', 'Unity System', 'support@unitysystem.lk', ''),
+('SUP0012', 'Upright Computers', 'Upright@gmail.com', ''),
+('SUP0013', 'REVO COMPUTERS & SECURITY SOLU', 'info@revocomputers.lk', ''),
+('SUP0014', 'Metropolitan Computers (Pvt) L', 'shamazh@metropolitan.lk', ''),
+('SUP0015', 'Colombo Computer Technology (P', 'info@computertech.lk', ''),
+('SUP0016', 'Laptop.lk', 'info@laptop.lk', ''),
+('SUP0017', 'Singer PLC', 'callcenter@singersl.com', ''),
+('SUP0018', 'Abans', 'buyabans@abansgroup.com', ''),
+('SUP0019', 'Pettah Computers', 'info@pettahcomputers.com', ''),
+('SUP0020', 'Winsoft Solutions', 'thanish@winsoft.lk', '');
 
 -- --------------------------------------------------------
 
@@ -347,12 +395,21 @@ CREATE TABLE `supplier_product` (
 --
 
 INSERT INTO `supplier_product` (`sup_id`, `p_id`) VALUES
-('SUP0002', 'P0024'),
-('SUP0003', 'P0023'),
-('SUP0005', 'P0025'),
-('SUP0005', 'P0026'),
-('SUP0008', 'P0027'),
-('SUP0008', 'P0028');
+('SUP0010', 'P0001'),
+('SUP0011', 'P0003'),
+('SUP0012', 'P0004'),
+('SUP0012', 'P0013'),
+('SUP0012', 'P0014'),
+('SUP0014', 'P0007'),
+('SUP0014', 'P0015'),
+('SUP0015', 'P0002'),
+('SUP0017', 'P0008'),
+('SUP0018', 'P0010'),
+('SUP0019', 'P0005'),
+('SUP0019', 'P0011'),
+('SUP0019', 'P0012'),
+('SUP0020', 'P0006'),
+('SUP0020', 'P0009');
 
 -- --------------------------------------------------------
 
@@ -370,14 +427,17 @@ CREATE TABLE `sup_address` (
 --
 
 INSERT INTO `sup_address` (`sup_id`, `address`) VALUES
-('SUP0001', '2123dd'),
-('SUP0002', 'van'),
-('SUP0003', '2344dfsfs'),
-('SUP0004', 'asfsaf'),
-('SUP0005', 'jglujgh'),
-('SUP0006', 'fgcfhc'),
-('SUP0007', 'FVFHDFVBIS'),
-('SUP0008', 'abcd,colombo 10');
+('SUP0010', 'Bambalapitiya,Galle Road,Colombo 04'),
+('SUP0011', 'Galle Road, Colomo 04'),
+('SUP0012', 'Wennapuwa'),
+('SUP0013', ' Puttalam - Colombo Rd, Katuneriya 61180'),
+('SUP0014', 'No. 418, Galle Road, Colombo 03'),
+('SUP0015', '17 Lily Ave, Colombo'),
+('SUP0016', '401 Galle Rd, Colombo 00400'),
+('SUP0017', 'No.112, havelock Road, Colombo5'),
+('SUP0018', 'No 498 Galle Road,  Colombo 03,'),
+('SUP0019', ' NO 100/22, Mumtaz Mahal, 1st Cross Street, Colomb'),
+('SUP0020', 'No.313, 1st Floor, Unity Plaza, Colombo 04');
 
 -- --------------------------------------------------------
 
@@ -395,14 +455,17 @@ CREATE TABLE `sup_telephone` (
 --
 
 INSERT INTO `sup_telephone` (`sup_id`, `telephone_no`) VALUES
-('SUP0001', '07835327'),
-('SUP0002', 'adff'),
-('SUP0003', '07832451'),
-('SUP0004', '9907297221'),
-('SUP0005', '0412255663'),
-('SUP0006', '0714455221'),
-('SUP0007', '0714455221'),
-('SUP0008', '0742563981');
+('SUP0010', '0117510510'),
+('SUP0011', '0114545443'),
+('SUP0012', '0775326399'),
+('SUP0013', '0764949649'),
+('SUP0014', '0114 622 1'),
+('SUP0015', '0112055835'),
+('SUP0016', '0773277277'),
+('SUP0017', '0115400400'),
+('SUP0018', '0112565265'),
+('SUP0019', '0777735516'),
+('SUP0020', '0772368024');
 
 -- --------------------------------------------------------
 
@@ -424,29 +487,13 @@ CREATE TABLE `user_account` (
 --
 
 INSERT INTO `user_account` (`emp_id`, `username`, `password`, `email`, `verified`, `token`) VALUES
-('EMP0008', 'admin', '9927404cdb6613495aef0ea69b8f9b23', 'mnjrathnayaka97@gmail.com', 0, ''),
-('EMP0015', 'admin1234', '827ccb0eea8a706c4c34a16891f84e7b', 'xxdsdx@gmail.com', 0, ''),
-('EMP0028', 'Ashika', '07c5152932a3c8aead3a2e83174cea34', 'ashikaabeysuriya456@gmail.com', 0, '11de70e86edd7a0c17a3407eac46777314c574fd0b4519ab6fa9f0d6ac3b0af813f841a1eb9133b01c7e4ae92c9a11b9499d'),
-('EMP0007', 'ben', '9927404cdb6613495aef0ea69b8f9b23', '2018cs133@stu.ucsc.cmb.ac.lk', 0, ''),
-('EMP0012', 'bus', '827ccb0eea8a706c4c34a16891f84e7b', 'qqq@yahoo.com', 0, ''),
-('EMP0005', 'ccc', '202cb962ac59075b964b07152d234b70', 'ccdd@gmail.comm', 0, ''),
-('EMP0009', 'clerk', '827ccb0eea8a706c4c34a16891f84e7b', 'vvvv@gmail.com', 0, ''),
-('EMP0014', 'clerk1', '827ccb0eea8a706c4c34a16891f84e7b', 'bnm@gmail.com', 0, ''),
-('EMP0021', 'dc', '827ccb0eea8a706c4c34a16891f84e7b', 'ghy@gmail.com', 0, '25ba446914d13b1c059d65b5bd3e9b15ca3a21de27498ef53b8c8991a25a234f43feaa5e0b2d9d252d4e7e1ba794d4380a3b'),
-('EMP0022', 'dc1', '827ccb0eea8a706c4c34a16891f84e7b', 'ghy1@gmail.com', 0, 'bcc4ff816f693614b3bb0af60c98d9b2c3957239e43388fa4e2ecea6268641620ae0067b9d846fcd233f971e10cb8094c174'),
-('EMP0023', 'dc1e', '827ccb0eea8a706c4c34a16891f84e7b', 'ghye1@gmail.com', 0, '5d9448dd2180208d14db6b1265e5b13cb28768c1a2c478b4099b6bd67443e797fbc7fc09f9c5414b4eb11dc6a53d40a8a1d6'),
-('EMP0019', 'eye', '827ccb0eea8a706c4c34a16891f84e7b', 'vb@gmail.com', 0, '54bc87d63eba4d2ae438cee163c6df2e2268abc03c9f5a98e6d78e1d3039a50fbfc0480192694ba4eee5b04324e0d37e753d'),
-('EMP0018', 'fdfdf', '827ccb0eea8a706c4c34a16891f84e7b', 'toseev@gmail.com', 0, ''),
-('EMP0016', 'good', '827ccb0eea8a706c4c34a16891f84e7b', 'cdda@gmail.com', 0, ''),
-('EMP0011', 'hi', '827ccb0eea8a706c4c34a16891f84e7b', 'van@gmail.com', 0, ''),
-('EMP0025', 'nuwan', '4e2c0568628fd242d542b786c77b7a47', 'nuwa@123gmail.com', 0, '9871133a7e84364acf00182dd471ab1e633504af1fc1bbecaa9021065621bf6deda67e959363b52d7fcade687a6c04f5dbce'),
-('EMP0020', 'qwe', '827ccb0eea8a706c4c34a16891f84e7b', 'gggh@gmail.com', 0, 'e4254deafb647c16e06f1bc203155ecf9f5c6baf1a177fb03e89748287bbd66c5132f2dc4ce3c6a82fa436e9be1c23a64403'),
-('EMP0027', 'rehani', '28d71acde09e62d35419c1fb42d6758d', 'rehanidilhari@gmail.com', 0, 'cbf1440233da4d4f0c80b05c4b8d6d64aad3224a113d63b9eb2570586babd6e324048ab24e8c3337f8bf3003405f094bc9a0'),
-('EMP0029', 'reshani', '4c1736c9542990fcd28bc169602120e8', 'reshanidilhari97@gmail.com', 1, '6171664e80fbf79ed3701db030726baadf6d7c4e9739d95ac864bd9c87c4985fabe01e150953fb1391ada913bb9fd18ea546'),
-('EMP0013', 'son', '827ccb0eea8a706c4c34a16891f84e7b', 'mnjrathnak11a@gmail.com', 0, ''),
-('EMP0010', 'tosee', '827ccb0eea8a706c4c34a16891f84e7b', 'admin@gmail.com', 0, ''),
-('EMP0006', 'unguardable', '81dc9bdb52d04dc20036dbd8313ed055', 'mnjrathnaka@gmail.com', 0, ''),
-('EMP0017', 'xxxx', '827ccb0eea8a706c4c34a16891f84e7b', 'tose7@gmail.com', 0, '');
+('EMP0042', 'admin2', '4e2c0568628fd242d542b786c77b7a47', 'nuwansasanka1@gmail.com', 0, ''),
+('EMP0030', 'miche', '7068956236499d5241009a15c818fc69', 'mishelnvc@gmail.com', 0, '6a82f4834098a0d3cf0a47e04a362fd8e56c23c5903ce94cb027e30e870a50e9803d2ea37e1b95817a7a024dab33ee570b5b'),
+('EMP0001', 'mishAdmin', '7068956236499d5241009a15c818fc69', 'mishelnvc@gmail.com', 1, ''),
+('EMP0043', 'mishclerk', '7068956236499d5241009a15c818fc69', 'mufernando02@gmail.com', 1, 'c933c78460fd2d106a3c7d89855bdf506f2baa21c84767e7b4a05410f4e16b44c8a494fe71b355af7278b1ae5d4eb9bf2d07'),
+('EMP0044', 'mishshop', '7068956236499d5241009a15c818fc69', '2018cs055@stu.ucsc.cmb.ac.lk', 1, 'a22cdb15bc974f04fd2361766595738b82673b4d014585e087c89973fb6ccf21f4b5eae2ccf5405830fb5df6b61accfacb34'),
+('EMP0025', 'nuwan', '4e2c0568628fd242d542b786c77b7a47', 'nuwa@123gmail.com', 1, '9871133a7e84364acf00182dd471ab1e633504af1fc1bbecaa9021065621bf6deda67e959363b52d7fcade687a6c04f5dbce'),
+('EMP0029', 'reshani', '8949417e84d8e5cf663ab21a60badb20', 'reshanidilhari97@gmail.com', 0, 'a03b21323936d0ef0dcfa2576efca9c75691bda5c8ac296b06aa6093545b91207efef49975fb3ba09096b32ea1e9c58b8ed8');
 
 --
 -- Indexes for dumped tables
@@ -600,12 +647,6 @@ ALTER TABLE `cheque`
 --
 ALTER TABLE `clerk`
   ADD CONSTRAINT `clerk_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `customer_return_item`
---
-ALTER TABLE `customer_return_item`
-  ADD CONSTRAINT `customer_return_item_ibfk_1` FOREIGN KEY (`cust_id`) REFERENCES `customer` (`cust_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `cust_telephone`
