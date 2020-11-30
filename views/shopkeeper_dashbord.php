@@ -23,7 +23,7 @@
   <div id="result" style="text-align: center">
   </div>
 
-  <div class="footer">
+  <div class="footer" style="margin-top:350px;">
         <p>© Tactota Solutions All rights reserved </p>
   </div>
 

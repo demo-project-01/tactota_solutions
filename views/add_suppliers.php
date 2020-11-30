@@ -17,7 +17,7 @@ include 'clerk_sidebar.php';
        <tr>
             <th>Supplier Name</th>
             <td>   
-            <input class="text" type="text" name="name" placeholder="First Name" required="">
+            <input class="text" type="text" name="name" placeholder="Supplier Name" required="">
             </td>
         </tr>
         <tr>
@@ -48,9 +48,10 @@ include 'clerk_sidebar.php';
    </table>
       </div>
   </form>
-  
-  <div class="footer">
+  <div class="footer" style="margin-top:350px;">
 			<p>© Tactota Solutions All rights reserved </p>
       </div>
 </div>
+
+
 
