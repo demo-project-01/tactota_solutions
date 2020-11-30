@@ -64,7 +64,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   }
 
   .list_wrap{
-    opacity: 85%;
+    opacity: 90%;
     background-color: white;
     background-color: gray(56, 53, 53);
    /* box-shadow: -1px -1px 60px 10px rgb(58, 94, 73) inset;*/
