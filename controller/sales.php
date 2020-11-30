@@ -86,11 +86,11 @@ class sales
 
     public function dashbord_search()
     {
-           $id=$_POST['query'];
+         $id=$_POST['query'];
 
-          $row= $this->sale->dashbord_search($id);
-       //   print_r($row);
-         //  print_r($row);
+        $row= $this->sale->dashbord_search($id);
+        //    print_r($row);
+        //  print_r($row);
         $_SESSION['dashbord_search']=$row;
         header('location: ../views/search_product_result.php');
     }

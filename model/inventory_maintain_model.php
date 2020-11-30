@@ -140,13 +140,13 @@ class inventory_maintain_model
         return $result;
     }
 
-    public function update_product_details($id,$reorder_level,$warranty,$p_cost,$sales_price){
-        $stmt = $this->mysqli->prepare("UPDATE product INNER JOIN item ON product.p_id =item.p_id  SET  product.p_cost= ?,  product.reorder_level= ? ,  product.warranty= ?,  item.sales_price= ?
+    public function update_product_details($id,$reorder_level,$warranty,$sales_price){
+        $stmt = $this->mysqli->prepare("UPDATE product INNER JOIN item ON product.p_id =item.p_id  SET product.reorder_level= ? ,  product.warranty= ?,  item.sales_price= ?
                                         WHERE product.p_id=?");
         if($stmt==FALSE)
             return 0;
         else{
-            $stmt->bind_param('sssss',$p_cost,$reorder_level,$warranty,$sales_price,$id);
+            $stmt->bind_param('ssss',$reorder_level,$warranty,$sales_price,$id);
             return $stmt->execute();
         }
     }

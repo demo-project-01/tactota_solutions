@@ -29,12 +29,12 @@ include 'clerk_sidebar.php';
                 </tr>
                 <tr>
                     <th>Supplier Name</th>
-                    <td>  <input type='text' placeholder="Supplier Name" name="sup_name" value="<?php echo $row['sup_name'] ?>" >
+                    <td>  <input type='text' name="sup_name" value="<?php echo $row['sup_name'] ?>" >
                     </td>
                 </tr>
                 <tr>
                     <th>Email Address</th>
-                    <td><input type='text'  placeholder="Email Address" name="email_address" value="<?php echo $row['email_address'] ?>">
+                    <td><input type='text' name="email_address" value="<?php echo $row['email_address'] ?>">
                     </td>
                 </tr>
 
@@ -45,7 +45,7 @@ include 'clerk_sidebar.php';
                 </tr>
                 <tr>
                     <th>Contact Number</th>
-                    <td><input type='text' class="text" placeholder="Contact Number" name="telephone_no" value="<?php echo $row['telephone_no'] ?>" >
+                    <td><input type='tell' class="text" name="telephone_no" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" value="<?php echo $row['telephone_no'] ?>" >
                     </td>
                 </tr>
                 
