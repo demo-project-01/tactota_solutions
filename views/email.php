@@ -48,7 +48,7 @@ $row= $_SESSION['send_suplier_email'];
 
                 <tr id="email-tr">
                     <td colspan=2>
-
+                        <a class="add_button" href="stockreminders.php"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
                         <button class="add_button" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>&nbsp&nbspSend</button>
                         <button class="add_button" type="reset" ><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp&nbspClear</button>
                     </td>
