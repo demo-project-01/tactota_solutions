@@ -345,3 +345,24 @@ td{
   text-align: left;
   vertical-align: top;
 }
+.alert {
+  padding:10px;
+  margin: 2em auto;
+  text-align: center;
+  padding: 20px;
+  color: rgb(0, 0, 0);
+  background-color: #c1e9d8;
+  width:60%;
+  height:40px;
+  opacity: 0.7;
+}
+.activebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}

@@ -22,8 +22,16 @@
     
         <h1> Registration</h1>
     <br/>
-    
+       
+    <?php if(isset($_SESSION['register_error'])): ?>
+        <div class="alert" id="activate">
+            <span class="activebtn">&times;</span>
+            <strong><?php echo $_SESSION['register_error']; ?></strong>
+        </div>
+    <?php endif; ?>
+    <?php unset($_SESSION['register_error']); ?>
     <div class="main-container" id="reg-main">
+     
         <div id="img-sub">
             <div><img src="../public/images/logo-s.jpeg" alt="logo" width=300 height=auto />
         </div>
@@ -65,7 +73,7 @@
                     &nbsp&nbspNIC *
                     <span id='nic1'></span>
                 </label>
-                <input id='nic' class="text" type="text" name="nic8" required="">
+                <input id='nic' class="text" type="text" minlength="10" maxlength="12" name="nic8" required="">
                 <label for='dob' id='left-label'>
                     <i class="fa fa-calendar" aria-hidden="true"></i>
                     &nbsp&nbspDOB *
@@ -142,13 +150,6 @@
 
         </div>
     </div>
-    <?php if(isset($_SESSION['register_error'])): ?>
-        <div class="alert" id="activate">
-            <span class="activebtn">&times;</span>
-            <strong><?php echo $_SESSION['register_error']; ?></strong>
-        </div>
-    <?php endif; ?>
-    <?php unset($_SESSION['register_error']); ?>
 
     <div class="footer">
         <p>© Tactota Solutions All rights reserved </p>
@@ -157,20 +158,9 @@
 </body>
 </html>
 <script>
-    $('#search_text').keyup(function(){
-        var search = $(this).val();
-        if(search != '')
-        {
-            load_data(search);
-        }
-        else
-        {
-            load_data();
-        }
-    });
-
-
-
+    setTimeout(function() {
+    let alert = document.querySelector(".alert");
+    alert.remove();
+},1000);
 </script>
-
 
