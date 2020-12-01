@@ -24,7 +24,7 @@ $sql=$data->valid_prodcuts();
             <tr>
                 <th>Product Name</th>
                 <th>Brand Name</th>
-                <th>Model Name</th>
+                <th>Model Number</th>
                 <th>Quantity</th>
                 <th>Warranty</th>
                 <th>Product Cost</th>

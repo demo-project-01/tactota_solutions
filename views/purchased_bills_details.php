@@ -34,7 +34,7 @@
 		            <td><?php echo $sql[$k]["cust_name"] ?></td>
                     <td><?php echo $sql[$k]["telephone_no"] ?></td>
                     <td><?php echo $sql[$k]["date_time"] ?></td>
-                    <td><a href="../views/bill_details.php" class="view"><button>View</button></a></td>
+                    <td><a href="../views/bill_details.php" class="view" title="view"><i class="fa fa-eye" aria-hidden="true" id="tbl-icon">&nbsp&nbsp</i></a></td>
                 </tr>
                 <?php
             } ?>
