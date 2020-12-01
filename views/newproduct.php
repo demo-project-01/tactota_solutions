@@ -59,7 +59,7 @@ session_start();
                     </td>
                 </tr>
                 <tr>
-                    <th>Product Cost</th>
+                    <th>Cost per Item</th>
                     <td>
                         <input class="text" id="product_cost" type="number" min="1" name="product_cost" required="">
 

@@ -27,7 +27,7 @@ $sql=$data->valid_prodcuts();
                 <th>Model Number</th>
                 <th>Quantity</th>
                 <th>Warranty</th>
-                <th>Product Cost</th>
+                <th>Cost per Item</th>
                 <th>Sale Price</th>
                 <th>Action</th>
 

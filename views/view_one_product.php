@@ -37,7 +37,7 @@ include 'clerk_sidebar.php';
                 <td><?php echo $row['quantity'] ?></td>
             </tr>
             <tr>
-                <th>Product Cost</th>
+                <th>Item Cost</th>
                 <td><?php echo $row['p_cost'] ?></td>
             </tr>
             <tr>

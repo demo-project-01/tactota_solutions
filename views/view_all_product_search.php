@@ -10,7 +10,7 @@ $sql=$_SESSION['update_product'];
                 <th>Brand Name</th>
                 <th>Model No</th>
                 <th>Quantity</th>
-                <th >Product Cost</th>
+                <th >Cost per Item</th>
                 <th colspan=3>Action</th>
             </tr>
             </thead>
