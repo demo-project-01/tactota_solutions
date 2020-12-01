@@ -52,7 +52,7 @@ $sql= $_SESSION['reminderitem_suppliers'];
         } ?>
 <tr>
     <td colspan=5 >
-    <a class="add_button" href="reminderitems.php"><i class="fa fa-angle-double-left" aria-hidden="true" id="tbl-icon">&nbsp&nbspBack</i></a>
+    <a class="add_button" href="reminderitems.php"><i class="fa fa-angle-double-left" aria-hidden="true" >&nbsp&nbspBack</i></a>
     </td>
     </tr>
   </tbody>
