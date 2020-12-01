@@ -10,7 +10,7 @@
 </head>
 <div class="content" style="width:auto;">
     <h1 id="tbl-heading">Bills Details</h1><br/>
-    <div class="update-tbl">
+    <div class="view-tbl">
        <table>
             <thead>
                 <tr>
