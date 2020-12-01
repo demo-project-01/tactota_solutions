@@ -29,15 +29,15 @@
             <tbody>
                 <tr>
                     <td>20/11/2020</td>
-                    <td>nuwansasanka1@gmail.com</td>
-                    <td>Customer Service was good. I got good quality products</td>
+                    <td>info@barcleys.lk</td>
+                    <td>We have Lenovo Ideapad 310. Here attached the new price list for lenovo laptops</td>
                     <td><a href="view_inbox.php" title="View"><i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
                     <td><a href="#" title="Delete"><i class="fa fa-trash-o" aria-hidden="true" id="tbl-icon"></i></a></td>
                 </tr>
                 <tr>
                     <td>20/11/2020</td>
-                    <td>mufernando02@gmail.com</td>
-                    <td>Excellent service</td>
+                    <td>uprightcomputers@gmail.com</td>
+                    <td>3 Cannon Printers are available. Price not changed</td>
                     <td><a href="view_inbox.php" title="View"><i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
                     <td><a href="#" title="Delete"><i class="fa fa-trash-o" aria-hidden="true" id="tbl-icon"></i></a></td>
                 </tr>
