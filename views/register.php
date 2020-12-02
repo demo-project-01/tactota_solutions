@@ -73,7 +73,7 @@
                     &nbsp&nbspNIC *
                     <span id='nic1'></span>
                 </label>
-                <input id='nic' class="text" type="text" minlength="10" maxlength="12" name="nic8" required="">
+                <input id='nic' class="text" type="text" minlength="10" maxlength="12" length=12 name="nic8" required="">
                 <label for='dob' id='left-label'>
                     <i class="fa fa-calendar" aria-hidden="true"></i>
                     &nbsp&nbspDOB *
