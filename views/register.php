@@ -73,7 +73,7 @@
                     &nbsp&nbspNIC *
                     <span id='nic1'></span>
                 </label>
-                <input id='nic' class="text" type="text" minlength="10" maxlength="12" length=12 name="nic8" required="">
+                <input id='nic' class="text" type="text" name="nic8" required="" pattern="(([0-9]{9})[v,V])|(\d{12})" title="for new NIC's 12 numbers and for old NIC's 9 numbers and v">
                 <label for='dob' id='left-label'>
                     <i class="fa fa-calendar" aria-hidden="true"></i>
                     &nbsp&nbspDOB *
