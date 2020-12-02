@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2020 at 12:08 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.34
+-- Generation Time: Nov 30, 2020 at 11:19 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -42,25 +43,51 @@ CREATE TABLE `bill` (
   `date_time` datetime NOT NULL,
   `amount` float NOT NULL,
   `payment_method` varchar(30) NOT NULL,
-  `description` varchar(200) NOT NULL,
   `emp_id` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `bill`
+--
 
---
--- Table structure for table `cheque`
---
+INSERT INTO `bill` (`bill_no`, `date_time`, `amount`, `payment_method`, `emp_id`) VALUES
+('B0001', '2020-12-01 00:00:00', 153600, 'cheque', 'EMP0044'),
+('B0002', '2020-12-01 00:00:00', 153600, 'cheque', 'EMP0044'),
+('B0003', '2020-12-01 00:00:00', 2000, 'cheque', 'EMP0044'),
+('B0004', '2020-12-02 00:00:00', 2000, 'cheque', 'EMP0044'),
+('B0005', '2020-12-02 00:00:00', 2000, 'cheque', 'EMP0044'),
+('B0006', '2020-12-03 00:00:00', 20000, 'cheque', 'EMP0044'),
+('B0007', '2020-12-03 00:00:00', 153600, 'cheque', 'EMP0044'),
+('B0008', '2020-12-01 00:00:00', 153600, 'cheque', 'EMP0044'),
+('B0009', '2020-12-03 00:00:00', 2000, 'cheque', 'EMP0044'),
+('B0010', '2020-12-02 00:00:00', 1950, 'cheque', 'EMP0044'),
+('B0011', '2020-12-01 00:00:00', 75000, 'cheque', 'EMP0044'),
+('B0012', '2020-12-02 00:00:00', 250000, 'cheque', 'EMP0044'),
+('B0013', '2020-12-03 00:00:00', 23000, 'cheque', 'EMP0044'),
+('B0014', '2020-07-29 00:00:00', 82000, 'cheque', 'EMP0044'),
+('B0015', '2020-05-06 00:00:00', 185000, 'cheque', 'EMP0044');
+
+-- --------------------------------------------------------
 
 CREATE TABLE `cheque` (
   `bill_no` varchar(30) NOT NULL,
   `cheque_id` varchar(50) NOT NULL,
-  `received date` date NOT NULL,
+  `received_date` date NOT NULL,
   `due_date` date NOT NULL,
   `bank_name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `cheque`
+--
+
+INSERT INTO `cheque` (`bill_no`, `cheque_id`, `received_date`, `due_date`, `bank_name`) VALUES
+('B0010', '4523', '2020-12-01', '2021-01-08', 'HSBC'),
+('B0011', '2568', '2020-12-01', '2021-02-19', 'HSBC'),
+('B0012', '52684', '2020-12-01', '2021-02-19', 'NDB'),
+('B0013', 'CH0021', '2020-12-01', '2021-10-21', 'NDB'),
+('B0014', 'CHA12', '2020-08-01', '2028-01-07', 'HSBC'),
+('B0015', 'CN002', '2020-08-05', '2024-06-29', 'BOC');
 
 --
 -- Table structure for table `clerk`
@@ -80,18 +107,30 @@ CREATE TABLE `customer` (
   `cust_id` varchar(30) NOT NULL,
   `cust_name` varchar(50) NOT NULL,
   `email_address` varchar(30) NOT NULL,
-  `address` varchar(50) NOT NULL
+  `cust_address` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`cust_id`, `cust_name`, `email_address`, `address`) VALUES
-('CUST0001', 'shubangi', 'shubangi123@gmail.com', 'rgfueg'),
-('CUST0002', 'reshani', 'reshani123@gmail.com', 'rgfueg'),
-('CUST0003', 'Michelle', 'michelle123@gmail.com', 'jglujgh'),
-('CUST0004', 'Danu', 'danu123@gmail.com', 'hripue[ihncv');
+INSERT INTO `customer` (`cust_id`, `cust_name`, `email_address`, `cust_address`) VALUES
+('C0001', 'nuwan sasanka deraniyagala', 'nuwansasanka1@gmail.com', 'homagama'),
+('C0004', 'banuka', 'banu@gmail.com', 'mahargama'),
+('C0007', 'banuka', 'banu@gmail.com', 'mahargama'),
+('C0008', 'banuka', 'banu@gmail.com', 'mahargama'),
+('C0009', 'reshani', 'reshani@gmail.com', 'matara'),
+('C0012', 'banuka', 'banu@gmail.com', 'mahargama'),
+('C0014', 'kusal', 'kusal@gmail.com', 'mahargama'),
+('C0016', 'kusal', 'kusal@gmail.com', 'mahargama'),
+('C0021', 'kusal', 'kusal@gmail.com', 'mahargama'),
+('C0023', 'manjitha', 'manjth@gmail.com', 'Homagama'),
+('C0024', 'pasan', 'pasan@gmail.com', 'Nugegoda'),
+('C0025', 'janith', 'jani@yahoo.com', 'Padukka'),
+('C0026', 'Damidu', 'daidu@yahoo.com', 'Maharagama'),
+('C0027', 'nuwan', 'nuwansasanka1@gmail.com', 'homagama'),
+('C0028', 'sanath', 'sanath@gmail.com', 'mahargama'),
+('C0029', 'sasanka', 'sasanka@gmail.com', 'Kottawa');
 
 -- --------------------------------------------------------
 
@@ -101,7 +140,7 @@ INSERT INTO `customer` (`cust_id`, `cust_name`, `email_address`, `address`) VALU
 
 CREATE TABLE `customer_return_item` (
   `cust_id` varchar(30) NOT NULL,
-  `serial_no` varchar(30) NOT NULL,
+  `serial_no` varchar(50) NOT NULL,
   `returned_date` date NOT NULL,
   `description` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -122,10 +161,10 @@ CREATE TABLE `cust_telephone` (
 --
 
 INSERT INTO `cust_telephone` (`cust_id`, `telephone_no`) VALUES
-('CUST0001', '0714526369'),
-('CUST0002', '0714526369'),
-('CUST0003', '0778562369'),
-('CUST0004', '0715963245');
+('C0007', '0714526369'),
+('C0004', '0714526369'),
+('C0025', '0778562369'),
+('C0027', '0715963245');
 
 -- --------------------------------------------------------
 
@@ -289,6 +328,9 @@ INSERT INTO `item` (`serial_no`, `sales_price`, `p_id`, `item_status`) VALUES
 
 -- --------------------------------------------------------
 
+
+-- --------------------------------------------------------
+
 --
 -- Table structure for table `product`
 --
@@ -325,7 +367,11 @@ INSERT INTO `product` (`p_id`, `p_name`, `p_cost`, `brand_name`, `reorder_level`
 ('P0012', 'Printer', 23650, 'Cannon', 1, 'LBP-253X', 3, 12, '1', '2020-11-30'),
 ('P0013', 'CMOS battery', 130, 'Sony', 2, 'CMOS 2032', 6, 1, '1', '2020-11-30'),
 ('P0014', 'UPS battery', 2100, 'CyberPower', 1, 'HHL12v', 4, 6, '1', '2020-11-30'),
-('P0015', 'Laptop', 170000, 'Asus', 1, 'Zenbook 15', 4, 24, '1', '2020-11-30');
+('P0015', 'Laptop', 170000, 'Asus', 1, 'Zenbook 15', 4, 24, '1', '2020-11-30'),
+('P0016', 'Laptop', 75800, 'ASUS', 10, 'IdeaPad 310', 1, 18, '5', '2020-11-30'),
+('P0017', 'Laptop', 75800, 'ACER', 20, 'IdeaPad 310', 15, 18, '12', '2020-11-30'),
+('P0018', 'Laptop', 75800, 'DEL', 25, 'D310', 10, 18, '5', '2020-11-30'),
+('P0019', 'Laptop', 85800, 'HP', 20, 'IdeaPad 310', 15, 18, '12', '2020-11-30');
 
 -- --------------------------------------------------------
 
@@ -339,6 +385,18 @@ CREATE TABLE `purchase` (
   `cust_id` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `purchase`
+--
+
+INSERT INTO `purchase` (`bill_no`, `serial_no`, `cust_id`) VALUES
+('B0001', '00000043@P0004', 'C0001'),
+('B0011', '0000001@P0002', 'C0025'),
+('B0012', '000000032@P0003', 'C0026'),
+('B0013', '00000020@P0001', 'C0027'),
+('B0014', '00000020@P0001', 'C0028'),
+('B0015', '00000040@P0004', 'C0029');
+
 -- --------------------------------------------------------
 
 --
@@ -348,6 +406,36 @@ CREATE TABLE `purchase` (
 CREATE TABLE `shopkeeper` (
   `emp_id` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shop_return_items`
+--
+
+CREATE TABLE `shop_return_items` (
+  `sup_id` varchar(30) NOT NULL,
+  `serial_no` varchar(50) NOT NULL,
+  `returned_date` date NOT NULL,
+  `description` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `shop_return_items`
+--
+
+INSERT INTO `shop_return_items` (`sup_id`, `serial_no`, `returned_date`, `description`) VALUES
+('SUP0010', '00000020@P0001', '2020-11-30', 'Battery Issue'),
+('SUP0010', '00000021@P0001', '2020-11-30', 'Monitor Issue'),
+('SUP0010', '00000022@P0001', '2020-11-30', 'The battery won\'t charge'),
+('SUP0011', '000000030@P0003', '2020-11-30', 'Laptop\'s fan is noisy'),
+('SUP0012', '00000040@P0004', '2020-11-30', 'Blue screen of death'),
+('SUP0012', '00000042@P0004', '2020-11-30', 'Laptop becomes hot to the touch'),
+('SUP0015', '0000004@P0002', '2020-11-30', 'Keynoard Issue'),
+('SUP0019', '00000052@P0005', '2020-11-30', 'Laptop attacked by virus or malware '),
+('SUP0019', '00000123@P0011', '2020-11-30', 'Blue Error'),
+('SUP0019', '00000132@P0012', '2020-11-30', 'Keyboard Issue'),
+('SUP0019', '00000133@P0012', '2020-11-30', 'Monitor issue');
 
 -- --------------------------------------------------------
 
@@ -398,10 +486,7 @@ INSERT INTO `supplier_product` (`sup_id`, `p_id`) VALUES
 ('SUP0010', 'P0001'),
 ('SUP0011', 'P0003'),
 ('SUP0012', 'P0004'),
-('SUP0012', 'P0013'),
-('SUP0012', 'P0014'),
 ('SUP0014', 'P0007'),
-('SUP0014', 'P0015'),
 ('SUP0015', 'P0002'),
 ('SUP0017', 'P0008'),
 ('SUP0018', 'P0010'),
@@ -493,7 +578,7 @@ INSERT INTO `user_account` (`emp_id`, `username`, `password`, `email`, `verified
 ('EMP0043', 'mishclerk', '7068956236499d5241009a15c818fc69', 'mufernando02@gmail.com', 1, 'c933c78460fd2d106a3c7d89855bdf506f2baa21c84767e7b4a05410f4e16b44c8a494fe71b355af7278b1ae5d4eb9bf2d07'),
 ('EMP0044', 'mishshop', '7068956236499d5241009a15c818fc69', '2018cs055@stu.ucsc.cmb.ac.lk', 1, 'a22cdb15bc974f04fd2361766595738b82673b4d014585e087c89973fb6ccf21f4b5eae2ccf5405830fb5df6b61accfacb34'),
 ('EMP0025', 'nuwan', '4e2c0568628fd242d542b786c77b7a47', 'nuwa@123gmail.com', 1, '9871133a7e84364acf00182dd471ab1e633504af1fc1bbecaa9021065621bf6deda67e959363b52d7fcade687a6c04f5dbce'),
-('EMP0029', 'reshani', '8949417e84d8e5cf663ab21a60badb20', 'reshanidilhari97@gmail.com', 0, 'a03b21323936d0ef0dcfa2576efca9c75691bda5c8ac296b06aa6093545b91207efef49975fb3ba09096b32ea1e9c58b8ed8');
+('EMP0029', 'reshani', '8949417e84d8e5cf663ab21a60badb20', 'reshanidilhari97@gmail.com', 1, 'a03b21323936d0ef0dcfa2576efca9c75691bda5c8ac296b06aa6093545b91207efef49975fb3ba09096b32ea1e9c58b8ed8');
 
 --
 -- Indexes for dumped tables
@@ -587,6 +672,13 @@ ALTER TABLE `purchase`
 --
 ALTER TABLE `shopkeeper`
   ADD PRIMARY KEY (`emp_id`);
+
+--
+-- Indexes for table `shop_return_items`
+--
+ALTER TABLE `shop_return_items`
+  ADD PRIMARY KEY (`sup_id`,`serial_no`),
+  ADD KEY `serial_no` (`serial_no`);
 
 --
 -- Indexes for table `supplier`
@@ -685,6 +777,13 @@ ALTER TABLE `purchase`
 --
 ALTER TABLE `shopkeeper`
   ADD CONSTRAINT `shopkeeper_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `shop_return_items`
+--
+ALTER TABLE `shop_return_items`
+  ADD CONSTRAINT `shop_return_items_ibfk_1` FOREIGN KEY (`sup_id`) REFERENCES `supplier` (`sup_id`),
+  ADD CONSTRAINT `shop_return_items_ibfk_2` FOREIGN KEY (`serial_no`) REFERENCES `item` (`serial_no`);
 
 --
 -- Constraints for table `supplier_product`
