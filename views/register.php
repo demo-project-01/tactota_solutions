@@ -134,7 +134,7 @@
                 &nbsp&nbspUsername *
                 <span id='uname'></span>
             </label>
-            <input id='username' class="text" type="text" maxlength=20 pattern="[A-Za-z]|  [A-Za-z]+[0-9]" title="Use only letters or combination of letters and numbers for the username" name="username" required="">
+            <input id='username' class="text" type="text" maxlength=20 minlength=4 pattern="[A-Za-z]+[0-9]*" title="Use only letters or combination of letters and numbers for the username" name="username" required="">
             
             
             <label for='pswd1' id='left-label'>
