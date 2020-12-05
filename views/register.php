@@ -38,42 +38,52 @@
         </div>
         <div id="sub1">
             <form action="../controller/authenitication.php?action=register" method="post" enctype="">
+                
                 <label for='fname' id='left-label'>
                     <i class="fa fa-user" aria-hidden="true"></i></i>
                     &nbsp&nbspFirst Name *
                     <span id='firstname'></span>
                 </label>
                 <input id='fname' class="text" type="text" pattern="[A-Za-z]{1,32}" name="firstname" required="">
+                
                 <label for='mname' id='left-label'>
                     <i class="fa fa-user" aria-hidden="true"></i></i>
                     &nbsp&nbspMiddle Name
                     <span id='middlename'></span>
                 </label>
                 <input id='mname' class="text" type="text" pattern="[A-Za-z]{1,32}" name="middlename">
+                
                 <label for='lname' id='left-label'>
                     <i class="fa fa-user" aria-hidden="true"></i></i>
                     &nbsp&nbspLast Name *
                     <span id='lastname'></span>
                 </label>
                 <input id='lname' class="text" type="text" pattern="[A-Za-z]{1,32}" name="lastname" required="">
+                
                 <label for='address' id='left-label'>
                     <i class="fa fa-address-book" aria-hidden="true"></i>
                     &nbsp&nbspHome Address *
                     <span id='address1'></span>
                 </label>
                 <input id="address" class="text" type="text" name="address"required="">
+                
+
                 <label for='teleno' id='left-label'>
                     <i class="fa fa-phone" aria-hidden="true"></i>
                     &nbsp&nbspContact Number *
                     <span id='cnumber'></span>
                 </label>
                 <input id='teleno' class="text" type="text" pattern="07[1,2,5,6,7,8][0-9]+" name="moblile_no" required="">
+                
+
                 <label for='nic' id='left-label'>
                     <i class="fa fa-id-card-o" aria-hidden="true"></i>
                     &nbsp&nbspNIC *
                     <span id='nic1'></span>
                 </label>
                 <input id='nic' class="text" type="text" name="nic8" required="" pattern="(([0-9]{9})[v,V])|(\d{12})" title="for new NIC's 12 numbers and for old NIC's 9 numbers and v">
+                
+
                 <label for='dob' id='left-label'>
                     <i class="fa fa-calendar" aria-hidden="true"></i>
                     &nbsp&nbspDOB *
@@ -102,6 +112,7 @@
         </div>
         <div id="sub2">
             <div id="error_msg"></div>
+            
             <label for='email' id='left-label'>
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 &nbsp&nbspEmail Address *
@@ -123,12 +134,16 @@
                 &nbsp&nbspUsername *
                 <span id='uname'></span>
             </label>
-            <input id='username' class="text" type="text" pattern="[A-Za-z0-9\w]{4,20}" name="username" required="">
+            <input id='username' class="text" type="text" maxlength=20 pattern="[A-Za-z]|  [A-Za-z]+[0-9]" title="Use only letters or combination of letters and numbers for the username" name="username" required="">
+            
+            
             <label for='pswd1' id='left-label'>
                 <i class="fa fa-key" aria-hidden="true"></i>
                 &nbsp&nbspPassword *
             </label>
             <input id='pswd1' class="text" type="password" min="8" name="password" required="">
+            
+            
             <label for='pswd2' id='left-label'>
                 <i class="fa fa-key" aria-hidden="true"></i>
                 &nbsp&nbspConfirm Password *
@@ -144,6 +159,7 @@
                 <div class="clear"> </div>
             </div>
             <input id="reg_btn" type="submit" value="REGISTER">
+            
             <label for='login' id='left-p'>Already have an Account? <a id='login' href="login.php" style="font-size:1.3em;"> Login Now!</a></label>
 
                 </form>
