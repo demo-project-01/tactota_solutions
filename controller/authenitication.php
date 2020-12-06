@@ -255,11 +255,11 @@ class authenitication
                       if($result==true){
                           header('location: ../views/successful_register.php');
                       } else
-                          $_SESSION['register_error']="Register Unsuccessful";
+                          $_SESSION['register_error']="Registration Unsuccessful";
                       header('location: ../views/register.php');
 
                   }else{
-                      $_SESSION['register_error']="Register Unsuccessful";
+                      $_SESSION['register_error']="Registration Unsuccessful";
                       header('location: ../views/register.php');
 
                   }
