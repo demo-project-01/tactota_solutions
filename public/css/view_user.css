@@ -239,4 +239,57 @@ input:checked + .slider:before {
     margin-top:280px ;
     font-family: 'Times New Roman', Times, serif;
     
+  }/*
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+   
+
   }
+  
+  ul li {*/
+    /*margin-left: 70px;*/
+   /* display: block;
+    position: relative;
+    float: left;
+    background: #007042;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #000
+  }
+  li ul { display: none; }
+
+ul li a {
+  display: block;
+  padding: 1em;
+  text-decoration: none;
+  white-space: nowrap;
+  color: #fff;
+}
+
+ul li a:hover { background: #61ca7d; }
+
+li:hover > ul {
+    display: block;
+    position: absolute;
+  }
+  
+  li:hover li { float: none; }
+  
+  li:hover a { background:#007042; }
+  
+  li:hover li a:hover { background: #61ca7d; }
+  
+  .main-navigation li ul li { border-top: 0; }
+
+  ul ul ul {
+    left: 100%;
+    top: 0;
+  }
+  ul:before,
+ul:after {
+  content: " "; 
+  display: table; 
+}
+
+ul:after { clear: both; }*/

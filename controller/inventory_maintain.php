@@ -177,7 +177,6 @@ class inventory_maintain
                 header('location: ../views/shopkeeper_return_items.php');
             }
             
-
         }else{
             echo "error";
         }

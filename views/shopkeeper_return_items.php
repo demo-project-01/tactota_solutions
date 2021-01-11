@@ -5,6 +5,9 @@
    $sql=$data->display_shopkeeper_return_items();
  
 ?>
+<head>
+     <link rel="stylesheet" href="../public/css/dropdown.css">
+</head>
 <div class="content" style="width:auto;">
     <h1 id="tbl-heading">Add Return Items</h1><br/>
     <!--div class="new">
@@ -15,9 +18,88 @@
         <i class="fa fa-user-o" aria-hidden="true"></i>
         &nbsp&nbspCustomer Return Items</a>
     </div-->
-    <div class="search">
+    <!--label for="type">Choose a Type:</label-->
+    <!--select name="product" id="products">
+        <li><option value="Laptop">Laptop</option>
+        <option value="saab">Head Phones</option>
+        <option value="opel">Printers</option>
+        <option value="audi">Keyboard-Gaming</option>
+        <option value="audi">Keyboard-Wireless slim</option>
+        <option value="audi">Multimedia Office Keyboard</option>
+        <option value="audi">CMOS Battery</option>
+        <option value="audi">UPS Battery</option>
+    </select-->
+    
+    <ul>
+        <li><a href="#">Categories</a>
+        
+            <ul>
+                
+                <li><a href="#">Laptop</a>
+                    <ul>
+                        <li><a href="#">Asus</a></li>
+                        <li><a href="#">HP</a></li>
+                        <li><a href="#">Dell</a></li>
+                        <li><a href="#">Acer</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#">Wireless Mouse-USB</a>
+                    <ul>
+                        <li><a href="#">Logitech</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="#">Head Phones</a>
+                    <ul>
+                        <li><a href="#">Resets</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#">Printers</a>
+                    <ul>
+                        <li><a href="#">Cannon</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#">Keyboard-Gaming</a>
+                    <ul>
+                        <li><a href="#">Fantech</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#">Keyboard-Wireless slim</a>
+                    <ul>
+                        <li><a href="#">K1000</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#">Multimedia Office Keyboard</a>
+                    <ul>
+                        <li><a href="#">Fantech</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#">CMOS Battery</a>
+                    <ul>
+                        <li><a href="#">Sony</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#">UPS Battery</a>
+                    <ul>
+                        <li><a href="#">Cyber Power</a></li>
+                    </ul>
+                </li>
+                   
+            </ul>
+        
+        </li>
+    </ul>
+
+    <!--div class="search">
     <input type="text" placeholder="Search..">
-    </div>
+    </div-->
     <div class="page">
     <h2 style="color:#007042;">Select Item To Add :</h2>
     <div class="view-tbl">  

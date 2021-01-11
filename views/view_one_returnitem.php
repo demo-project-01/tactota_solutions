@@ -7,6 +7,7 @@ $row= $_SESSION['return_item'];
 <head>
 <link rel="stylesheet" href="../public/css/update.css">
 <link rel="stylesheet" href="../public/css/email.css">
+
 </head>
 
   <div class="content"style="width:auto;">
