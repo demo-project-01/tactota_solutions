@@ -121,6 +121,29 @@ class sales_model
      return $stmt4->execute();    
      
     }
+    public function insert_cash_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$telephone_no,$serial_no,$email_address,$address){ //nuwan
+        $stmt=$this->mysqli->prepare("INSERT INTO customer(cust_id,cust_name,email_address,cust_address)
+        VALUES (?,?,?,?)");
+ 
+    $stmt->bind_param('ssss',$cust_id,$cust_name,$email_address,$address);
+    $stmt->execute();
+
+    $stmt1= $this->mysqli->prepare("INSERT INTO  cust_telephone(cust_id,telephone_no)
+         VALUES (?,?)");
+
+         $stmt1->bind_param('ss',$cust_id,$telephone_no);
+         $stmt1->execute();
+     
+         $stmt2 = $this->mysqli->prepare("INSERT INTO bill (bill_no,date_time,amount,payment_method,emp_id) VALUES (?,?,?,?,?)");
+      $stmt2->bind_param('sssss',$bill_no,$date_time,$amount,$payment_method,$id);
+    $stmt2->execute();
+    $stmt3= $this->mysqli->prepare("INSERT INTO  purchase(bill_no,serial_no,cust_id)
+     VALUES (?,?,?)");
+
+     $stmt3->bind_param('sss',$bill_no,$serial_no,$cust_id);
+     return $stmt3->execute();    
+     
+    }
 
     public function get_cust_id(){ //nuwan
         $query = $this->mysqli->query("SELECT * from customer order by cust_id desc LIMIT 1");

@@ -212,7 +212,7 @@ $row=$data->get_bill_no();
     <label1>Bank Name</label1>
     </div>
     <div class="col-75">
-    <input  type="text" id="bank_name" name="bank_name" required="">
+    <input  type="text" id="bank_name" name="bank_name">
     <!--input id="address" class="text" type="text" name="address"required=""-->
     </div>
         </div>
@@ -221,7 +221,7 @@ $row=$data->get_bill_no();
     <label1>Cheque No</label1>
     </div>
     <div class="col-75">
-    <input type="text" id="cheque_no" name="cheque_no" required="">
+    <input type="text" id="cheque_no" name="cheque_no">
     </div>
         </div>
     
@@ -230,7 +230,7 @@ $row=$data->get_bill_no();
     <label1>Due Date</label1>
     </div>
     <div class="col-75">
-    <input id="date" class="text" type="date" name="due_date" required="">
+    <input id="date" class="text" type="date" name="due_date">
     </div>
         </div>
                
@@ -239,7 +239,7 @@ $row=$data->get_bill_no();
     <label1>Recived Date</label1>
     </div>
     <div class="col-75">
-     <input id="date" class="text" type="date" name="recived_date" required="">
+     <input id="date" class="text" type="date" name="recived_date">
     </div>
         </div>
     
