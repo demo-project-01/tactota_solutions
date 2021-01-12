@@ -19,26 +19,32 @@
 <input type="checkbox" id="check">
 <!--header area start-->
 <header>
-   <label for="check"> 
-        <i class="fas fa-bars" id="sidebar_btn"></i>
-    </label>
-    <div class="left_area">
-        <img src="../public/images/logo-s.jpeg" alt="Logo">
     
-    <ul class="profile-wrapper">
-        <li>
-
-            <div class="profile">
-
-                <i class="far fa-user-circle fa-2x "></i>
-                <ul class="menu">
-                    <li><a href="../controller/authenitication.php?action=profile"><i class="fas fa-user-alt"></i>Profile</a></li>
-                    <li><a href="../controller/authenitication.php?action=logout"><i class="fas fa-sign-out-alt"></i>Log out</a></li>
-                </ul>
-            </div>
-        </li>
-
-    </ul>
+    <div class="left_area">
+        <table width=100% style="margin:0px;">
+            <tr>
+                <td>
+                    <img src="../public/images/logo-s.jpeg" alt="Logo">
+                </td>
+                <td>
+                    <label for="check"><i class="fas fa-bars" id="sidebar_btn"></i></label>
+                </td>
+                
+                <td style="width:15%;">
+                    <div class="profile-wrapper">
+                        <button class="dropbtn"> 
+                            <i class="far fa-user-circle fa-2x"></i></a>
+                           
+                        </button>
+                        <p id="disp-name"><!--?php echo $first_name ?--> Someone's name  </p>
+                            <div class="menu">
+                                <a href="../controller/authenitication.php?action=profile"><i class="fas fa-user-alt"></i>&nbsp&nbspProfile</a>
+                                <a href="../controller/authenitication.php?action=logout"><i class="fas fa-sign-out-alt"></i>&nbsp&nbspLog out</a>
+                            </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
 </header>
 <!--header area end-->
