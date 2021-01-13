@@ -29,8 +29,9 @@
         <option value="audi">CMOS Battery</option>
         <option value="audi">UPS Battery</option>
     </select-->
-    
+    <div class="dropdown">
     <ul style="position:relative;z-index:10;">
+    
         <li><a href="#">Categories</a>
         
             <ul>
@@ -52,7 +53,7 @@
                 
                 <li><a href="#">Head Phones</a>
                     <ul>
-                        <li><a href="#">Resets</a></li>
+                        <li><a href="#">AKG</a></li>
                     </ul>
                 </li>
 
@@ -88,7 +89,7 @@
 
                 <li><a href="#">UPS Battery</a>
                     <ul>
-                        <li><a href="#">Cyber Power</a></li>
+                        <li><a href="#">CyberPower</a></li>
                     </ul>
                 </li>
                    
@@ -96,7 +97,7 @@
         
         </li>
     </ul>
-
+</div>
     <!--div class="search">
     <input type="text" placeholder="Search..">
     </div-->
