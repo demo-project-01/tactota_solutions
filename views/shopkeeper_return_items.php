@@ -6,7 +6,7 @@
  
 ?>
 <head>
-     <link rel="stylesheet" href="../public/css/dropdown.css">
+    <link rel="stylesheet" href="../public/css/dropdown.css">
 </head>
 <div class="content" style="width:auto;">
     <h1 id="tbl-heading">Add Return Items</h1><br/>
