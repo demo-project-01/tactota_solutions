@@ -33,22 +33,57 @@ session_start();
 
                 <tr>
 
-                    <th>Product Name</th>
+                    <th>Category Name</th>
                     <td>
-                        <input class="text" id="product_name" type="text" name="product_name" required="">
+                    <select class="select_category" id="cate" name="cate" >
+                                    <?php
+
+                                    foreach ($sql as $k => $v){
+                                        ?>
+                                        <option value="<?php echo $sql[$k]["sup_id"] ?>"><?php echo $sql[$k]["sup_name"] ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                    </td>
+                    <td>        
+                        <a class="add_button" href="newcategory.php"><i class="fa fa-plus" aria-hidden="true"></i></a>
                     </td>
                 </tr>
                 <tr>
                     <th>Brand Name</th>
                     <td>
-                        <input class="text" id="brand_name" type="text" name="brand_name" required="">
+                    <select class="select_category" id="cate" name="cate" >
+                                    <?php
+
+                                    foreach ($sql as $k => $v){
+                                        ?>
+                                        <option value="<?php echo $sql[$k]["sup_id"] ?>"><?php echo $sql[$k]["sup_name"] ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                    </td>
+                    <td>
+                    <a class="add_button" href="newbrand.php"><i class="fa fa-plus" aria-hidden="true"></i></a>
                     </td>
                 </tr>
                 <tr>
-                    <th>Model Number</th>
+                    <th>Model Number</th> 
                     <td>
-                        <input class="text" id="model_no" type="text" name="model_number" required="">
+                    <select class="select_category" id="cate" name="cate" >
+                                    <?php
 
+                                    foreach ($sql as $k => $v){
+                                        ?>
+                                        <option value="<?php echo $sql[$k]["sup_id"] ?>"><?php echo $sql[$k]["sup_name"] ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                    </td>
+                    <td>
+                    <a class="add_button" href="newmodel.php"><i class="fa fa-plus" aria-hidden="true"></i></a>
                     </td>
                 </tr>
                 <tr>
@@ -95,6 +130,9 @@ session_start();
                                     ?>
                                 </select>
 
+                    </td>
+                    <td>
+                    <a class="add_button" href="add_suppliers.php"><i class="fa fa-plus" aria-hidden="true"></i></a>
                     </td>
                 </tr>
 
