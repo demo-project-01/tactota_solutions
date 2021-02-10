@@ -134,6 +134,10 @@ class sales
      public function get_product_details(){//nuwan
         return $this->sale->get_product();
    }
+   public function get_brand($id){//new 22
+    return $this->sale->get_brand_name($id);
+}
+
     
      public function view_search_product($id,$model)
     {
@@ -168,6 +172,7 @@ if(isset($_GET['action']) && $_GET['action'] == "get_supplier_names") {
 }else if(isset($_GET['action']) && $_GET['action'] == 'add_bill') { //nuwan
     $controller->add_bill();
 }else if(isset($_GET['action']) && $_GET['action'] == 'get_product_details') {//nuwan
+    $id=$_GET['id'];// new22
     $controller->get_product_details();
 }else if(isset($_GET['action']) && $_GET['action'] == 'view_search_product') {
      $id=$_GET['id'];
