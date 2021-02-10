@@ -5,6 +5,23 @@ $data=new sales();
 $sql=$data->get_product_details();
 $row=$data->get_bill_no();
 ?>
+<script>
+function showUser(str) {
+  if (str == "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET","getuser.php?q="+str,true);
+    xmlhttp.send();
+  }
+}
+</script>
 
   <link rel="stylesheet" href="../public/css/bill.css">
   <link rel="stylesheet" href="../public/css/view_user.css">
@@ -121,12 +138,12 @@ $row=$data->get_bill_no();
  <tbody>
    <tr>
            
-   <td>  <select class="text1" type="text1" name="product_number" placeholder="Product name" >
+   <td>  <select class="text1" type="text1" name="product_number" placeholder="Product name" onchange="showUser(this.value)" >
                                     <?php
 
                                     foreach ($sql as $k => $v){
                                         ?>
-                                        <option value="<?php echo $sql[$k]["p_id"] ?>"><?php echo $sql[$k]["p_name"] ?></option>
+                                        <option value="<?php echo $sql[$k]["category_id"] ?>"><?php echo $sql[$k]["category_name"] ?></option>
                                         <?php
                                     }
                                     ?>
@@ -137,7 +154,7 @@ $row=$data->get_bill_no();
 
                                     foreach ($sql as $k => $v){
                                         ?>
-                                        <option value="<?php echo $sql[$k]["p_id"] ?>"><?php echo $sql[$k]["brand_name"] ?></option>
+                                        <option value="<?php echo $sql[$k]["brand_id"] ?>"><?php echo $sql[$k]["brand_name"] ?></option>
                                         <?php
                                     }
                                     ?>
