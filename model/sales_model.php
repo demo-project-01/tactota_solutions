@@ -187,11 +187,19 @@ class sales_model
     }
    public function get_product(){//nuwan
     
-        $query = $this->mysqli->query("SELECT item.serial_no,product.p_id,product.p_name,product.brand_name,product.model_no,product.warranty,item.sales_price FROM product INNER JOIN item ON product.p_id=item.p_id");
+        $query = $this->mysqli->query("SELECT * from category");
         while ($row = $query->fetch_assoc()) {
             $result[] = $row;
         }
         return $result;
+    }
+    public function get_brand_name($id){//new22
+        $query = $this->mysqli->query("SELECT brand.brand_name,brand.brand_id FROM brand INNER JOIN product_list ON brand.brand_id=product_list.brand_id AND product_list.category_id='" . $id . "'");
+        while ($row = $query->fetch_assoc()) {
+            $result[] = $row;
+        }
+        return $result;
+
     }
 
     public function product_id($serial_no){ //nuwan new

@@ -102,10 +102,10 @@ class inventory_maintain_model
          return $result;
      }
     
-    public function get_view_supplier_product_details($id){
+    public function get_view_supplier_product_details($id){//new22
        // $result = "";
         //$query = $this->mysqli->query("SELECT * FROM supplier INNER JOIN product  AND supplier.sup_id='" . $id . "'");
-        $query = $this->mysqli->query("SELECT s.sup_id, p.p_id,p.p_name,p.brand_name, p.model_no from supplier AS s,product as p ,supplier_product as sp WHERE sp.sup_id=s.sup_id AND p.p_id=sp.p_id AND s.sup_id='" . $id . "' ");
+        $query = $this->mysqli->query("SELECT s.sup_id, p.product_id,c.category_name,b.brand_name, m.model_no from supplier AS s,product_list as p ,supplier_product as sp ON sp.sup_id=s.sup_id INNER JOIN category AS c ON p.category_id=c.category_id INNER JOIN brand AS b ON p.brand_id=b.brand_id INNER JOIN model AS m ON p.model_id=m.model_id AND p.p_id=sp.p_id AND s.sup_id='" . $id . "' ");
         if ($query->num_rows > 0) {
             while ($row = $query->fetch_assoc()) {
                 $result[] = $row;
