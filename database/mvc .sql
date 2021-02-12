@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2021 at 12:02 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.34
+-- Generation Time: Feb 12, 2021 at 08:00 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -67,6 +67,17 @@ CREATE TABLE `brand` (
   `brand_name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `brand`
+--
+
+INSERT INTO `brand` (`brand_id`, `brand_name`) VALUES
+(1, 'Lenovo'),
+(2, 'HP'),
+(3, 'Asus'),
+(4, 'AKG'),
+(5, 'Sony');
+
 -- --------------------------------------------------------
 
 --
@@ -77,6 +88,17 @@ CREATE TABLE `category` (
   `category_id` int(30) NOT NULL,
   `category_name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`category_id`, `category_name`) VALUES
+(1, 'Laptop'),
+(2, 'Head Phones'),
+(3, 'CMOS Battery'),
+(4, 'Mouse'),
+(5, 'Keyboard-Gaming');
 
 -- --------------------------------------------------------
 
@@ -241,8 +263,31 @@ CREATE TABLE `items` (
   `item_id` int(30) NOT NULL,
   `item_status` tinyint(1) NOT NULL,
   `serial_no` varchar(30) NOT NULL,
-  `p_id` varchar(30) NOT NULL
+  `p_id` int(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`item_id`, `item_status`, `serial_no`, `p_id`) VALUES
+(1, 1, '24ML6N0CV08535824C', 3),
+(2, 1, '24ML6N0CV08553684C', 3),
+(3, 1, '24ML6N0CV45236987C', 3),
+(4, 1, '24ML6N0CV63598742C', 3),
+(5, 1, '24ML6N0CV78562349D', 3),
+(6, 1, '5ES85EA', 2),
+(7, 1, '5AB98AB', 2),
+(8, 1, '5RN20RN', 2),
+(9, 1, 'AB0123-CF567432', 4),
+(10, 1, 'CB4325-GH459807', 4),
+(11, 1, 'TY4325-KH659874', 4),
+(12, 1, 'PA0N35UV', 1),
+(13, 1, 'TY0N45ER', 1),
+(14, 1, '56734890R', 5),
+(15, 1, '27984531M', 5),
+(16, 1, '56879034', 5),
+(17, 1, '67098345', 5);
 
 -- --------------------------------------------------------
 
@@ -253,12 +298,22 @@ CREATE TABLE `items` (
 CREATE TABLE `model` (
   `model_id` int(30) NOT NULL,
   `model_name` varchar(30) NOT NULL,
-  `quantity` int(30) NOT NULL,
+  `total_quantity` int(30) NOT NULL,
   `specification` varchar(255) NOT NULL,
   `reorder_level` int(30) NOT NULL,
-  `sales_price` double NOT NULL,
-  `warrenty` int(30) NOT NULL
+  `sales_price` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `model`
+--
+
+INSERT INTO `model` (`model_id`, `model_name`, `total_quantity`, `specification`, `reorder_level`, `sales_price`) VALUES
+(1, 'IdeaPad310', 0, 'The new standard for PC performance has arrived with up to 7th Gen Intel® Core™ i7 processor.', 2, 165000),
+(2, 'Envy20', 0, '8th Gen, intel core i7,NVIDIA GEFORCE,1TB HDD,8GB RAM', 2, 155000),
+(3, 'Vivobook 15 X512', 0, 'VivoBook 15 ,latest Intel® Core™ i7 processor with discrete NVIDIA® graphics and dual storage drives ,8GB ,256SSD,8th Gen', 3, 185000),
+(4, 'Y50BT', 0, 'Bluetooth headphones, Frequency range20-20kHz,MAX input power50mW,Impedance32ohms,Cable length1.2m detachable audio cable, Connection Jack 3.5mm, Sensitivity113dB SPL/V', 5, 1500),
+(5, 'CMOS 2032', 0, 'Technology Lithium, Voltage 3V,Diameter 20 mm,Weight3,1 g', 6, 100);
 
 -- --------------------------------------------------------
 
@@ -267,12 +322,24 @@ CREATE TABLE `model` (
 --
 
 CREATE TABLE `product_list` (
-  `p_id` varchar(30) NOT NULL,
+  `p_id` int(30) NOT NULL,
   `product_status` tinyint(1) NOT NULL,
   `category_id` int(30) NOT NULL,
   `model_id` int(30) NOT NULL,
-  `brand_id` int(30) NOT NULL
+  `brand_id` int(30) NOT NULL,
+  `warrenty` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `product_list`
+--
+
+INSERT INTO `product_list` (`p_id`, `product_status`, `category_id`, `model_id`, `brand_id`, `warrenty`) VALUES
+(1, 1, 1, 1, 1, 24),
+(2, 1, 1, 2, 2, 18),
+(3, 1, 1, 3, 3, 36),
+(4, 1, 2, 4, 4, 12),
+(5, 1, 3, 5, 5, 3);
 
 -- --------------------------------------------------------
 
@@ -282,7 +349,7 @@ CREATE TABLE `product_list` (
 
 CREATE TABLE `purchase` (
   `bill_no` varchar(30) NOT NULL,
-  `item_id` varchar(30) NOT NULL,
+  `item_id` int(30) NOT NULL,
   `cust_id` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -291,12 +358,13 @@ CREATE TABLE `purchase` (
 --
 
 INSERT INTO `purchase` (`bill_no`, `item_id`, `cust_id`) VALUES
-('B0001', '00000043@P0004', 'C0001'),
-('B0011', '0000001@P0002', 'C0025'),
-('B0012', '000000032@P0003', 'C0026'),
-('B0013', '00000020@P0001', 'C0027'),
-('B0014', '00000020@P0001', 'C0028'),
-('B0015', '00000040@P0004', 'C0029');
+('B0001', 1, 'C0001'),
+('B0002', 2, 'C0004'),
+('B0003', 3, 'C0008'),
+('B0007', 3, 'C0016'),
+('B0005', 4, 'C0023'),
+('B0010', 5, 'C0014'),
+('B0011', 15, 'C0025');
 
 -- --------------------------------------------------------
 
@@ -330,17 +398,17 @@ CREATE TABLE `supplier` (
 
 INSERT INTO `supplier` (`sup_id`, `sup_name`, `email_address`, `active_status`) VALUES
 ('SUP0010', 'Barclays computers', 'Barclays@gmail.com', '1'),
-('SUP0011', 'Unity System', 'support@unitysystem.lk', ''),
-('SUP0012', 'Upright Computers', 'Upright@gmail.com', ''),
-('SUP0013', 'REVO COMPUTERS & SECURITY SOLU', 'info@revocomputers.lk', ''),
-('SUP0014', 'Metropolitan Computers (Pvt) L', 'shamazh@metropolitan.lk', ''),
-('SUP0015', 'Colombo Computer Technology (P', 'info@computertech.lk', ''),
-('SUP0016', 'Laptop.lk', 'info@laptop.lk', ''),
-('SUP0017', 'Singer PLC', 'callcenter@singersl.com', ''),
-('SUP0018', 'Abans', 'buyabans@abansgroup.com', ''),
-('SUP0019', 'Pettah Computers', 'info@pettahcomputers.com', ''),
-('SUP0020', 'Winsoft Solutions', 'thanish@winsoft.lk', ''),
-('SUP0021', 'michelle', 'mufernando02@gmail.com', '');
+('SUP0011', 'Unity System', 'support@unitysystem.lk', '1'),
+('SUP0012', 'Upright Computers', 'Upright@gmail.com', '1'),
+('SUP0013', 'REVO COMPUTERS & SECURITY SOLU', 'info@revocomputers.lk', '1'),
+('SUP0014', 'Metropolitan Computers (Pvt) L', 'shamazh@metropolitan.lk', '1'),
+('SUP0015', 'Colombo Computer Technology (P', 'info@computertech.lk', '1'),
+('SUP0016', 'Laptop.lk', 'info@laptop.lk', '1'),
+('SUP0017', 'Singer PLC', 'callcenter@singersl.com', '1'),
+('SUP0018', 'Abans', 'buyabans@abansgroup.com', '1'),
+('SUP0019', 'Pettah Computers', 'info@pettahcomputers.com', '1'),
+('SUP0020', 'Winsoft Solutions', 'thanish@winsoft.lk', '1'),
+('SUP0021', 'michelle', 'mufernando02@gmail.com', '1');
 
 -- --------------------------------------------------------
 
@@ -350,11 +418,29 @@ INSERT INTO `supplier` (`sup_id`, `sup_name`, `email_address`, `active_status`) 
 
 CREATE TABLE `supplier_product` (
   `sup_id` varchar(30) NOT NULL,
-  `p_id` varchar(30) NOT NULL,
+  `p_id` int(30) NOT NULL,
   `date` date NOT NULL,
   `unit_price` float DEFAULT NULL,
   `quantity` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `supplier_product`
+--
+
+INSERT INTO `supplier_product` (`sup_id`, `p_id`, `date`, `unit_price`, `quantity`) VALUES
+('SUP0010', 1, '2020-09-09', 150000, 10),
+('SUP0011', 1, '2020-10-15', 152000, 12),
+('SUP0012', 4, '2020-11-12', 1000, 50),
+('SUP0012', 5, '2020-12-30', 70, 10),
+('SUP0014', 2, '2020-09-23', 150000, 15),
+('SUP0014', 4, '2020-12-10', 1200, 20),
+('SUP0016', 2, '2020-10-17', 152000, 8),
+('SUP0017', 4, '2020-12-31', 1100, 15),
+('SUP0018', 3, '2020-10-22', 180000, 18),
+('SUP0019', 2, '2020-11-24', 153000, 15),
+('SUP0020', 5, '2020-12-18', 80, 8),
+('SUP0021', 3, '2020-11-26', 182000, 13);
 
 -- --------------------------------------------------------
 
@@ -487,7 +573,8 @@ ALTER TABLE `customer`
 -- Indexes for table `customer_return_item`
 --
 ALTER TABLE `customer_return_item`
-  ADD PRIMARY KEY (`cust_id`);
+  ADD PRIMARY KEY (`cust_id`),
+  ADD KEY `item_id` (`item_id`);
 
 --
 -- Indexes for table `cust_telephone`
@@ -535,7 +622,8 @@ ALTER TABLE `product_list`
 --
 ALTER TABLE `purchase`
   ADD PRIMARY KEY (`bill_no`,`cust_id`),
-  ADD KEY `cust_id` (`cust_id`);
+  ADD KEY `cust_id` (`cust_id`),
+  ADD KEY `item_id` (`item_id`);
 
 --
 -- Indexes for table `shop_return_items`
@@ -584,19 +672,31 @@ ALTER TABLE `user_account`
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `brand_id` int(30) NOT NULL AUTO_INCREMENT;
+  MODIFY `brand_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(30) NOT NULL AUTO_INCREMENT;
+  MODIFY `category_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `items`
+--
+ALTER TABLE `items`
+  MODIFY `item_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `model`
 --
 ALTER TABLE `model`
-  MODIFY `model_id` int(30) NOT NULL AUTO_INCREMENT;
+  MODIFY `model_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `product_list`
+--
+ALTER TABLE `product_list`
+  MODIFY `p_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -619,6 +719,12 @@ ALTER TABLE `cheque`
 --
 ALTER TABLE `clerk`
   ADD CONSTRAINT `clerk_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `customer_return_item`
+--
+ALTER TABLE `customer_return_item`
+  ADD CONSTRAINT `customer_return_item_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `items` (`item_id`);
 
 --
 -- Constraints for table `cust_telephone`
@@ -651,7 +757,8 @@ ALTER TABLE `product_list`
 --
 ALTER TABLE `purchase`
   ADD CONSTRAINT `purchase_ibfk_1` FOREIGN KEY (`bill_no`) REFERENCES `bill` (`bill_no`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `purchase_ibfk_2` FOREIGN KEY (`cust_id`) REFERENCES `customer` (`cust_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `purchase_ibfk_2` FOREIGN KEY (`cust_id`) REFERENCES `customer` (`cust_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `purchase_ibfk_3` FOREIGN KEY (`item_id`) REFERENCES `items` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `shop_return_items`
