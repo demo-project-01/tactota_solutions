@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tactota solution</title>
+    <title>Manager</title>
     <link rel="stylesheet" href="../public/css/style1.css">
     <link rel="stylesheet" href="../public/css/view_user.css">
     <link rel="stylesheet" href="../public/css/admin.css">
@@ -25,9 +25,10 @@
             <tr>
                 <td>
                     <img src="../public/images/logo-s.jpeg" alt="Logo">
+                    
                 </td>
                 <td>
-                    <label for="check"><i class="fas fa-bars" id="sidebar_btn"></i></label>
+                    <label for="check"><i class="fas fa-bars" id="sidebar_btn">&nbsp&nbsp<span style="font-family: 'Courier New', monospace;">MANAGER</span></i></label>
                 </td>
                 
                 <td style="width:15%;">

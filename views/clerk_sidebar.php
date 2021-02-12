@@ -26,7 +26,7 @@
                     <img src="../public/images/logo-s.jpeg" alt="Logo">
                 </td>
                 <td>
-                    <label for="check"><i class="fas fa-bars" id="sidebar_btn"></i></label>
+                    <label for="check"><i class="fas fa-bars" id="sidebar_btn">&nbsp&nbsp<span style="font-family: 'Courier New', monospace;">CLERK</span></i></label>
                 </td>
                 
                 <td style="width:15%;">
