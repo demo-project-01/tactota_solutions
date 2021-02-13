@@ -152,7 +152,7 @@ class inventory_maintain_model
     }
      public function display_stockreminders(){   //reshani  ,view stock reminders
        // $result="";
-         $query=$this->mysqli->query("SELECT * FROM product WHERE quantity<=reorder_level AND YEAR(CURRENT_DATE())-YEAR(product_date)<1");  /*modified*/
+         $query=$this->mysqli->query("SELECT product_list.p_id,category.category_name,brand.brand_name,model.model_name FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id WHERE model.total_quantity<=model.reorder_level AND YEAR(CURRENT_DATE())-YEAR(supplier_product.date)<1");  /*modified*/
          while ($row = $query->fetch_assoc()) {
              $result[] = $row;
          }
@@ -161,7 +161,7 @@ class inventory_maintain_model
      public function display_few_stockreminders(){   //reshani  ,view few stock reminders in clerk dashbaord
         // $result="";
    //$query=$this->mysqli->query("SELECT * FROM product WHERE quantity<=reorder_level ORDER BY p_id LIMIT 5");
-   $query=$this->mysqli->query("SELECT DISTINCT p_name,brand_name FROM product WHERE quantity<=reorder_level ORDER BY p_name LIMIT 5");
+   $query=$this->mysqli->query("SELECT DISTINCT category.category_name,brand.brand_name FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE model.total_quantity<=model.reorder_level ORDER BY category.category_name LIMIT 5");
 
          while ($row = $query->fetch_assoc()) {
              $result[] = $row;

@@ -17,9 +17,9 @@
        <table>
             <thead>
                 <tr>
-                    <th> Product Name</th>
+                    <th> Category Name</th>
                     <th> Brand Name</th>  
-                    <th> Model Number</th>
+                    <th> Model Name</th>
                     <th scope="col" colspan=2 border=0>Action</th>
                 </tr>
             </thead>
@@ -31,11 +31,12 @@
                 ?>
                 <tr>
                     
-                    <td><?php echo $sql[$k]["p_name"] ?></td>
-		    <td><?php echo $sql[$k]["brand_name"] ?></td>
-                    <td><?php echo $sql[$k]["model_no"] ?></td>
+                    <td><?php echo $sql[$k]["category_name"] ?></td>
+		            <td><?php echo $sql[$k]["brand_name"] ?></td>
+                    <td><?php echo $sql[$k]["model_name"] ?></td>
                     <td><a href="../controller/inventory_maintain.php?action=reminderitems_suppliers&id=<?php  echo $sql[$k]["p_id"]; ?>" title="view">
-                        <i class="fa fa-eye" aria-hidden="true" id="tbl-icon">&nbsp&nbspView</i></a></td>
+                        <i class="fa fa-eye" aria-hidden="true" id="tbl-icon">&nbsp&nbspView</i></a>
+                    </td>
                 </tr>
                 <?php
             } ?>
