@@ -95,10 +95,8 @@ $sql=$data->valid_prodcuts();
             <tr>
                 <th>Product Name</th>
                 <th>Brand Name</th>
-                <th>Model Number</th>
-                <th>Quantity</th>
+                <th>Model Name</th>
                 <th>Warranty</th>
-                <th>Cost per Item</th>
                 <th>Sale Price</th>
                 <th>Action</th>
 
@@ -114,12 +112,10 @@ $sql=$data->valid_prodcuts();
 
 
                 <tr>
-                    <td><?php echo $sql[$k]["p_name"] ?></td>
+                    <td><?php echo $sql[$k]["category_name"] ?></td>
                     <td><?php echo $sql[$k]["brand_name"] ?></td>
-                    <td><?php echo $sql[$k]["model_no"] ?></td>
-                    <td><?php echo $sql[$k]["quantity"] ?></td>
-                    <td><?php echo $sql[$k]["warranty"] ?></td>
-                    <td><?php echo $sql[$k]["p_cost"] ?></td>
+                    <td><?php echo $sql[$k]["model_name"] ?></td>
+                    <td><?php echo $sql[$k]["warrenty"] ?></td>
                     <td><?php echo $sql[$k]["sales_price"] ?></td>
                     <!--td><a href="../controller/sales.php?action=sell&id=<!-?php  echo $sql[$k]["p_id"]; ?>" title="view"-->
                     <td><a href="bill.php" title="view">
