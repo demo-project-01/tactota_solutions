@@ -62,7 +62,7 @@ class sales_model
 
     }
     public function view_products(){
-        $query = $this->mysqli->query("SELECT product.quantity,product.p_id,product.p_name,product.brand_name,product.model_no,product.p_cost,product.warranty,item.sales_price FROM product INNER JOIN item ON product.p_id=item.p_id");
+        $query = $this->mysqli->query("SELECT items.serial_no,product_list.warrenty,category.category_name,brand.brand_name,model.model_name,model.sales_price FROM items INNER JOIN product_list ON items.p_id=product_list.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id AND items.item_status=1 ");
         while ($row = $query->fetch_assoc()) {
 
                $result[] = $row;
