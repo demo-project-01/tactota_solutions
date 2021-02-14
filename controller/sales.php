@@ -13,12 +13,53 @@ class sales
    public function get_supplier_names(){
         return $this->sale->get_names();
    }
+    public function get_category_name(){
+    return $this->sale->get_category_name();
+   }
 
+   public function get_brand_name(){
+    return $this->sale->get_brand_name();
+   }
+  
+   public function get_model_name(){
+    return $this->sale->get_model_name();
+   }
+   public function add_new_model(){
+       $model_name = $_POST['model_number'];
+        $quantity =0;
+        $sales_price = $_POST['sales_price'];
+        $specification =$_POST['specification'];
+        $reorder_level = $_POST['reorder_level'];
+        print_r($sales_price);
+        
+    if($model_name==" "){
+        echo "wrong";
+    }else{
+        if ($this->sale->get_model_id($model_name)=="0"){
+               
+           if ($this->sale->add_new_model($model_name,$quantity,$reorder_level,$sales_price,$specification)) {
+                //  $_SESSION['addnewproduct']="Add new product is successful ";
+                 header('location: ../views/view_all_products.php');
+                    echo "successful";
+              } else {
+                //  $_SESSION['addnewproduct']="Add new product is unsuccessful ";
+                  //  header('location: ../views/newproduct.php');
+                  echo "unsuccessful1";
+              }      
+        }else{
+            echo "alredy exits ";
+        }
+    
+
+       
+    }
+   }
     public function add_product()
     {
-        $product_name = $_POST['product_name'];
-        $brand_name = $_POST['brand_name'];
-        $model_number = $_POST['model_number'];
+      
+        $category_id = $_POST['category'];
+        $brand_id = $_POST['brand'];
+        $model_id = $_POST['model'];
         $quantity = $_POST['quantity'];
         $product_cost= $_POST['product_cost'];
         $supplier_id = $_POST['supplier'];
@@ -29,12 +70,13 @@ class sales
         $product_status=true;
         $item_status=true;
         $product_date=date("Y-m-d");
-        $product_id = $this->sale->get_product_id();
-             $count=0; $arr=0;
-        foreach ($serial_number as $key =>$value){
-                 $serial_number[$key]=$value."@".$product_id;
-                 $arr++;
-            }
+      //  $product_id = $this->sale->get_product_id();
+    //    $model_details = $this->sale->get_model_details($model_id); 
+      
+      
+        $count=0; $arr=0;
+      
+       
          if($quantity<0){
                  $quantity_error="password must be more than 0";
                  $count++;
@@ -53,26 +95,30 @@ class sales
          if($quantity!=$arr){
              $count++;
          }
+ 
+     //     $total_quantity = $model_details[0]["quantity"] + $quantity;
+   //      print_r($total_quantity);
+ //       if ($this->sale->update_model($model_id,$quantity,$reorder_level,$sales_price,$specification)){
+ 
 
-         //print_r($quantity);
-
-    if($count==0) {
-       if ($this->sale->add_new_product($product_id, $product_name, $product_cost, $brand_name, $reorder_level, $model_number, $quantity, $warranty, $product_status, $product_date, $serial_number, $sales_price, $item_status, $supplier_id)) {
-            $_SESSION['addnewproduct']="Add new product is successful ";
-           header('location: ../views/view_all_products.php');
-              //echo "successful";
-        } else {
-            $_SESSION['addnewproduct']="Add new product is unsuccessful ";
-              header('location: ../views/newproduct.php');
-              //echo "unsuccessful1";
-        }
-    }else{
-        $_SESSION['addnewproduct']="Add new product is unsuccessful ";
-       //echo "unsuccessfull2";
-           header('location: ../views/newproduct.php');
+  //  if($count==0) {
+       $total1=$this->sale->add_new_product($category_id, $product_cost, $brand_id, $reorder_level, $model_id, $quantity,$product_status, $product_date, $serial_number,$item_status, $supplier_id,$warranty);
+          //  $_SESSION['addnewproduct']="Add new product is successful ";
+        //   header('location: ../views/view_all_products.php');
+        print_r($total1);   
+        echo "successful";
+        //} else {
+          //  $_SESSION['addnewproduct']="Add new product is unsuccessful ";
+           //   header('location: ../views/newproduct.php');
+     //         echo "unsuccessful1";
+        //}
+    // }else{
+    //    $_SESSION['addnewproduct']="Add new product is unsuccessful ";
+    //   echo "unsuccessfull2";
+     //      header('location: ../views/newproduct.php');
         //$_SESSION['addnewproduct']="Add new product is unsuccessful ";
-
-    }
+     // }
+                  
 
     }
     public function valid_prodcuts(){
@@ -154,6 +200,63 @@ class sales
     public function display_customers_details(){
         return $this->sale->view_customers();
     }
+    
+        public function add_category(){
+        $category_name = $_POST['category_name'];
+        
+        
+
+
+        if($category_name==" "){
+            echo "wrong";
+        }else{
+            if ($this->sale->check_new_category($category_name)=="0"){
+                   
+                if ($this->sale->add_new_category($category_name)) {
+                    //  $_SESSION['addnewproduct']="Add new product is successful ";
+                    // header('location: ../views/view_all_products.php');
+                        echo "successful";
+                  } else {
+                    //  $_SESSION['addnewproduct']="Add new product is unsuccessful ";
+                      //  header('location: ../views/newproduct.php');
+                      echo "unsuccessful1";
+                  }      
+            }else{
+                echo "alredy exits ";
+            }
+
+
+           
+        }
+       
+    }
+    
+    public function add_brand(){
+        $brand_name = $_POST['brand_name'];
+        
+        if($brand_name==" "){
+            echo "wrong";
+        }else{
+            if ($this->sale->check_new_brand($brand_name)=="0"){
+                   
+                if ($this->sale->add_new_brand($brand_name)) {
+                    //  $_SESSION['addnewproduct']="Add new product is successful ";
+                    // header('location: ../views/view_all_products.php');
+                        echo "successful";
+                  } else {
+                    //  $_SESSION['addnewproduct']="Add new product is unsuccessful ";
+                      //  header('location: ../views/newproduct.php');
+                      echo "unsuccessful1";
+                  }      
+            }else{
+                echo "alredy exits ";
+            }
+
+
+           
+        }
+       
+    }
 
 }
 $controller = new sales();
@@ -182,5 +285,18 @@ if(isset($_GET['action']) && $_GET['action'] == "get_supplier_names") {
     $controller->get_bill_no();
 }else if(isset($_GET['action']) && $_GET['action'] == 'display_customers_details') {//nuwan n
     $controller->display_customers_details();
+}else if(isset($_GET['action']) && $_GET['action'] == 'add_category') {
+    $controller->add_category();
+}else if(isset($_GET['action']) && $_GET['action'] == 'add_brand') {
+    $controller->add_brand();
+}else if(isset($_GET['action']) && $_GET['action'] == 'get_category_name') {
+    $controller->get_category_name();
+}else if(isset($_GET['action']) && $_GET['action'] == 'get_brand_name') {
+    $controller->get_brand_name();
+}
+else if(isset($_GET['action']) && $_GET['action'] == 'add_new_model') {
+    $controller->add_new_model();
+}else if(isset($_GET['action']) && $_GET['action'] == 'get_model_name') {
+    $controller->get_model_name();
 }
 
