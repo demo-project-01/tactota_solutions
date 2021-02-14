@@ -193,7 +193,7 @@ class inventory_maintain_model
     
     }
     public function shopkeeper_return_items(){
-        $query=$this->mysqli->query("SELECT * FROM  product INNER JOIN item ON product.p_id=item.p_id AND item.item_status='1'");
+        $query=$this->mysqli->query("SELECT * FROM  product_list INNER JOIN items ON product_list.p_id=items.p_id AND items.item_status='1'");
         while ($row = $query->fetch_assoc()) {
             $result[]= $row;
         }
@@ -227,7 +227,7 @@ class inventory_maintain_model
         }
     }
     public function add_item_status($item_status,$serial_no){
-        $stmt = $this->mysqli->prepare("UPDATE item  SET item_status= ? WHERE serial_no=?");
+        $stmt = $this->mysqli->prepare("UPDATE items SET item_status= ? WHERE serial_no=?");
         if($stmt==FALSE)
             return 0;
         else{
