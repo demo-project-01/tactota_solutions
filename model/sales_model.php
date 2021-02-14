@@ -14,52 +14,98 @@ class sales_model
         }
         return $result;
     }
+    
+     public function get_category_name(){
+        $query = $this->mysqli->query("SELECT * FROM  category ");
+        while ($row = $query->fetch_assoc()) {
+            $result[] = $row;
+        }
+        return $result;
+    }
+
+    public function get_brand_name(){
+        $query = $this->mysqli->query("SELECT * FROM  brand ");
+        while ($row = $query->fetch_assoc()) {
+            $result[] = $row;
+        }
+        return $result;
+    }
+
+    public function get_model_name(){
+        $query = $this->mysqli->query("SELECT * FROM  model ");
+        while ($row = $query->fetch_assoc()) {
+            $result[] = $row;
+        }
+        return $result;
+    }
 
     public function get_product_id(){
-        $query = $this->mysqli->query("SELECT * from product order by p_id desc LIMIT 1");
+      $query = $this->mysqli->query("SELECT * from product_list order by p_id desc LIMIT 1");
         if ($query->num_rows > 0) {
             while ($row = $query->fetch_assoc()) {
                 $result = $row['p_id'];
             }
-
-            $result = substr($result, 3, 5);
-            $result = (int) $result + 1;
-            $result = "P" . sprintf('%04s', $result);
+            
             return $result;
-        }else
-        {
-            $result = "P0001";
-
-            return $result;
-        }
+        
     }
+    }
+    public function get_total_quantity($model_id){
+    $query = $this->mysqli->query("SELECT total_quantity FROM  model WHERE model_id='" .$model_id. "'");  
+    if ($query->num_rows > 0) {
+        while ($row = $query->fetch_assoc()) {
+            $result = $row;
+        }
+        return $result;
+    }else
+    {
+        return 0;
+    }
+}
 
+public function add_new_product($category_id, $product_cost, $brand_id, $reorder_level, $model_id, $quantity,$product_status, $product_date, $serial_number,$item_status, $supplier_id,$warranty){
 
- public function add_new_product($product_id,$product_name,$product_cost,$brand_name,$reorder_level,$model_number,$quantity,$warranty,$product_status,$product_date,$serial_number,$sales_price,$item_status,$supplier_id){
-       $stmt=$this->mysqli->prepare("INSERT INTO product (p_id,p_name,p_cost,brand_name,reorder_level,model_no,quantity,warranty,product_status,product_date)
-                                        VALUES (?,?,?,?,?,?,?,?,?,?)");
+         $stmt=$this->mysqli->prepare("INSERT INTO product_list(product_status,category_id,model_id,brand_id,warrenty) VALUES (?,?,?,?,?)");                                 
         if($stmt == false){
             return 0;
         }else{
 
-              $stmt->bind_param('ssssssssss',$product_id,$product_name,$product_cost,$brand_name,$reorder_level,$model_number,$quantity,$warranty,$product_status,$product_date);
-              $stmt->execute();
+              $stmt->bind_param('sssss',$product_status,$category_id,$model_id,$brand_id,$warranty);
+               $stmt->execute(); 
+                $product_id = $this->get_product_id();
+                     $tot_quantity=$this->get_total_quantity($model_id);
+                     for($i=0;$i<1;$i=$i+1){
+                        $tot_quantity[$i] = $tot_quantity[$i] + $quantity;
+                     }
+                     return $tot_quantity;
+                     for($i=0;$i<1;$i=$i+1){
+                        $tot_quantity1 = $tot_quantity1 + $tot_quantity[$i];
+                     }
+                
+                     $stmt3 = $this->mysqli->prepare("UPDATE  model SET total_quantity=? WHERE model_id =?");
+                     if($stmt3==FALSE)
+                         return 0;
+                     else{
+                         $stmt3->bind_param('ss',$tot_quantity1,$model_id);
+                         $stmt3->execute();
+                     }
+
             for($i=0;$i<$quantity;$i+=1){
-                $stmt1 = $this->mysqli->prepare("INSERT INTO  item (serial_no,sales_price,p_id,item_status)
-                                        VALUES (?,?,?,?)");
-
-                $stmt1->bind_param('ssss',$serial_number[$i],$sales_price,$product_id,$item_status);
+                $stmt1 = $this->mysqli->prepare("INSERT INTO  items (item_status,serial_no,p_id)
+                                        VALUES (?,?,?)");
+                        
+                $stmt1->bind_param('sss',$item_status,$serial_number[$i],$product_id);
                 $stmt1->execute();
-
+               
             }
 
-
-            $stmt2= $this->mysqli->prepare("INSERT INTO  supplier_product(sup_id,p_id)VALUES (?,?)");
-              $stmt2->bind_param('ss',$supplier_id,$product_id);
+           $stmt2= $this->mysqli->prepare("INSERT INTO  supplier_product(sup_id,p_id,date,unit_price,quantity)VALUES (?,?,?,?,?)");
+              $stmt2->bind_param('sssss',$supplier_id,$product_id,$product_date,$product_cost,$quantity);
                   return $stmt2->execute();
 
-       }
-
+       
+           
+      }   
     }
     public function view_products(){
         $query = $this->mysqli->query("SELECT items.serial_no,product_list.warrenty,category.category_name,brand.brand_name,model.model_name,model.sales_price FROM items INNER JOIN product_list ON items.p_id=product_list.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id AND items.item_status=1 ");
@@ -221,5 +267,55 @@ class sales_model
         }
       return $result;
     }
+     public function add_new_category($category_name){
+        $stmt=$this->mysqli->prepare("INSERT INTO category (category_name)
+        VALUES (?)");
+         if($stmt == false){
+             return 0;
+               }else{
 
+           $stmt->bind_param('s',$category_name);
+         return $stmt->execute();
+    }
+  }
+    public function check_new_category($category_name){
+    $query = $this->mysqli->query("SELECT * FROM  category WHERE category_name='" .$category_name. "'");  
+    if ($query->num_rows > 0) {
+        while ($row = $query->fetch_assoc()) {
+            $result = 1;
+        }
+        return $result;
+    }else
+    {
+        return 0;
+    }
+
+   } 
+     public function check_new_brand($brand_name){
+    $query = $this->mysqli->query("SELECT * FROM  brand WHERE brand_name='" .$brand_name. "'");  
+    if ($query->num_rows > 0) {
+        while ($row = $query->fetch_assoc()) {
+            $result = 1;
+        }
+        return $result;
+    }else
+    {
+        return 0;
+    }
+
+   }
+   
+   public function add_new_brand($brand_name){
+    $stmt=$this->mysqli->prepare("INSERT INTO brand (brand_name)
+    VALUES (?)");
+     if($stmt == false){
+         return 0;
+           }else{
+
+       $stmt->bind_param('s',$brand_name);
+     return $stmt->execute();
+}
+}
+    
+    
 }
