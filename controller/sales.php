@@ -154,6 +154,45 @@ class sales
     public function display_customers_details(){
         return $this->sale->view_customers();
     }
+    public function add_id($id){
+        if(isset($_POST["add_to_bill"]))
+        {  
+            if(isset($_SESSION["purchase"]))
+            {  header('location: ../views/email.php');
+                $item_array=array_column($_SESSION["purchse"],"item_id");
+                if(!in_array($_GET["item_id"],$item_array_id))
+                {
+                   $count=count($_SESSION["purchase"]);
+                   $item_array=array(
+                       'item_id'=> $_GET["item_id"],
+                       'category_name'=>$_POST["hidden_pname"],
+                       'brand_name'=>$_POST["hidden_bname"],
+                       'model_name'=>$_POST["hidden_mname"],
+                       'warrenty'=>$_POST["hidden_warrenty"],
+                       'sales_price'=>$_POST["hidden_sprice"]
+                   );
+                   $_SESSION["purchase"][$count]=$item_array;
+                }
+                 else{ 
+                    echo '<script>alert("Item Alredy Added")</script>';
+
+                    }            
+            }
+        else{  header('location: ../views/email.php');
+            $item_array=array(
+                'item_id'=> $_GET["item_id"],
+                'category_name'=>$_POST["hidden_pname"],
+                       'brand_name'=>$_POST["hidden_bname"],
+                       'model_name'=>$_POST["hidden_mname"],
+                       'warrenty'=>$_POST["hidden_warrenty"],
+                       'sales_price'=>$_POST["hidden_sprice"]
+            );
+            $_SESSION["purchase"][0]=$item_array;
+            
+            }
+
+      }
+    }
 
 }
 $controller = new sales();
@@ -182,5 +221,8 @@ if(isset($_GET['action']) && $_GET['action'] == "get_supplier_names") {
     $controller->get_bill_no();
 }else if(isset($_GET['action']) && $_GET['action'] == 'display_customers_details') {//nuwan n
     $controller->display_customers_details();
+}else if(isset($_GET['action']) && $_GET['action'] == 'add_id') {//new22
+    $id=$_GET['id'];
+    $controller->add_id($id);
 }
 

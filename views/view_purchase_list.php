@@ -2,10 +2,8 @@
 //view purchase details in shopkeeper
 include 'shopkeeper_sidebar.php';
 require '../controller/sales.php ';
-///$data=new sales();
-//$sql=$data->valid_prodcuts();
-
-//print_r($sql);
+session_start();
+//$values=$data->get_product_details();
 ?>
 
 <head>
@@ -37,28 +35,29 @@ require '../controller/sales.php ';
             </thead>
             <tbody>
             <?php
-
-            foreach ($sql as $k => $v)
+      if(!empty($_SESSION["purchase"]))
+      {
+          foreach($_SESSION["purchase"] as $keys => $values)
             {
                 ?>
 
 
                 <tr>
-                    <td><?php echo $sql[$k]["category_name"] ?></td>
-                    <td><?php echo $sql[$k]["brand_name"] ?></td>
-                    <td><?php echo $sql[$k]["model_name"] ?></td>
-                    <td><?php echo $sql[$k]["quantity"] ?></td>
-                    <td><?php echo $sql[$k]["warranty"] ?></td>
-                    <td><?php echo $sql[$k]["sales_price"] ?></td>
+                    <td><?php echo $values["category_name"] ?></td>
+                    <td><?php echo $values["brand_name"] ?></td>
+                    <td><?php echo $values["model_name"] ?></td>
+                    <td><?php echo $values["warrenty"] ?></td>
+                    <td><?php echo $values["sales_price"] ?></td>
                     <!--td><a href="../controller/sales.php?action=sell&id=<!-?php  echo $sql[$k]["p_id"]; ?>" title="view"-->
-                    <td><a href="bill.php" title="Remove">
+                    <td><a type="submit" name="add_to_bill" title="Remove">
                         <i class="fa fa-eye" aria-hidden="true" id="tbl-icon">&nbsp&nbsp</i></a></td>
 
 
                 </tr>
                 <?php
 
-            } ?>
+            } 
+        }?>
             </tbody>
 
 

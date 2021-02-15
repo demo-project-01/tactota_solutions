@@ -2,10 +2,13 @@
 //view purchase details in shopkeeper
 include 'shopkeeper_sidebar.php';
 require '../controller/sales.php ';
+session_start();
+$_SESSION["purchase"];
 $data=new sales();
 $sql=$data->valid_prodcuts();
 
 //print_r($sql);
+
 ?>
 
 <head>
@@ -107,21 +110,26 @@ $sql=$data->valid_prodcuts();
             <?php
 
             foreach ($sql as $k => $v)
-            {
+            { 
                 ?>
 
 
                 <tr>
-                    <td><?php echo $sql[$k]["category_name"] ?></td>
-                    <td><?php echo $sql[$k]["brand_name"] ?></td>
-                    <td><?php echo $sql[$k]["model_name"] ?></td>
-                    <td><?php echo $sql[$k]["warrenty"] ?></td>
-                    <td><?php echo $sql[$k]["sales_price"] ?></td>
+                    <td name="category_name"><?php echo $sql[$k]["category_name"] ?></td>
+                    <td name="brand_name"><?php echo $sql[$k]["brand_name"] ?></td>
+                    <td name="model_name"><?php echo $sql[$k]["model_name"] ?></td>
+                    <td name="warrenty"><?php echo $sql[$k]["warrenty"] ?></td>
+                    <td name="sales_price"><?php echo $sql[$k]["sales_price"] ?></td>
                     <!--td><a href="../controller/sales.php?action=sell&id=<!-?php  echo $sql[$k]["p_id"]; ?>" title="view"-->
-                    <td><a href="bill.php" title="view">
+                    <input type="hidden" name="hidden_pname" value="<?php echo $sql[$k]["category_name"] ?>" >
+                    <input type="hidden" name="hidden_bname" value="<?php echo $sql[$k]["brand_name"] ?>" >
+                    <input type="hidden" name="hidden_mname" value="<?php echo $sql[$k]["model_name"] ?>" >
+                    <input type="hidden" name="hidden_warrenty" value="<?php echo $sql[$k]["warrenty"] ?>" >
+                    <input type="hidden" name="hidden_sprice" value="<?php echo $sql[$k]["sales_price"] ?>" >
+                    <td><a  method="post" href = "../controller/sales.php?action=add_id&id=<?php echo $sql[$k]["item_id"]?>" type="submit" name="add_to_bill" title="Add">
                         <i class="fa fa-eye" aria-hidden="true" id="tbl-icon">&nbsp&nbsp</i></a></td>
 
-
+                        
                 </tr>
                 <?php
 
