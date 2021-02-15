@@ -180,9 +180,9 @@ class sales
      public function get_product_details(){//nuwan
         return $this->sale->get_product();
    }
-   public function get_brand($id){//new 22
+  /* public function get_brand($id){//new 22
     return $this->sale->get_brand_name($id);
-}
+}*/
 
     
      public function view_search_product($id,$model)
@@ -224,7 +224,7 @@ class sales
 
                     }            
             }
-        else{  header('location: ../views/email.php');
+             else{  header('location: ../views/email.php');
             $item_array=array(
                 'item_id'=> $_GET["item_id"],
                 'category_name'=>$_POST["hidden_pname"],
@@ -232,14 +232,13 @@ class sales
                        'model_name'=>$_POST["hidden_mname"],
                        'warrenty'=>$_POST["hidden_warrenty"],
                        'sales_price'=>$_POST["hidden_sprice"]
-            );
+                          );
             $_SESSION["purchase"][0]=$item_array;
             
-            }
-
-      }
+                 }
+      } }
     
-        public function add_category(){
+    public function add_category(){
         $category_name = $_POST['category_name'];
         
         

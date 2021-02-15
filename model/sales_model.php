@@ -239,14 +239,14 @@ public function add_new_product($category_id, $product_cost, $brand_id, $reorder
         }
         return $result;
     }
-    public function get_brand_name($id){//new22
+   /* public function get_brand_name($id){//new22
         $query = $this->mysqli->query("SELECT brand.brand_name,brand.brand_id FROM brand INNER JOIN product_list ON brand.brand_id=product_list.brand_id AND product_list.category_id='" . $id . "'");
         while ($row = $query->fetch_assoc()) {
             $result[] = $row;
         }
         return $result;
 
-    }
+    }*/
 
     public function product_id($serial_no){ //nuwan new
         $query = $this->mysqli->query("SELECT p_id from item WHERE serial_no='" . $serial_no . "'");
