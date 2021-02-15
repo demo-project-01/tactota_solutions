@@ -59,11 +59,13 @@ include 'admin_sidebar.php';
     <table>
       <thead>
         <tr>
-          <th>Product ID</th>
-          <th>Product Name</th>
-          <th>Brand Name</th>
-          <th>Model</th>
-          <th>Quantity</th>
+        <tr>
+            <th>ProductId</th>
+            <th>Category</td>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Quantity</th>
+        </tr>
         </tr>
       </thead>
       <tbody>
@@ -92,7 +94,7 @@ include 'admin_sidebar.php';
       <thead>
         <tr>
           <th>Product ID</th>
-          <th>Product Name</th>
+          <th>Category</th>
           <th>Brand Name</th>
           <th>Model</th>
           <th>Quantity</th>
