@@ -12,20 +12,41 @@ include 'admin_sidebar.php';
 <div class="content" style="width:auto;">
   <h1 id="tbl-heading">View Stock Reports</h1>
   <div class="nav-bar">
-      <table>
+      <table class="selection">
         <tr>
-          <td class="button-bar">
-            <ul>
-              <li><a class="button" href="#">Annual</a>
-              <li><a class="button" href="#">Monthly</a>
-              <li><a class="button" href="#">Weekly</a>           
+          <td>
+            <label for="category" class="date-lbl">Category
+            <select name="category" id="category">
+              <option value="*">All</option>
+              <option value="laptop">Laptop</option>
+            </select>
           </td>
-          <td class="date-bar">
-            <li><a class="button" href="#">Custom Time Range: </a>   
-            <label for="f_date" class="date-lbl">From : </label>
+          <td>
+            <label for="brand" class="date-lbl">Brand
+            <select name="brand" id="brand">
+              <option value="*">All</option>
+              <option value="laptop">Laptop</option>
+            </select>
+          </td>
+          <td>
+            <label for="model" class="date-lbl">Model 
+            <select name="model" id="model">
+              <option value="*">All</option>
+              <option value="laptop">Laptop</option>
+          </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan=3>
+            <label for="f_date" class="date-lbl">Time Range :<br/>From</label>
               <input type="date" id="f_date" name="f_date" placeholder="Select start date" min="2017-04-01" max="2020-11-21">
-            <label for="t_date" class="date-lbl">To : </label>
+            <label for="t_date" class="date-lbl"> to </label>
                <input type="date" id="t_date" name="t_date" placeholder="Select End date" min="2017-04-01" max="2020-11-21">
+          </td>
+        </tr>
+        <tr>
+          <td colspan=3>
+            <a class="button" href="#">Search </a>
           </td>
         </tr>
       </table>
@@ -38,11 +59,13 @@ include 'admin_sidebar.php';
     <table>
       <thead>
         <tr>
-          <th>Product ID</th>
-          <th>Product Name</th>
-          <th>Brand Name</th>
-          <th>Model</th>
-          <th>Quantity</th>
+        <tr>
+            <th>ProductId</th>
+            <th>Category</td>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Quantity</th>
+        </tr>
         </tr>
       </thead>
       <tbody>
@@ -71,7 +94,7 @@ include 'admin_sidebar.php';
       <thead>
         <tr>
           <th>Product ID</th>
-          <th>Product Name</th>
+          <th>Category</th>
           <th>Brand Name</th>
           <th>Model</th>
           <th>Quantity</th>

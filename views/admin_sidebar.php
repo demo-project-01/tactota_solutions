@@ -56,6 +56,7 @@
     <a href="report_products.php"><i class="fas fa-store"></i></i><span>Stock Details</span></a>
     <a href="report_sold_out_items.php"><i class="fas fa-shopping-cart"></i></i><span>Sold Products</span></a>
     <a href="review.php"><i class="fas fa-thumbs-up"></i>Review</span></a>
+    <a href="cheque_reminders.php"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>Cheque Reminders</span></a>
 
 </div>
 

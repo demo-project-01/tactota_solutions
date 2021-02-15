@@ -10,21 +10,42 @@ include 'admin_sidebar.php';
 <body>
 <div class="content" style="width:auto;">
   <h1 id="tbl-heading">View Income Reports</h1>
-    <div class="nav-bar">
-      <table>
+  <div class="nav-bar">
+      <table class="selection">
         <tr>
-          <td class="button-bar">
-            <ul>
-              <li><a class="button" href="#">Annual</a>
-              <li><a class="button" href="#">Monthly</a>
-              <li><a class="button" href="#">Weekly</a>           
+          <td>
+            <label for="category" class="date-lbl">Category
+            <select name="category" id="category">
+              <option value="*">All</option>
+              <option value="laptop">Laptop</option>
+            </select>
           </td>
-          <td class="date-bar">
-            <li><a class="button" href="#">Custom Time Range: </a>   
-            <label for="f_date" class="date-lbl">From : </label>
+          <td>
+            <label for="brand" class="date-lbl">Brand
+            <select name="brand" id="brand">
+              <option value="*">All</option>
+              <option value="laptop">Laptop</option>
+            </select>
+          </td>
+          <td>
+            <label for="model" class="date-lbl">Model 
+            <select name="model" id="model">
+              <option value="*">All</option>
+              <option value="laptop">Laptop</option>
+          </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan=3>
+            <label for="f_date" class="date-lbl">Time Range :<br/>From</label>
               <input type="date" id="f_date" name="f_date" placeholder="Select start date" min="2017-04-01" max="2020-11-21">
-            <label for="t_date" class="date-lbl">To : </label>
-              <input type="date" id="t_date" name="t_date" placeholder="Select End date" min="2017-04-01" max="2020-11-21">
+            <label for="t_date" class="date-lbl"> to </label>
+               <input type="date" id="t_date" name="t_date" placeholder="Select End date" min="2017-04-01" max="2020-11-21">
+          </td>
+        </tr>
+        <tr>
+          <td colspan=3>
+            <a class="button" href="#">Search </a>
           </td>
         </tr>
       </table>
@@ -45,13 +66,13 @@ include 'admin_sidebar.php';
         <tbody>
           <tr>
             <td>20/11/2020</td>
-            <td>Purchase item</td>
+            <td>Sold item</td>
             <td>123456789</td>
             <td>5000.00</td>
           </tr>
           <tr>
             <td>21/11/2020</td>
-            <td>Purchase item</td>
+            <td>Sold item</td>
             <td>78956789</td>
             <td>500.00</td>
           </tr>
@@ -71,23 +92,28 @@ include 'admin_sidebar.php';
         <thead>
           <tr>
             <th>Date</th>
-            <th>Description</th>
-            <th>Invoice No</th>
+            <th>Category</td>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Supplier</th>
+            <th>Quantity</th>
             <th>Amount</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>20/11/2020</td>
-            <td>Document Accessories</td>
+            <td>laptop</td>
+            <td>HP </td>
+            <td>envy12 </td>
+            <td>barckleys computers</td>
             <td>6549</td>
             <td>430.00</td>
           </tr>
-
           <tr>
             <td>20/11/2020</td>
-            <td colspan=2>Total</td>
-            <td>5500.00</td>
+            <td colspan=5>Total</td>
+            <td>430.00</td>
           </tr>
         </tbody>
       </table>
