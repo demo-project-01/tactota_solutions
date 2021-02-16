@@ -1,9 +1,12 @@
 <?php
-include 'clerk_sidebar.php';
+//include 'clerk_sidebar.php';
 
 require '../controller/sales.php';
 $data=new sales();
 $sql=$data->get_supplier_names();
+$sql1 = $data->get_category_name();
+$sql2 = $data->get_brand_name();
+$sql3 = $data->get_model_name();
 //print_r($sql);
 session_start();
 //print_r($_SESSION['addnewproduct']);
@@ -35,56 +38,53 @@ session_start();
 
                     <th>Category Name</th>
                     <td>
-                    <select class="select_category" id="cate" name="cate" >
-                                    <?php
+                    <select class="select_supplier" id="category" name="category" >
+                      <?php
 
-                                    foreach ($sql as $k => $v){
-                                        ?>
-                                        <option value="<?php echo $sql[$k]["sup_id"] ?>"><?php echo $sql[$k]["sup_name"] ?></option>
-                                        <?php
-                                    }
-                                    ?>
-                                </select>
-                    </td>
-                    <td>        
-                        <a class="add_button" href="newcategory.php"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                    </td>
+                            foreach ($sql1 as $k => $v){
+                        ?>
+                        <option value="<?php echo $sql1[$k]["category_id"] ?>"><?php echo $sql1[$k]["category_name"] ?></option>
+                      <?php
+                       }
+                       ?>
+                  </select>
+
+                  </td>
                 </tr>
                 <tr>
                     <th>Brand Name</th>
+                
                     <td>
-                    <select class="select_category" id="cate" name="cate" >
-                                    <?php
 
-                                    foreach ($sql as $k => $v){
-                                        ?>
-                                        <option value="<?php echo $sql[$k]["sup_id"] ?>"><?php echo $sql[$k]["sup_name"] ?></option>
-                                        <?php
-                                    }
-                                    ?>
-                                </select>
-                    </td>
-                    <td>
-                    <a class="add_button" href="newbrand.php"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                    </td>
-                </tr>
+                       <select class="select_supplier" id="brand" name="brand" >
+                       <?php
+
+                       foreach ($sql2 as $k => $v){
+                       ?>
+                         <option value="<?php echo $sql2[$k]["brand_id"] ?>"><?php echo $sql2[$k]["brand_name"] ?></option>
+                       <?php
+                       }
+                      ?>
+                    </select>
+
+                      </td>
+              
                 <tr>
-                    <th>Model Number</th> 
+                    <th>Model Name</th>
                     <td>
-                    <select class="select_category" id="cate" name="cate" >
-                                    <?php
 
-                                    foreach ($sql as $k => $v){
-                                        ?>
-                                        <option value="<?php echo $sql[$k]["sup_id"] ?>"><?php echo $sql[$k]["sup_name"] ?></option>
-                                        <?php
-                                    }
-                                    ?>
-                                </select>
-                    </td>
-                    <td>
-                    <a class="add_button" href="newmodel.php"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                    </td>
+                            <select class="select_supplier" id="model" name="model" >
+                       <?php
+
+                          foreach ($sql3 as $k => $v){
+                        ?>
+                         <option value="<?php echo $sql3[$k]["model_id"] ?>"><?php echo $sql3[$k]["model_name"] ?></option>
+                       <?php
+                         }
+                ?>
+                    </select>
+
+</td>
                 </tr>
                 <tr>
                     <th>Quantity</th>
@@ -124,15 +124,11 @@ session_start();
 
                                     foreach ($sql as $k => $v){
                                         ?>
-                                        <option value="<?php echo $sql[$k]["sup_id"] ?>"><?php echo $sql[$k]["sup_name"] ?></option>
+                                 <option value="<?php echo $sql[$k]["sup_id"] ?>"><?php echo $sql[$k]["sup_name"] ?></option>
                                         <?php
                                     }
                                     ?>
-                                </select>
-
-                    </td>
-                    <td>
-                    <a class="add_button" href="add_suppliers.php"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                         </select>
                     </td>
                 </tr>
 
