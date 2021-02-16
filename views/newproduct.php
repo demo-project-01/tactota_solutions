@@ -1,5 +1,5 @@
 <?php
-//include 'clerk_sidebar.php';
+include 'clerk_sidebar.php';
 
 require '../controller/sales.php';
 $data=new sales();

@@ -48,7 +48,7 @@ class sales_model
             
             return $result;
         
-    }
+       }
     }
     public function get_total_quantity($model_id){
     $query = $this->mysqli->query("SELECT total_quantity FROM  model WHERE model_id='" .$model_id. "'");  
@@ -77,7 +77,7 @@ public function add_new_product($category_id, $product_cost, $brand_id, $reorder
                      for($i=0;$i<1;$i=$i+1){
                         $tot_quantity[$i] = $tot_quantity[$i] + $quantity;
                      }
-                     return $tot_quantity;
+                     $tot_quantity;
                      for($i=0;$i<1;$i=$i+1){
                         $tot_quantity1 = $tot_quantity1 + $tot_quantity[$i];
                      }
