@@ -13,13 +13,13 @@ session_start();
         <a class="add_button" href="newproduct.php"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp&nbsp Add new Product</a>
     </div>
     <div class="new">
-        <a class="add_button" href="new_category.php"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp&nbsp Add new Category</a>
+        <a class="add_button" href="newcategory.php"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp&nbsp Add new Category</a>
     </div>
     <div class="new">
-        <a class="add_button" href="new_brand.php"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp&nbsp Add new Brand</a>
+        <a class="add_button" href="newbrand.php"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp&nbsp Add new Brand</a>
     </div>
     <div class="new">
-        <a class="add_button" href="new_model.php"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp&nbsp Add new Model</a>
+        <a class="add_button" href="newmodel.php"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp&nbsp Add new Model</a>
     </div>
     <!--div class="search">
         <input type="text" placeholder="Search.."  id="search_text">

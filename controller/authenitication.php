@@ -28,7 +28,7 @@ class authenitication
     public function login()
     {
 
-
+            $this->auth->suplier_reply();
             $username = $_POST['username'];
             $password = md5($_POST['password']);
 
