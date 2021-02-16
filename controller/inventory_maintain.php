@@ -386,6 +386,18 @@ class inventory_maintain
        }
    }
 
+   public function inbox_supplier($row){
+        $row1=$this->inven->inbox_supplier($row);
+   //  print_r($row1);
+         if($row1!=""){
+           $_SESSION['inbox_supplier']=$row1;
+          header('location: ../views/inbox_suppier_reply_search.php');
+        //    print_r($row1);
+       }else if($row1==0) {
+           echo "NOT FOUND";
+       }  
+   }
+
 
 
 }
@@ -466,6 +478,9 @@ else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //re
 }else if(isset($_GET['action']) && $_GET['action'] == 'send_email_supplier') {
 
     $controller->send_email_supplier();
+}else if(isset($_GET['action']) && $_GET['action'] == 'inbox_supplier') {
+    $row=$_POST['query'];
+    $controller->inbox_supplier($row);
 }
 
 

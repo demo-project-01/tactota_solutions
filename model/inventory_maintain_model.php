@@ -379,5 +379,18 @@ class inventory_maintain_model
         }
     }
 
+     
+    public function inbox_supplier($id){
+        $query = $this->mysqli->query("SELECT * FROM supplier_reply  WHERE date LIKE  '%" . $id . "%' OR email LIKE  '%" . $id . "%' ");
+        if ($query->num_rows > 0) {
+         while ($row = $query->fetch_assoc()) {
+             $result[] = $row;
+         }
+         return $result;
+     }else
+     {
+         return 0;
+     }
+    }
     
 }
