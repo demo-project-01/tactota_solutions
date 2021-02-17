@@ -47,7 +47,7 @@ class sales
                   echo "unsuccessful1";
               }      
         }else{
-            echo "alredy exits ";
+             echo "alredy exits ";
         }
     
 
