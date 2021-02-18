@@ -1,23 +1,69 @@
 <?php
 //view purchase details in shopkeeper
-include 'shopkeeper_sidebar.php';
+//include 'shopkeeper_sidebar.php';
 require '../controller/sales.php ';
-session_start();
-$_SESSION["purchase"];
+
+//$purchase=$_SESSION["purchase"];
 $data=new sales();
 $sql=$data->valid_prodcuts();
-
+session_start();
 //print_r($sql);
+print_r($_SESSION['purchase']);
 
+  if(isset($_POST["add_to_bill"]))
+        { 
+            if(isset($_SESSION['purchase']))
+           { 
+            $item_array_id=array_column($_SESSION['purchase'],"item_id");
+            if(!in_array($_GET["id"],$item_array_id))
+            {  
+                $count=count($_SESSION["purchase"]);
+                $item_array=array(
+                    'item_id'=> $_GET["id"],
+                    'category_name'=>$_POST["hidden_pname"],
+                    'brand_name'=>$_POST["hidden_bname"],
+                    'model_name'=>$_POST["hidden_mname"],
+                    'warrenty'=>$_POST["hidden_warrenty"],
+                    'sales_price'=>$_POST["hidden_sprice"],
+                    'serial_no'=>$_POST["hidden_sno"]
+                );
+                $_SESSION["purchase"][$count]=$item_array;
+
+            }
+            else
+            {
+                echo '<script>alert("Item Alredy Added")</script>';
+            }
+           }
+           else
+           {//header('location: ../views/bill.php');
+                     $item_array=array(
+                'item_id'=> $_GET["id"],
+                'category_name'=>$_POST["hidden_pname"],
+                       'brand_name'=>$_POST["hidden_bname"],
+                       'model_name'=>$_POST["hidden_mname"],
+                       'warrenty'=>$_POST["hidden_warrenty"],
+                       'sales_price'=>$_POST["hidden_sprice"],
+                       'serial_no'=>$_POST["hidden_sno"]
+                          );
+            $_SESSION["purchase"][0]=$item_array;
+           }
+      }
 ?>
-
+   
 <head>
     <link rel="stylesheet" href="../public/css/view_user.css"> 
     <link rel="stylesheet" href="../public/css/dropdown.css">
+
+    
 </head>
 
 <div class="content"style="width:auto;">
+<div class="new">
+        <a class="add_button" href="view_purchase_list.php"> View selected Items</a></a>
+    </div>
 <h1 id="tbl-heading"> Purchase</h1>
+
 <div class="dropdown">
     <ul style="position:relative;z-index:10;">
     
@@ -110,11 +156,11 @@ $sql=$data->valid_prodcuts();
             <?php
 
             foreach ($sql as $k => $v)
-            { 
+            {
                 ?>
 
-
                 <tr>
+                <form method="post" action="purchase.php?action=add_id&id=<?php echo $sql[$k]["item_id"]?>">
                     <td name="category_name"><?php echo $sql[$k]["category_name"] ?></td>
                     <td name="brand_name"><?php echo $sql[$k]["brand_name"] ?></td>
                     <td name="model_name"><?php echo $sql[$k]["model_name"] ?></td>
@@ -126,10 +172,11 @@ $sql=$data->valid_prodcuts();
                     <input type="hidden" name="hidden_mname" value="<?php echo $sql[$k]["model_name"] ?>" >
                     <input type="hidden" name="hidden_warrenty" value="<?php echo $sql[$k]["warrenty"] ?>" >
                     <input type="hidden" name="hidden_sprice" value="<?php echo $sql[$k]["sales_price"] ?>" >
-                    <td><a  method="post" href = "../controller/sales.php?action=add_id&id=<?php echo $sql[$k]["item_id"]?>" type="submit" name="add_to_bill" title="Add">
-                        <i class="fa fa-eye" aria-hidden="true" id="tbl-icon">&nbsp&nbsp</i></a></td>
-
+                    <input type="hidden" name="hidden_sno" value="<?php echo $sql[$k]["serial_no"] ?>" >
+                    <td><input type="submit" name="add_to_bill" title="Add"></td>
                         
+
+                   </form>     
                 </tr>
                 <?php
 
@@ -144,4 +191,5 @@ $sql=$data->valid_prodcuts();
 	<p>© Tactota Solutions All rights reserved </p>
 </div>
 </div>
+
 </body>
