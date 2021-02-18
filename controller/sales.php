@@ -200,7 +200,7 @@ class sales
     public function display_customers_details(){
         return $this->sale->view_customers();
     }
-    public function add_id($id){
+ /*   public function add_id($id){   //
         if(isset($_POST["add_to_bill"]))
         {  
             if(isset($_SESSION["purchase"]))
@@ -222,7 +222,7 @@ class sales
                  else{ 
                     echo '<script>alert("Item Alredy Added")</script>';
 
-                    }            
+                     }            
             }
              else{  header('location: ../views/email.php');
             $item_array=array(
@@ -237,7 +237,7 @@ class sales
             
                  }
       } }
-    
+    */
     public function add_category(){
         $category_name = $_POST['category_name'];
         
@@ -322,10 +322,10 @@ if(isset($_GET['action']) && $_GET['action'] == "get_supplier_names") {
     $controller->get_bill_no();
 }else if(isset($_GET['action']) && $_GET['action'] == 'display_customers_details') {//nuwan n
     $controller->display_customers_details();
-}else if(isset($_GET['action']) && $_GET['action'] == 'add_id') {//new22
+}/*else if(isset($_GET['action']) && $_GET['action'] == 'add_id') {//new22 
     $id=$_GET['id'];
     $controller->add_id($id);
-}else if(isset($_GET['action']) && $_GET['action'] == 'add_category') {
+}*/else if(isset($_GET['action']) && $_GET['action'] == 'add_category') {
     $controller->add_category();
 }else if(isset($_GET['action']) && $_GET['action'] == 'add_brand') {
     $controller->add_brand();

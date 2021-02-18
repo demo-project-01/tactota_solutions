@@ -1,27 +1,11 @@
 <?php
 include 'shopkeeper_sidebar.php';
 require '../controller/sales.php';
+session_start();
 $data=new sales();
 $sql=$data->get_product_details();
 $row=$data->get_bill_no();
 ?>
-<script>
-function showUser(str) {
-  if (str == "") {
-    document.getElementById("txtHint").innerHTML = "";
-    return;
-  } else {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("txtHint").innerHTML = this.responseText;
-      }
-    };
-    xmlhttp.open("GET","getuser.php?q="+str,true);
-    xmlhttp.send();
-  }
-}
-</script>
 
   <link rel="stylesheet" href="../public/css/bill.css">
   <link rel="stylesheet" href="../public/css/view_user.css">
@@ -136,80 +120,29 @@ function showUser(str) {
  </thead>
 
  <tbody>
-   <tr>
-           
-   <td>  <select class="text1" type="text1" name="product_number" placeholder="Product name" onchange="showUser(this.value)" >
-                                    <?php
+ <?php
+ if(!empty($_SESSION["purchase"]))
+      {
+          foreach($_SESSION["purchase"] as $keys => $values)
+            {
+                ?>
 
-                                    foreach ($sql as $k => $v){
-                                        ?>
-                                        <option value="<?php echo $sql[$k]["category_id"] ?>"><?php echo $sql[$k]["category_name"] ?></option>
-                                        <?php
-                                    }
-                                    ?>
-          </select>
-    </td>
-    <td>  <select class="text1" type="text1" name="brand_name" placeholder="brand name" >
-                                    <?php
 
-                                    foreach ($sql as $k => $v){
-                                        ?>
-                                        <option value="<?php echo $sql[$k]["brand_id"] ?>"><?php echo $sql[$k]["brand_name"] ?></option>
-                                        <?php
-                                    }
-                                    ?>
-          </select>
-    </td>
-    <td>  <select class="text1" type="text1" name="model_no" placeholder="model number" >
-                                    <?php
+                <tr>
+                    <td><?php echo $values["category_name"] ?></td>
+                    <td><?php echo $values["brand_name"] ?></td>
+                    <td><?php echo $values["model_name"] ?></td>
+                    <td><?php echo $values["serial_no"] ?></td>
+                    <td><?php echo $values["warrenty"] ?></td>
+                    <td><?php echo $values["sales_price"] ?></td>
+                    <td><input type="text" name="discount"></td>                
+                </tr>
+                <?php
 
-                                    foreach ($sql as $k => $v){
-                                        ?>
-                                        <option value="<?php echo $sql[$k]["p_id"] ?>"><?php echo $sql[$k]["model_no"] ?></option>
-                                        <?php
-                                    }
-                                    ?>
-          </select>
-    </td>
-    <td>  <select class="text1" type="text1" name="serial_no" placeholder="serial number" >
-                                    <?php
-
-                                    foreach ($sql as $k => $v){
-                                        ?>
-                                        <option value="<?php echo $sql[$k]["serial_no"] ?>"><?php echo $sql[$k]["serial_no"] ?></option>
-                                        <?php
-                                    }
-                                    ?>
-          </select>
-    </td>
-    <td>  <select class="text1" type="text1" name="warranty" placeholder="warranty" >
-                                    <?php
-
-                                    foreach ($sql as $k => $v){
-                                        ?>
-                                        <option value="<?php echo $sql[$k]["p_id"] ?>"><?php echo $sql[$k]["warranty"] ?></option>
-                                        <?php
-                                    }
-                                    ?>
-          </select>
-    </td>
-    <td>  <select class="text1" type="text1" name="sales_price" placeholder="sales price" >
-                                    <?php
-
-                                    foreach ($sql as $k => $v){
-                                        ?>
-                                        <option value="<?php echo $sql[$k]["p_id"] ?>"><?php echo $sql[$k]["sales_price"] ?></option>
-                                        <?php
-                                    }
-                                    ?>
-          </select>
-    </td>
-    <td> <input class="text1" type="text1" name="discount" placeholder="Discount" required=""></td>
-
-     <td> <input class="text1" type="text1" name="total_price" placeholder="Total Price" required=""></td>
-
-    
-</tr>
+            } 
+        }
+        ?>
+    </tbody>
 </table>
 </div>
 
