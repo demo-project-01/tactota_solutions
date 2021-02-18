@@ -48,8 +48,47 @@ class sales_model
             
             return $result;
         
+       }
     }
+
+    public function add_new_model($model_name,$quantity,$reorder_level,$sales_price,$specification){
+        $stmt=$this->mysqli->prepare("INSERT INTO model (model_name,total_quantity,specification,reorder_level,sales_price)
+        VALUES (?,?,?,?,?)"); 
+        if($stmt == false){
+           return 0;
+        }else{
+            $stmt->bind_param('sssss',$model_name,$quantity,$specification,$reorder_level,$sales_price);
+            return  $stmt->execute();
+        }
+           
+        
     }
+    
+    public function update_model($model_id,$quantity,$reorder_level,$sales_price,$specification){
+        $stmt = $this->mysqli->prepare("UPDATE model SET quantity= ?, specification=?, reorder_level= ? ,  sales_price= ? WHERE model_id=?");
+              if($stmt==FALSE)
+               return 0;
+                 else{
+                  $stmt->bind_param('sssss',$quantity,$specification,$reorder_level,$sales_price,$model_id);
+                    return $stmt->execute();
+                        } 
+    }
+    
+    public function get_model_id($model_name){
+        $query = $this->mysqli->query("SELECT model_id FROM  model WHERE model_name='" .$model_name. "'");  
+        if ($query->num_rows > 0) {
+            while ($row = $query->fetch_assoc()) {
+                $result = $row;
+            }
+            return $result;
+        }else
+        {
+            return 0;
+        }
+    
+    }
+
+
     public function get_total_quantity($model_id){
     $query = $this->mysqli->query("SELECT total_quantity FROM  model WHERE model_id='" .$model_id. "'");  
     if ($query->num_rows > 0) {
@@ -62,6 +101,13 @@ class sales_model
         return 0;
     }
 }
+
+
+
+
+
+
+
 
 public function add_new_product($category_id, $product_cost, $brand_id, $reorder_level, $model_id, $quantity,$product_status, $product_date, $serial_number,$item_status, $supplier_id,$warranty){
 
@@ -77,7 +123,7 @@ public function add_new_product($category_id, $product_cost, $brand_id, $reorder
                      for($i=0;$i<1;$i=$i+1){
                         $tot_quantity[$i] = $tot_quantity[$i] + $quantity;
                      }
-                     return $tot_quantity;
+                     $tot_quantity;
                      for($i=0;$i<1;$i=$i+1){
                         $tot_quantity1 = $tot_quantity1 + $tot_quantity[$i];
                      }

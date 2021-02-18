@@ -30,7 +30,7 @@ class sales
         $sales_price = $_POST['sales_price'];
         $specification =$_POST['specification'];
         $reorder_level = $_POST['reorder_level'];
-        print_r($sales_price);
+        print_r($reorder_level);
         
     if($model_name==" "){
         echo "wrong";
@@ -47,7 +47,7 @@ class sales
                   echo "unsuccessful1";
               }      
         }else{
-            echo "alredy exits ";
+             echo "alredy exits ";
         }
     
 
@@ -102,22 +102,22 @@ class sales
  
 
   //  if($count==0) {
-       $total1=$this->sale->add_new_product($category_id, $product_cost, $brand_id, $reorder_level, $model_id, $quantity,$product_status, $product_date, $serial_number,$item_status, $supplier_id,$warranty);
-          //  $_SESSION['addnewproduct']="Add new product is successful ";
+     if($total1=$this->sale->add_new_product($category_id, $product_cost, $brand_id, $reorder_level, $model_id, $quantity,$product_status, $product_date, $serial_number,$item_status, $supplier_id,$warranty))
+      {    //  $_SESSION['addnewproduct']="Add new product is successful ";
         //   header('location: ../views/view_all_products.php');
         print_r($total1);   
         echo "successful";
-        //} else {
+        } else {
           //  $_SESSION['addnewproduct']="Add new product is unsuccessful ";
            //   header('location: ../views/newproduct.php');
-     //         echo "unsuccessful1";
-        //}
-    // }else{
+             echo "unsuccessful1";
+        }
+    // else{
     //    $_SESSION['addnewproduct']="Add new product is unsuccessful ";
     //   echo "unsuccessfull2";
      //      header('location: ../views/newproduct.php');
         //$_SESSION['addnewproduct']="Add new product is unsuccessful ";
-     // }
+      //}
                   
 
     }
