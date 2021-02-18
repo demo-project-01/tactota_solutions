@@ -1,9 +1,25 @@
 <?php
 //view purchase details in shopkeeper
-include 'shopkeeper_sidebar.php';
+//include 'shopkeeper_sidebar.php';
 require '../controller/sales.php ';
 session_start();
-//$values=$data->get_product_details();
+//$data=new sales();
+//$values=$data->add_id($id);
+$values=$_SESSION["purchase"];
+
+if(isset($_GET['action']))
+{  header('location: ../views/bill.php');
+    if($_GET["action"]=="delete"){
+        foreach($_SESSION["purchase"] as $keys => $values){
+            if($values["item_id"]==$_GET["id"]){
+                unset($_SESSION["purchase"][$keys]);
+                echo'<script>alert("Product has removed")</script>';
+                echo'<script>window.location=view_purchase_list.php</script>';
+            }
+        }
+    }
+}
+
 ?>
 
 <head>
@@ -12,6 +28,13 @@ session_start();
 </head>
 
 <div class="content"style="width:auto;">
+<div class="new">
+        <a class="add_button" href="bill.php">Add to Bill</a></a>
+</div>
+<div class="new">
+        <a class="add_button" href="purchase.php">Back</a></a>
+    </div>
+
 <h1 id="tbl-heading"> Items To Purchase</h1>
 
     <!--div class="search">
@@ -22,10 +45,10 @@ session_start();
         <table>
             <thead>
             <tr>
+                <th>Item Id</th>
                 <th>Product Name</th>
                 <th>Brand Name</th>
                 <th>Model Number</th>
-                <th>Quantity</th>
                 <th>Warranty</th>
                 <th>Sale Price</th>
                 <th>Action</th>
@@ -43,16 +66,14 @@ session_start();
 
 
                 <tr>
+                   <td><?php echo $values["item_id"] ?></td>
                     <td><?php echo $values["category_name"] ?></td>
                     <td><?php echo $values["brand_name"] ?></td>
                     <td><?php echo $values["model_name"] ?></td>
                     <td><?php echo $values["warrenty"] ?></td>
                     <td><?php echo $values["sales_price"] ?></td>
-                    <!--td><a href="../controller/sales.php?action=sell&id=<!-?php  echo $sql[$k]["p_id"]; ?>" title="view"-->
-                    <td><a type="submit" name="add_to_bill" title="Remove">
-                        <i class="fa fa-eye" aria-hidden="true" id="tbl-icon">&nbsp&nbsp</i></a></td>
-
-
+                    <td><a href="view_purchase_list.php?action=delete&id=<?php  echo $sql[$k]["item_id"]?>">Remove Item</a></td>
+                    
                 </tr>
                 <?php
 
