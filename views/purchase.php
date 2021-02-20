@@ -1,14 +1,13 @@
 <?php
 //view purchase details in shopkeeper
-//include 'shopkeeper_sidebar.php';
+include 'shopkeeper_sidebar.php';
 require '../controller/sales.php ';
 
 //$purchase=$_SESSION["purchase"];
 $data=new sales();
 $sql=$data->valid_prodcuts();
 session_start();
-//print_r($sql);
-print_r($_SESSION['purchase']);
+//print_r($_SESSION['purchase']);
 
   if(isset($_POST["add_to_bill"]))
         { 
@@ -173,7 +172,7 @@ print_r($_SESSION['purchase']);
                     <input type="hidden" name="hidden_warrenty" value="<?php echo $sql[$k]["warrenty"] ?>" >
                     <input type="hidden" name="hidden_sprice" value="<?php echo $sql[$k]["sales_price"] ?>" >
                     <input type="hidden" name="hidden_sno" value="<?php echo $sql[$k]["serial_no"] ?>" >
-                    <td><input type="submit" name="add_to_bill" title="Add"></td>
+                    <td><input type="submit" name="add_to_bill" value="Add"></td>
                         
 
                    </form>     

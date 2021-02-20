@@ -2,4 +2,4 @@
 define('host', 'localhost');
 define('username', 'root');
 define('password', '');
-define('dbname', 'mvc2');
+define('dbname', 'mvc');

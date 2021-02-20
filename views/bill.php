@@ -101,7 +101,7 @@ $row=$data->get_bill_no();
    </div> 
     
 
-    <div class="view-tbl1">
+    <div class="view-tbl">
   
     <table>
  

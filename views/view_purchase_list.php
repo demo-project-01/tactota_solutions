@@ -1,6 +1,6 @@
 <?php
 //view purchase details in shopkeeper
-//include 'shopkeeper_sidebar.php';
+include 'shopkeeper_sidebar.php';
 require '../controller/sales.php ';
 session_start();
 //$data=new sales();
@@ -8,8 +8,8 @@ session_start();
 $values=$_SESSION["purchase"];
 
 if(isset($_GET['action']))
-{  header('location: ../views/bill.php');
-    if($_GET["action"]=="delete"){
+{  
+    if($_GET["action"]=="delete_item"){
         foreach($_SESSION["purchase"] as $keys => $values){
             if($values["item_id"]==$_GET["id"]){
                 unset($_SESSION["purchase"][$keys]);
@@ -59,7 +59,7 @@ if(isset($_GET['action']))
             <tbody>
             <?php
       if(!empty($_SESSION["purchase"]))
-      {
+      {  $total=0;
           foreach($_SESSION["purchase"] as $keys => $values)
             {
                 ?>
@@ -72,13 +72,21 @@ if(isset($_GET['action']))
                     <td><?php echo $values["model_name"] ?></td>
                     <td><?php echo $values["warrenty"] ?></td>
                     <td><?php echo $values["sales_price"] ?></td>
-                    <td><a href="view_purchase_list.php?action=delete&id=<?php  echo $sql[$k]["item_id"]?>">Remove Item</a></td>
+                    <td><a href="view_purchase_list.php?action=delete_item&id=<?php  echo $values["item_id"]?>">Remove Item</a></td>
                     
                 </tr>
                 <?php
-
+                   $total=$total+$values["sales_price"];
+                   $values["total"]=$total;
             } 
         }?>
+        <tr>        <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right">Total</td>
+                    <td><?php echo number_format($total,2) ?></td>
+        </tr>
             </tbody>
 
 
