@@ -1,5 +1,5 @@
 <?php
-   include 'clerk_sidebar.php';
+  include 'clerk_sidebar.php';
    require '../controller/inventory_maintain.php';
    $data=new inventory_maintain();
    $sql=$data->display_few_reminders();
