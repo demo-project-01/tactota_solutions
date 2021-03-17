@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2021 at 08:00 AM
+-- Generation Time: Mar 17, 2021 at 07:50 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -379,6 +379,14 @@ CREATE TABLE `shop_return_items` (
   `item_id` int(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `shop_return_items`
+--
+
+INSERT INTO `shop_return_items` (`sup_id`, `returned_date`, `description`, `item_id`) VALUES
+('SUP0025', '2021-02-10', 'Sounds issue', 9),
+('SUP0026', '2021-02-09', 'Monitor damage', 12);
+
 -- --------------------------------------------------------
 
 --
@@ -408,7 +416,9 @@ INSERT INTO `supplier` (`sup_id`, `sup_name`, `email_address`, `active_status`) 
 ('SUP0018', 'Abans', 'buyabans@abansgroup.com', '1'),
 ('SUP0019', 'Pettah Computers', 'info@pettahcomputers.com', '1'),
 ('SUP0020', 'Winsoft Solutions', 'thanish@winsoft.lk', '1'),
-('SUP0021', 'michelle', 'mufernando02@gmail.com', '1');
+('SUP0021', 'michelle', 'mufernando02@gmail.com', '1'),
+('SUP0025', 'URBAN', 'urban123@gmail.com', '1'),
+('SUP0026', 'WINSOFT', 'thanish@winsoft.lk', '1');
 
 -- --------------------------------------------------------
 
@@ -439,8 +449,10 @@ INSERT INTO `supplier_product` (`sup_id`, `p_id`, `date`, `unit_price`, `quantit
 ('SUP0017', 4, '2020-12-31', 1100, 15),
 ('SUP0018', 3, '2020-10-22', 180000, 18),
 ('SUP0019', 2, '2020-11-24', 153000, 15),
-('SUP0020', 5, '2020-12-18', 80, 8),
-('SUP0021', 3, '2020-11-26', 182000, 13);
+('SUP0020', 5, '2021-02-13', 80, 8),
+('SUP0021', 3, '2021-02-13', 182000, 13),
+('SUP0025', 4, '2021-01-20', 1000, 3),
+('SUP0026', 1, '2021-01-04', 155000, 2);
 
 -- --------------------------------------------------------
 
@@ -469,7 +481,9 @@ INSERT INTO `sup_address` (`sup_id`, `address`) VALUES
 ('SUP0018', 'No 498 Galle Road,  Colombo 03,'),
 ('SUP0019', ' NO 100/22, Mumtaz Mahal, 1st Cross Street, Colomb'),
 ('SUP0020', 'No.313, 1st Floor, Unity Plaza, Colombo 04'),
-('SUP0021', 'Dummaladeniya');
+('SUP0021', 'Dummaladeniya'),
+('SUP0025', 'No 1/231 Broadway road, Colombo 10'),
+('SUP0026', ' No.313, 1st Floor, Unity Plaza, Colombo 04.');
 
 -- --------------------------------------------------------
 
@@ -498,7 +512,9 @@ INSERT INTO `sup_telephone` (`sup_id`, `telephone_no`) VALUES
 ('SUP0018', '0112565265'),
 ('SUP0019', '0777735516'),
 ('SUP0020', '0772368024'),
-('SUP0021', '0768757722');
+('SUP0021', '0768757722'),
+('SUP0025', '0114312516'),
+('SUP0026', '0779856423');
 
 -- --------------------------------------------------------
 

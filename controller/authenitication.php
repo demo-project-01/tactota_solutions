@@ -483,6 +483,14 @@ class authenitication
          }
     }
 
+    public function get_username(){
+       
+        $id=$_SESSION['emp_id'];
+        return $this->auth->get_username($id);
+        
+
+    }
+
 }
         $controller = new authenitication();
          if(isset($_GET['action']) && $_GET['action'] == "register") {

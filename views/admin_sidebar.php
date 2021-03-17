@@ -1,3 +1,15 @@
+<?php  
+require '../controller/authenitication.php';
+$data = new authenitication();
+$sql= $data->get_username();
+//print_r($sql);
+
+//foreach($sql as $value){
+ //   echo $value . "<br>";
+//}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -37,7 +49,15 @@
                             <i class="far fa-user-circle fa-2x"></i></a>
                            
                         </button>
-                        <p id="disp-name"><!--?php echo $first_name ?--> Someone's name  </p>
+                        <?php
+
+                          foreach ($sql as $value){
+                               ?>
+                             <p id="disp-name"><?php echo $value ?></p>
+
+                                 <?php
+                                 }
+                              ?>
                             <div class="menu">
                                 <a href="../controller/authenitication.php?action=profile"><i class="fas fa-user-alt"></i>&nbsp&nbspProfile</a>
                                 <a href="../controller/authenitication.php?action=logout"><i class="fas fa-sign-out-alt"></i>&nbsp&nbspLog out</a>
