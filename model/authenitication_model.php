@@ -275,4 +275,14 @@ class authenitication_model{
 
    } 
 
+    public function get_username($id){
+        $result = ""; 
+        $query = $this->mysqli->query("SELECT username FROM user_account where user_account.emp_id='" . $id . "'");
+
+            while ($row = $query->fetch_assoc()) {
+                $result = $row;
+            }
+            return $result;
+    }
+
 }

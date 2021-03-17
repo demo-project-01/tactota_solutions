@@ -3,7 +3,7 @@ require_once("../model/inventory_maintain_model.php");
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-session_start();
+//session_start();
 class inventory_maintain
 {
     public function __construct()

@@ -105,7 +105,7 @@ class sales
      if($total1=$this->sale->add_new_product($category_id, $product_cost, $brand_id, $reorder_level, $model_id, $quantity,$product_status, $product_date, $serial_number,$item_status, $supplier_id,$warranty))
       {    //  $_SESSION['addnewproduct']="Add new product is successful ";
         //   header('location: ../views/view_all_products.php');
-        print_r($total1);   
+       // print_r($total1);   
         echo "successful";
         } else {
           //  $_SESSION['addnewproduct']="Add new product is unsuccessful ";

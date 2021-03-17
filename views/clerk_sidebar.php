@@ -1,3 +1,16 @@
+<?php  
+require '../controller/authenitication.php';
+$data = new authenitication();
+$sql= $data->get_username();
+//print_r($sql);
+
+//foreach($sql as $value){
+ //   echo $value . "<br>";
+//}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -7,14 +20,11 @@
     <link rel="stylesheet" href="../public/css/style1.css">
     <link rel="stylesheet" href="../public/css/clerk.css">
     <link rel="stylesheet" href="../public/css/view_user.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <script src="https://kit.fontawesome.com/1b83d32a6d.js" crossorigin="anonymous"></script>
-
 </head>
 <body>
-
 <input type="checkbox" id="check">
 <!--header area start-->
 <header>
@@ -35,7 +45,16 @@
                             <i class="far fa-user-circle fa-2x"></i></a>
                            
                         </button>
-                        <p id="disp-name"><!--?php echo $first_name ?--> Someone's name  </p>
+
+                        <?php
+
+                     foreach ($sql as $value){
+                        ?>
+                        <p id="disp-name"><?php echo $value ?></p>
+
+                        <?php
+                         }
+                ?>
                             <div class="menu">
                                 <a href="../controller/authenitication.php?action=profile"><i class="fas fa-user-alt"></i>&nbsp&nbspProfile</a>
                                 <a href="../controller/authenitication.php?action=logout"><i class="fas fa-sign-out-alt"></i>&nbsp&nbspLog out</a>
@@ -46,11 +65,8 @@
         </table>
     </div>
 </header>
-
 <!--header area end-->
-
 <div class="sidebar">
-
     <a href="clerk.php"><i class="fas fa-home"></i></i><span>Dashboard</span></a>
     <a href="view_all_products.php"><i class="fas fa-cart-plus"></i></i><span>Product</span></a>
     <a href="returnitems.php"><i class="fas fa-cart-arrow-down"></i></i><span>Return Product</span></a>
@@ -63,15 +79,3 @@
     <a href="review_clerk.php"><i class="fas fa-comments"></i></i></i><span>Feedback</span></a>
 </div>
 <!--sidebar end-->
-
-
-
-
-     
-
-
-
-
-
-
-
