@@ -42,9 +42,9 @@
                 ?>
                 <tr>
                 <!--td><!-?php echo $sql[$k]["p_id"] ?></td-->
-                    <td><?php echo $sql[$k]["p_name"] ?></td>
+                    <td><?php echo $sql[$k]["category_name"] ?></td>
 		            <td><?php echo $sql[$k]["brand_name"] ?></td>
-                    <td><?php echo $sql[$k]["model_no"] ?></td>
+                    <td><?php echo $sql[$k]["model_name"] ?></td>
                     <td><?php echo $sql[$k]["returned_date"] ?></td>
                     <td><?php echo $sql[$k]["description"] ?></td>
                     <!--td><a href="../controller/inventory_maintain.php?action=display_onereturnitem_details&id=<!-?php  echo $sql[$k]["p_id"]; ?>" class="view"-->

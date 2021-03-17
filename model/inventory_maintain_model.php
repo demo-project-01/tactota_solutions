@@ -178,7 +178,7 @@ class inventory_maintain_model
     
     }
      public function diplay_return_items(){       //reshani, display retrun items
-           $query=$this->mysqli->query("SELECT * FROM shop_return_items INNER JOIN item ON shop_return_items.serial_no=item.serial_no INNER JOIN  product ON item.p_id=product.p_id");
+           $query=$this->mysqli->query("SELECT category.category_name,brand.brand_name,model.model_name,shop_return_items.returned_date,shop_return_items.description FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id INNER JOIN shop_return_items ON items.item_id= shop_return_items.item_id");
            while ($row = $query->fetch_assoc()) {
             $result[]= $row;
         }
