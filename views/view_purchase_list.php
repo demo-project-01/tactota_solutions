@@ -77,7 +77,7 @@ if(isset($_GET['action']))
                 </tr>
                 <?php
                    $total=$total+$values["sales_price"];
-                   $values["total"]=$total;
+                  
             } 
         }?>
         <tr>        <td></td>

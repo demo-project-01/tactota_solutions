@@ -122,7 +122,8 @@ $row=$data->get_bill_no();
  <tbody>
  <?php
  if(!empty($_SESSION["purchase"]))
-      {
+      {  $total=0;
+          $total_p=0;
           foreach($_SESSION["purchase"] as $keys => $values)
             {
                 ?>
@@ -135,13 +136,23 @@ $row=$data->get_bill_no();
                     <td><?php echo $values["serial_no"] ?></td>
                     <td><?php echo $values["warrenty"] ?></td>
                     <td><?php echo $values["sales_price"] ?></td>
-                    <td><input type="text" name="discount"></td>                
+                    <td><input type="text" class="discount" name="discount"></td>
+                    <td><?php echo number_format($total+$values["sales_price"]) ?></td>                
                 </tr>
                 <?php
-
+                 $total_p=$total_p+$values["sales_price"];
             } 
         }
         ?>
+         <tr>        <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right">Total amount</td>
+                    <td><?php echo number_format($total_p,2) ?></td>
+        </tr>
     </tbody>
 </table>
 </div>
