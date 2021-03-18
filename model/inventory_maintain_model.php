@@ -185,7 +185,7 @@ class inventory_maintain_model
         return $result;
     }
     public function display_returnitem($id){          //reshani, display one return item details
-        $query=$this->mysqli->query("SELECT product.p_id,product.p_name,product.brand_name,product.model_no,item.serial_no FROM  product  INNER JOIN  item  ON product.p_id=item.p_id WHERE item.serial_no='" . $id . "'");
+        $query=$this->mysqli->query("SELECT product_list.p_id,category.category_name,brand.brand_name,model.model_name,items.serial_no,items.item_id FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id WHERE items.item_id='" . $id . "'");
         while ($row = $query->fetch_assoc()) {
             $result= $row;
         }
@@ -193,7 +193,7 @@ class inventory_maintain_model
     
     }
     public function shopkeeper_return_items(){
-        $query=$this->mysqli->query("SELECT * FROM  product_list INNER JOIN items ON product_list.p_id=items.p_id AND items.item_status='1'");
+        $query=$this->mysqli->query("SELECT product_list.p_id,category.category_name,brand.brand_name,model.model_name,items.serial_no,items.item_id FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id AND items.item_status='1'");
         while ($row = $query->fetch_assoc()) {
             $result[]= $row;
         }

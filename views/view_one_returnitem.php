@@ -33,7 +33,7 @@ $row= $_SESSION['return_item'];
         <tr>
             <th>Product Name</th>
             <td>   
-              <input type='text'class="text"  placeholder="Laptop" name="p_name"value="<?php echo $row['p_name'] ?>" disabled>
+              <input type='text'class="text"  placeholder="Laptop" name="category_name"value="<?php echo $row['category_name'] ?>" disabled>
             </td>
         </tr>
         <tr>
@@ -43,7 +43,7 @@ $row= $_SESSION['return_item'];
         </tr>
         <tr>
             <th>Model Number</th>
-            <td> <input type='text'  placeholder="1234" name="model_no"value="<?php echo $row['model_no'] ?>"  disabled>
+            <td> <input type='text'  placeholder="1234" name="model_name"value="<?php echo $row['model_name'] ?>"  disabled>
             </td>
         </tr>
         

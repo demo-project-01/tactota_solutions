@@ -123,11 +123,11 @@
                 ?>
                 <tr>
                     <td><?php echo $sql[$k]["serial_no"] ?></td>
-                    <td><?php echo $sql[$k]["p_name"] ?></td>
+                    <td><?php echo $sql[$k]["category_name"] ?></td>
 		            <td><?php echo $sql[$k]["brand_name"] ?></td>
-                    <td><?php echo $sql[$k]["model_no"] ?></td>
+                    <td><?php echo $sql[$k]["model_name"] ?></td>
                     
-                    <td><a href="../controller/inventory_maintain.php?action=display_onereturnitem_details&id=<?php  echo $sql[$k]["serial_no"]; ?>" class="view">
+                    <td><a href="../controller/inventory_maintain.php?action=display_onereturnitem_details&id=<?php  echo $sql[$k]["item_id"]; ?>" class="view">
                     <i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
                 </tr>
                 <?php
