@@ -2,7 +2,6 @@
 require '../controller/authenitication.php';
 $data = new authenitication();
 $sql= $data->get_username();
-//print_r($sql);
 
 //foreach($sql as $value){
  //   echo $value . "<br>";
