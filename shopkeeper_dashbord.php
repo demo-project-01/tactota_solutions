@@ -36,7 +36,7 @@ exit;
       <i class="fas fa-bars" id="sidebar_btn"></i>
     </label>
     <div class="left_area">
-      <h3>TACTOTA<span> SOLUTION</span></h3>
+      <h3>TACTOTA<span> </span></h3>
     </div>
     <ul class="profile-wrapper">
             <li>
