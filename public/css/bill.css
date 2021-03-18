@@ -32,7 +32,7 @@
      .sub-box1{
       padding: 1em;
      margin: 2em auto;
-      height: 50%;
+      height: 10%;
       border:10px black;
       float: left;
     }
@@ -41,7 +41,7 @@
        padding: 1em;
        margin-left: 20%;
        margin-right: 20%;
-       
+       margin-bottom: 10px;
      }
 
      

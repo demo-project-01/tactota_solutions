@@ -10,6 +10,7 @@ $row=$data->get_bill_no();
   <link rel="stylesheet" href="../public/css/bill.css">
   <link rel="stylesheet" href="../public/css/view_user.css">
   <link rel="stylesheet" href="../public/css/update.css">
+  <link rel="stylesheet" href="../public/css/style1.css">
   <div class="content1">
  
      <div class="main-box1">
