@@ -54,7 +54,7 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: <?php echo json_encode($a); ?>,
+        labels: <?php echo json_encode($a); ?>, /*use for convert php array into js array*/ 
         datasets: [{
             label: '# of Items',
             data: [12, 19, 3, 5, 2],
