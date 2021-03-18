@@ -120,14 +120,8 @@ public function add_new_product($category_id, $product_cost, $brand_id, $reorder
                $stmt->execute(); 
                 $product_id = $this->get_product_id();
                      $tot_quantity=$this->get_total_quantity($model_id);
-                     for($i=0;$i<1;$i=$i+1){
-                        $tot_quantity[$i] = $tot_quantity[$i] + $quantity;
-                     }
-                     $tot_quantity;
-                     for($i=0;$i<1;$i=$i+1){
-                        $tot_quantity1 = $tot_quantity1 + $tot_quantity[$i];
-                     }
-                
+                     $tot_quantity1 = array_sum($tot_quantity);
+                     $tot_quantity1 = $tot_quantity1 + $quantity;
                      $stmt3 = $this->mysqli->prepare("UPDATE  model SET total_quantity=? WHERE model_id =?");
                      if($stmt3==FALSE)
                          return 0;
