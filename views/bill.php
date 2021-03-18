@@ -3,8 +3,9 @@ include 'shopkeeper_sidebar.php';
 require '../controller/sales.php';
 session_start();
 $data=new sales();
-$sql=$data->get_product_details();
+//$sql=$data->get_product_details();
 $row=$data->get_bill_no();
+
 ?>
 
   <link rel="stylesheet" href="../public/css/bill.css">
@@ -37,20 +38,9 @@ $row=$data->get_bill_no();
                     <input id="date" class="text" type="date" name="date_time" value="<?php echo date("Y/m/d")?>" required="">
                    </div>
                  </div>
-    
-    
+       
          
       
-               <div class="row">
-           <div class="col-25">
-            <label1>Bill amount</label1>
-           </div>
-           <div class="col-75">
-            <input type="text" id="amount" name="amount" required="">
-           </div>
-               </div>
-
-
      </div>
       </div>
 
@@ -125,6 +115,7 @@ $row=$data->get_bill_no();
  if(!empty($_SESSION["purchase"]))
       {  $total=0;
           $total_p=0;
+          $total_items=0;
           foreach($_SESSION["purchase"] as $keys => $values)
             {
                 ?>
@@ -137,11 +128,14 @@ $row=$data->get_bill_no();
                     <td><?php echo $values["serial_no"] ?></td>
                     <td><?php echo $values["warrenty"] ?></td>
                     <td><?php echo $values["sales_price"] ?></td>
+                    <input type="hidden" name="hidden_sno[]" value="<?php echo $values["serial_no"] ?>" >
+                    <input type="hidden" name="hidden_itemid[]" value="<?php echo $values["item_id"] ?>" >
                     <td><input type="text" class="discount" name="discount"></td>
                     <td><?php echo number_format($total+$values["sales_price"]) ?></td>                
                 </tr>
                 <?php
                  $total_p=$total_p+$values["sales_price"];
+                 $total_items=$total_items+1;
             } 
         }
         ?>
@@ -151,8 +145,19 @@ $row=$data->get_bill_no();
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td align="right">Total items</td>
+                    <td><?php echo number_format($total_items) ?></td>
+                    <input type="hidden" name="hidden_total_i" value="<?php echo number_format($total_items) ?>" >
+        </tr>
+        <tr>        <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td align="right">Total amount</td>
                     <td><?php echo number_format($total_p,2) ?></td>
+                    <input type="hidden" name="hidden_total" value="<?php echo number_format($total_p,2) ?>" >
         </tr>
     </tbody>
 </table>

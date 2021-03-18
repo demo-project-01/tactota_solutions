@@ -148,31 +148,35 @@ class sales
     }
     
       public function add_bill(){ //nuwan
-
+        $item_id=$_POST['hidden_itemid'];
         $id= $this->sale->get_emp_id();
         $bill_no= $this->sale->get_bill_no();
         $date_time = $_POST['date_time'];
-        $amount = $_POST['amount'];
+        $amount = $_POST['hidden_total'];
         $cust_name = $_POST['cust_name'];
         $email_address= $_POST['email_address'];
         $address = $_POST['address'];
         $telephone_no = $_POST['telephone_no'];
-        $serial_no = $_POST['serial_no'];
+        $serial_no=$_POST['hidden_sno'];
         $payment_method = $_POST['payment_method'];
         $bank_name = $_POST['bank_name'];
         $cheque_no = $_POST['cheque_no'];
         $recived_date = $_POST['recived_date'];
         $due_date = $_POST['due_date'];
-        $product_id = $this->sale->product_id($serial_no); //new
         $cust_id= $this->sale->get_cust_id();
+        $total_items=$_POST['hidden_total_i'];
+      
+        //print_r($total_items);
      if($payment_method=="cheque"){
-     if($this->sale->insert_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no,$email_address,$address)){
-         header('location: ../views/bill.php');
+     if($this->sale->insert_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id)){
+         header('location: ../views/view_purchase_list.php');
+         echo'<script>alert("payment Done")</script>';
         }
     }
         else if($payment_method=="cash"){
-            if($this->sale->insert_cash_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$telephone_no,$serial_no,$email_address,$address)){
-                header('location: ../views/bill.php');
+            if($this->sale->insert_cash_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id)){
+                header('location: ../views/view_purchase_list.php');
+                echo'<script>alert("payment Done")</script>';
                }   
         }
     

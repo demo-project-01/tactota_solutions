@@ -154,7 +154,7 @@ public function add_new_product($category_id, $product_cost, $brand_id, $reorder
       }   
     }
     public function view_products(){
-        $query = $this->mysqli->query("SELECT items.item_id,items.serial_no,product_list.warrenty,category.category_name,brand.brand_name,model.model_name,model.sales_price FROM items INNER JOIN product_list ON items.p_id=product_list.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id AND items.item_status=1 ");
+        $query = $this->mysqli->query("SELECT items.item_id,items.serial_no,product_list.warrenty,category.category_name,brand.brand_name,model.model_id,model.model_name,model.sales_price FROM items INNER JOIN product_list ON items.p_id=product_list.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id AND items.item_status=1 ");
         while ($row = $query->fetch_assoc()) {
 
                $result[] = $row;
@@ -183,8 +183,8 @@ public function add_new_product($category_id, $product_cost, $brand_id, $reorder
      }
     
      
-    public function insert_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no,$email_address,$address){ //nuwan
-        $stmt=$this->mysqli->prepare("INSERT INTO customer(cust_id,cust_name,email_address,cust_address)
+    public function insert_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id){ //nuwan
+      $stmt=$this->mysqli->prepare("INSERT INTO customer(cust_id,cust_name,email_address,cust_address)
         VALUES (?,?,?,?)");
  
     $stmt->bind_param('ssss',$cust_id,$cust_name,$email_address,$address);
@@ -200,20 +200,30 @@ public function add_new_product($category_id, $product_cost, $brand_id, $reorder
       $stmt2->bind_param('sssss',$bill_no,$date_time,$amount,$payment_method,$id);
     $stmt2->execute();
     
-      $stmt3 = $this->mysqli->prepare("INSERT INTO  cheque(bill_no,cheque_id,received_date,due_date,bank_name)
-      VALUES (?,?,?,?,?)");
+     
 
-     $stmt3->bind_param('sssss',$bill_no,$cheque_no,$recived_date,$due_date,$bank_name);
-     $stmt3->execute();
-
-    $stmt4= $this->mysqli->prepare("INSERT INTO  purchase(bill_no,serial_no,cust_id)
+     for($i=0;$i<$total_items;$i++){ 
+     $stmt4 = $this->mysqli->prepare("INSERT INTO  purchase (bill_no,item_id,cust_id)
      VALUES (?,?,?)");
 
-     $stmt4->bind_param('sss',$bill_no,$serial_no,$cust_id);
-     return $stmt4->execute();    
+     $stmt4->bind_param('sss',$bill_no,$item_id[$i],$cust_id);
+     $stmt4->execute();
+     }
+     for($j=0;$j<$total_items;$j++){
+     $stmt5 = $this->mysqli->prepare("UPDATE  items SET item_status=0 WHERE serial_no=?");  
+     $stmt5->bind_param('s',$serial_no[$j]); 
+     $stmt5->execute();
+    }
+   
+    $stmt3 = $this->mysqli->prepare("INSERT INTO  cheque(bill_no,cheque_id,received_date,due_date,bank_name)
+    VALUES (?,?,?,?,?)");
+
+   $stmt3->bind_param('sssss',$bill_no,$cheque_no,$recived_date,$due_date,$bank_name);
+   return $stmt3->execute();
+   
      
     }
-    public function insert_cash_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$telephone_no,$serial_no,$email_address,$address){ //nuwan
+    public function insert_cash_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id){ //nuwan
         $stmt=$this->mysqli->prepare("INSERT INTO customer(cust_id,cust_name,email_address,cust_address)
         VALUES (?,?,?,?)");
  
@@ -225,15 +235,23 @@ public function add_new_product($category_id, $product_cost, $brand_id, $reorder
 
          $stmt1->bind_param('ss',$cust_id,$telephone_no);
          $stmt1->execute();
-     
-         $stmt2 = $this->mysqli->prepare("INSERT INTO bill (bill_no,date_time,amount,payment_method,emp_id) VALUES (?,?,?,?,?)");
-      $stmt2->bind_param('sssss',$bill_no,$date_time,$amount,$payment_method,$id);
-    $stmt2->execute();
-    $stmt3= $this->mysqli->prepare("INSERT INTO  purchase(bill_no,serial_no,cust_id)
-     VALUES (?,?,?)");
 
-     $stmt3->bind_param('sss',$bill_no,$serial_no,$cust_id);
-     return $stmt3->execute();    
+    for($i=0;$i<$total_items;$i++){ 
+        $stmt3 = $this->mysqli->prepare("INSERT INTO  purchase (bill_no,item_id,cust_id)
+        VALUES (?,?,?)");
+   
+        $stmt3->bind_param('sss',$bill_no,$item_id[$i],$cust_id);
+        $stmt3->execute();
+        }
+        for($j=0;$j<$total_items;$j++){
+        $stmt4 = $this->mysqli->prepare("UPDATE  items SET item_status=0 WHERE serial_no=?");  
+        $stmt4->bind_param('s',$serial_no[$j]); 
+        $stmt4->execute();
+       }   
+         
+       $stmt2 = $this->mysqli->prepare("INSERT INTO bill (bill_no,date_time,amount,payment_method,emp_id) VALUES (?,?,?,?,?)");
+       $stmt2->bind_param('sssss',$bill_no,$date_time,$amount,$payment_method,$id);
+     return $stmt2->execute();
      
     }
 

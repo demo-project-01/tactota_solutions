@@ -18,6 +18,11 @@ if(isset($_GET['action']))
             }
         }
     }
+    else if($_GET["action"]=="clear"){ 
+        session_unset();
+        
+    }
+
 }
 
 ?>
@@ -34,6 +39,10 @@ if(isset($_GET['action']))
 <div class="new">
         <a class="add_button" href="purchase.php">Back</a></a>
     </div>
+    <div class="new">
+        <a class="add_button" href="view_purchase_list.php?action=clear">clear</a></a>
+    </div>
+
 
 <h1 id="tbl-heading"> Items To Purchase</h1>
 

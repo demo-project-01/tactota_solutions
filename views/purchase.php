@@ -24,7 +24,8 @@ session_start();
                     'model_name'=>$_POST["hidden_mname"],
                     'warrenty'=>$_POST["hidden_warrenty"],
                     'sales_price'=>$_POST["hidden_sprice"],
-                    'serial_no'=>$_POST["hidden_sno"]
+                    'serial_no'=>$_POST["hidden_sno"],
+                    'model_id'=>$_POST["hidden_modelid"]
                 );
                 $_SESSION["purchase"][$count]=$item_array;
 
@@ -43,7 +44,8 @@ session_start();
                        'model_name'=>$_POST["hidden_mname"],
                        'warrenty'=>$_POST["hidden_warrenty"],
                        'sales_price'=>$_POST["hidden_sprice"],
-                       'serial_no'=>$_POST["hidden_sno"]
+                       'serial_no'=>$_POST["hidden_sno"],
+                       'model_id'=>$_POST["hidden_modelid"]
                           );
             $_SESSION["purchase"][0]=$item_array;
            }
@@ -172,6 +174,7 @@ session_start();
                     <input type="hidden" name="hidden_warrenty" value="<?php echo $sql[$k]["warrenty"] ?>" >
                     <input type="hidden" name="hidden_sprice" value="<?php echo $sql[$k]["sales_price"] ?>" >
                     <input type="hidden" name="hidden_sno" value="<?php echo $sql[$k]["serial_no"] ?>" >
+                    <input type="hidden" name="hidden_modelid" value="<?php echo $sql[$k]["model_id"] ?>" >
                     <td><input type="submit" name="add_to_bill" value="Add"></td>
                         
 
