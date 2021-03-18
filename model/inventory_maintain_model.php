@@ -392,5 +392,14 @@ class inventory_maintain_model
          return 0;
      }
     }
+
+    public function view_categories()
+    {
+        $query = $this->mysqli->query("SELECT * FROM category");
+        while ($row = $query->fetch_assoc()) {
+            $result[]= $row;
+        }
+        return $result;
+    }
     
 }

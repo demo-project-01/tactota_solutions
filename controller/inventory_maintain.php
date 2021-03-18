@@ -396,8 +396,13 @@ class inventory_maintain
        }else if($row1==0) {
            echo "NOT FOUND";
        }  
-   }
+    }
 
+   public function view_categories()
+   {
+       $row1= $this->inven->view_categories();
+        return ($row1);
+   }
 
 
 }
