@@ -404,6 +404,21 @@ class inventory_maintain
         return ($row1);
    }
 
+   public function view_brands()
+   {
+       $row1= $this->inven->view_brands();
+        return ($row1);
+   }
+   public function view_models()
+   {
+       $row1= $this->inven->view_models();
+        return ($row1);
+   }
+   /*public function view_cat_brand_model()
+   {
+       $row1= $this->inven->cat_brand_model();
+        return ($row1);
+   }*/
 
 }
 

@@ -401,5 +401,28 @@ class inventory_maintain_model
         }
         return $result;
     }
-    
+    public function view_brands()
+    {
+        $query = $this->mysqli->query("SELECT * FROM brand");
+        while ($row = $query->fetch_assoc()) {
+            $result[]= $row;
+        }
+        return $result;
+    }
+    public function view_models()
+    {
+        $query = $this->mysqli->query("SELECT * FROM model");
+        while ($row = $query->fetch_assoc()) {
+            $result[]= $row;
+        }
+        return $result;
+    }
+    /*public function cat_brand_model($id)
+    {
+        $query = $this->mysqli->query("SELECT * FROM product_list AS p JOIN category AS c ON p.category_id=c.category_id JOIN brand AS b ON p.brand_id=b.brand_id JOIN model AS m ON p.model_id=m.model_id");
+        while ($row = $query->fetch_assoc()) {
+            $result[]= $row;
+        }
+        return $result;
+    }*/
 }
