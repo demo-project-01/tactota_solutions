@@ -3,7 +3,7 @@ require_once("../model/inventory_maintain_model.php");
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-//session_start();
+session_start();
 class inventory_maintain
 {
     public function __construct()
@@ -159,8 +159,10 @@ class inventory_maintain
        header('location: ../views/stockreminders.php');
     }
     public function display_onereturnitem_details($id){    //reshani
-        $row=$this->inven->display_returnitem($id);       
-        $_SESSION['return_item']=$row;
+        $item=$this->inven->display_returnitem($id); 
+    
+        $_SESSION['one_return_item']=$item;
+       //print_r($_SESSION['one_return_item']);
         header('location: ../views/view_one_returnitem.php');
       }
     public function add_returnitem_details(){       //reshani
@@ -261,9 +263,9 @@ class inventory_maintain
         // print_r($row['p_name']);
         // echo "<br>";
         //      print_r($row['p_id']);
-        $_SESSION['one_product_details']=$row;
-        // print_r($_SESSION['product_details']);
-      header('location: ../views/view_one_product.php');
+        $_SESSION['product_details']=$row;
+        print_r($_SESSION['product_details']);
+      //header('location: ../views/view_one_product.php');
 
     }
     
