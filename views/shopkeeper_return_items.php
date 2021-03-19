@@ -1,7 +1,7 @@
 <?php
    include 'shopkeeper_sidebar.php';
    require '../controller/inventory_maintain.php';
-   session_start();
+  // session_start();
    $data=new inventory_maintain();
    $sql=$data->display_shopkeeper_return_items();
  
