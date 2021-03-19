@@ -1,5 +1,10 @@
 <?php
 include 'admin_sidebar.php';
+require '../controller/inventory_maintain.php';
+$data = new inventory_maintain();
+$sql=$data->view_categories();
+$sql1=$data->view_brands();
+$sql2=$data->view_models();
 ?>
 
 <head>
@@ -13,26 +18,46 @@ include 'admin_sidebar.php';
   <div class="nav-bar">
       <table class="selection">
         <tr>
+          <td><label for="category" class="date-lbl">Category</label></td>
+          <td><label for="brand" class="date-lbl">Brand</label></td>
+          <td><label for="model" class="date-lbl">Model</label></td>
+        </tr>
+        <tr>
           <td>
-            <label for="category" class="date-lbl">Category
             <select name="category" id="category">
-              <option value="*">All</option>
-              <option value="laptop">Laptop</option>
+              <option value="0">All</option>
+              <?php
+                foreach ($sql as $k => $v){  ?>
+                  <option value="<?php echo $sql[$k]["category_id"] ?>"> <?php 
+                    echo $sql[$k]["category_name"] ?>
+                  </option>   <?php
+                }
+              ?>
             </select>
           </td>
           <td>
-            <label for="brand" class="date-lbl">Brand
             <select name="brand" id="brand">
-              <option value="*">All</option>
-              <option value="laptop">Laptop</option>
+              <option value="0">All</option>
+              <?php
+                foreach ($sql1 as $k => $v){  ?>
+                  <option value="<?php echo $sql1[$k]["brand_id"] ?>"> <?php 
+                    echo $sql1[$k]["brand_name"] ?>
+                  </option>   <?php
+                }
+              ?>
             </select>
           </td>
           <td>
-            <label for="model" class="date-lbl">Model 
             <select name="model" id="model">
-              <option value="*">All</option>
-              <option value="laptop">Laptop</option>
-          </select>
+              <option value="0">All</option>
+              <?php
+                foreach ($sql2 as $k => $v){  ?>
+                  <option value="<?php echo $sql2[$k]["model_id"] ?>"> <?php 
+                    echo $sql2[$k]["model_name"] ?>
+                  </option>   <?php
+                }
+              ?>
+            </select>
           </td>
         </tr>
         <tr>
