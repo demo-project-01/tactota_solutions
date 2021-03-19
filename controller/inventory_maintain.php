@@ -396,9 +396,29 @@ class inventory_maintain
        }else if($row1==0) {
            echo "NOT FOUND";
        }  
+    }
+
+   public function view_categories()
+   {
+       $row1= $this->inven->view_categories();
+        return ($row1);
    }
 
-
+   public function view_brands()
+   {
+       $row1= $this->inven->view_brands();
+        return ($row1);
+   }
+   public function view_models()
+   {
+       $row1= $this->inven->view_models();
+        return ($row1);
+   }
+   /*public function view_cat_brand_model()
+   {
+       $row1= $this->inven->cat_brand_model();
+        return ($row1);
+   }*/
 
 }
 
