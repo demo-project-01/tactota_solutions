@@ -21,9 +21,9 @@ session_start();
     <div class="new">
         <a class="add_button" href="newmodel.php"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp&nbsp Add new Model</a>
     </div>
-    <!--div class="search">
+    <div class="search">
         <input type="text" placeholder="Search.."  id="search_text">
-    </div-->
+    </div>
    
     <?php if(isset($_SESSION['add_product'])): ?>
         <div class="alert" id="activate">

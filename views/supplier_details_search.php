@@ -3,8 +3,9 @@
 $sql=$_SESSION['supplier_details'];
 //print_r($row[1]["sup_id"]);
 //print_r($_SESSION['supplier_details']);
-//print_r($row[]);
+//print_r($sql);
 ?>
+
 <table>
  <thead>
  <tr>
