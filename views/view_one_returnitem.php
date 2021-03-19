@@ -1,8 +1,8 @@
 <?php
-include 'shopkeeper_sidebar.php';
+//include 'shopkeeper_sidebar.php';
 //require '../controller/inventory_maintain.php';
 session_start();
-$row= $_SESSION['return_item'];
+$row=$_SESSION['one_return_item'];
 ?>
 <head>
 <link rel="stylesheet" href="../public/css/update.css">
