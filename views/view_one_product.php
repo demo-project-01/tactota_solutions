@@ -22,7 +22,7 @@ include 'clerk_sidebar.php';
             </tr>
             <tr>
                 <th>Product Name</th>
-                <td><?php echo $row['p_name'] ?></td>
+                <td><?php echo $row['category_name'] ?></td>
             </tr>
             <tr>
                 <th>Brand Name</th>
@@ -30,7 +30,7 @@ include 'clerk_sidebar.php';
             </tr>
             <tr>
                 <th>Model Number</th>
-                <td><?php echo $row['model_no'] ?></td>
+                <td><?php echo $row['model_name'] ?></td>
             </tr>
             <tr>
                 <th>Quantity</th>
@@ -38,11 +38,11 @@ include 'clerk_sidebar.php';
             </tr>
             <tr>
                 <th>Item Cost</th>
-                <td><?php echo $row['p_cost'] ?></td>
+                <td><?php echo $row['unit_price'] ?></td>
             </tr>
             <tr>
                 <th>Warrenty Period (months)</th>
-                <td><?php echo $row['warranty'] ?></td>
+                <td><?php echo $row['warrenty'] ?></td>
             </tr>
             <!--tr
               <th>Supplier Name</th>

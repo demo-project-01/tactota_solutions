@@ -298,6 +298,9 @@ class sales
         }
        
     }
+    public function view_bill($id){
+       $row= $this->sale->get_bill_details($id);
+    }
 
 }
 $controller = new sales();
@@ -342,5 +345,8 @@ else if(isset($_GET['action']) && $_GET['action'] == 'add_new_model') {
     $controller->add_new_model();
 }else if(isset($_GET['action']) && $_GET['action'] == 'get_model_name') {
     $controller->get_model_name();
+}else if(isset($_GET['action']) && $_GET['action'] == 'view_bill') {
+    $id=$_GET['id'];
+    $controller->view_bill($id);
 }
 
