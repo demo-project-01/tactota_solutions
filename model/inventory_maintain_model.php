@@ -141,8 +141,8 @@ class inventory_maintain_model
     }
 
     public function update_product_details($id,$reorder_level,$warranty,$sales_price){
-        $stmt = $this->mysqli->prepare("UPDATE product INNER JOIN item ON product.p_id =item.p_id  SET product.reorder_level= ? ,  product.warranty= ?,  item.sales_price= ?
-                                        WHERE product.p_id=?");
+        $stmt = $this->mysqli->prepare("UPDATE product_list INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id  SET model.reorder_level= ? ,  product_list.warranty= ?,  model.sales_price= ?
+                                        WHERE product_list.p_id=?");
         if($stmt==FALSE)
             return 0;
         else{

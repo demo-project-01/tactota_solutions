@@ -264,8 +264,8 @@ class inventory_maintain
         // echo "<br>";
         //      print_r($row['p_id']);
         $_SESSION['product_details']=$row;
-        print_r($_SESSION['product_details']);
-      //header('location: ../views/view_one_product.php');
+      //  print_r($_SESSION['product_details']);
+      header('location: ../views/view_one_product.php');
 
     }
     
