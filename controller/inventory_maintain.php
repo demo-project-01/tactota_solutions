@@ -3,7 +3,7 @@ require_once("../model/inventory_maintain_model.php");
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-session_start();
+//session_start();
 class inventory_maintain
 {
     public function __construct()
@@ -63,7 +63,7 @@ class inventory_maintain
           if($row1!=""){
             $_SESSION['supplier_details']=$row1;
             header('location: ../views/supplier_details_search.php');
-            //  print_r($row1);
+            //   print_r($row1);
         }else if($row1==0) {
             echo "NOT FOUND";
         }
@@ -151,6 +151,12 @@ class inventory_maintain
     public function display_reminders(){   //reshani
         return $this->inven->display_stockreminders();
     }
+    public function countsuppliers(){              //reshani clerk dashboard
+        return $this->inven->count_suppliers();
+    }
+    public function count_reminderitems(){      //reshani  clerk dashboard
+        return $this->inven->count_reminder_items();
+    }
     public function reminderitems_suppliers($id){    //nuwan
       //  print_r($id);
         $row=$this->inven->display_reminder_suppliers($id);
@@ -159,10 +165,8 @@ class inventory_maintain
        header('location: ../views/stockreminders.php');
     }
     public function display_onereturnitem_details($id){    //reshani
-        $item=$this->inven->display_returnitem($id); 
-    
-        $_SESSION['one_return_item']=$item;
-       //print_r($_SESSION['one_return_item']);
+        $row=$this->inven->display_returnitem($id);       
+        $_SESSION['return_item']=$row;
         header('location: ../views/view_one_returnitem.php');
       }
     public function add_returnitem_details(){       //reshani
@@ -263,9 +267,9 @@ class inventory_maintain
         // print_r($row['p_name']);
         // echo "<br>";
         //      print_r($row['p_id']);
-        $_SESSION['product_details']=$row;
-        print_r($_SESSION['product_details']);
-      //header('location: ../views/view_one_product.php');
+        $_SESSION['one_product_details']=$row;
+        // print_r($_SESSION['product_details']);
+      header('location: ../views/view_one_product.php');
 
     }
     
@@ -388,46 +392,19 @@ class inventory_maintain
        }
    }
 
-   public function inbox_supplier($row,$page){
-    if($page<2){
-        $page = 1; 
-     }
-        $row3=$this->inven->inbox_supplier_count();
-        $row1=$this->inven->inbox_supplier($row,$page);
+   public function inbox_supplier($row){
+        $row1=$this->inven->inbox_supplier($row);
    //  print_r($row1);
-        
          if($row1!=""){
-           $_SESSION['inbox_supplier_count']=$row3;
            $_SESSION['inbox_supplier']=$row1;
-           $_SESSION['inbox_supplier1']=$page;
-         header('location: ../views/inbox_suppier_reply_search.php');
-      //      print_r($row1);
+          header('location: ../views/inbox_suppier_reply_search.php');
+        //    print_r($row1);
        }else if($row1==0) {
            echo "NOT FOUND";
        }  
-    }
-
-   public function view_categories()
-   {
-       $row1= $this->inven->view_categories();
-        return ($row1);
    }
 
-   public function view_brands()
-   {
-       $row1= $this->inven->view_brands();
-        return ($row1);
-   }
-   public function view_models()
-   {
-       $row1= $this->inven->view_models();
-        return ($row1);
-   }
-   /*public function view_cat_brand_model()
-   {
-       $row1= $this->inven->cat_brand_model();
-        return ($row1);
-   }*/
+
 
 }
 
@@ -508,11 +485,14 @@ else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //re
 
     $controller->send_email_supplier();
 }else if(isset($_GET['action']) && $_GET['action'] == 'inbox_supplier') {
-   
     $row=$_POST['query'];
-    $page = $_POST['page'];
- //   print_r($page);
-   $controller->inbox_supplier($row,$page);
+    $controller->inbox_supplier($row);
+
+}else if(isset($_GET['action']) && $_GET['action'] == 'countsuppliers'){   //reshani
+    $controller->countsuppliers();
+
+}else if(isset($_GET['action']) && $_GET['action'] == 'count_reminderitems'){   //reshani
+    $controller->count_reminderitems();
 }
 
 

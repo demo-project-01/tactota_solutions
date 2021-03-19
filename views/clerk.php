@@ -1,20 +1,26 @@
 <?php
-  include 'clerk_sidebar.php';
+   include 'clerk_sidebar.php';
    require '../controller/inventory_maintain.php';
    $data=new inventory_maintain();
    $sql=$data->display_few_reminders();
-   //print_r($sql);
+   $sql1=$data->countsuppliers();
+   $sql2=$data->count_reminderitems();
+  // print_r($sql1);
 ?>
 <body>
 <div class="content" style="width:auto;">
 
     <div>
         <a href ="supplier_details.php">
+        <?php
+        foreach ($sql1 as $k => $v){
+            ?>
             <div class= "dash1">
                 <b><p class="dash">SUPPLIERS</p></b>
                 <i class="fa fa-users fa-3x icon-right" aria-hidden="true"></i> 
-                <b><p class="infor">10 Record(s)</p></b>
+                <b><p class="infor"><?php echo $sql1[$k] ?> Record(s)</p></b>
             </div>
+        <?php }?>   
         </a>    
     
         <a href ="view_all_products.php">
@@ -37,11 +43,15 @@
     <div> 
 
         <a href ="reminderitems.php">   
+        <?php
+        foreach ($sql2 as $k => $v){
+            ?>
             <div class= "dash3">
                 <b><p class="dash">REMINDERS</p></b>
                 <i class="fa fa-bell-o fa-3x icon-right" aria-hidden="true"></i>
-                <b><p class="infor">5 Record(s)</p></b>
+                <b><p class="infor"><?php echo $sql2[$k] ?> Record(s)</p></b>
             </div>
+        <?php }?>  
         </a>    
     
         <a href ="report_sold_out_items_clerk.php"> 
