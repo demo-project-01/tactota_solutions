@@ -38,7 +38,8 @@ $row=$data->get_bill_no();
                     <input id="date" class="text" type="date" name="date_time" value="<?php echo date("Y/m/d")?>" required="">
                    </div>
                  </div>
-       
+    
+    
          
       
      </div>
@@ -139,6 +140,9 @@ $row=$data->get_bill_no();
             } 
         }
         ?>
+        <?php
+   if(!empty($_SESSION["purchase"])){
+     ?>
          <tr>        <td></td>
                     <td></td>
                     <td></td>
@@ -159,6 +163,8 @@ $row=$data->get_bill_no();
                     <td><?php echo number_format($total_p,2) ?></td>
                     <input type="hidden" name="hidden_total" value="<?php echo number_format($total_p,2) ?>" >
         </tr>
+        <?php
+      }?>
     </tbody>
 </table>
 </div>

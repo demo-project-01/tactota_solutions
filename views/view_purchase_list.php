@@ -20,7 +20,8 @@ if(isset($_GET['action']))
     }
     else if($_GET["action"]=="clear"){ 
         session_unset();
-        
+        echo'<script>alert("Clear list")</script>';
+        echo'<script>window.location=purchase.php</script>';
     }
 
 }
@@ -89,13 +90,16 @@ if(isset($_GET['action']))
                   
             } 
         }?>
+        <?php
+        if(!empty($_SESSION["purchase"])){ ?>
         <tr>        <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td align="right">Total</td>
                     <td><?php echo number_format($total,2) ?></td>
-        </tr>
+        </tr><?php
+        }?>
             </tbody>
 
 
