@@ -63,7 +63,7 @@ class inventory_maintain
           if($row1!=""){
             $_SESSION['supplier_details']=$row1;
             header('location: ../views/supplier_details_search.php');
-            //   print_r($row1);
+            //  print_r($row1);
         }else if($row1==0) {
             echo "NOT FOUND";
         }
@@ -388,13 +388,20 @@ class inventory_maintain
        }
    }
 
-   public function inbox_supplier($row){
-        $row1=$this->inven->inbox_supplier($row);
+   public function inbox_supplier($row,$page){
+    if($page<2){
+        $page = 1; 
+     }
+        $row3=$this->inven->inbox_supplier_count();
+        $row1=$this->inven->inbox_supplier($row,$page);
    //  print_r($row1);
+        
          if($row1!=""){
+           $_SESSION['inbox_supplier_count']=$row3;
            $_SESSION['inbox_supplier']=$row1;
-          header('location: ../views/inbox_suppier_reply_search.php');
-        //    print_r($row1);
+           $_SESSION['inbox_supplier1']=$page;
+         header('location: ../views/inbox_suppier_reply_search.php');
+      //      print_r($row1);
        }else if($row1==0) {
            echo "NOT FOUND";
        }  
@@ -501,8 +508,11 @@ else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //re
 
     $controller->send_email_supplier();
 }else if(isset($_GET['action']) && $_GET['action'] == 'inbox_supplier') {
+   
     $row=$_POST['query'];
-    $controller->inbox_supplier($row);
+    $page = $_POST['page'];
+ //   print_r($page);
+   $controller->inbox_supplier($row,$page);
 }
 
 

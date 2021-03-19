@@ -119,7 +119,7 @@ class inventory_maintain_model
     public function get_product_details_search($row){
         //   $result = "";
         //$query = $this->mysqli->query("SELECT DISTINCT * FROM  product INNER JOIN supplier_product ON product.p_id=supplier_product.p_id INNER JOIN item ON product.p_id=item.p_id AND product_status=1 WHERE product.p_name LIKE  '%" . $row . "%' OR product.brand_name LIKE  '%" . $row . "%' OR product.model_no LIKE  '%" . $row . "%' ");
-        $query = $this->mysqli->query("SELECT DISTINCT * FROM  product WHERE product.p_name LIKE  '%" . $row . "%' OR product.brand_name LIKE  '%" . $row . "%' OR product.model_no LIKE  '%" . $row . "%' ");
+        $query = $this->mysqli->query("SELECT DISTINCT * FROM  product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id  WHERE category.category_name LIKE  '%" . $row . "%' OR brand.brand_name LIKE  '%" . $row . "%' OR model.model_name LIKE  '%" . $row . "%' ");
         if ($query->num_rows > 0) {
             while ($row = $query->fetch_assoc()) {
                 $result[] = $row;
@@ -379,9 +379,31 @@ class inventory_maintain_model
         }
     }
 
+    public function inbox_supplier_count(){
+        $query = $this->mysqli->query("SELECT email_id FROM supplier_reply");
+        if ($query->num_rows > 0) {
+         while ($row = $query->fetch_assoc()) {
+             $result[] = $row;
+         }
+         return $result;
+     }else
+     {
+         return 0;
+     }
+    }
+
      
-    public function inbox_supplier($id){
-        $query = $this->mysqli->query("SELECT * FROM supplier_reply  WHERE date LIKE  '%" . $id . "%' OR email LIKE  '%" . $id . "%' ");
+    public function inbox_supplier($id,$page1){
+        $limit = 8;
+        $page2 = 1;
+        if($page1>1){
+            $page = $page1;
+        }else{
+            $page = $page2;
+        }
+
+        $start_from = ($page-1) * $limit;
+        $query = $this->mysqli->query("SELECT * FROM supplier_reply  WHERE date LIKE  '%" . $id . "%' OR email LIKE  '%" . $id . "%' LIMIT $start_from,$limit ");
         if ($query->num_rows > 0) {
          while ($row = $query->fetch_assoc()) {
              $result[] = $row;
