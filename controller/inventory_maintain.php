@@ -405,6 +405,20 @@ class inventory_maintain
        }  
    }
 
+   public function view_categories(){
+        $row=$this->inven->view_categories();
+        return $row;
+   }
+
+   public function view_brands(){
+        $row=$this->inven->view_brands();
+        return $row;
+   }
+
+   public function view_models(){
+    $row=$this->inven->view_models();
+    return $row;
+    }
 
 
 }

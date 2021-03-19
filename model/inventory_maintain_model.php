@@ -417,5 +417,22 @@ class inventory_maintain_model
         }
         return $result;
     }
+    public function view_brands()
+    {
+        $query = $this->mysqli->query("SELECT * FROM brand");
+        while ($row = $query->fetch_assoc()) {
+            $result[]= $row;
+        }
+        return $result;
+    }
+    public function view_models()
+    {
+        $query = $this->mysqli->query("SELECT * FROM model");
+        while ($row = $query->fetch_assoc()) {
+            $result[]= $row;
+        }
+        return $result;
+    }
+    
     
 }
