@@ -178,10 +178,17 @@ class inventory_maintain
         $description=$_POST['description'];
         $returned_date=date("Y-m-d");
         $sup_id=$this->inven->get_supid_serial_no( $serial_no);
+        $item_id=$this->inven->get_item_id($serial_no);
+        /*printf($item_id);
+        printf($sup_id);
+        printf($serial_no);
+        printf($description);
+        printf($returned_date);
+        printf($item_status);*/
        //$serial_no=$this->inven->get_supid_serial_no1();
 
         if($this->inven->add_return_item($sup_id,$returned_date,$description,$item_id)){
-            if($this->inven->add_item_status($item_status,$serial_no)){
+            if($this->inven->add_item_status($item_status,$item_id)){
                 header('location: ../views/shopkeeper_return_items.php');
             }
             
