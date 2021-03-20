@@ -1,18 +1,17 @@
 <?php
  session_start();
 $sql=$_SESSION['inbox_supplier'];
-$sql1=$_SESSION['inbox_supplier_count'];
+//$sql1=$_SESSION['inbox_supplier_count'];
 //print_r($row[1]["sup_id"]);
 //print_r($_SESSION['supplier_details']);
 $limit = 8;
-$total_records=count($sql1);
-$total_pages = ceil($total_records/$limit);
+//$total_records=count($sql1);
+//$total_pages = ceil($total_records/$limit);
 
 //print_r($sql);
 
 
 ?>
- 
  <table>
             <thead>
                 <tr>
@@ -42,11 +41,7 @@ $total_pages = ceil($total_records/$limit);
 
  } ?>
           <?php 
-          $pagLink = "<ul class='pagination'>";  
-             for ($i=1; $i<=$total_pages; $i++) {
-              $pagLink .= "<li class='page-item'><a class='page-link' href='../controller/inventory_maintain.php?action=inbox_supplier&page=".$i."'>".$i."</a></li>";	
-          }
-          echo $pagLink . "</ul>";
+      
           
           ?>
             </tbody>

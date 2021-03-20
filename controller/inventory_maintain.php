@@ -3,7 +3,7 @@ require_once("../model/inventory_maintain_model.php");
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-//session_start();
+session_start();
 class inventory_maintain
 {
     public function __construct()
@@ -120,8 +120,8 @@ class inventory_maintain
          // print_r($row['p_name']);
           // echo "<br>";
     //      print_r($row['p_id']);
-         $_SESSION['product_details']=$row;
-        // print_r($_SESSION['product_details']);
+         $_SESSION['product_details1']=$row;
+      //   print_r($_SESSION['product_details1']);
         header('location: ../views/update_product.php');
 
     }
