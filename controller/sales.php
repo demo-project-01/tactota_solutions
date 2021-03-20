@@ -1,6 +1,6 @@
 <?php
 require_once("../model/sales_model.php");
-
+session_start();
 class sales
 {
 
@@ -299,7 +299,21 @@ class sales
        
     }
     public function view_bill($id){
-       $row= $this->sale->get_bill_details($id);
+       
+       $payment=$this->sale->get_payment_method($id);
+      // print_r($_SESSION['bill_details']);
+      if($payment=="cheque"){
+        $row= $this->sale->get_bill_details($id);
+        $_SESSION['bill_details']=$row;
+        //print_r($_SESSION['bill_details']);
+        header('location: ../views/bill_details.php');
+      }
+       else if($payment=="cash"){
+        $row= $this->sale->get_cashbill_details($id);
+        $_SESSION['bill_details']=$row;
+        //print_r($_SESSION['bill_details']);
+        header('location: ../views/cashbill_details.php');
+       }
     }
 
 }

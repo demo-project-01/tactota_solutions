@@ -230,6 +230,10 @@ public function add_new_product($category_id, $product_cost, $brand_id, $reorder
          $stmt1->bind_param('ss',$cust_id,$telephone_no);
          $stmt1->execute();
 
+         $stmt2 = $this->mysqli->prepare("INSERT INTO bill (bill_no,date_time,amount,payment_method,emp_id) VALUES (?,?,?,?,?)");
+         $stmt2->bind_param('sssss',$bill_no,$date_time,$amount,$payment_method,$id);
+       $stmt2->execute();
+       
     for($i=0;$i<$total_items;$i++){ 
         $stmt3 = $this->mysqli->prepare("INSERT INTO  purchase (bill_no,item_id,cust_id)
         VALUES (?,?,?)");
@@ -243,10 +247,7 @@ public function add_new_product($category_id, $product_cost, $brand_id, $reorder
         $stmt4->execute();
        }   
          
-       $stmt2 = $this->mysqli->prepare("INSERT INTO bill (bill_no,date_time,amount,payment_method,emp_id) VALUES (?,?,?,?,?)");
-       $stmt2->bind_param('sssss',$bill_no,$date_time,$amount,$payment_method,$id);
-     return $stmt2->execute();
-     
+      
     }
 
     public function get_cust_id(){ //nuwan
@@ -319,7 +320,7 @@ public function add_new_product($category_id, $product_cost, $brand_id, $reorder
     }
 
     public function view_customers(){
-        $query = $this->mysqli->query("SELECT purchase.bill_no,customer.cust_name,cust_telephone.telephone_no,bill.date_time from bill INNER JOIN purchase ON bill.bill_no=purchase.bill_no INNER JOIN customer ON purchase.cust_id=customer.cust_id INNER JOIN cust_telephone ON customer.cust_id=cust_telephone.cust_id");
+        $query = $this->mysqli->query("SELECT  DISTINCT bill.bill_no,customer.cust_name,cust_telephone.telephone_no,bill.date_time from bill INNER JOIN purchase ON bill.bill_no=purchase.bill_no INNER JOIN customer ON purchase.cust_id=customer.cust_id INNER JOIN cust_telephone ON customer.cust_id=cust_telephone.cust_id");
         while ($row = $query->fetch_assoc()) {
             $result[] = $row;
         }
@@ -374,6 +375,30 @@ public function add_new_product($category_id, $product_cost, $brand_id, $reorder
      return $stmt->execute();
 }
 }
+public function get_bill_details($id){
+
+    $query = $this->mysqli->query("SELECT purchase.bill_no,customer.email_address,customer.cust_address,customer.cust_name,cust_telephone.telephone_no,cheque.bank_name,cheque.due_date,cheque.received_date,cheque.cheque_id,bill.date_time,bill.amount,bill.payment_method,employee.first_name,model.model_name,brand.brand_name,items.serial_no,model.sales_price,product_list.warrenty,category.category_name from bill INNER JOIN purchase ON bill.bill_no=purchase.bill_no INNER JOIN customer ON purchase.cust_id=customer.cust_id INNER JOIN cust_telephone ON customer.cust_id=cust_telephone.cust_id INNER JOIN cheque ON bill.bill_no=cheque.bill_no INNER JOIN employee ON bill.emp_id=employee.emp_id INNER JOIN items ON purchase.item_id=items.item_id INNER JOIN product_list ON items.p_id=product_list.p_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN category ON product_list.category_id=category.category_id WHERE bill.bill_no='" .$id. "'");
+    while ($row = $query->fetch_assoc()) {
+        $result[] = $row;
+    }
+  return $result;
+
+}
+public function get_cashbill_details($id){
     
+    $query = $this->mysqli->query("SELECT purchase.bill_no,customer.email_address,customer.cust_address,customer.cust_name,cust_telephone.telephone_no,bill.date_time,bill.amount,bill.payment_method,employee.first_name,model.model_name,brand.brand_name,items.serial_no,model.sales_price,product_list.warrenty,category.category_name from bill INNER JOIN purchase ON bill.bill_no=purchase.bill_no INNER JOIN customer ON purchase.cust_id=customer.cust_id INNER JOIN cust_telephone ON customer.cust_id=cust_telephone.cust_id INNER JOIN employee ON bill.emp_id=employee.emp_id INNER JOIN items ON purchase.item_id=items.item_id INNER JOIN product_list ON items.p_id=product_list.p_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN category ON product_list.category_id=category.category_id WHERE bill.bill_no='" .$id. "'");
+    while ($row = $query->fetch_assoc()) {
+        $result[] = $row;
+    }
+  return $result;
+
+}
+public function get_payment_method($id){
+    $query = $this->mysqli->query("SELECT payment_method from bill WHERE bill.bill_no='" .$id. "'");
+    while ($row = $query->fetch_assoc()) {
+        $result = $row['payment_method'];
+    }
+   return $result;
+}
     
 }

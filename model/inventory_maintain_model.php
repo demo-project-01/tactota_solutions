@@ -119,7 +119,7 @@ class inventory_maintain_model
     public function get_product_details_search($row){
         //   $result = "";
         //$query = $this->mysqli->query("SELECT DISTINCT * FROM  product INNER JOIN supplier_product ON product.p_id=supplier_product.p_id INNER JOIN item ON product.p_id=item.p_id AND product_status=1 WHERE product.p_name LIKE  '%" . $row . "%' OR product.brand_name LIKE  '%" . $row . "%' OR product.model_no LIKE  '%" . $row . "%' ");
-        $query = $this->mysqli->query("SELECT DISTINCT * FROM  product WHERE product.p_name LIKE  '%" . $row . "%' OR product.brand_name LIKE  '%" . $row . "%' OR product.model_no LIKE  '%" . $row . "%' ");
+        $query = $this->mysqli->query("SELECT DISTINCT * FROM   product_list INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id INNER JOIN category ON product_list.category_id=category.category_id WHERE category.category_name LIKE  '%" . $row . "%' OR brand.brand_name LIKE  '%" . $row . "%' OR model.model_name LIKE  '%" . $row . "%' ");
         if ($query->num_rows > 0) {
             while ($row = $query->fetch_assoc()) {
                 $result[] = $row;
@@ -133,7 +133,7 @@ class inventory_maintain_model
 
     public function get_view_product_details($id){
        $result = "";
-        $query = $this->mysqli->query("SELECT product.p_id,product.p_name,product.brand_name,product.model_no,product.quantity,product.p_cost,product.reorder_level,product.warranty,item.sales_price FROM  product INNER JOIN item ON product.p_id=item.p_id AND product.p_id='" . $id . "'");
+        $query = $this->mysqli->query("SELECT * FROM   product_list INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id INNER JOIN category ON product_list.category_id=category.category_id AND product_list.p_id='" . $id . "'");
         while ($row = $query->fetch_assoc()) {
             $result = $row;
         }
@@ -201,6 +201,7 @@ class inventory_maintain_model
         return $result;
     }
     public function display_returnitem($id){          //reshani, display one return item details
+        $result="";
         $query=$this->mysqli->query("SELECT items.serial_no,product_list.p_id,category.category_name,brand.brand_name,model.model_name,items.item_id FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id WHERE items.serial_no='" . $id . "'");
         while ($row = $query->fetch_assoc()) {
             $result= $row;
@@ -417,5 +418,98 @@ class inventory_maintain_model
         }
         return $result;
     }
+    public function view_brands()
+    {
+        $query = $this->mysqli->query("SELECT * FROM brand");
+        while ($row = $query->fetch_assoc()) {
+            $result[]= $row;
+        }
+        return $result;
+    }
+    public function view_models()
+    {
+        $query = $this->mysqli->query("SELECT * FROM model");
+        while ($row = $query->fetch_assoc()) {
+            $result[]= $row;
+        }
+        return $result;
+    }
+    
+    public function suplier_reply(){
+        $hostname = '{imap.gmail.com:993/imap/ssl}INBOX';
+        $username = 'projectt541@gmail.com';
+        $password = '#project32';
+
+/* try to connect */
+        $inbox = imap_open($hostname,$username,$password) or die('Cannot connect to Gmail: ' . imap_last_error());
+
+/* grab emails */
+        $emails = imap_search($inbox,'UNSEEN');
+
+/* if emails are returned, cycle through each... */
+        if($emails) {
+	
+	
+	    $output = '';
+	
+	/* put the newest emails on top */
+	rsort($emails);
+	
+	/* for every email... */
+  
+	foreach($emails as $email_number) {
+		
+		/* get information specific to this email */
+		$overview = imap_fetch_overview($inbox,$email_number,0);
+		$message = imap_fetchbody($inbox,$email_number,2);
+		
+		/* output the email header information */
+  //  	$output.= '<div class="toggler '.($overview[0]->seen ? 'read' : 'unread').'">';
+	//	$output.= '<span class="subject">'.$overview[0]->subject.'</span> ';
+    //    $output.= '<span class="from">'.$overview[0]->from.'</span>';
+	//	$output.= '<span class="date">on '.$overview[0]->date.'</span>';
+	//	$output.= '</div>';
+		
+		/* output the email body */
+	//	$output.= '<div class="body">'.$message.'</div>';
+        $stmt=$this->mysqli->prepare("INSERT INTO supplier_reply(date,email,subject,description)
+        VALUES (?,?,?,?)"); 
+        if($stmt == false){
+           return 0;
+        }else{
+            $stmt->bind_param('ssss',$overview[0]->date,$overview[0]->from,$overview[0]->subject,$message);
+            $stmt->execute();
+        }
+            
+   
+	}
+   
+
+      
+}   
+
+
+   } 
+
+   public function view_inbox_email($id){
+    $query = $this->mysqli->query("SELECT * FROM supplier_reply  WHERE email_id=".$id." ");
+    while ($row = $query->fetch_assoc()) {
+        $result = $row;
+    }
+    return $result;
+   }
+
+   public function view_inbox_delete($id){
+    $stmt = $this->mysqli->prepare("DELETE FROM supplier_reply WHERE email_id = ?");
+   
+    if($stmt==false){
+        return 0;
+    }else{
+        $stmt->bind_param("i", $id);
+         return  $stmt->execute();
+    }
+  
+
+   }
     
 }

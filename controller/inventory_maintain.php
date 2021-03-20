@@ -3,7 +3,7 @@ require_once("../model/inventory_maintain_model.php");
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-//session_start();
+session_start();
 class inventory_maintain
 {
     public function __construct()
@@ -120,8 +120,8 @@ class inventory_maintain
          // print_r($row['p_name']);
           // echo "<br>";
     //      print_r($row['p_id']);
-         $_SESSION['product_details']=$row;
-        // print_r($_SESSION['product_details']);
+         $_SESSION['product_details1']=$row;
+      //   print_r($_SESSION['product_details1']);
         header('location: ../views/update_product.php');
 
     }
@@ -394,6 +394,7 @@ class inventory_maintain
    }
 
    public function inbox_supplier($row){
+       $this->inven->suplier_reply();
         $row1=$this->inven->inbox_supplier($row);
    //  print_r($row1);
          if($row1!=""){
@@ -405,6 +406,43 @@ class inventory_maintain
        }  
    }
 
+   public function view_categories(){
+        $row=$this->inven->view_categories();
+        return $row;
+   }
+
+   public function view_brands(){
+        $row=$this->inven->view_brands();
+        return $row;
+   }
+
+   public function view_models(){
+    $row=$this->inven->view_models();
+    return $row;
+    }
+
+    public function view_inbox_email($id){
+        $row = $this->inven->view_inbox_email($id);
+     //   print_r($row['email_id']);
+        if($row!=""){  
+           $_SESSION['view_inbox_email']=$row;
+          header('location:../views/view_inbox.php');
+        }else{
+            $_SESSION['view_inbox_email']="No details";
+            header('location:../views/view_inbox.php');
+        }
+    }
+
+    public function view_inbox_delete($id){
+        $row = $this->inven->view_inbox_delete($id);
+        if($row =="0"){
+          // print_r("no");
+            header('location:../views/inbox_supplier_reply.php');
+        }else{
+           // print_r("yes");
+            header('location:../views/inbox_supplier_reply.php'); 
+        }
+    }
 
 
 }
@@ -494,6 +532,15 @@ else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //re
 
 }else if(isset($_GET['action']) && $_GET['action'] == 'count_reminderitems'){   //reshani
     $controller->count_reminderitems();
+}else if(isset($_GET['action']) && $_GET['action'] == 'view_inbox'){   
+    $id=$_GET["id"];
+  //  print_r($id);
+   $controller->view_inbox_email($id);
+}else if(isset($_GET['action']) && $_GET['action'] == 'view_inbox_delete'){   
+    $id=$_GET["id"];
+  //  print_r($id);
+   $controller->view_inbox_delete($id);
 }
+
 
 
