@@ -1,9 +1,9 @@
 <?php
 include 'clerk_sidebar.php';
+session_start();
+$row=$_SESSION['view_inbox_email'];
+//print_r($row);
 ?>
-<?php
-?>
-
 <head>
 <link rel="stylesheet" href="../public/css/update.css">
 <link rel="stylesheet" href="../public/css/email.css">
@@ -18,12 +18,12 @@ include 'clerk_sidebar.php';
             <tbody>
                 <tr id="email-tr">
                     <td class="bold">From</td>
-                    <td><input id="email-text" type="text" name="to" placeholder=""/></td>
+                    <td><input id="email-text" type="text" name="to" placeholder="<?php echo $row['email'] ?>"/></td>
                 </tr>
               
                 <tr id="email-tr">
                     <td class="bold">Message</td>
-                    <td><textarea id="email-textarea" name="message" placeholder="" rows=4 cols=60></textarea></td>
+                    <td><textarea id="email-textarea" name="message" placeholder="<?php echo $row['description'] ?>" rows=4 cols=60></textarea></td>
                 </tr>
                 <tr id="email-tr">
                     <td colspan=2>
@@ -43,3 +43,4 @@ include 'clerk_sidebar.php';
 
 
 </body>
+
