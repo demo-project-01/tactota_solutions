@@ -233,11 +233,11 @@ class inventory_maintain_model
     }*/
 
     public function add_return_item($sup_id,$serial_no,$returned_date,$description){   //reshani,add retrun items to return_items_table
-        $stmt=$this->mysqli->prepare("INSERT INTO shop_return_items(sup_id,serial_no,returned_date,description) VALUES(?,?,?,?)");
+        $stmt=$this->mysqli->prepare("INSERT INTO shop_return_items(sup_id,returned_date,description,item_id) VALUES(?,?,?,?)");
         if($stmt==false){
             return 0;
         }else{
-            $stmt->bind_param('ssss',$sup_id,$serial_no,$returned_date,$description);
+            $stmt->bind_param('ssss',$sup_id,$returned_date,$description,$item_id);
             return $stmt->execute();
         
         }
