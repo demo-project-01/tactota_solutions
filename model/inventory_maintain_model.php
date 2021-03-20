@@ -201,7 +201,10 @@ class inventory_maintain_model
         return $result;
     }
     public function display_returnitem($id){          //reshani, display one return item details
+<<<<<<< Updated upstream
         $result="";
+=======
+>>>>>>> Stashed changes
         $query=$this->mysqli->query("SELECT items.serial_no,product_list.p_id,category.category_name,brand.brand_name,model.model_name,items.item_id FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id WHERE items.serial_no='" . $id . "'");
         while ($row = $query->fetch_assoc()) {
             $result= $row;

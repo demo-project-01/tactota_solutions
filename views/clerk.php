@@ -5,7 +5,11 @@
    $sql=$data->display_few_reminders();
    $sql1=$data->countsuppliers();
    $sql2=$data->count_reminderitems();
+<<<<<<< Updated upstream
   // print_r($sql1);
+=======
+  //print_r($sql2);
+>>>>>>> Stashed changes
 ?>
 <body>
 <div class="content" style="width:auto;">

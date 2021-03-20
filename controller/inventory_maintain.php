@@ -151,10 +151,17 @@ class inventory_maintain
     public function display_reminders(){   //reshani
         return $this->inven->display_stockreminders();
     }
+<<<<<<< Updated upstream
     public function countsuppliers(){              //reshani clerk dashboard
         return $this->inven->count_suppliers();
     }
     public function count_reminderitems(){      //reshani  clerk dashboard
+=======
+    public function countsuppliers(){              //reshani
+        return $this->inven->count_suppliers();
+    }
+    public function count_reminderitems(){      //reshani
+>>>>>>> Stashed changes
         return $this->inven->count_reminder_items();
     }
     public function reminderitems_suppliers($id){    //nuwan
@@ -404,6 +411,7 @@ class inventory_maintain
        }else if($row1==0) {
            echo "NOT FOUND";
        }  
+<<<<<<< Updated upstream
    }
 
    public function view_categories(){
@@ -414,6 +422,8 @@ class inventory_maintain
    public function view_brands(){
         $row=$this->inven->view_brands();
         return $row;
+=======
+>>>>>>> Stashed changes
    }
 
    public function view_models(){
@@ -443,6 +453,7 @@ class inventory_maintain
             header('location:../views/inbox_supplier_reply.php'); 
         }
     }
+
 
 
 }
@@ -532,6 +543,7 @@ else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //re
 
 }else if(isset($_GET['action']) && $_GET['action'] == 'count_reminderitems'){   //reshani
     $controller->count_reminderitems();
+<<<<<<< Updated upstream
 }else if(isset($_GET['action']) && $_GET['action'] == 'view_inbox'){   
     $id=$_GET["id"];
   //  print_r($id);
@@ -540,6 +552,8 @@ else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //re
     $id=$_GET["id"];
   //  print_r($id);
    $controller->view_inbox_delete($id);
+=======
+>>>>>>> Stashed changes
 }
 
 
