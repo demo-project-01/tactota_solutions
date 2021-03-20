@@ -30,12 +30,12 @@ $limit = 8;
 
              <td><?php echo $sql[$k]["date"] ?></td>
              <td><?php echo $sql[$k]["email"] ?></td>
-             <td><?php echo $sql[$k]["description"] ?></td>
+             <td><?php echo $sql[$k]["subject"] ?></td>
          
 
            
-             <td><a href="view_inbox.php" title="View"><i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
-             <td><a href="#" title="Delete"><i class="fa fa-trash-o" aria-hidden="true" id="tbl-icon"></i></a></td>
+             <td><a href="../controller/inventory_maintain.php?action=view_inbox&id=<?php echo $sql[$k]["email_id"]; ?>" title="View"><i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
+             <td><a href="../controller/inventory_maintain.php?action=view_inbox_delete&id=<?php echo $sql[$k]["email_id"]; ?>" title="Delete"><i class="fa fa-trash-o" aria-hidden="true" id="tbl-icon"></i></a></td>
             </tr>
   <?php
 
