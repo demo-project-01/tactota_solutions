@@ -1,5 +1,5 @@
 <?php
-//include 'shopkeeper_sidebar.php';
+include 'shopkeeper_sidebar.php';
 require '../controller/inventory_maintain.php';
 $row=$_SESSION['return_item'];
 ?>
