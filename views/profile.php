@@ -52,14 +52,14 @@ if($row['position']=="Clerk"){
                 <tr>
                     <th>Address</th>
                     <td>
-                    <input type="text" name="address" value="<?php echo $row['address'] ?>">
+                    <input type="text" name="address" value="<?php echo $row['address'] ?>"required="">
 
                     </td>
                 </tr>
                 <tr>
                     <th>Mobile Number</th>
                     <td>
-                    <input type="text" name="mobile_no" value="<?php echo $row['mobile_no'] ?>">
+                    <input type="text" name="mobile_no" value="<?php echo $row['mobile_no'] ?>"required="">
                     </td>
                 </tr>
                 <tr>
@@ -93,7 +93,7 @@ if($row['position']=="Clerk"){
                 <tr>
                     <th>Email</th>
                     <td>
-                    <input type="text" name="email" value="<?php echo $row['email'] ?>" >
+                    <input type="text" name="email" value="<?php echo $row['email'] ?>"required="" >
 
                     </td>
                 </tr>
