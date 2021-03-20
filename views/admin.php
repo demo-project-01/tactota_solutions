@@ -2,11 +2,13 @@
    include 'admin_sidebar.php';
    require '../controller/inventory_maintain.php';
     $data = new inventory_maintain();
-    $sql=$data->view_categories();
-    $a=array();
+    $sql=$data->sold_category_count();
+    $categories=array();
+    $count=array();
     foreach ($sql as $k => $v)
     {
-        array_push($a,$sql[$k]["category_name"]);
+        array_push($categories,$sql[$k]["category_name"]);
+        array_push($count,$sql[$k]["total"]);
     }
 ?>
 <head>
@@ -54,10 +56,10 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: <?php echo json_encode($a); ?>, /*use for convert php array into js array*/ 
+        labels: <?php echo json_encode($categories); ?>, /*use for convert php array into js array*/ 
         datasets: [{
             label: '# of Items',
-            data: [12, 19, 3, 5, 2],
+            data: <?php echo json_encode($count); ?>,
             backgroundColor: [
                 'rgba(255, 99, 132)',
                 'rgba(54, 162, 235)',

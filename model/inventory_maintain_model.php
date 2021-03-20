@@ -433,6 +433,14 @@ class inventory_maintain_model
         }
         return $result;
     }
+    public function sold_category_count()
+    {
+        $query = $this->mysqli->query("SELECT category.category_name,count(category_name) as total FROM purchase,items,product_list, category WHERE purchase.item_id=items.item_id AND items.p_id=product_list.p_id AND category.category_id=product_list.category_id group by category_name ");
+        while ($row = $query->fetch_assoc()) {
+            $result[]= $row;
+        }
+        return $result;
+    }
     
     public function suplier_reply(){
         $hostname = '{imap.gmail.com:993/imap/ssl}INBOX';
