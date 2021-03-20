@@ -5,9 +5,9 @@ include 'clerk_sidebar.php';
 ?>
 <?php
  session_start();
-  $row=$_SESSION['product_details'];
- // print_r($row);
- // print_r($row['p_name']);
+  $row=$_SESSION['product_details1'];
+  //print_r($row);
+ //print_r($row['p_name']);
  // print_r($row['p_id']);
 //print_r($_SESSION['emp_id']);
  //print_r($_SESSION['product_details']);
@@ -30,7 +30,7 @@ include 'clerk_sidebar.php';
                 <tr>
                     <th>Product Name</th>
                     <td>
-                        <input type='text'class="text"  placeholder="Product Name" name="p_name" value="<?php echo $row['p_name'] ?>" disabled>
+                        <input type='text'class="text"  placeholder="Product Name" name="p_name" value="<?php echo $row['category_name'] ?>" disabled>
                     </td>
                 </tr>
                 <tr>
@@ -40,7 +40,7 @@ include 'clerk_sidebar.php';
                 </tr>
                 <tr>
                     <th>Model Number</th>
-                    <td>   <input type='text'  placeholder="Model No" name="model_no" value="<?php echo $row['model_no'] ?>" disabled>
+                    <td>   <input type='text'  placeholder="Model No" name="model_no" value="<?php echo $row['model_name'] ?>" disabled>
                     </td>
                 </tr>
 
@@ -51,7 +51,7 @@ include 'clerk_sidebar.php';
                 </tr>
                 <tr>
                     <th>Cost per Item</th>
-                    <td>   <input type='text' class="text" name="p_cost" value="<?php echo $row['p_cost'] ?>"disabled >
+                    <td>   <input type='text' class="text" name="p_cost" value="<?php echo $row['unit_price'] ?>"disabled >
                     </td>
                 </tr>
                 <tr>
@@ -61,7 +61,7 @@ include 'clerk_sidebar.php';
                 </tr>
                 <tr>
                     <th>Warrenty Period (months)</th>
-                    <td><input type='text'  placeholder="" name="warranty" value="<?php echo $row['warranty'] ?>" ></td>
+                    <td><input type='text'  placeholder="" name="warranty" value="<?php echo $row['warrenty'] ?>" ></td>
                 </tr>
 
                 <tr>

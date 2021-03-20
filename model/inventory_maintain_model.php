@@ -119,7 +119,7 @@ class inventory_maintain_model
     public function get_product_details_search($row){
         //   $result = "";
         //$query = $this->mysqli->query("SELECT DISTINCT * FROM  product INNER JOIN supplier_product ON product.p_id=supplier_product.p_id INNER JOIN item ON product.p_id=item.p_id AND product_status=1 WHERE product.p_name LIKE  '%" . $row . "%' OR product.brand_name LIKE  '%" . $row . "%' OR product.model_no LIKE  '%" . $row . "%' ");
-        $query = $this->mysqli->query("SELECT DISTINCT * FROM  product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id  WHERE category.category_name LIKE  '%" . $row . "%' OR brand.brand_name LIKE  '%" . $row . "%' OR model.model_name LIKE  '%" . $row . "%' ");
+        $query = $this->mysqli->query("SELECT DISTINCT * FROM   product_list INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id INNER JOIN category ON product_list.category_id=category.category_id WHERE category.category_name LIKE  '%" . $row . "%' OR brand.brand_name LIKE  '%" . $row . "%' OR model.model_name LIKE  '%" . $row . "%' ");
         if ($query->num_rows > 0) {
             while ($row = $query->fetch_assoc()) {
                 $result[] = $row;
@@ -133,7 +133,7 @@ class inventory_maintain_model
 
     public function get_view_product_details($id){
        $result = "";
-        $query = $this->mysqli->query("SELECT product.p_id,product.p_name,product.brand_name,product.model_no,product.quantity,product.p_cost,product.reorder_level,product.warranty,item.sales_price FROM  product INNER JOIN item ON product.p_id=item.p_id AND product.p_id='" . $id . "'");
+        $query = $this->mysqli->query("SELECT * FROM   product_list INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id INNER JOIN category ON product_list.category_id=category.category_id AND product_list.p_id='" . $id . "'");
         while ($row = $query->fetch_assoc()) {
             $result = $row;
         }
@@ -141,8 +141,8 @@ class inventory_maintain_model
     }
 
     public function update_product_details($id,$reorder_level,$warranty,$sales_price){
-        $stmt = $this->mysqli->prepare("UPDATE product INNER JOIN item ON product.p_id =item.p_id  SET product.reorder_level= ? ,  product.warranty= ?,  item.sales_price= ?
-                                        WHERE product.p_id=?");
+        $stmt = $this->mysqli->prepare("UPDATE product_list INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id  SET model.reorder_level= ? ,  product_list.warranty= ?,  model.sales_price= ?
+                                        WHERE product_list.p_id=?");
         if($stmt==FALSE)
             return 0;
         else{
@@ -152,16 +152,32 @@ class inventory_maintain_model
     }
      public function display_stockreminders(){   //reshani  ,view stock reminders
        // $result="";
+         
          $query=$this->mysqli->query("SELECT product_list.p_id,category.category_name,brand.brand_name,model.model_name FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id WHERE model.total_quantity<=model.reorder_level AND YEAR(CURRENT_DATE())-YEAR(supplier_product.date)<1");  /*modified*/
          while ($row = $query->fetch_assoc()) {
-             $result[] = $row;
+             $result[] = $row;   
          }
-         return $result;
+         return $result;   
      }
+    public function count_suppliers(){   //reshani
+        $query=$this->mysqli->query("SELECT COUNT(sup_id) FROM supplier");
+        while ($row = $query->fetch_assoc()) {
+            $result = $row;   
+        }
+        return $result;  
+     }
+    public function count_reminder_items(){   //reshani
+        $query=$this->mysqli->query("SELECT COUNT(model.total_quantity<=model.reorder_level AND YEAR(CURRENT_DATE())-YEAR(supplier_product.date)<1) FROM supplier_product,model");
+        while ($row = $query->fetch_assoc()) {
+            $result = $row;   
+        }
+        return $result;   
+    }
+
      public function display_few_stockreminders(){   //reshani  ,view few stock reminders in clerk dashbaord
         // $result="";
    //$query=$this->mysqli->query("SELECT * FROM product WHERE quantity<=reorder_level ORDER BY p_id LIMIT 5");
-   $query=$this->mysqli->query("SELECT DISTINCT category.category_name,brand.brand_name FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE model.total_quantity<=model.reorder_level ORDER BY category.category_name LIMIT 5");
+   $query=$this->mysqli->query("SELECT DISTINCT category.category_name,brand.brand_name FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id WHERE model.total_quantity<=model.reorder_level AND YEAR(CURRENT_DATE())-YEAR(supplier_product.date)<1 ORDER BY category.category_name LIMIT 5");
 
          while ($row = $query->fetch_assoc()) {
              $result[] = $row;
@@ -185,7 +201,7 @@ class inventory_maintain_model
         return $result;
     }
     public function display_returnitem($id){          //reshani, display one return item details
-        $query=$this->mysqli->query("SELECT product_list.p_id,category.category_name,brand.brand_name,model.model_name,items.serial_no,items.item_id FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id WHERE items.item_id='" . $id . "'");
+        $query=$this->mysqli->query("SELECT items.serial_no,product_list.p_id,category.category_name,brand.brand_name,model.model_name,items.item_id FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id WHERE items.serial_no='" . $id . "'");
         while ($row = $query->fetch_assoc()) {
             $result= $row;
         }
@@ -379,31 +395,9 @@ class inventory_maintain_model
         }
     }
 
-    public function inbox_supplier_count(){
-        $query = $this->mysqli->query("SELECT email_id FROM supplier_reply");
-        if ($query->num_rows > 0) {
-         while ($row = $query->fetch_assoc()) {
-             $result[] = $row;
-         }
-         return $result;
-     }else
-     {
-         return 0;
-     }
-    }
-
      
-    public function inbox_supplier($id,$page1){
-        $limit = 8;
-        $page2 = 1;
-        if($page1>1){
-            $page = $page1;
-        }else{
-            $page = $page2;
-        }
-
-        $start_from = ($page-1) * $limit;
-        $query = $this->mysqli->query("SELECT * FROM supplier_reply  WHERE date LIKE  '%" . $id . "%' OR email LIKE  '%" . $id . "%' LIMIT $start_from,$limit ");
+    public function inbox_supplier($id){
+        $query = $this->mysqli->query("SELECT * FROM supplier_reply  WHERE date LIKE  '%" . $id . "%' OR email LIKE  '%" . $id . "%' ");
         if ($query->num_rows > 0) {
          while ($row = $query->fetch_assoc()) {
              $result[] = $row;
@@ -439,12 +433,6 @@ class inventory_maintain_model
         }
         return $result;
     }
-    /*public function cat_brand_model($id)
-    {
-        $query = $this->mysqli->query("SELECT * FROM product_list AS p JOIN category AS c ON p.category_id=c.category_id JOIN brand AS b ON p.brand_id=b.brand_id JOIN model AS m ON p.model_id=m.model_id");
-        while ($row = $query->fetch_assoc()) {
-            $result[]= $row;
-        }
-        return $result;
-    }*/
+    
+    
 }
