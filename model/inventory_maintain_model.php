@@ -197,7 +197,7 @@ class inventory_maintain_model
         return $result;  
     }
     public function count_stock_details(){
-        $query=$this->mysqli->query("SELECT COUNT( DISTINCT product_list.category_id) FROM product_list");
+        $query=$this->mysqli->query("SELECT COUNT( DISTINCT product_list.category_id) FROM product_list WHERE product_list.product_status!=0");
         while ($row = $query->fetch_assoc()) {
             $result = $row;   
         }
