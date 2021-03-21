@@ -194,6 +194,7 @@ class inventory_maintain
         $returned_date=date("Y-m-d");
         $sup_id=$this->inven->get_supid_serial_no( $serial_no);
         $item_id=$this->inven->get_item_id($serial_no);
+        $model_no=$_POST['model_name'];
         /*printf($item_id);
         printf($sup_id);
         printf($serial_no);
@@ -202,8 +203,8 @@ class inventory_maintain
         printf($item_status);*/
        //$serial_no=$this->inven->get_supid_serial_no1();
 
-        if($this->inven->add_return_item($sup_id,$returned_date,$description,$item_id)){
-            if($this->inven->add_item_status($item_status,$item_id)){
+       if($this->inven->add_return_item($sup_id,$returned_date,$description,$item_id)){
+            if($this->inven->add_item_status($item_status,$item_id,$model_no)){
                 header('location: ../views/shopkeeper_return_items.php');
             }
             
@@ -213,8 +214,11 @@ class inventory_maintain
 
     }
 
-    public function display_returnitem_details(){   //reshani
-        return $this->inven->diplay_return_items();
+    public function display_shop_returnitem_details(){   //reshani
+        return $this->inven->diplay_shop_return_items();
+    }
+    public function display_cus_returnitem_details(){   //reshani
+        return $this->inven->diplay_cus_return_items();
     }
     public function display_shopkeeper_return_items(){  //reshani
         return $this->inven->shopkeeper_return_items();
