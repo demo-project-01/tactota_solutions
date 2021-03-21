@@ -201,6 +201,7 @@ class inventory_maintain_model
         return $result;
     }
     public function display_returnitem($id){          //reshani, display one return item details
+
         $result="";
         $query=$this->mysqli->query("SELECT items.serial_no,product_list.p_id,category.category_name,brand.brand_name,model.model_name,items.item_id FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id WHERE items.serial_no='" . $id . "'");
         while ($row = $query->fetch_assoc()) {
@@ -218,12 +219,21 @@ class inventory_maintain_model
     }
     public function get_supid_serial_no($serial_no){   //reshani
         $result="";
-        $query=$this->mysqli->query("SELECT supplier.sup_id,item.serial_no FROM  supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN item ON supplier_product.p_id=item.p_id AND item.serial_no LIKE '$serial_no'");
+        $query=$this->mysqli->query("SELECT supplier.sup_id,items.serial_no FROM  supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN items ON supplier_product.p_id=items.p_id AND items.serial_no LIKE '$serial_no'");
         while ($row = $query->fetch_assoc()) {
             $result= $row['sup_id'];
         }
         return $result;
     }
+    public function get_item_id($serial_no){   //reshani
+        $result="";
+        $query=$this->mysqli->query("SELECT items.item_id FROM items WHERE items.serial_no='" . $serial_no . "'");
+        while ($row = $query->fetch_assoc()) {
+            $result= $row['item_id'];
+        }
+        return $result;
+    }
+
   /*  public function get_supid_serial_no1(){   //reshani
         $query=$this->mysqli->query("SELECT supplier.sup_id,item.serial_no FROM  supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN item ON supplier_product.p_id=item.p_id");
        // $query=$this->mysqli->query("SELECT item.serial_no FROM  supplier_product INNER JOIN item ON supplier_product.p_id=item.p_id");
@@ -233,22 +243,22 @@ class inventory_maintain_model
         return $result;
     }*/
 
-    public function add_return_item($sup_id,$serial_no,$returned_date,$description){   //reshani,add retrun items to return_items_table
-        $stmt=$this->mysqli->prepare("INSERT INTO shop_return_items(sup_id,serial_no,returned_date,description) VALUES(?,?,?,?)");
+    public function add_return_item($sup_id,$returned_date,$description,$item_id){   //reshani,add retrun items to return_items_table
+        $stmt=$this->mysqli->prepare("INSERT INTO shop_return_items(sup_id,returned_date,description,item_id) VALUES(?,?,?,?)");
         if($stmt==false){
             return 0;
         }else{
-            $stmt->bind_param('ssss',$sup_id,$serial_no,$returned_date,$description);
+            $stmt->bind_param('ssss',$sup_id,$returned_date,$description,$item_id);
             return $stmt->execute();
         
         }
     }
-    public function add_item_status($item_status,$serial_no){
-        $stmt = $this->mysqli->prepare("UPDATE items SET item_status= ? WHERE serial_no=?");
+    public function add_item_status($item_status,$item_id){     //reshani 
+        $stmt = $this->mysqli->prepare("UPDATE items SET item_status= ? WHERE item_id=?");
         if($stmt==FALSE)
             return 0;
         else{
-            $stmt->bind_param('ss',$item_status,$serial_no);
+            $stmt->bind_param('ss',$item_status,$item_id);
             return $stmt->execute();
         }
 
