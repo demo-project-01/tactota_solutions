@@ -5,7 +5,10 @@ require '../controller/sales.php ';
 //session_start();
 //$data=new sales();
 //$values=$data->add_id($id);
-$values=$_SESSION["purchase"];
+if(!empty($_SESSION["purchase"])){
+    $values=$_SESSION["purchase"];
+}
+
 
 if(isset($_GET['action']))
 {  

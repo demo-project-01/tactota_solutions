@@ -246,7 +246,7 @@ public function add_new_product($category_id, $product_cost, $brand_id, $reorder
         $stmt4->bind_param('s',$serial_no[$j]); 
         $stmt4->execute();
        }   
-         
+         return 1;
       
     }
 

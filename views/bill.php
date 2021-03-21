@@ -161,7 +161,7 @@ $row=$data->get_bill_no();
                     <td></td>
                     <td align="right">Total amount</td>
                     <td><?php echo number_format($total_p,2) ?></td>
-                    <input type="hidden" name="hidden_total" value="<?php echo number_format($total_p,2) ?>" >
+                    <input type="hidden" name="hidden_total" value="<?php echo ($total_p) ?>" >
         </tr>
         <?php
       }?>
