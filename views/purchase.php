@@ -6,7 +6,7 @@ require '../controller/sales.php ';
 //$purchase=$_SESSION["purchase"];
 $data=new sales();
 $sql=$data->valid_prodcuts();
-session_start();
+//session_start();
 //print_r($_SESSION['purchase']);
 
   if(isset($_POST["add_to_bill"]))

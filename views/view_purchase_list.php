@@ -2,7 +2,7 @@
 //view purchase details in shopkeeper
 include 'shopkeeper_sidebar.php';
 require '../controller/sales.php ';
-session_start();
+//session_start();
 //$data=new sales();
 //$values=$data->add_id($id);
 $values=$_SESSION["purchase"];
@@ -19,7 +19,7 @@ if(isset($_GET['action']))
         }
     }
     else if($_GET["action"]=="clear"){ 
-        session_unset();
+        unset($_SESSION["purchase"]);
         echo'<script>alert("Clear list")</script>';
         echo'<script>window.location=purchase.php</script>';
     }

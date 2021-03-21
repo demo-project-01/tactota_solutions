@@ -1,5 +1,8 @@
 <?php
    include 'admin_sidebar.php';
+   require '../controller/sales.php';
+   $data=new sales();
+   $sql=$data->view_cheques();
 ?>
 <head>
 <link rel="stylesheet" href="../public/css/view_user.css">
@@ -14,43 +17,30 @@
        <table>
          <thead>
             <tr>
-               <th>Cheque ID</th>
+               <th>Cheque Number</th>
+               <th>Bill Number</th>
                <th>Bank Name</th>
                <th>Amount </th>
                <th>Due Date</th>             
             </tr>
          </thead>
          <tboady>
-         <tr>
-            <td>CHE001</td>
-            <td>BOC</td>
-            <td>20,000/=</td>
-            <td>2020-11-10</td>
-         </tr>
-         <tr>
-            <td>CHE002</td>
-            <td>BOC</td>
-            <td>20,000/=</td>
-            <td>2020-11-15</td>
-         </tr>
-         <tr>
-            <td>CHE003</td>
-            <td>NSB</td>
-            <td>50,000/=</td>
-            <td>2020-11-12</td>
-         </tr>
-         <tr>
-            <td>CHE004</td>
-            <td>HNB</td>
-            <td>20,000/=</td>
-            <td>2020-12-10</td>
-         </tr>
-         <tr>
-            <td>CHE005</td>
-            <td>NDB</td>
-            <td>60,000/=</td>
-            <td>2020-10-10</td>
-         </tr>
+         <?php
+
+foreach ($sql as $k => $v)
+{
+    ?>
+    <tr>
+        
+        <td><?php echo $sql[$k]["cheque_id"] ?></td>
+        <td><?php echo $sql[$k]["bill_no"] ?></td>
+        <td><?php echo $sql[$k]["bank_name"] ?></td>
+        <td><?php echo $sql[$k]["amount"] ?></td>
+        <td><?php echo $sql[$k]["due_date"] ?></td>
+        
+    </tr>
+    <?php
+} ?>
          </tbody>
        </table>
     </div>

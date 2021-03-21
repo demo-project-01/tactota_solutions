@@ -315,6 +315,9 @@ class sales
         header('location: ../views/cashbill_details.php');
        }
     }
+    public function view_cheques(){
+        return $this->sale->get_cheques_details();
+    }
 
 }
 $controller = new sales();

@@ -400,5 +400,13 @@ public function get_payment_method($id){
     }
    return $result;
 }
+public function get_cheques_details(){
+    $query = $this->mysqli->query("SELECT cheque.cheque_id,cheque.bank_name,cheque.due_date,bill.amount,cheque.bill_no from cheque INNER JOIN bill ON cheque.bill_no=bill.bill_no order by cheque.due_date ASC");
+    while ($row = $query->fetch_assoc()) {
+        $result[] = $row;
+    }
+  return $result;
+
+}
     
 }

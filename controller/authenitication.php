@@ -28,11 +28,7 @@ class authenitication
     public function login()
     {
 
-<<<<<<< Updated upstream
-         
-=======
            // $this->auth->suplier_reply();
->>>>>>> Stashed changes
             $username = $_POST['username'];
             $password = md5($_POST['password']);
 

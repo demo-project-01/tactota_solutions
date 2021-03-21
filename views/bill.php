@@ -1,7 +1,7 @@
 <?php
 include 'shopkeeper_sidebar.php';
 require '../controller/sales.php';
-session_start();
+//session_start();
 $data=new sales();
 //$sql=$data->get_product_details();
 $row=$data->get_bill_no();
