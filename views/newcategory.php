@@ -5,7 +5,7 @@ require '../controller/sales.php';
 $data=new sales();
 $sql=$data->get_supplier_names();
 //print_r($sql);
-session_start();
+//session_start();
 //print_r($_SESSION['addnewproduct']);
 ?>
 
@@ -36,6 +36,7 @@ session_start();
                     <th>Category Name</th>
                     <td>
                         <input class="text" id="category_name" type="text" name="category_name" required="">
+                        <span id='uname1'></span>
                     </td>
                 </tr>
                 
@@ -52,3 +53,41 @@ session_start();
 	    <p>© Tactota Solutions All rights reserved </p>
     </div>
 </div>
+
+<script>
+ $('document').ready(function() {
+ 
+ var category_name_state = false;
+ 
+
+  $('#category_name').on('blur', function(){
+      var category_name = $('#category_name').val();
+      if (category_name == '') {
+          category_name_state = false;
+          return;
+      }
+      $.ajax({
+          url: '../controller/sales.php?action=check_category',
+          type: 'post',
+          data: {
+              'category_name' : category_name
+          },
+          success: function(response){
+       //     $('#uname1').html('already taken').css('color','red');
+              if (response == 'taken' ) {
+                  category_name_state = false;
+                  $('#uname1').html('already taken').css('color','red');
+              }else if (response == 'not_taken') {
+                  category_name_state = true;
+
+                  $('#uname1').html('available').css('color','green');
+              }
+          }
+      });
+  });
+
+
+
+});
+
+</script>

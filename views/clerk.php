@@ -5,6 +5,9 @@
    $sql=$data->display_few_reminders();
    $sql1=$data->countsuppliers();
    $sql2=$data->count_reminderitems();
+   $sql3=$data->countproducts();
+   $sql4=$data->countsold_items();
+   $sql5=$data->countstock_details();
   // print_r($sql1);
 ?>
 <body>
@@ -24,11 +27,15 @@
         </a>    
     
         <a href ="view_all_products.php">
+        <?php
+        foreach ($sql3 as $k => $v){
+            ?>
             <div class= "dash2">
                 <b><p class="dash">PRODUCTS</p></b>
                 <i class="fa fa-table fa-3x icon-right" aria-hidden="true"></i>
-                <b><p class="infor">25 Record(s)</p></b>
+                <b><p class="infor"><?php echo $sql3[$k] ?> Record(s)</p></b>
             </div>
+            <?php }?>  
         </a>
 
         <a href ="inbox_supplier_reply.php">
@@ -55,19 +62,27 @@
         </a>    
     
         <a href ="report_sold_out_items_clerk.php"> 
+        <?php
+        foreach ($sql4 as $k => $v){
+            ?>
             <div class= "dash4">
                 <b><p class="dash">SOLD ITEMS</p></b>
                 <i class="fas fa-cart-arrow-down fa-3x icon-right"></i>
-                <b><p class="infor">5 Record(s)</p></b>
+                <b><p class="infor"><?php echo $sql4[$k] ?> Record(s)</p></b>
             </div>
+            <?php }?>
          </a>
 
         <a href ="report_products_clerk.php"> 
+        <?php
+        foreach ($sql5 as $k => $v){
+            ?>
             <div class= "dash6">
                 <b><p class="dash">STOCK DETAILS</p></b>
                 <i class="fas fa-store fa-3x icon-right"></i>
-                <b><p class="infor">5 Record(s)</p></b>
+                <b><p class="infor"><?php echo $sql5[$k] ?>Record(s)</p></b>
             </div>
+            <?php }?>
          </a>
     </div>
     

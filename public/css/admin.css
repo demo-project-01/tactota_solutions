@@ -115,7 +115,7 @@ html,body{
     margin-bottom: 0;
   }
  .incomes{
-   margin-top: -25px;
+    margin-top: -25px;
     font-size: 17px;     /*modifed*/
     padding-top: 30px;    /*modifed*/
     text-align: center;
@@ -157,7 +157,7 @@ html,body{
  .income2:hover {
   -ms-transform: scale(1.2); 
   -webkit-transform: scale(1.2); 
-  transform: scale(1.2); 
+  transform: scale(1.2);
 }
  .income3{
   transition: transform .2s;

@@ -174,14 +174,35 @@ class inventory_maintain_model
         return $result;   
     }
 
-    public function count_verified_users(){
+    public function count_verified_users(){    //reshani
         $query=$this->mysqli->query("SELECT COUNT(emp_id) FROM user_account WHERE user_account.verified!=0");
         while ($row = $query->fetch_assoc()) {
             $result = $row;   
         }
         return $result;  
     }
-    
+
+    public function count_products(){   //reshani
+        $query=$this->mysqli->query("SELECT COUNT(category.category_id) FROM category");
+        while ($row = $query->fetch_assoc()) {
+            $result = $row;   
+        }
+        return $result;  
+    }
+    public function count_sold_items(){
+        $query=$this->mysqli->query("SELECT COUNT(purchase.item_id) FROM purchase");
+        while ($row = $query->fetch_assoc()) {
+            $result = $row;   
+        }
+        return $result;  
+    }
+    public function count_stock_details(){
+        $query=$this->mysqli->query("SELECT COUNT( DISTINCT product_list.category_id) FROM product_list");
+        while ($row = $query->fetch_assoc()) {
+            $result = $row;   
+        }
+        return $result;  
+    }
     
 
      public function display_few_stockreminders(){   //reshani  ,view few stock reminders in clerk dashbaord

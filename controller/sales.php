@@ -244,6 +244,19 @@ class sales
                  }
       } }
     */
+
+
+    public function check_category(){
+        $category_name = $_POST['category_name'];
+        $row1 = $this->sale->check_new_category($category_name);
+        if($row1 != "0" )
+        {
+            echo "taken";
+        }else{
+            echo "not_taken";
+        }
+    }
+
     public function add_category(){
         $category_name = $_POST['category_name'];
         
@@ -336,6 +349,20 @@ class sales
         
     }
 
+    public function get_sales_price(){
+        $category = $_SESSION['category'];
+        $brand = $_SESSION['brand'];
+        $model = $_SESSION['model'];
+
+        $row=$this->sale->get_sales_price($category,$brand,$model);
+          if($row !="0"){
+             echo 1000;
+          }else{
+
+          }
+
+    }
+
 }
 $controller = new sales();
 if(isset($_GET['action']) && $_GET['action'] == "get_supplier_names") {
@@ -388,5 +415,11 @@ else if(isset($_GET['action']) && $_GET['action'] == 'add_new_model') {
 }else if(isset($_GET['action']) && $_GET['action'] == 'remove_cheque') {
     $id=$_GET['id'];
     $controller->remove_cheque($id);
+}else if(isset($_GET['action']) && $_GET['action'] == 'get_sales_price') {
+  
+    $controller->get_sales_price();
+}else if(isset($_GET['action']) && $_GET['action'] == 'check_category') {
+  
+    $controller->check_category();
 }
 

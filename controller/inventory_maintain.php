@@ -163,6 +163,15 @@ class inventory_maintain
     public function count_users(){      //reshani
         return $this->inven->count_verified_users();
     }
+    public function countproducts(){     //reshani
+        return $this->inven->count_products();
+    }
+    public function countsold_items(){     //reshani
+        return $this->inven->count_sold_items();
+    }
+    public function countstock_details(){   //reshani
+        return $this->inven->count_stock_details();
+    }
 
 
     public function reminderitems_suppliers($id){    //nuwan
@@ -549,12 +558,6 @@ else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //re
     $row=$_POST['query'];
     $controller->inbox_supplier($row);
 
-}else if(isset($_GET['action']) && $_GET['action'] == 'countsuppliers'){   //reshani
-    $controller->countsuppliers();
-
-}else if(isset($_GET['action']) && $_GET['action'] == 'count_reminderitems'){   //reshani
-    $controller->count_reminderitems();
-
 }else if(isset($_GET['action']) && $_GET['action'] == 'view_inbox'){   
     $id=$_GET["id"];
   //  print_r($id);
@@ -563,9 +566,23 @@ else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //re
     $id=$_GET["id"];
   //  print_r($id);
    $controller->view_inbox_delete($id);
-}
-else if(isset($_GET['action']) && $_GET['action'] == 'count_users'){   //reshani
+
+}else if(isset($_GET['action']) && $_GET['action'] == 'countsuppliers'){   //reshani
+    $controller->countsuppliers();
+
+}else if(isset($_GET['action']) && $_GET['action'] == 'count_reminderitems'){   //reshani
+    $controller->count_reminderitems();
+}else if(isset($_GET['action']) && $_GET['action'] == 'count_users'){   //reshani admin dashboard
     $controller->count_users();
+
+}else if(isset($_GET['action']) && $_GET['action'] == 'countproducts'){   //reshani
+    $controller->countproducts();
+
+}else if(isset($_GET['action']) && $_GET['action'] == 'countsold_items'){   //reshani
+    $controller->countsold_items();
+
+}else if(isset($_GET['action']) && $_GET['action'] == 'countstock_details'){   //reshani
+    $controller->countstock_details();
 
 }
 
