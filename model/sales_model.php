@@ -401,12 +401,26 @@ public function get_payment_method($id){
    return $result;
 }
 public function get_cheques_details(){
-    $query = $this->mysqli->query("SELECT cheque.cheque_id,cheque.bank_name,cheque.due_date,bill.amount,cheque.bill_no from cheque INNER JOIN bill ON cheque.bill_no=bill.bill_no order by cheque.due_date ASC");
+    $query = $this->mysqli->query("SELECT cheque.cheque_id,cheque.bank_name,cheque.due_date,bill.amount,cheque.bill_no from cheque INNER JOIN bill ON cheque.bill_no=bill.bill_no WHERE cheque.cheque_status=1 order by cheque.due_date ASC");
     while ($row = $query->fetch_assoc()) {
         $result[] = $row;
     }
   return $result;
 
+}
+public function get_cheque($cheque_id){
+      
+    $query = $this->mysqli->query("SELECT cheque.cheque_id,cheque.bank_name,cheque.due_date,cheque.received_date,bill.amount,cheque.bill_no from cheque INNER JOIN bill ON cheque.bill_no=bill.bill_no WHERE cheque.cheque_id='" .$cheque_id. "'");
+    while ($row = $query->fetch_assoc()) {
+        $result= $row;
+    }
+   return $result;
+}
+public function clear_cheque($id){
+    $stmt = $this->mysqli->prepare("UPDATE  cheque SET cheque_status=0 WHERE cheque_id=?");  
+    $stmt->bind_param('s',$id); 
+    return $stmt->execute();
+    
 }
     
 }

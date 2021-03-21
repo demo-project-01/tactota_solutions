@@ -319,6 +319,21 @@ class sales
         return $this->sale->get_cheques_details();
     }
 
+    public function view_cheque($id){
+        $row=$this->sale->get_cheque($id);
+        $_SESSION['cheque_details']=$row;
+        header('location: ../views/cheque_clearance.php');
+    }
+    public function remove_cheque($id){
+        if($this->sale->clear_cheque($id)){
+            header('location: ../views/view_all_cheques.php');
+        }else{
+            
+            echo'<script>alert("Error")</script>';
+        }
+        
+    }
+
 }
 $controller = new sales();
 if(isset($_GET['action']) && $_GET['action'] == "get_supplier_names") {
@@ -365,5 +380,11 @@ else if(isset($_GET['action']) && $_GET['action'] == 'add_new_model') {
 }else if(isset($_GET['action']) && $_GET['action'] == 'view_bill') {
     $id=$_GET['id'];
     $controller->view_bill($id);
+}else if(isset($_GET['action']) && $_GET['action'] == 'cheque_clearance') {
+    $id=$_GET['id'];
+    $controller->view_cheque($id);
+}else if(isset($_GET['action']) && $_GET['action'] == 'remove_cheque') {
+    $id=$_GET['id'];
+    $controller->remove_cheque($id);
 }
 

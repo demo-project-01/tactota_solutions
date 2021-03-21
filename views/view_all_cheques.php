@@ -21,7 +21,8 @@
                <th>Bill Number</th>
                <th>Bank Name</th>
                <th>Amount </th>
-               <th>Due Date</th>             
+               <th>Due Date</th>
+               <th>Action</th>             
             </tr>
          </thead>
          <tboady>
@@ -37,7 +38,8 @@ foreach ($sql as $k => $v)
         <td><?php echo $sql[$k]["bank_name"] ?></td>
         <td><?php echo $sql[$k]["amount"] ?></td>
         <td><?php echo $sql[$k]["due_date"] ?></td>
-        
+        <td><a href="../controller/sales.php?action=cheque_clearance&id=<?php  echo $sql[$k]["cheque_id"]; ?>" title="view">
+         <i class="fa fa-eye" aria-hidden="true" id="tbl-icon">&nbsp&nbspView</i></a>
     </tr>
     <?php
 } ?>
