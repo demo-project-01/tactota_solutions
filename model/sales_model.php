@@ -422,5 +422,19 @@ public function clear_cheque($id){
     return $stmt->execute();
     
 }
+
+public function get_sales_price($category,$brand,$model){
+    $result = "";
+    $query = $this->mysqli->query("SELECT sales_price FROM product_list INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN category ON product_list.category_id=category.category_id WHERE category.category_name='" . $category . "' AND brand.brand_name='".$brand."' AND model.model_name='".$model."'");
+    if ($query->num_rows > 0) {
+        while ($row = $query->fetch_assoc()) {
+            $result = $row['sales_price'];
+        }
+        return $result;
+    }else
+    {
+        return 0;
+    }
+}
     
 }
