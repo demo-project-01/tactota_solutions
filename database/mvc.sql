@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2021 at 07:50 PM
+-- Generation Time: Mar 21, 2021 at 10:29 PM
 -- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.0
+-- PHP Version: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,21 +40,11 @@ CREATE TABLE `bill` (
 --
 
 INSERT INTO `bill` (`bill_no`, `date_time`, `amount`, `payment_method`, `emp_id`) VALUES
-('B0001', '2020-12-01 00:00:00', 153600, 'cheque', 'EMP0044'),
-('B0002', '2020-12-01 00:00:00', 153600, 'cheque', 'EMP0044'),
-('B0003', '2020-12-01 00:00:00', 2000, 'cheque', 'EMP0044'),
-('B0004', '2020-12-02 00:00:00', 2000, 'cheque', 'EMP0044'),
-('B0005', '2020-12-02 00:00:00', 2000, 'cheque', 'EMP0044'),
-('B0006', '2020-12-03 00:00:00', 20000, 'cheque', 'EMP0044'),
-('B0007', '2020-12-03 00:00:00', 153600, 'cheque', 'EMP0044'),
-('B0008', '2020-12-01 00:00:00', 153600, 'cheque', 'EMP0044'),
-('B0009', '2020-12-03 00:00:00', 2000, 'cheque', 'EMP0044'),
-('B0010', '2020-12-02 00:00:00', 1950, 'cheque', 'EMP0044'),
-('B0011', '2020-12-01 00:00:00', 75000, 'cheque', 'EMP0044'),
-('B0012', '2020-12-02 00:00:00', 250000, 'cheque', 'EMP0044'),
-('B0013', '2020-12-03 00:00:00', 23000, 'cheque', 'EMP0044'),
-('B0014', '2020-07-29 00:00:00', 82000, 'cheque', 'EMP0044'),
-('B0015', '2020-05-06 00:00:00', 185000, 'cheque', 'EMP0044');
+('B0036', '2021-03-21 00:00:00', 220150, 'cheque', 'EMP0046'),
+('B0037', '2021-03-21 00:00:00', 186300, 'cash', 'EMP0046'),
+('B0038', '2021-03-11 00:00:00', 157800, 'cheque', 'EMP0046'),
+('B0039', '2021-03-21 00:00:00', 178500, 'cheque', 'EMP0046'),
+('B0040', '2021-03-22 00:00:00', 12800, 'cheque', 'EMP0046');
 
 -- --------------------------------------------------------
 
@@ -73,10 +63,13 @@ CREATE TABLE `brand` (
 
 INSERT INTO `brand` (`brand_id`, `brand_name`) VALUES
 (1, 'Lenovo'),
-(2, 'HP'),
-(3, 'Asus'),
-(4, 'AKG'),
-(5, 'Sony');
+(2, 'Asus'),
+(3, 'Sony'),
+(4, 'HP'),
+(5, 'Canon'),
+(6, 'Epson'),
+(7, 'AKG'),
+(8, 'Dell');
 
 -- --------------------------------------------------------
 
@@ -95,10 +88,11 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`category_id`, `category_name`) VALUES
 (1, 'Laptop'),
-(2, 'Head Phones'),
-(3, 'CMOS Battery'),
-(4, 'Mouse'),
-(5, 'Keyboard-Gaming');
+(2, 'CMOS Battery'),
+(3, 'Canon toner'),
+(4, 'Printer'),
+(5, 'Head Phone'),
+(6, 'Desktop');
 
 -- --------------------------------------------------------
 
@@ -111,20 +105,19 @@ CREATE TABLE `cheque` (
   `cheque_id` varchar(50) NOT NULL,
   `received_date` date NOT NULL,
   `due_date` date NOT NULL,
-  `bank_name` varchar(30) NOT NULL
+  `bank_name` varchar(30) NOT NULL,
+  `cheque_status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `cheque`
 --
 
-INSERT INTO `cheque` (`bill_no`, `cheque_id`, `received_date`, `due_date`, `bank_name`) VALUES
-('B0010', '4523', '2020-12-01', '2021-01-08', 'HSBC'),
-('B0011', '2568', '2020-12-01', '2021-02-19', 'HSBC'),
-('B0012', '52684', '2020-12-01', '2021-02-19', 'NDB'),
-('B0013', 'CH0021', '2020-12-01', '2021-10-21', 'NDB'),
-('B0014', 'CHA12', '2020-08-01', '2028-01-07', 'HSBC'),
-('B0015', 'CN002', '2020-08-05', '2024-06-29', 'BOC');
+INSERT INTO `cheque` (`bill_no`, `cheque_id`, `received_date`, `due_date`, `bank_name`, `cheque_status`) VALUES
+('B0036', '1203456', '2021-03-21', '2021-11-25', 'NSB', 1),
+('B0038', '956320', '2021-03-11', '2021-10-20', 'Seylan', 1),
+('B0039', '45873', '2021-03-21', '2021-10-14', 'HSBC', 1),
+('B0040', '202045', '2021-03-22', '2021-06-17', 'ndb', 1);
 
 -- --------------------------------------------------------
 
@@ -154,22 +147,22 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`cust_id`, `cust_name`, `email_address`, `cust_address`) VALUES
-('C0001', 'nuwan sasanka deraniyagala', 'nuwansasanka1@gmail.com', 'homagama'),
-('C0004', 'banuka', 'banu@gmail.com', 'mahargama'),
-('C0007', 'banuka', 'banu@gmail.com', 'mahargama'),
-('C0008', 'banuka', 'banu@gmail.com', 'mahargama'),
-('C0009', 'reshani', 'reshani@gmail.com', 'matara'),
-('C0012', 'banuka', 'banu@gmail.com', 'mahargama'),
-('C0014', 'kusal', 'kusal@gmail.com', 'mahargama'),
-('C0016', 'kusal', 'kusal@gmail.com', 'mahargama'),
-('C0021', 'kusal', 'kusal@gmail.com', 'mahargama'),
-('C0023', 'manjitha', 'manjth@gmail.com', 'Homagama'),
-('C0024', 'pasan', 'pasan@gmail.com', 'Nugegoda'),
-('C0025', 'janith', 'jani@yahoo.com', 'Padukka'),
-('C0026', 'Damidu', 'daidu@yahoo.com', 'Maharagama'),
-('C0027', 'nuwan', 'nuwansasanka1@gmail.com', 'homagama'),
-('C0028', 'sanath', 'sanath@gmail.com', 'mahargama'),
-('C0029', 'sasanka', 'sasanka@gmail.com', 'Kottawa');
+('C0039', 'Nuwan sasanka', 'nuwansasanka1@gmail.com', '120/A,Shanthi,Diyagama'),
+('C0040', 'gayan', 'gyana@gmail.com', 'Homagama'),
+('C0041', 'sanath', 'nuwansasanka1@gmail.com', '120/A,Shanthi,Diyagama'),
+('C0042', 'gayan', 'nuwansasanka1@gmail.com', '120/A,Shanthi,Diyagama'),
+('C0043', 'Reshani', 'reshani@gmail.com', '120/A,Shanthi,Diyagama'),
+('C0044', 'bathigama gamacharige reshani dilhari', 'dilhari1@gmail.com', 'Galwadu gedara,'),
+('C0045', 'University of Colombo school of computing', 'reshanidilhari97@gmail.com', 'Galwadu gedara,'),
+('C0046', 'heshan ', 'hesh1@gmail.com', '120/A,Shanthi,Diyagama'),
+('C0047', 'Nuwan sasanka', 'nuwansasanka1@gmail.com', '120/A,Shanthi,Diyagama'),
+('C0048', 'Nuwan sasanka', 'nuwansasanka1@gmail.com', '120/A,Shanthi,Diyagama'),
+('C0049', 'Nuwan sasanka', 'nuwansasanka1@gmail.com', '120/A,Shanthi,Diyagama'),
+('C0050', 'Sanath', 'sanath85@gmail.com', '120/B,darley road,Colombo5'),
+('C0051', 'Dilshan', 'dilsh98@yahoo.com', '23/B,arawwala,Maharagama'),
+('C0052', 'Reshani', 'reshanidilhari97@gmail.com', 'Galwadu gedara,Bathigama west,wenappuwa'),
+('C0053', 'mahela', 'mahela78@yahoo.com', 'No 20, pipe road, colombo5'),
+('C0054', 'michelle', 'michelle125@gmail.com', '12/C, marawila, wennappuwa');
 
 -- --------------------------------------------------------
 
@@ -200,10 +193,11 @@ CREATE TABLE `cust_telephone` (
 --
 
 INSERT INTO `cust_telephone` (`cust_id`, `telephone_no`) VALUES
-('C0004', '0714526369'),
-('C0007', '0714526369'),
-('C0025', '0778562369'),
-('C0027', '0715963245');
+('C0050', '0781234567'),
+('C0051', '0772135647'),
+('C0052', '0718361207'),
+('C0053', '0782352466'),
+('C0054', '0782596321');
 
 -- --------------------------------------------------------
 
@@ -234,11 +228,11 @@ INSERT INTO `employee` (`emp_id`, `first_name`, `middle_name`, `last_name`, `nic
 ('EMP0025', 'nuwan', '', 'sasanka', '974525369v', 'gfvljshyudlgrw', '', 'Shopkeeper', 711112220, '1994/10/20'),
 ('EMP0026', 'reshani', '', 'dilhari', '974440025v', 'adsfyfvg', '', 'Clerk', 714455221, '1992/5/5'),
 ('EMP0029', 'reshani', '', 'dilhari', '974525369v', 'abcd', '', 'Clerk', 714455221, '1995/02/02'),
-('EMP0030', 'reshani', 'dilhari', 'vfdcwe', 'Clark.JPG', ' vnbtoij', '', 'Clerk', 256349872, '1992/5/5'),
-('EMP0042', 'admin2', 'sbdhbc', 'smcdkc', '978542201v', '', '', 'Admin', 0, ''),
 ('EMP0043', 'Michelle', '', 'Fernando', '', 'bambalapitiya, colombo 05', '', 'Clerk', 768757722, '2005-12-08'),
 ('EMP0044', 'Michelle', '', 'Fernando', '', 'bambalapitiya, colombo 05', '', 'Shopkeeper', 768757722, '2005-12-21'),
-('EMP0045', 'michelle', '', 'Fernando', '', 'Dummaladeniya', '', 'Clerk', 768757722, '2005-12-15');
+('EMP0045', 'michelle', '', 'Fernando', '', 'Dummaladeniya', '', 'Clerk', 768757722, '2005-12-15'),
+('EMP0046', 'Nuwan', '', 'sasanka', '', '120/A,Shanthi,Diyagama', '', 'Shopkeeper', 719180168, '1997-09-08'),
+('EMP0047', 'Sanath', '', 'jayasuriya', '', '15/A, pitipana, homagama', '', 'Clerk', 719184568, '1990-05-15');
 
 -- --------------------------------------------------------
 
@@ -271,23 +265,43 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`item_id`, `item_status`, `serial_no`, `p_id`) VALUES
-(1, 1, '24ML6N0CV08535824C', 3),
-(2, 1, '24ML6N0CV08553684C', 3),
-(3, 1, '24ML6N0CV45236987C', 3),
-(4, 1, '24ML6N0CV63598742C', 3),
-(5, 1, '24ML6N0CV78562349D', 3),
-(6, 1, '5ES85EA', 2),
-(7, 1, '5AB98AB', 2),
-(8, 1, '5RN20RN', 2),
-(9, 1, 'AB0123-CF567432', 4),
-(10, 1, 'CB4325-GH459807', 4),
-(11, 1, 'TY4325-KH659874', 4),
-(12, 1, 'PA0N35UV', 1),
-(13, 1, 'TY0N45ER', 1),
-(14, 1, '56734890R', 5),
-(15, 1, '27984531M', 5),
-(16, 1, '56879034', 5),
-(17, 1, '67098345', 5);
+(1, 0, '24ML6N0CV07535874C', 1),
+(2, 0, '24NL6N0CV00035824D', 1),
+(3, 1, '24KB6T0CV085358456R', 1),
+(4, 0, '5ES85EA', 2),
+(5, 1, '9RS85NB', 2),
+(6, 0, '6NMS85MA', 2),
+(7, 1, '9HS35NA', 2),
+(8, 0, 'PA0N35UV', 3),
+(9, 1, 'BV0N95RN', 3),
+(10, 0, 'CB4325-GH459807', 4),
+(11, 0, 'AR4325-NN459807', 4),
+(12, 1, 'VF4359-OT468807', 4),
+(13, 1, 'CC5620-RR409800', 4),
+(14, 0, 'RR0N45ER', 5),
+(15, 0, 'RC0N95MB', 5),
+(16, 0, 'RM0N35AA', 5),
+(17, 1, 'NC0N25VV', 5),
+(18, 1, 'RG0N35KK', 5),
+(19, 0, 'BA6N22MB', 5),
+(20, 0, 'AN1256RL', 6),
+(21, 1, 'BN1256RR', 6),
+(22, 1, 'AM1956RL', 6),
+(23, 0, 'AZ1656ML', 6),
+(24, 1, 'NB1006RK', 6),
+(25, 1, 'AS2025', 7),
+(26, 1, 'AS2205', 7),
+(27, 1, 'AS3052', 7),
+(28, 1, 'AS5020', 7),
+(29, 1, 'AR3021', 7),
+(30, 1, 'AN5652', 7),
+(31, 1, 'AM9236', 7),
+(32, 1, 'AL2030', 7),
+(33, 1, 'WU4587NM', 8),
+(34, 1, 'WL6060NM', 8),
+(35, 1, 'WU5600LK', 8),
+(36, 1, 'RM4507NV', 8),
+(37, 1, 'WU4330GK', 8);
 
 -- --------------------------------------------------------
 
@@ -309,11 +323,14 @@ CREATE TABLE `model` (
 --
 
 INSERT INTO `model` (`model_id`, `model_name`, `total_quantity`, `specification`, `reorder_level`, `sales_price`) VALUES
-(1, 'IdeaPad310', 0, 'The new standard for PC performance has arrived with up to 7th Gen Intel® Core™ i7 processor.', 2, 165000),
-(2, 'Envy20', 0, '8th Gen, intel core i7,NVIDIA GEFORCE,1TB HDD,8GB RAM', 2, 155000),
-(3, 'Vivobook 15 X512', 0, 'VivoBook 15 ,latest Intel® Core™ i7 processor with discrete NVIDIA® graphics and dual storage drives ,8GB ,256SSD,8th Gen', 3, 185000),
-(4, 'Y50BT', 0, 'Bluetooth headphones, Frequency range20-20kHz,MAX input power50mW,Impedance32ohms,Cable length1.2m detachable audio cable, Connection Jack 3.5mm, Sensitivity113dB SPL/V', 5, 1500),
-(5, 'CMOS 2032', 0, 'Technology Lithium, Voltage 3V,Diameter 20 mm,Weight3,1 g', 6, 100);
+(1, 'IdeaPad310', 1, 'The new standard for PC performance has arrived with up to 7th Gen Intel® Core™ i7 processor.', 10, 110000),
+(2, 'Vivobook 15 X512', 2, 'VivoBook 15 ,latest Intel® Core™ i7 processor with discrete NVIDIA® graphics and dual storage drives ,8GB ,256SSD,8th Gen', 15, 150000),
+(3, 'CMOS 2032', 1, 'Technology Lithium, Voltage 3V,Diameter 20 mm,Weight3,1 g', 10, 150),
+(4, 'Envy20', 2, '8th Gen, intel core i7,NVIDIA GEFORCE,1TB HDD,8GB RAM', 10, 145000),
+(5, 'Canon 045', 2, 'Canon 045 magenta Toner', 12, 12800),
+(6, 'Inkjer L130', 3, 'High-yield ink bottles: 4000 Prints at only Rs.320 per Black Ink Bottle (70ml)\r\nPrint speed up to 8.5ipm\r\nCompact Size', 10, 28500),
+(7, 'Y50BT', 8, 'Bluetooth headphones, Frequency range20-20kHz,MAX input power50mW,Impedance32ohms,Cable length1.2m detachable audio cable, Connection Jack 3.5mm, Sensitivity113dB SPL/V', 10, 1850),
+(8, 'Optiplex 3070', 5, 'Dell optiplex 3070 i3/4G/1T/DS ', 10, 75000);
 
 -- --------------------------------------------------------
 
@@ -336,10 +353,13 @@ CREATE TABLE `product_list` (
 
 INSERT INTO `product_list` (`p_id`, `product_status`, `category_id`, `model_id`, `brand_id`, `warrenty`) VALUES
 (1, 1, 1, 1, 1, 24),
-(2, 1, 1, 2, 2, 18),
-(3, 1, 1, 3, 3, 36),
-(4, 1, 2, 4, 4, 12),
-(5, 1, 3, 5, 5, 3);
+(2, 1, 1, 2, 2, 12),
+(3, 1, 2, 3, 3, 6),
+(4, 1, 1, 4, 4, 24),
+(5, 1, 3, 5, 5, 12),
+(6, 1, 4, 6, 6, 30),
+(7, 1, 5, 7, 7, 6),
+(8, 1, 6, 8, 8, 24);
 
 -- --------------------------------------------------------
 
@@ -358,13 +378,17 @@ CREATE TABLE `purchase` (
 --
 
 INSERT INTO `purchase` (`bill_no`, `item_id`, `cust_id`) VALUES
-('B0001', 1, 'C0001'),
-('B0002', 2, 'C0004'),
-('B0003', 3, 'C0008'),
-('B0007', 3, 'C0016'),
-('B0005', 4, 'C0023'),
-('B0010', 5, 'C0014'),
-('B0011', 15, 'C0025');
+('B0036', 1, 'C0050'),
+('B0036', 2, 'C0050'),
+('B0036', 8, 'C0050'),
+('B0037', 10, 'C0051'),
+('B0037', 16, 'C0051'),
+('B0037', 20, 'C0051'),
+('B0038', 11, 'C0052'),
+('B0038', 14, 'C0052'),
+('B0039', 6, 'C0053'),
+('B0039', 23, 'C0053'),
+('B0040', 15, 'C0054');
 
 -- --------------------------------------------------------
 
@@ -384,8 +408,8 @@ CREATE TABLE `shop_return_items` (
 --
 
 INSERT INTO `shop_return_items` (`sup_id`, `returned_date`, `description`, `item_id`) VALUES
-('SUP0025', '2021-02-10', 'Sounds issue', 9),
-('SUP0026', '2021-02-09', 'Monitor damage', 12);
+('SUP0002', '2021-03-21', 'battery issue', 4),
+('SUP0005', '2021-03-21', 'not working', 19);
 
 -- --------------------------------------------------------
 
@@ -405,20 +429,14 @@ CREATE TABLE `supplier` (
 --
 
 INSERT INTO `supplier` (`sup_id`, `sup_name`, `email_address`, `active_status`) VALUES
-('SUP0010', 'Barclays computers', 'Barclays@gmail.com', '1'),
-('SUP0011', 'Unity System', 'support@unitysystem.lk', '1'),
-('SUP0012', 'Upright Computers', 'Upright@gmail.com', '1'),
-('SUP0013', 'REVO COMPUTERS & SECURITY SOLU', 'info@revocomputers.lk', '1'),
-('SUP0014', 'Metropolitan Computers (Pvt) L', 'shamazh@metropolitan.lk', '1'),
-('SUP0015', 'Colombo Computer Technology (P', 'info@computertech.lk', '1'),
-('SUP0016', 'Laptop.lk', 'info@laptop.lk', '1'),
-('SUP0017', 'Singer PLC', 'callcenter@singersl.com', '1'),
-('SUP0018', 'Abans', 'buyabans@abansgroup.com', '1'),
-('SUP0019', 'Pettah Computers', 'info@pettahcomputers.com', '1'),
-('SUP0020', 'Winsoft Solutions', 'thanish@winsoft.lk', '1'),
-('SUP0021', 'michelle', 'mufernando02@gmail.com', '1'),
-('SUP0025', 'URBAN', 'urban123@gmail.com', '1'),
-('SUP0026', 'WINSOFT', 'thanish@winsoft.lk', '1');
+('SUP0001', 'Barclays computers', 'Barclays@gmail.com', '1'),
+('SUP0002', 'Unity System', 'support@unitysystem.lk', '1'),
+('SUP0003', 'Upright Computers', 'Upright@gmail.com', '1'),
+('SUP0004', 'Laptop.lk', 'info@laptop.lk', '1'),
+('SUP0005', 'WINSOFT', 'thanish@winsoft.lk', '1'),
+('SUP0006', 'URBAN', 'urbaninfo@gmail.com', '1'),
+('SUP0007', 'Skyray Gadget Store', 'skyrayinfo@gmail.com', '1'),
+('SUP0008', 'Lanka Laptop House Pvt Ltd', 'lankalaptop@yahoo.com', '1');
 
 -- --------------------------------------------------------
 
@@ -439,20 +457,14 @@ CREATE TABLE `supplier_product` (
 --
 
 INSERT INTO `supplier_product` (`sup_id`, `p_id`, `date`, `unit_price`, `quantity`) VALUES
-('SUP0010', 1, '2020-09-09', 150000, 10),
-('SUP0011', 1, '2020-10-15', 152000, 12),
-('SUP0012', 4, '2020-11-12', 1000, 50),
-('SUP0012', 5, '2020-12-30', 70, 10),
-('SUP0014', 2, '2020-09-23', 150000, 15),
-('SUP0014', 4, '2020-12-10', 1200, 20),
-('SUP0016', 2, '2020-10-17', 152000, 8),
-('SUP0017', 4, '2020-12-31', 1100, 15),
-('SUP0018', 3, '2020-10-22', 180000, 18),
-('SUP0019', 2, '2020-11-24', 153000, 15),
-('SUP0020', 5, '2021-02-13', 80, 8),
-('SUP0021', 3, '2021-02-13', 182000, 13),
-('SUP0025', 4, '2021-01-20', 1000, 3),
-('SUP0026', 1, '2021-01-04', 155000, 2);
+('SUP0001', 1, '2020-04-09', 90000, 3),
+('SUP0002', 2, '2019-06-06', 120000, 4),
+('SUP0003', 3, '2020-04-24', 100, 2),
+('SUP0004', 4, '2021-01-01', 120000, 4),
+('SUP0005', 5, '2020-11-07', 10000, 6),
+('SUP0006', 6, '2020-04-10', 23000, 5),
+('SUP0007', 7, '2021-01-01', 1350, 8),
+('SUP0008', 1, '2020-08-21', 65000, 5);
 
 -- --------------------------------------------------------
 
@@ -470,20 +482,14 @@ CREATE TABLE `sup_address` (
 --
 
 INSERT INTO `sup_address` (`sup_id`, `address`) VALUES
-('SUP0010', 'Bambalapitiya,Galle Road,Colombo 04'),
-('SUP0011', 'Galle Road, Colomo 04'),
-('SUP0012', 'Wennapuwa'),
-('SUP0013', ' Puttalam - Colombo Rd, Katuneriya 61180'),
-('SUP0014', 'No. 418, Galle Road, Colombo 03'),
-('SUP0015', '17 Lily Ave, Colombo'),
-('SUP0016', '401 Galle Rd, Colombo 00400'),
-('SUP0017', 'No.112, havelock Road, Colombo5'),
-('SUP0018', 'No 498 Galle Road,  Colombo 03,'),
-('SUP0019', ' NO 100/22, Mumtaz Mahal, 1st Cross Street, Colomb'),
-('SUP0020', 'No.313, 1st Floor, Unity Plaza, Colombo 04'),
-('SUP0021', 'Dummaladeniya'),
-('SUP0025', 'No 1/231 Broadway road, Colombo 10'),
-('SUP0026', ' No.313, 1st Floor, Unity Plaza, Colombo 04.');
+('SUP0001', 'Bambalapitiya,Galle Road,Colombo 04'),
+('SUP0002', 'Galle Road, Colomo 04'),
+('SUP0003', 'Puttalam - Colombo Rd, Katuneriya 61180'),
+('SUP0004', 'No.313, 1st Floor, Unity Plaza, Colombo 04'),
+('SUP0005', 'No. 418, Galle Road, Colombo 03'),
+('SUP0006', 'No 1/231 Broadway road, Colombo 10'),
+('SUP0007', '60, Ground Floor, Liberty Plaza, Kollupitiya '),
+('SUP0008', 'No19 Galle Rd, Dehiwala-Mount Lavinia');
 
 -- --------------------------------------------------------
 
@@ -501,20 +507,14 @@ CREATE TABLE `sup_telephone` (
 --
 
 INSERT INTO `sup_telephone` (`sup_id`, `telephone_no`) VALUES
-('SUP0010', '0117510510'),
-('SUP0011', '0114545443'),
-('SUP0012', '0775326399'),
-('SUP0013', '0764949649'),
-('SUP0014', '0114 622 1'),
-('SUP0015', '0112055835'),
-('SUP0016', '0773277277'),
-('SUP0017', '0115400400'),
-('SUP0018', '0112565265'),
-('SUP0019', '0777735516'),
-('SUP0020', '0772368024'),
-('SUP0021', '0768757722'),
-('SUP0025', '0114312516'),
-('SUP0026', '0779856423');
+('SUP0001', '0719180166'),
+('SUP0002', '0734568126'),
+('SUP0003', '0718456784'),
+('SUP0004', '0777254758'),
+('SUP0005', '0772561324'),
+('SUP0006', '0112753984'),
+('SUP0007', '0789635421'),
+('SUP0008', '0718524693');
 
 -- --------------------------------------------------------
 
@@ -536,12 +536,12 @@ CREATE TABLE `user_account` (
 --
 
 INSERT INTO `user_account` (`emp_id`, `username`, `password`, `email`, `verified`, `token`) VALUES
-('EMP0042', 'admin2', '4e2c0568628fd242d542b786c77b7a47', 'nuwansasanka1@gmail.com', 0, ''),
-('EMP0030', 'miche', '7068956236499d5241009a15c818fc69', 'mishelnvc@gmail.com', 0, '6a82f4834098a0d3cf0a47e04a362fd8e56c23c5903ce94cb027e30e870a50e9803d2ea37e1b95817a7a024dab33ee570b5b'),
+('EMP0047', 'cs037', '124bd1296bec0d9d93c7b52a71ad8d5b', '2018cs037@stu.ucsc.cmb.ac.lk', 1, 'fa7aa69e2687ea451ccec4a3266b6aaf4c5021aba0b0ecd716bd30ccd8ac1b3c8342734eac74188b7e36364a78e3b6f525b5'),
 ('EMP0001', 'mishAdmin', '7068956236499d5241009a15c818fc69', 'mishelnvc@gmail.com', 1, ''),
 ('EMP0045', 'mishclerk', 'ad4ac7fa40b0af2bae7374c57173f26c', 'mufernando02@gmail.com', 1, '88849b34deca26ae9636b484350182610dfce7170f2d505c2ac5a506fc1a1cfd874f1ab487f9aea10dfe15c1507340cf5887'),
 ('EMP0044', 'mishshop', '7068956236499d5241009a15c818fc69', '2018cs055@stu.ucsc.cmb.ac.lk', 1, 'a22cdb15bc974f04fd2361766595738b82673b4d014585e087c89973fb6ccf21f4b5eae2ccf5405830fb5df6b61accfacb34'),
 ('EMP0025', 'nuwan', '4e2c0568628fd242d542b786c77b7a47', 'nuwa@123gmail.com', 1, '9871133a7e84364acf00182dd471ab1e633504af1fc1bbecaa9021065621bf6deda67e959363b52d7fcade687a6c04f5dbce'),
+('EMP0046', 'nuwan97', '124bd1296bec0d9d93c7b52a71ad8d5b', 'nuwansasanka1@gmail.com', 1, 'cb6cb831edd2ac7a36ed5932f04563eb207ac57c34e6338cc11d0662355ab74f6a9d817e556a05aa4c1e667a56e0019c3a3e'),
 ('EMP0029', 'reshani', '8949417e84d8e5cf663ab21a60badb20', 'reshanidilhari97@gmail.com', 1, 'a03b21323936d0ef0dcfa2576efca9c75691bda5c8ac296b06aa6093545b91207efef49975fb3ba09096b32ea1e9c58b8ed8');
 
 --
@@ -637,7 +637,7 @@ ALTER TABLE `product_list`
 -- Indexes for table `purchase`
 --
 ALTER TABLE `purchase`
-  ADD PRIMARY KEY (`bill_no`,`cust_id`),
+  ADD PRIMARY KEY (`bill_no`,`cust_id`,`item_id`) USING BTREE,
   ADD KEY `cust_id` (`cust_id`),
   ADD KEY `item_id` (`item_id`);
 
@@ -688,31 +688,31 @@ ALTER TABLE `user_account`
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `brand_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `brand_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `category_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `item_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `item_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `model`
 --
 ALTER TABLE `model`
-  MODIFY `model_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `model_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `product_list`
 --
 ALTER TABLE `product_list`
-  MODIFY `p_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `p_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
