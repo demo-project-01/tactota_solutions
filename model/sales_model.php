@@ -445,7 +445,7 @@ public function get_model_no($id,$total_items){
     }
    }
    return $result;
-
+}
 public function get_sales_price($category,$brand,$model){
     $result = "";
     $query = $this->mysqli->query("SELECT sales_price FROM product_list INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN category ON product_list.category_id=category.category_id WHERE category.category_name='" . $category . "' AND brand.brand_name='".$brand."' AND model.model_name='".$model."'");
