@@ -3,6 +3,7 @@
    require '../controller/inventory_maintain.php';
     $data = new inventory_maintain();
     $sql=$data->view_categories();
+    $sql1=$data->count_users();
     $a=array();
     foreach ($sql as $k => $v)
     {
@@ -16,11 +17,15 @@
 <div class="content" style="width:auto;">             
     <div>
         <a href ="users.php">
+        <?php
+        foreach ($sql1 as $k => $v){
+            ?>
         <div class="income1">
             <i class="fas fa-users fa-3x icon-left"></i>
             <b><p class="incomes">USERS</p></b>
-            <b><p class="inform">10 Record(s)</p></b>
+            <b><p class="inform"><?php echo $sql1[$k] ?> Record(s)</p></b>
         </div>
+        <?php }?> 
         </a>
         <a href ="review.php">
         <div class="income2"> 

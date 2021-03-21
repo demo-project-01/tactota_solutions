@@ -159,6 +159,12 @@ class inventory_maintain
     public function count_reminderitems(){      //reshani
         return $this->inven->count_reminder_items();
     }
+
+    public function count_users(){      //reshani
+        return $this->inven->count_verified_users();
+    }
+
+
     public function reminderitems_suppliers($id){    //nuwan
       //  print_r($id);
         $row=$this->inven->display_reminder_suppliers($id);
@@ -201,7 +207,7 @@ class inventory_maintain
     public function display_returnitem_details(){   //reshani
         return $this->inven->diplay_return_items();
     }
-    public function display_shopkeeper_return_items(){
+    public function display_shopkeeper_return_items(){  //reshani
         return $this->inven->shopkeeper_return_items();
     }
 
@@ -554,6 +560,11 @@ else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //re
   //  print_r($id);
    $controller->view_inbox_delete($id);
 }
+else if(isset($_GET['action']) && $_GET['action'] == 'count_users'){   //reshani
+    $controller->count_users();
+
+}
+
 
 
 
