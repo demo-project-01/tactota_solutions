@@ -4,6 +4,7 @@
     $data = new inventory_maintain();
     $sql=$data->view_categories();
     $sql1=$data->count_users();
+    $sql2=$data->countstock_details();
     $a=array();
     foreach ($sql as $k => $v)
     {
@@ -42,11 +43,15 @@
         </div>
         </a>
         <a href="report_products.php">
+        <?php
+        foreach ($sql2 as $k => $v){
+            ?>
         <div class="income4">
             <i class="fas fa-store fa-3x icon-left"></i>
             <b><p class="incomes">STOCK DETAILS</p></b> 
-            <b><p class="inform">10 Record(s)</p></b>
+            <b><p class="inform"><?php echo $sql2[$k] ?> Record(s)</p></b>
         </div>
+        <?php }?> 
         </a>   
     </div>
     <div class="row">

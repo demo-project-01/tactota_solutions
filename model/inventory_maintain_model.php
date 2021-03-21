@@ -190,7 +190,7 @@ class inventory_maintain_model
         return $result;  
     }
     public function count_sold_items(){
-        $query=$this->mysqli->query("SELECT COUNT( DISTINCT purchase.item_id) FROM purchase");
+        $query=$this->mysqli->query("SELECT COUNT(purchase.item_id) FROM purchase");
         while ($row = $query->fetch_assoc()) {
             $result = $row;   
         }
