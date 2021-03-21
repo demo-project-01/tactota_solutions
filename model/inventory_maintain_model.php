@@ -196,7 +196,7 @@ class inventory_maintain_model
     }
     public function display_reminder_suppliers($id){          //nuwan
        // $result="";
-        $query=$this->mysqli->query("SELECT supplier.email_address,supplier.sup_name,supplier.sup_id,sup_address.address,product_list.p_id,supplier_product.unit_cost,items.serial_no,items.item_status FROM supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN sup_address ON supplier_product.sup_id=sup_address.sup_id INNER JOIN product_list ON supplier_product.p_id=product_list.p_id INNER JOIN items ON product_list.p_id=items.p_id AND items.item_status='1' AND product.p_id='" . $id . "'");
+        $query=$this->mysqli->query("SELECT supplier.email_address,supplier.sup_name,supplier.sup_id,sup_address.address,product_list.p_id,supplier_product.unit_price,items.serial_no,items.item_status FROM supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN sup_address ON supplier_product.sup_id=sup_address.sup_id INNER JOIN product_list ON supplier_product.p_id=product_list.p_id INNER JOIN items ON product_list.p_id=items.p_id AND items.item_status='1' AND product_list.p_id='" . $id . "'");
         while ($row = $query->fetch_assoc()) {               
             $result[] = $row;
         }
