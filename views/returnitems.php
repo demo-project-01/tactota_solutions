@@ -2,8 +2,16 @@
   include 'clerk_sidebar.php';
    require '../controller/inventory_maintain.php';
    $data=new inventory_maintain();
-   $sql=$data->display_returnitem_details();
- 
+   $sql=$data->display_shop_returnitem_details();
+   if(isset($_GET['action'])){
+    if($_GET["action"]=="shop_return"){
+        $sql=$data->display_shop_returnitem_details();
+    }
+    else if($_GET["action"]=="customer_return"){
+        $sql=$data->display_cus_returnitem_details();
+        
+    }
+   }
 ?>
 <head>
 <link rel="stylesheet" href="../public/css/view_user.css">
@@ -11,10 +19,10 @@
 <div class="content" style="width:auto;">
     <h1 id="tbl-heading">Return Items</h1><br/>
     <div class="new">
-    <a class="add_button" href="#">
+    <a class="add_button" href="returnitems.php?action=shop_return">
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         &nbsp&nbspShop Return Items</a>
-    <a class="add_button" href="#">
+    <a class="add_button" href="returnitems.php?action=customer_return">
         <i class="fa fa-user-o" aria-hidden="true"></i>
         &nbsp&nbspCustomer Return Items</a>
     </div>
@@ -36,7 +44,7 @@
             </thead>
             <tbody>
             <?php
-
+      if(!empty($sql)){
             foreach ($sql as $k => $v)
             {
                 ?>
@@ -51,7 +59,8 @@
                     <!--i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td-->
                 </tr>
                 <?php
-            } ?>
+            }
+         } ?>
             </tbody>
        </table>
     </div>

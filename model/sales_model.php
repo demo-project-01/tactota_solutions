@@ -177,7 +177,7 @@ public function add_new_product($category_id, $product_cost, $brand_id, $reorder
      }
     
      
-    public function insert_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id){ //nuwan
+    public function insert_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id,$model_no){ //nuwan
       $stmt=$this->mysqli->prepare("INSERT INTO customer(cust_id,cust_name,email_address,cust_address)
         VALUES (?,?,?,?)");
  
@@ -213,11 +213,18 @@ public function add_new_product($category_id, $product_cost, $brand_id, $reorder
     VALUES (?,?,?,?,?)");
 
    $stmt3->bind_param('sssss',$bill_no,$cheque_no,$recived_date,$due_date,$bank_name);
-   return $stmt3->execute();
-   
+    $stmt3->execute();
+
+   for($j=0;$j<$total_items;$j++){
+    $stmt6 = $this->mysqli->prepare("UPDATE model SET model.total_quantity=model.total_quantity-1 WHERE model.model_name=?");  
+    $stmt6->bind_param('s',$model_no[$j]); 
+    $stmt6->execute();
+
+   }
+   return 1;
      
     }
-    public function insert_cash_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id){ //nuwan
+    public function insert_cash_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id,$model_no){ //nuwan
         $stmt=$this->mysqli->prepare("INSERT INTO customer(cust_id,cust_name,email_address,cust_address)
         VALUES (?,?,?,?)");
  
@@ -246,6 +253,12 @@ public function add_new_product($category_id, $product_cost, $brand_id, $reorder
         $stmt4->bind_param('s',$serial_no[$j]); 
         $stmt4->execute();
        }   
+       for($j=0;$j<$total_items;$j++){
+        $stmt5 = $this->mysqli->prepare("UPDATE model SET model.total_quantity=model.total_quantity-1 WHERE model.model_name=?");  
+        $stmt5->bind_param('s',$model_no[$j]); 
+        $stmt5->execute();
+    
+       }
          return 1;
       
     }
@@ -421,6 +434,17 @@ public function clear_cheque($id){
     $stmt->bind_param('s',$id); 
     return $stmt->execute();
     
+}
+public function get_model_no($id,$total_items){
+    
+   
+   for($j=0;$j<$total_items;$j++){
+    $query = $this->mysqli->query("SELECT model.model_name from items INNER JOIN product_list ON items.p_id=product_list.p_id INNER JOIN model ON product_list.model_id=model.model_id WHERE items.serial_no='" .$id[$j]. "'");
+    while ($row = $query->fetch_assoc()) {
+        $result[]= $row['model_name'];
+    }
+   }
+   return $result;
 }
     
 }
