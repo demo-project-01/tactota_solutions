@@ -55,8 +55,7 @@ $sql=$data->valid_prodcuts();
 <head>
     <link rel="stylesheet" href="../public/css/view_user.css"> 
     <link rel="stylesheet" href="../public/css/dropdown.css">
-
-    
+    <link rel="stylesheet" href="../public/css/report.css"></link>
 </head>
 
 <div class="content"style="width:auto;">
@@ -175,7 +174,7 @@ $sql=$data->valid_prodcuts();
                     <input type="hidden" name="hidden_sprice" value="<?php echo $sql[$k]["sales_price"] ?>" >
                     <input type="hidden" name="hidden_sno" value="<?php echo $sql[$k]["serial_no"] ?>" >
                     <input type="hidden" name="hidden_modelid" value="<?php echo $sql[$k]["model_id"] ?>" >
-                    <td><input type="submit" name="add_to_bill" value="Add"></td>
+                    <td><input type="submit" name="add_to_bill" class="button"  value="Add"></td>
                         
 
                    </form>     
