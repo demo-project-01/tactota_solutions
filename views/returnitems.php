@@ -34,7 +34,8 @@
             <thead>
                 <tr>
                 <!--th> Product ID</th-->
-                    <th> Product Name</th>
+                    <th> Serial Number</th>
+                    <th> Category Name</th>
                     <th> Brand Name</th>  
                     <th> Model Number</th>
                     <th>Returned Date</th>
@@ -50,6 +51,7 @@
                 ?>
                 <tr>
                 <!--td><!-?php echo $sql[$k]["p_id"] ?></td-->
+                    <td><?php echo $sql[$k]["serial_no"] ?></td>
                     <td><?php echo $sql[$k]["category_name"] ?></td>
 		            <td><?php echo $sql[$k]["brand_name"] ?></td>
                     <td><?php echo $sql[$k]["model_name"] ?></td>

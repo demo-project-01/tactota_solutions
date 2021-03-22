@@ -69,8 +69,9 @@ input[type="text"]:disabled {
 /* update button --------------------------------------*/
 
 input[type="submit"] {
-    font-weight: bolder;
-    font-size: 1.5em;
+    /*font-weight: bolder;*/
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.1em;
     color: #ffffff;
     background: #007042;
     outline: none;

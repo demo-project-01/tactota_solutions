@@ -55,6 +55,7 @@ $sql=$data->valid_prodcuts();
 <head>
     <link rel="stylesheet" href="../public/css/view_user.css"> 
     <link rel="stylesheet" href="../public/css/dropdown.css">
+    <link rel="stylesheet" href="../public/css/update.css"></link>
     <link rel="stylesheet" href="../public/css/report.css"></link>
 </head>
 
@@ -62,9 +63,58 @@ $sql=$data->valid_prodcuts();
 <div class="new">
         <a class="add_button" href="view_purchase_list.php"> View selected Items</a></a>
     </div>
-<h1 id="tbl-heading"> Purchase</h1>
+<h1 id="tbl-heading"> Purchase</h1><div class="nav-bar">
+      <table class="selection">
+        <tr>
+          <td><label for="category" class="date-lbl">Category</label></td>
+          <td><label for="brand" class="date-lbl">Brand</label></td>
+          <td><label for="model" class="date-lbl">Model</label></td>
+        </tr>
+        <tr>
+          <td>
+            <select name="category" id="category">
+              <option value="0">All</option>
+              <?php
+                foreach ($sql1 as $k => $v){  ?>
+                  <option value="<?php echo $sql1[$k]["category_id"] ?>"> <?php echo $sql1[$k]["category_name"] ?></option>  
+             <?php
+                }
+              ?>
+            </select>
+          </td>
+          <td>
+            <select name="brand" id="brand">
+              <option value="0">All</option>
+              <?php
+                foreach ($sql2 as $k => $v){  ?>
+                  <option value="<?php echo $sql2[$k]["brand_id"] ?>"> <?php echo $sql2[$k]["brand_name"] ?></option>   
+              <?php
+                }
+              ?>
+            </select>
+          </td>
+          <td>
+            <select name="model" id="model">
+              <option value="0">All</option>
+              <?php
+                foreach ($sql3 as $k => $v){  ?>
+                  <option value="<?php echo $sql3[$k]["model_id"] ?>"> <?php echo $sql3[$k]["model_name"] ?></option>   
+              <?php
+                }
+              ?>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan=3>
+            <a class="button" href="#">Search </a>
+          </td>
+        </tr>
+      </table>
+    </div>
 
-<div class="dropdown">
+
+<!--div class="dropdown">
     <ul style="position:relative;z-index:10;">
     
         <li><a href="#">Categories</a>
@@ -132,7 +182,7 @@ $sql=$data->valid_prodcuts();
         
         </li>
     </ul>
-</div>
+</div-->
 
     <!--div class="search">
             <input type="text" placeholder="Search..">
@@ -142,7 +192,7 @@ $sql=$data->valid_prodcuts();
         <table>
             <thead>
             <tr>
-                <th>Product Name</th>
+                <th>Category Name</th>
                 <th>Brand Name</th>
                 <th>Model Name</th>
                 <th>Warranty</th>
@@ -174,7 +224,7 @@ $sql=$data->valid_prodcuts();
                     <input type="hidden" name="hidden_sprice" value="<?php echo $sql[$k]["sales_price"] ?>" >
                     <input type="hidden" name="hidden_sno" value="<?php echo $sql[$k]["serial_no"] ?>" >
                     <input type="hidden" name="hidden_modelid" value="<?php echo $sql[$k]["model_id"] ?>" >
-                    <td><input type="submit" name="add_to_bill" class="button"  value="Add"></td>
+                    <td><input type="submit" name="add_to_bill" value="Add"></td>
                         
 
                    </form>     

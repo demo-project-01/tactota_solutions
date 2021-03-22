@@ -34,9 +34,9 @@ $sql2=$data->view_models();
       <thead>
         <tr>
         <tr>
-            <th>Category</td>
-            <th>Brand</th>
-            <th>Model</th>
+            <th>Category Name</td>
+            <th>Brand Name</th>
+            <th>Model Name</th>
             <th>Quantity</th>
         </tr>
         </tr>
@@ -64,9 +64,9 @@ $sql2=$data->view_models();
       <thead>
         <tr>
         <tr>
-            <th>Category</td>
-            <th>Brand</th>
-            <th>Model</th>
+            <th>Category Nmae</td>
+            <th>Brand Name</th>
+            <th>Model Name</th>
             <th>Quantity</th>
         </tr>
         </tr>

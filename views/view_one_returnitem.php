@@ -30,7 +30,7 @@ $row=$_SESSION['return_item'];
            </td>
         </tr>
         <tr>
-            <th>Product Name</th>
+            <th>Category Name</th>
             <td>   
               <input type='text'class="text"  placeholder="Laptop" name="category_name"value="<?php echo $row['category_name'] ?>" disabled>
             </td>
@@ -41,7 +41,7 @@ $row=$_SESSION['return_item'];
            </td>
         </tr>
         <tr>
-            <th>Model Number</th>
+            <th>Model Name</th>
             <td> <input type='text'  placeholder="1234" name="model_name"value="<?php echo $row['model_name'] ?>"  readonly>
             </td>
         </tr>

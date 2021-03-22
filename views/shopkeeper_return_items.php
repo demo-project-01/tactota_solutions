@@ -166,9 +166,9 @@
                 
                 <tr>
                    <th> Serial Number</th>
-                    <th> Product Name</th>
+                    <th> Category Name</th>
                     <th> Brand Name</th>  
-                    <th> Model Number</th>
+                    <th> Model Name</th>
                     <th>Actions</th>
                 </tr>
             </thead>

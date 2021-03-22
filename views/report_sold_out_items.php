@@ -83,9 +83,9 @@ $sql2=$data->view_models();
       <thead>
         <tr>
           <th>Product ID</th>
-          <th>Product Name</th>
+          <th>Category Name</th>
           <th>Brand Name</th>
-          <th>Model</th>
+          <th>Model Name</th>
           <th>Quantity</th>
         </tr>
       </thead>

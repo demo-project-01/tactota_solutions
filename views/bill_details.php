@@ -119,10 +119,10 @@ $row=$_SESSION['bill_details'];
  
  <thead>
    <tr>
-    <th>Product Name</th>
+     <th scope="col">Serial Number</th>
+     <th>Category Name</th>
      <th scope="col">Brand Name</th>
-     <th scope="col">Model Number</th>
-     <th scope="col">serial Number</th>
+     <th scope="col">Model Name</th>
      <th scope="col">Warrenty</th>
      <th scope="col">Sales Price</th>
      
@@ -138,10 +138,10 @@ $row=$_SESSION['bill_details'];
 
 
                 <tr>
+                    <td><?php echo $row[$k]["serial_no"] ?></td>
                     <td><?php echo $row[$k]["category_name"] ?></td>
                     <td><?php echo $row[$k]["brand_name"] ?></td>
                     <td><?php echo $row[$k]["model_name"] ?></td>
-                    <td><?php echo $row[$k]["serial_no"] ?></td>
                     <td><?php echo $row[$k]["warrenty"] ?></td>
                     <td><?php echo $row[$k]["sales_price"] ?></td>
                                 

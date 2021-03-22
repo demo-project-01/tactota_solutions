@@ -6,9 +6,9 @@ $sql=$_SESSION['update_product'];
             <thead>
             <tr>
 
-                <th>Product Name</th>
+                <th>Category Name</th>
                 <th>Brand Name</th>
-                <th>Model No</th>
+                <th>Model Name</th>
                 <th>Quantity</th>
                 <th >Cost per Item</th>
                 <th colspan=3>Action</th>
