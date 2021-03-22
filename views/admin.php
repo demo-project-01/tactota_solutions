@@ -12,10 +12,10 @@
     $sql2=$data->countstock_details();
     $a=array();
 
-    foreach ($sql as $k => $v)
+    foreach ($sql3 as $k => $v)
     {
-        array_push($categories,$sql[$k]["category_name"]);
-        array_push($count,$sql[$k]["total"]);
+        array_push($categories,$sql3[$k]["category_name"]);
+        array_push($count,$sql3[$k]["total"]);
     }
 ?>
 <head>
