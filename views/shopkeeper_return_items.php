@@ -4,13 +4,69 @@
   // session_start();
    $data=new inventory_maintain();
    $sql=$data->display_shopkeeper_return_items();
+   $sql1=$data->view_categories();
+   $sql2=$data->view_brands();
+   $sql3=$data->view_models();
  
 ?>
 <head>
     <link rel="stylesheet" href="../public/css/dropdown.css">
+    <link rel="stylesheet" href="../public/css/update.css"></link>
+    <link rel="stylesheet" href="../public/css/report.css"></link>
+    
 </head>
 <div class="content" style="width:auto;">
     <h1 id="tbl-heading">Add Return Items</h1><br/>
+    <div class="nav-bar">
+      <table class="selection">
+        <tr>
+          <td><label for="category" class="date-lbl">Category</label></td>
+          <td><label for="brand" class="date-lbl">Brand</label></td>
+          <td><label for="model" class="date-lbl">Model</label></td>
+        </tr>
+        <tr>
+          <td>
+            <select name="category" id="category">
+              <option value="0">All</option>
+              <?php
+                foreach ($sql1 as $k => $v){  ?>
+                  <option value="<?php echo $sql1[$k]["category_id"] ?>"> <?php echo $sql1[$k]["category_name"] ?></option>  
+             <?php
+                }
+              ?>
+            </select>
+          </td>
+          <td>
+            <select name="brand" id="brand">
+              <option value="0">All</option>
+              <?php
+                foreach ($sql2 as $k => $v){  ?>
+                  <option value="<?php echo $sql2[$k]["brand_id"] ?>"> <?php echo $sql2[$k]["brand_name"] ?></option>   
+              <?php
+                }
+              ?>
+            </select>
+          </td>
+          <td>
+            <select name="model" id="model">
+              <option value="0">All</option>
+              <?php
+                foreach ($sql3 as $k => $v){  ?>
+                  <option value="<?php echo $sql3[$k]["model_id"] ?>"> <?php echo $sql3[$k]["model_name"] ?></option>   
+              <?php
+                }
+              ?>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan=3>
+            <a class="button" href="#">Search </a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  
     <!--div class="new">
     <a class="add_button" href="#">
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -30,7 +86,7 @@
         <option value="audi">CMOS Battery</option>
         <option value="audi">UPS Battery</option>
     </select-->
-    <div class="dropdown">
+    <!--div class="dropdown">
     <ul style="position:relative;z-index:10;">
     
         <li><a href="#">Categories</a>
@@ -98,7 +154,7 @@
         
         </li>
     </ul>
-</div>
+</div-->
     <!--div class="search">
     <input type="text" placeholder="Search..">
     </div-->

@@ -584,6 +584,14 @@ else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //re
 }else if(isset($_GET['action']) && $_GET['action'] == 'countstock_details'){   //reshani
     $controller->countstock_details();
 
+}else if(isset($_GET['action']) && $_GET['action'] == 'view_categories'){   //reshani
+    $controller->view_categories();
+
+}else if(isset($_GET['action']) && $_GET['action'] == 'view_models'){   //reshani
+    $controller->view_models();
+
+}else if(isset($_GET['action']) && $_GET['action'] == 'view_brands'){   //reshani
+    $controller->view_brands();
 }
 
 
