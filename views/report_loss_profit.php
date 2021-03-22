@@ -5,6 +5,8 @@ $data = new inventory_maintain();
 $sql=$data->view_categories();
 $sql1=$data->view_brands();
 $sql2=$data->view_models();
+$sql3=$data->get_bills();
+$sql4=$data->get_bought_products();
 ?>
 
 <head>
@@ -89,24 +91,33 @@ $sql2=$data->view_models();
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>20/11/2020</td>
-            <td>Sold item</td>
-            <td>123456789</td>
-            <td>5000.00</td>
-          </tr>
-          <tr>
-            <td>21/11/2020</td>
-            <td>Sold item</td>
-            <td>78956789</td>
-            <td>500.00</td>
-          </tr>
-
-          <tr>
-            <td>20/11/2020</td>
-            <td colspan=2>Total</td>
-            <td>5500.00</td>
-          </tr>
+        <?php
+  $total=0;
+foreach ($sql3 as $k => $v)
+{
+    ?>
+    <tr>
+        
+        <td><?php echo $sql3[$k]["date_time"] ?></td>
+        <th>Sold item</td>
+        <td><?php echo $sql3[$k]["bill_no"] ?></td>
+        <td><?php echo $sql3[$k]["amount"] ?></td>
+        
+    </tr>
+    <?php
+    $total=$total+$sql3[$k]["amount"];
+} ?>
+ <?php
+   if(!empty($sql3)){
+     ?>
+         <tr>       
+                    <td></td>
+                    <td></td> 
+                    <td align="right">Total Amount</td>
+                    <td><?php echo number_format($total) ?></td>
+        </tr>
+        <?php
+      }?>
         </tbody>
       </table>
     </div>
@@ -122,24 +133,45 @@ $sql2=$data->view_models();
             <th>Model</th>
             <th>Supplier</th>
             <th>Quantity</th>
-            <th>Amount</th>
+            <th>Unit price</th>
+            <th>Price</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>20/11/2020</td>
-            <td>laptop</td>
-            <td>HP </td>
-            <td>envy12 </td>
-            <td>barckleys computers</td>
-            <td>6549</td>
-            <td>430.00</td>
-          </tr>
-          <tr>
-            <td>20/11/2020</td>
-            <td colspan=5>Total</td>
-            <td>430.00</td>
-          </tr>
+        <?php
+  $total_buy=0;
+foreach ($sql4 as $k => $v)
+{
+    ?>
+    <tr>
+        
+        <td><?php echo $sql4[$k]["date"] ?></td>
+        <td><?php echo $sql4[$k]["category_name"] ?></td>
+        <td><?php echo $sql4[$k]["brand_name"] ?></td>
+        <td><?php echo $sql4[$k]["model_name"] ?></td>
+        <td><?php echo $sql4[$k]["sup_name"] ?></td>
+        <td><?php echo $sql4[$k]["quantity"] ?></td>
+        <td><?php echo $sql4[$k]["unit_price"] ?></td>
+        <td><?php echo number_format($sql4[$k]["quantity"]*$sql4[$k]["unit_price"]) ?></td>
+    </tr>
+    <?php
+    $total_buy=$total_buy+($sql4[$k]["quantity"]*$sql4[$k]["unit_price"]);
+} ?>
+ <?php
+   if(!empty($sql4)){
+     ?>
+         <tr>       
+                    <td></td>
+                    <td></td> 
+                    <td></td>
+                    <td></td> 
+                    <td></td>
+                    <td></td> 
+                    <td align="right">Total Expences</td>
+                    <td><?php echo number_format($total_buy) ?></td>
+        </tr>
+        <?php
+      }?>
         </tbody>
       </table>
 

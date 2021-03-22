@@ -576,5 +576,19 @@ class inventory_maintain_model
   
 
    }
+   public function get_bills_monthly(){
+    $query = $this->mysqli->query("SELECT * FROM bill WHERE MONTH(CURRENT_DATE())-MONTH(bill.date_time)<=1");
+    while ($row = $query->fetch_assoc()) {
+        $result[] = $row;
+    }
+  return $result;
+}
+public function get_products_monthly(){
+    $query = $this->mysqli->query("SELECT supplier_product.date,supplier_product.unit_price,supplier_product.quantity,supplier.sup_name,brand.brand_name,category.category_name,model.model_name FROM supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN product_list ON supplier_product.p_id=product_list.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE MONTH(CURRENT_DATE())-MONTH(supplier_product.date)<=1");
+    while ($row = $query->fetch_assoc()) {
+        $result[] = $row;
+    }
+  return $result;
+}
     
 }

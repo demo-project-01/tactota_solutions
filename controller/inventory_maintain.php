@@ -482,6 +482,13 @@ class inventory_maintain
         }
     }
 
+    public function get_bills(){
+        return $this->inven->get_bills_monthly();
+    }
+    public function get_bought_products(){
+        return $this->inven->get_products_monthly();
+    }
+
 }
 
 
