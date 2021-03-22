@@ -223,6 +223,9 @@ class inventory_maintain
     public function display_shopkeeper_return_items(){  //reshani
         return $this->inven->shopkeeper_return_items();
     }
+    public function display_all_returnitem_details(){
+        return $this->inven->all_return_items();
+    }
 
    /*public function delete_reminder_suppliers($serial_no){   //reshani
         $item_status=0;

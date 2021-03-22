@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2021 at 10:29 PM
+-- Generation Time: Mar 22, 2021 at 12:01 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -176,6 +176,13 @@ CREATE TABLE `customer_return_item` (
   `description` varchar(200) NOT NULL,
   `item_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `customer_return_item`
+--
+
+INSERT INTO `customer_return_item` (`cust_id`, `returned_date`, `description`, `item_id`) VALUES
+('C0050', '2021-03-15', 'Not working', 2);
 
 -- --------------------------------------------------------
 
