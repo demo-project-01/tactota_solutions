@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2021 at 08:04 PM
+-- Generation Time: Mar 22, 2021 at 12:01 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -67,7 +67,9 @@ INSERT INTO `brand` (`brand_id`, `brand_name`) VALUES
 (3, 'Sony'),
 (4, 'HP'),
 (5, 'Canon'),
-(6, 'Epson');
+(6, 'Epson'),
+(7, 'AKG'),
+(8, 'Dell');
 
 -- --------------------------------------------------------
 
@@ -88,7 +90,9 @@ INSERT INTO `category` (`category_id`, `category_name`) VALUES
 (1, 'Laptop'),
 (2, 'CMOS Battery'),
 (3, 'Canon toner'),
-(4, 'Printer');
+(4, 'Printer'),
+(5, 'Head Phone'),
+(6, 'Desktop');
 
 -- --------------------------------------------------------
 
@@ -173,6 +177,13 @@ CREATE TABLE `customer_return_item` (
   `item_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `customer_return_item`
+--
+
+INSERT INTO `customer_return_item` (`cust_id`, `returned_date`, `description`, `item_id`) VALUES
+('C0050', '2021-03-15', 'Not working', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -227,7 +238,8 @@ INSERT INTO `employee` (`emp_id`, `first_name`, `middle_name`, `last_name`, `nic
 ('EMP0043', 'Michelle', '', 'Fernando', '', 'bambalapitiya, colombo 05', '', 'Clerk', 768757722, '2005-12-08'),
 ('EMP0044', 'Michelle', '', 'Fernando', '', 'bambalapitiya, colombo 05', '', 'Shopkeeper', 768757722, '2005-12-21'),
 ('EMP0045', 'michelle', '', 'Fernando', '', 'Dummaladeniya', '', 'Clerk', 768757722, '2005-12-15'),
-('EMP0046', 'Nuwan', '', 'sasanka', '', '120/A,Shanthi,Diyagama', '', 'Shopkeeper', 719180168, '1997-09-08');
+('EMP0046', 'Nuwan', '', 'sasanka', '', '120/A,Shanthi,Diyagama', '', 'Shopkeeper', 719180168, '1997-09-08'),
+('EMP0047', 'Sanath', '', 'jayasuriya', '', '15/A, pitipana, homagama', '', 'Clerk', 719184568, '1990-05-15');
 
 -- --------------------------------------------------------
 
@@ -283,7 +295,20 @@ INSERT INTO `items` (`item_id`, `item_status`, `serial_no`, `p_id`) VALUES
 (21, 1, 'BN1256RR', 6),
 (22, 1, 'AM1956RL', 6),
 (23, 0, 'AZ1656ML', 6),
-(24, 1, 'NB1006RK', 6);
+(24, 1, 'NB1006RK', 6),
+(25, 1, 'AS2025', 7),
+(26, 1, 'AS2205', 7),
+(27, 1, 'AS3052', 7),
+(28, 1, 'AS5020', 7),
+(29, 1, 'AR3021', 7),
+(30, 1, 'AN5652', 7),
+(31, 1, 'AM9236', 7),
+(32, 1, 'AL2030', 7),
+(33, 1, 'WU4587NM', 8),
+(34, 1, 'WL6060NM', 8),
+(35, 1, 'WU5600LK', 8),
+(36, 1, 'RM4507NV', 8),
+(37, 1, 'WU4330GK', 8);
 
 -- --------------------------------------------------------
 
@@ -310,7 +335,9 @@ INSERT INTO `model` (`model_id`, `model_name`, `total_quantity`, `specification`
 (3, 'CMOS 2032', 1, 'Technology Lithium, Voltage 3V,Diameter 20 mm,Weight3,1 g', 10, 150),
 (4, 'Envy20', 2, '8th Gen, intel core i7,NVIDIA GEFORCE,1TB HDD,8GB RAM', 10, 145000),
 (5, 'Canon 045', 2, 'Canon 045 magenta Toner', 12, 12800),
-(6, 'Inkjer L130', 3, 'High-yield ink bottles: 4000 Prints at only Rs.320 per Black Ink Bottle (70ml)\r\nPrint speed up to 8.5ipm\r\nCompact Size', 10, 28500);
+(6, 'Inkjer L130', 3, 'High-yield ink bottles: 4000 Prints at only Rs.320 per Black Ink Bottle (70ml)\r\nPrint speed up to 8.5ipm\r\nCompact Size', 10, 28500),
+(7, 'Y50BT', 8, 'Bluetooth headphones, Frequency range20-20kHz,MAX input power50mW,Impedance32ohms,Cable length1.2m detachable audio cable, Connection Jack 3.5mm, Sensitivity113dB SPL/V', 10, 1850),
+(8, 'Optiplex 3070', 5, 'Dell optiplex 3070 i3/4G/1T/DS ', 10, 75000);
 
 -- --------------------------------------------------------
 
@@ -337,7 +364,9 @@ INSERT INTO `product_list` (`p_id`, `product_status`, `category_id`, `model_id`,
 (3, 1, 2, 3, 3, 6),
 (4, 1, 1, 4, 4, 24),
 (5, 1, 3, 5, 5, 12),
-(6, 1, 4, 6, 6, 30);
+(6, 1, 4, 6, 6, 30),
+(7, 1, 5, 7, 7, 6),
+(8, 1, 6, 8, 8, 24);
 
 -- --------------------------------------------------------
 
@@ -412,7 +441,9 @@ INSERT INTO `supplier` (`sup_id`, `sup_name`, `email_address`, `active_status`) 
 ('SUP0003', 'Upright Computers', 'Upright@gmail.com', '1'),
 ('SUP0004', 'Laptop.lk', 'info@laptop.lk', '1'),
 ('SUP0005', 'WINSOFT', 'thanish@winsoft.lk', '1'),
-('SUP0006', 'URBAN', 'urbaninfo@gmail.com', '1');
+('SUP0006', 'URBAN', 'urbaninfo@gmail.com', '1'),
+('SUP0007', 'Skyray Gadget Store', 'skyrayinfo@gmail.com', '1'),
+('SUP0008', 'Lanka Laptop House Pvt Ltd', 'lankalaptop@yahoo.com', '1');
 
 -- --------------------------------------------------------
 
@@ -438,7 +469,9 @@ INSERT INTO `supplier_product` (`sup_id`, `p_id`, `date`, `unit_price`, `quantit
 ('SUP0003', 3, '2020-04-24', 100, 2),
 ('SUP0004', 4, '2021-01-01', 120000, 4),
 ('SUP0005', 5, '2020-11-07', 10000, 6),
-('SUP0006', 6, '2020-04-10', 23000, 5);
+('SUP0006', 6, '2020-04-10', 23000, 5),
+('SUP0007', 7, '2021-01-01', 1350, 8),
+('SUP0008', 1, '2020-08-21', 65000, 5);
 
 -- --------------------------------------------------------
 
@@ -461,7 +494,9 @@ INSERT INTO `sup_address` (`sup_id`, `address`) VALUES
 ('SUP0003', 'Puttalam - Colombo Rd, Katuneriya 61180'),
 ('SUP0004', 'No.313, 1st Floor, Unity Plaza, Colombo 04'),
 ('SUP0005', 'No. 418, Galle Road, Colombo 03'),
-('SUP0006', 'No 1/231 Broadway road, Colombo 10');
+('SUP0006', 'No 1/231 Broadway road, Colombo 10'),
+('SUP0007', '60, Ground Floor, Liberty Plaza, Kollupitiya '),
+('SUP0008', 'No19 Galle Rd, Dehiwala-Mount Lavinia');
 
 -- --------------------------------------------------------
 
@@ -484,7 +519,9 @@ INSERT INTO `sup_telephone` (`sup_id`, `telephone_no`) VALUES
 ('SUP0003', '0718456784'),
 ('SUP0004', '0777254758'),
 ('SUP0005', '0772561324'),
-('SUP0006', '0112753984');
+('SUP0006', '0112753984'),
+('SUP0007', '0789635421'),
+('SUP0008', '0718524693');
 
 -- --------------------------------------------------------
 
@@ -506,6 +543,7 @@ CREATE TABLE `user_account` (
 --
 
 INSERT INTO `user_account` (`emp_id`, `username`, `password`, `email`, `verified`, `token`) VALUES
+('EMP0047', 'cs037', '124bd1296bec0d9d93c7b52a71ad8d5b', '2018cs037@stu.ucsc.cmb.ac.lk', 1, 'fa7aa69e2687ea451ccec4a3266b6aaf4c5021aba0b0ecd716bd30ccd8ac1b3c8342734eac74188b7e36364a78e3b6f525b5'),
 ('EMP0001', 'mishAdmin', '7068956236499d5241009a15c818fc69', 'mishelnvc@gmail.com', 1, ''),
 ('EMP0045', 'mishclerk', 'ad4ac7fa40b0af2bae7374c57173f26c', 'mufernando02@gmail.com', 1, '88849b34deca26ae9636b484350182610dfce7170f2d505c2ac5a506fc1a1cfd874f1ab487f9aea10dfe15c1507340cf5887'),
 ('EMP0044', 'mishshop', '7068956236499d5241009a15c818fc69', '2018cs055@stu.ucsc.cmb.ac.lk', 1, 'a22cdb15bc974f04fd2361766595738b82673b4d014585e087c89973fb6ccf21f4b5eae2ccf5405830fb5df6b61accfacb34'),
@@ -657,31 +695,31 @@ ALTER TABLE `user_account`
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `brand_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `brand_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `category_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `item_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `item_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `model`
 --
 ALTER TABLE `model`
-  MODIFY `model_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `model_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `product_list`
 --
 ALTER TABLE `product_list`
-  MODIFY `p_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `p_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

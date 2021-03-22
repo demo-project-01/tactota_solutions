@@ -2,7 +2,7 @@
   include 'clerk_sidebar.php';
    require '../controller/inventory_maintain.php';
    $data=new inventory_maintain();
-   $sql=$data->display_shop_returnitem_details();
+   $sql=$data->display_all_returnitem_details();
    if(isset($_GET['action'])){
     if($_GET["action"]=="shop_return"){
         $sql=$data->display_shop_returnitem_details();
