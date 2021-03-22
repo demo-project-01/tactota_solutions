@@ -128,9 +128,9 @@ foreach ($sql3 as $k => $v)
         <thead>
           <tr>
             <th>Date</th>
-            <th>Category</td>
-            <th>Brand</th>
-            <th>Model</th>
+            <th>Category Name</td>
+            <th>Brand Name</th>
+            <th>Model Name</th>
             <th>Supplier</th>
             <th>Quantity</th>
             <th>Unit price</th>
