@@ -15,13 +15,13 @@ session_start();
 </head>
 <div class="content" style="width: auto;">
     <h1 id="tbl-heading"  >Add new Model</h1>
-    <?php if(isset($_SESSION['addnewproduct'])): ?>
+    <?php if(isset($_SESSION['addnewmodel'])): ?>
         <div class="alert" id="activate">
             <span class="activebtn">&times;</span>
-            <strong><?php echo $_SESSION['addnewproduct']; ?></strong>
+            <strong><?php echo $_SESSION['addnewmodel']; ?></strong>
         </div>
     <?php endif; ?>
-    <?php unset($_SESSION['addnewproduct']); ?>
+    <?php unset($_SESSION['addnewmodel']); ?>
 
     <form action="../controller/sales.php?action=add_new_model" id="myForm"  method="post">
     <div class="update-tbl">
@@ -31,7 +31,7 @@ session_start();
                     <th>Model Name</th>
                     <td>
                         <input class="text" id="model_no" type="text" name="model_number" required="">
-
+                        <span id='uname1'></span>
                     </td>
                 </tr>
         
@@ -78,3 +78,49 @@ session_start();
 	    <p>© Tactota Solutions All rights reserved </p>
     </div>
 </div>
+
+
+<script>
+ $('document').ready(function() {
+ 
+ var model_name_state = false;
+ 
+
+  $('#model_no').on('blur', function(){
+      var model_name = $('#model_no').val();
+      if (model_name == '') {
+          model_name_state = false;
+          return;
+      }
+      $.ajax({
+          url: '../controller/sales.php?action=check_model',
+          type: 'post',
+          data: {
+              'model_name' : model_number
+          },
+          success: function(response){
+       //     $('#uname1').html('already taken').css('color','red');
+              if (response == 'taken' ) {
+                  model_name_state = false;
+                  $('#uname1').html('already taken').css('color','red');
+              }else if (response == 'not_taken') {
+                  model_name_state = true;
+
+                  $('#uname1').html('available').css('color','green');
+              }
+          }
+      });
+  });
+
+
+
+});
+
+</script>
+<script>
+
+    setTimeout(function() {
+        let alert = document.querySelector(".alert");
+        alert.remove();
+    }, 1600);
+</script>

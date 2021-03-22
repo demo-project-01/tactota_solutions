@@ -349,7 +349,7 @@ $sql3 = $data->get_model_name();
     setTimeout(function() {
         let alert = document.querySelector(".alert");
         alert.remove();
-    }, 1600000);
+    }, 1600);
 </script>
 
 <script>
@@ -376,7 +376,7 @@ $('document').ready(function() {
                 'model' : model
             },
            success: function(response){
-            <?php    $_SESSION['price']=2000;  ?>
+            <?php  $_SESSION['price']= response;  ?>
 
             }
         });
