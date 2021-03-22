@@ -6,7 +6,7 @@ require '../controller/sales.php ';
 //$purchase=$_SESSION["purchase"];
 $data=new sales();
 $sql=$data->valid_prodcuts();
-session_start();
+//session_start();
 //print_r($_SESSION['purchase']);
 
   if(isset($_POST["add_to_bill"]))
@@ -55,8 +55,7 @@ session_start();
 <head>
     <link rel="stylesheet" href="../public/css/view_user.css"> 
     <link rel="stylesheet" href="../public/css/dropdown.css">
-
-    
+    <link rel="stylesheet" href="../public/css/report.css"></link>
 </head>
 
 <div class="content"style="width:auto;">
@@ -175,7 +174,7 @@ session_start();
                     <input type="hidden" name="hidden_sprice" value="<?php echo $sql[$k]["sales_price"] ?>" >
                     <input type="hidden" name="hidden_sno" value="<?php echo $sql[$k]["serial_no"] ?>" >
                     <input type="hidden" name="hidden_modelid" value="<?php echo $sql[$k]["model_id"] ?>" >
-                    <td><input type="submit" name="add_to_bill" value="Add"></td>
+                    <td><input type="submit" name="add_to_bill" class="button"  value="Add"></td>
                         
 
                    </form>     

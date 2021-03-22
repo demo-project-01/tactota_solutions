@@ -8,7 +8,7 @@ $sql1 = $data->get_category_name();
 $sql2 = $data->get_brand_name();
 $sql3 = $data->get_model_name();
 //print_r($sql);
-session_start();
+//session_start();
 //print_r($_SESSION['addnewproduct']);
 ?>
 
@@ -103,7 +103,7 @@ session_start();
                 <tr>
                     <th>Sales Price</th>
                     <td>  <labal id="sales_price1"> </labal>
-                        <input class="text" id="sales_price" type="number" min="1" name="sales_price" required="">
+                        <input class="text" id="sales_price" type="number" min="1" name="sales_price" placeholder=" <?php   echo $_SESSION['price'] ?>" required="">
 
                     </td>
                 </tr>
@@ -349,7 +349,38 @@ session_start();
     setTimeout(function() {
         let alert = document.querySelector(".alert");
         alert.remove();
-    }, 1600000);
+    }, 1600);
+</script>
+
+<script>
+
+$('document').ready(function() {
+  
+    $('#category,#brand,#model').on('blur', function(){
+        var category = $('#category').val();
+        var brand = $('#brand').val();
+        var model = $('#model').val();
+        if (category == '') {
+            return;
+        }if (brand == '') {
+            return;
+        }if (model == '') {
+            return;
+        }
+        $.ajax({
+            url: '../controller/sales.php?action=get_sales_price',
+            type: 'post',
+            data: {
+                'category' : category,
+                'brand': brand,
+                'model' : model
+            },
+           success: function(response){
+            <?php  $_SESSION['price']= response;  ?>
+
+            }
+        });
+    });
 </script>
 
 

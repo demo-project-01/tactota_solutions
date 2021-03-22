@@ -24,13 +24,24 @@ class sales
    public function get_model_name(){
     return $this->sale->get_model_name();
    }
+
+   public function check_model(){
+    $model_name = $_POST['model_name'];
+    $row1 = $this->sale->get_model_id($model_name);
+    if($row1 != "0" )
+    {
+        echo "taken";
+    }else{
+        echo "not_taken";
+    }      
+   }
    public function add_new_model(){
        $model_name = $_POST['model_number'];
-        $quantity =0;
+        $quantity = 0;
         $sales_price = $_POST['sales_price'];
         $specification =$_POST['specification'];
         $reorder_level = $_POST['reorder_level'];
-        print_r($reorder_level);
+     //   print_r($reorder_level);
         
     if($model_name==" "){
         echo "wrong";
@@ -38,16 +49,19 @@ class sales
         if ($this->sale->get_model_id($model_name)=="0"){
                
            if ($this->sale->add_new_model($model_name,$quantity,$reorder_level,$sales_price,$specification)) {
-                //  $_SESSION['addnewproduct']="Add new product is successful ";
-                 header('location: ../views/view_all_products.php');
-                    echo "successful";
+                  $_SESSION['addnewmodel']="Add new model is successful ";
+                 header('location: ../views/newmodel.php');
+                    //echo "successful";
               } else {
-                //  $_SESSION['addnewproduct']="Add new product is unsuccessful ";
-                  //  header('location: ../views/newproduct.php');
-                  echo "unsuccessful1";
+                  $_SESSION['addnewmodel']="Add new model is unsuccessful ";
+                    header('location: ../views/newmodel.php');
+                  //echo "unsuccessful1";
               }      
         }else{
-             echo "alredy exits ";
+            $_SESSION['addnewmodel']="Add new model is unsuccessful ";
+                    header('location: ../views/newmodel.php');
+                  //echo "unsuccessful1";
+           //  echo "alredy exits ";
         }
     
 
@@ -101,10 +115,10 @@ class sales
  //       if ($this->sale->update_model($model_id,$quantity,$reorder_level,$sales_price,$specification)){
  
 
-  //  if($count==0) {
+  if($count==0) {
      if($total1=$this->sale->add_new_product($category_id, $product_cost, $brand_id, $reorder_level, $model_id, $quantity,$product_status, $product_date, $serial_number,$item_status, $supplier_id,$warranty))
-      {    //  $_SESSION['addnewproduct']="Add new product is successful ";
-        //   header('location: ../views/view_all_products.php');
+      {    $_SESSION['addnewproduct']="Add new product is successful ";
+           header('location: ../views/view_all_products.php');
        // print_r($total1);   
         echo "successful";
         } else {
@@ -112,13 +126,13 @@ class sales
            //   header('location: ../views/newproduct.php');
              echo "unsuccessful1";
         }
-    // else{
-    //    $_SESSION['addnewproduct']="Add new product is unsuccessful ";
+    } else{
+        $_SESSION['addnewproduct']="Add new product is unsuccessful ";
     //   echo "unsuccessfull2";
-     //      header('location: ../views/newproduct.php');
+           header('location: ../views/newproduct.php');
         //$_SESSION['addnewproduct']="Add new product is unsuccessful ";
       //}
-                  
+    }           
 
     }
     public function valid_prodcuts(){
@@ -165,17 +179,19 @@ class sales
         $due_date = $_POST['due_date'];
         $cust_id= $this->sale->get_cust_id();
         $total_items=$_POST['hidden_total_i'];
-      
-        //print_r($total_items);
+        $model_no=$this->sale->get_model_no($serial_no,$total_items);
+        print_r($model_no); 
      if($payment_method=="cheque"){
-     if($this->sale->insert_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id)){
+     if($this->sale->insert_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id,$model_no)){
+        unset($_SESSION["purchase"]);
          header('location: ../views/view_purchase_list.php');
          echo'<script>alert("payment Done")</script>';
         }
     }
         else if($payment_method=="cash"){
-            if($this->sale->insert_cash_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id)){
-                header('location: ../views/view_purchase_list.php');
+            if($this->sale->insert_cash_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id,$model_no)){
+                unset($_SESSION["purchase"]);
+                 header('location: ../views/view_purchase_list.php');
                 echo'<script>alert("payment Done")</script>';
                }   
         }
@@ -242,6 +258,19 @@ class sales
                  }
       } }
     */
+
+
+    public function check_category(){
+        $category_name = $_POST['category_name'];
+        $row1 = $this->sale->check_new_category($category_name);
+        if($row1 != "0" )
+        {
+            echo "taken";
+        }else{
+            echo "not_taken";
+        }
+    }
+
     public function add_category(){
         $category_name = $_POST['category_name'];
         
@@ -249,27 +278,43 @@ class sales
 
 
         if($category_name==" "){
-            echo "wrong";
+            $_SESSION['addnewcategory']="Add newcategory is unsuccessful ";
+            header('location: ../views/newcategory.php');
+          //  echo "wrong";
         }else{
             if ($this->sale->check_new_category($category_name)=="0"){
                    
                 if ($this->sale->add_new_category($category_name)) {
-                    //  $_SESSION['addnewproduct']="Add new product is successful ";
-                    // header('location: ../views/view_all_products.php');
-                        echo "successful";
+                      $_SESSION['addnewcategory']="Add new category is successful ";
+                    header('location: ../views/newcategory.php');
+                    //    echo "successful";
                   } else {
-                    //  $_SESSION['addnewproduct']="Add new product is unsuccessful ";
-                      //  header('location: ../views/newproduct.php');
-                      echo "unsuccessful1";
+                      $_SESSION['addnewcategory']="Add new category is unsuccessful ";
+                      header('location: ../views/newcategory.php');
+                      //echo "unsuccessful1";
                   }      
             }else{
-                echo "alredy exits ";
+                      $_SESSION['addnewcategory']="Add newcategory is unsuccessful ";
+                        header('location: ../views/newcategory.php');
+              //  echo "alredy exits ";
             }
 
 
            
         }
        
+    }
+      
+    
+    public function check_brand(){
+        $brand_name = $_POST['brand_name'];
+        $row1 = $this->sale->check_new_brand($brand_name);
+        if($row1 != "0" )
+        {
+            echo "taken";
+        }else{
+            echo "not_taken";
+        }
     }
     
     public function add_brand(){
@@ -281,16 +326,18 @@ class sales
             if ($this->sale->check_new_brand($brand_name)=="0"){
                    
                 if ($this->sale->add_new_brand($brand_name)) {
-                    //  $_SESSION['addnewproduct']="Add new product is successful ";
-                    // header('location: ../views/view_all_products.php');
-                        echo "successful";
+                     $_SESSION['addnewbrand']="Add new brand is successful ";
+                     header('location: ../views/newbrand.php');
+                     //   echo "successful";
                   } else {
-                    //  $_SESSION['addnewproduct']="Add new product is unsuccessful ";
-                      //  header('location: ../views/newproduct.php');
-                      echo "unsuccessful1";
+                      $_SESSION['addnewbrand']="Add new brand is unsuccessful ";
+                        header('location: ../views/newbrand.php');
+                     // echo "unsuccessful1";
                   }      
             }else{
-                echo "alredy exits ";
+                $_SESSION['addnewbrand']="Add new brand is already exists ";
+                header('location: ../views/newbrand.php');
+               // echo "alredy exits ";
             }
 
 
@@ -314,6 +361,38 @@ class sales
         //print_r($_SESSION['bill_details']);
         header('location: ../views/cashbill_details.php');
        }
+    }
+    public function view_cheques(){
+        return $this->sale->get_cheques_details();
+    }
+
+    public function view_cheque($id){
+        $row=$this->sale->get_cheque($id);
+        $_SESSION['cheque_details']=$row;
+        header('location: ../views/cheque_clearance.php');
+    }
+    public function remove_cheque($id){
+        if($this->sale->clear_cheque($id)){
+            header('location: ../views/view_all_cheques.php');
+        }else{
+            
+            echo'<script>alert("Error")</script>';
+        }
+        
+    }
+
+    public function get_sales_price(){
+        $category = $_SESSION['category'];
+        $brand = $_SESSION['brand'];
+        $model = $_SESSION['model'];
+
+        $row=$this->sale->get_sales_price($category,$brand,$model);
+          if($row !="0"){
+             echo "1000";
+          }else{
+              echo "2000";
+          }
+
     }
 
 }
@@ -362,5 +441,25 @@ else if(isset($_GET['action']) && $_GET['action'] == 'add_new_model') {
 }else if(isset($_GET['action']) && $_GET['action'] == 'view_bill') {
     $id=$_GET['id'];
     $controller->view_bill($id);
+}else if(isset($_GET['action']) && $_GET['action'] == 'cheque_clearance') {
+    $id=$_GET['id'];
+    $controller->view_cheque($id);
+}else if(isset($_GET['action']) && $_GET['action'] == 'remove_cheque') {
+    $id=$_GET['id'];
+    $controller->remove_cheque($id);
+}else if(isset($_GET['action']) && $_GET['action'] == 'get_sales_price') {
+  
+    $controller->get_sales_price();
+}else if(isset($_GET['action']) && $_GET['action'] == 'check_category') {
+  
+    $controller->check_category();
+}else if(isset($_GET['action']) && $_GET['action'] == 'check_brand') {
+  
+    $controller->check_brand();
+}else if(isset($_GET['action']) && $_GET['action'] == 'check_model') {
+  
+    $controller->check_model();
 }
+
+
 

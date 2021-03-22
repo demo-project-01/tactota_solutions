@@ -58,7 +58,7 @@ include 'clerk_sidebar.php';
                 <td colspan=2>
                     <a class="add_button" href="view_all_products.php"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
                     <a class="add_button" href="update_product.php" ><i class="fa fa-pencil" aria-hidden="true">&nbsp&nbspUpdate</i></a>
-                    <a class="add_button" href="../controller/inventory_maintain.php?action=delete_product_details&id=<?php  echo $sql[$k]["p_id"]; ?>" ><i class="fa fa-trash" aria-hidden="true">&nbsp&nbspDelete</i></a>
+                    <a class="add_button" href="../controller/inventory_maintain.php?action=delete_product_details&id=<?php  echo $row["p_id"]; ?>" ><i class="fa fa-trash" aria-hidden="true">&nbsp&nbspDelete</i></a>
                 </td>
             </tr>
             </tbody>

@@ -2,9 +2,16 @@
    include 'admin_sidebar.php';
    require '../controller/inventory_maintain.php';
     $data = new inventory_maintain();
-    $sql=$data->sold_category_count();
+
+    $sql3=$data->sold_category_count();
     $categories=array();
     $count=array();
+
+    $sql=$data->view_categories();
+    $sql1=$data->count_users();
+    $sql2=$data->countstock_details();
+    $a=array();
+
     foreach ($sql as $k => $v)
     {
         array_push($categories,$sql[$k]["category_name"]);
@@ -18,11 +25,15 @@
 <div class="content" style="width:auto;">             
     <div>
         <a href ="users.php">
+        <?php
+        foreach ($sql1 as $k => $v){
+            ?>
         <div class="income1">
             <i class="fas fa-users fa-3x icon-left"></i>
             <b><p class="incomes">USERS</p></b>
-            <b><p class="inform">10 Record(s)</p></b>
+            <b><p class="inform"><?php echo $sql1[$k] ?> Record(s)</p></b>
         </div>
+        <?php }?> 
         </a>
         <a href ="review.php">
         <div class="income2"> 
@@ -39,11 +50,15 @@
         </div>
         </a>
         <a href="report_products.php">
+        <?php
+        foreach ($sql2 as $k => $v){
+            ?>
         <div class="income4">
             <i class="fas fa-store fa-3x icon-left"></i>
             <b><p class="incomes">STOCK DETAILS</p></b> 
-            <b><p class="inform">10 Record(s)</p></b>
+            <b><p class="inform"><?php echo $sql2[$k] ?> Record(s)</p></b>
         </div>
+        <?php }?> 
         </a>   
     </div>
     <div class="row">

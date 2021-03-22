@@ -159,6 +159,21 @@ class inventory_maintain
     public function count_reminderitems(){      //reshani
         return $this->inven->count_reminder_items();
     }
+
+    public function count_users(){      //reshani
+        return $this->inven->count_verified_users();
+    }
+    public function countproducts(){     //reshani
+        return $this->inven->count_products();
+    }
+    public function countsold_items(){     //reshani
+        return $this->inven->count_sold_items();
+    }
+    public function countstock_details(){   //reshani
+        return $this->inven->count_stock_details();
+    }
+
+
     public function reminderitems_suppliers($id){    //nuwan
       //  print_r($id);
         $row=$this->inven->display_reminder_suppliers($id);
@@ -178,10 +193,18 @@ class inventory_maintain
         $description=$_POST['description'];
         $returned_date=date("Y-m-d");
         $sup_id=$this->inven->get_supid_serial_no( $serial_no);
+        $item_id=$this->inven->get_item_id($serial_no);
+        $model_no=$_POST['model_name'];
+        /*printf($item_id);
+        printf($sup_id);
+        printf($serial_no);
+        printf($description);
+        printf($returned_date);
+        printf($item_status);*/
        //$serial_no=$this->inven->get_supid_serial_no1();
 
-        if($this->inven->add_return_item($sup_id,$returned_date,$description,$item_id)){
-            if($this->inven->add_item_status($item_status,$serial_no)){
+       if($this->inven->add_return_item($sup_id,$returned_date,$description,$item_id)){
+            if($this->inven->add_item_status($item_status,$item_id,$model_no)){
                 header('location: ../views/shopkeeper_return_items.php');
             }
             
@@ -191,11 +214,17 @@ class inventory_maintain
 
     }
 
-    public function display_returnitem_details(){   //reshani
-        return $this->inven->diplay_return_items();
+    public function display_shop_returnitem_details(){   //reshani
+        return $this->inven->diplay_shop_return_items();
     }
-    public function display_shopkeeper_return_items(){
+    public function display_cus_returnitem_details(){   //reshani
+        return $this->inven->diplay_cus_return_items();
+    }
+    public function display_shopkeeper_return_items(){  //reshani
         return $this->inven->shopkeeper_return_items();
+    }
+    public function display_all_returnitem_details(){
+        return $this->inven->all_return_items();
     }
 
    /*public function delete_reminder_suppliers($serial_no){   //reshani
@@ -535,12 +564,6 @@ else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //re
     $row=$_POST['query'];
     $controller->inbox_supplier($row);
 
-}else if(isset($_GET['action']) && $_GET['action'] == 'countsuppliers'){   //reshani
-    $controller->countsuppliers();
-
-}else if(isset($_GET['action']) && $_GET['action'] == 'count_reminderitems'){   //reshani
-    $controller->count_reminderitems();
-
 }else if(isset($_GET['action']) && $_GET['action'] == 'view_inbox'){   
     $id=$_GET["id"];
   //  print_r($id);
@@ -549,7 +572,34 @@ else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //re
     $id=$_GET["id"];
   //  print_r($id);
    $controller->view_inbox_delete($id);
+
+}else if(isset($_GET['action']) && $_GET['action'] == 'countsuppliers'){   //reshani
+    $controller->countsuppliers();
+
+}else if(isset($_GET['action']) && $_GET['action'] == 'count_reminderitems'){   //reshani
+    $controller->count_reminderitems();
+}else if(isset($_GET['action']) && $_GET['action'] == 'count_users'){   //reshani admin dashboard
+    $controller->count_users();
+
+}else if(isset($_GET['action']) && $_GET['action'] == 'countproducts'){   //reshani
+    $controller->countproducts();
+
+}else if(isset($_GET['action']) && $_GET['action'] == 'countsold_items'){   //reshani
+    $controller->countsold_items();
+
+}else if(isset($_GET['action']) && $_GET['action'] == 'countstock_details'){   //reshani
+    $controller->countstock_details();
+
+}else if(isset($_GET['action']) && $_GET['action'] == 'view_categories'){   //reshani
+    $controller->view_categories();
+
+}else if(isset($_GET['action']) && $_GET['action'] == 'view_models'){   //reshani
+    $controller->view_models();
+
+}else if(isset($_GET['action']) && $_GET['action'] == 'view_brands'){   //reshani
+    $controller->view_brands();
 }
+
 
 
 

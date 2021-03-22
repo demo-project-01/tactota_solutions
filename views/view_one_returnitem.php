@@ -42,7 +42,7 @@ $row=$_SESSION['return_item'];
         </tr>
         <tr>
             <th>Model Number</th>
-            <td> <input type='text'  placeholder="1234" name="model_name"value="<?php echo $row['model_name'] ?>"  disabled>
+            <td> <input type='text'  placeholder="1234" name="model_name"value="<?php echo $row['model_name'] ?>"  readonly>
             </td>
         </tr>
         

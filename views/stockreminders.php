@@ -42,7 +42,7 @@ $sql= $_SESSION['reminderitem_suppliers'];
 
                 <td><?php echo $sql[$k]["sup_name"] ?></td>
                 <td><?php echo $sql[$k]["address"] ?></td>
-                <td><?php echo $sql[$k]["p_cost"] ?></td>
+                <td><?php echo $sql[$k]["unit_price"] ?></td>
 
 
                 <td><a href = "../controller/inventory_maintain.php?action=send_email_form&id=<?php echo $sql[$k]["email_address"]?>&id1=<?php echo $sql[$k]['p_id'] ?>"  title="view"><i class="fa fa-eye" aria-hidden="true" id="tbl-icon">&nbsp&nbspView</i></a> </td>
