@@ -28,7 +28,7 @@ class authenitication
     public function login()
     {
 
-         
+ 
             $username = $_POST['username'];
             $password = md5($_POST['password']);
 
