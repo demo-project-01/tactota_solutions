@@ -453,6 +453,11 @@ class inventory_maintain
     $row=$this->inven->view_models();
     return $row;
     }
+    public function sold_category_count(){
+        $row=$this->inven->sold_category_count();
+    return $row;
+    }
+    
 
     public function view_inbox_email($id){
         $row = $this->inven->view_inbox_email($id);
