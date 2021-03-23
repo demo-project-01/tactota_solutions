@@ -10,6 +10,7 @@
     $sql1=$data->count_users();
     $sql2=$data->countstock_details();
     $sql3=$data->max_min_sales();
+    $sql4=$data->countcheck_reminders();
 
     foreach ($sql as $k => $v)
     {
@@ -41,12 +42,16 @@
             <b><p class="inform">10 Record(s)</p></b> 
         </div>   
         </a>
-        <a href="report_loss_profit.php">
+        <a href="view_all_cheques.php">
+        <?php
+        foreach ($sql4 as $k => $v){
+            ?>
         <div class="income3">
             <i class="fa fa-money fa-3x icon-left"></i>
-            <b><p class="incomes">INCOME</p></b>
-            <b><p class="inform">10 Record(s)</p></b>
+            <b><p class="incomes">Cheque Reminders</p></b>
+            <b><p class="inform"><?php echo $sql4[$k] ?>  Record(s)</p></b>
         </div>
+        <?php }?> 
         </a>
         <a href="report_products.php">
         <?php
