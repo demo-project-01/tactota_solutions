@@ -14,22 +14,18 @@
 <div class="content" style="width:auto;">
 <h1 id="tbl-heading">Customer Reviews</h1>
 
-<div class="nav-bar">
-      <table>
+    <div class="nav-bar">
+      <table class="selection">
         <tr>
-          <td class="button-bar">
-            <ul>
-              <li><a class="button" href="#">Annual</a>
-              <li><a class="button" href="#">Monthly</a>
-              <li><a class="button" href="#">Weekly</a>           
-          </td>
-          <td class="date-bar">
-            <li><a class="button" href="#">Custom Time Range: </a>   
-            <label for="f_date" class="date-lbl">From : </label>
+          <td><a class="button" href="#">Annual</a></td>
+          <td><a class="button" href="#">Monthly</a></td>   
+          <td><a class="button" href="#">Weekly</a></td>          
+          <td>
+            <label for="f_date" class="date-lbl"> Custom Time Range :<br/>From</label>
               <input type="date" id="f_date" name="f_date" placeholder="Select start date" min="2017-04-01" max="2020-11-21">
-            <label for="t_date" class="date-lbl">To : </label>
-                <input type="date" id="t_date" name="t_date" placeholder="Select End date" min="2017-04-01" max="2020-11-21">
-          </td>
+            <label for="t_date" class="date-lbl"> to </label>
+               <input type="date" id="t_date" name="t_date" placeholder="Select End date" min="2017-04-01" max="2020-11-21">
+          <a class="button" href="#">Search </a></td>
         </tr>
       </table>
     </div>

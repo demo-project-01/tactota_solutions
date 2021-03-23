@@ -80,37 +80,6 @@ $sql3=$data->current_stock();
   
   <div class="page">
   
-  <h1 id="h1">Maximum Sold Products</h1>
-  <div class="view-tbl" id="view-tbl1">
-    <table>
-      <thead>
-        <tr>
-          <th>Product ID</th>
-          <th>Category Name</th>
-          <th>Brand Name</th>
-          <th>Model Name</th>
-          <th>Quantity</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>P001</td>
-          <td>Laptop</td>
-          <td>Asus</td>
-          <td>Vivobook X512J</td>
-        <td>12</td>
-        </tr>
-        <tr>
-          <td>P001</td>
-          <td>Printer</td>
-          <td>HP</td>
-          <td>Sw123</td>
-        <td>10</td>
-        </tr>
-        
-      </tbody>
-    </table>
-  </div> 
   <h1 id="h1">Current Stock</h1>
 
   <div class="view-tbl" id="view-tbl1">
