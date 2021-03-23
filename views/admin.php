@@ -3,19 +3,18 @@
    require '../controller/inventory_maintain.php';
     $data = new inventory_maintain();
 
-    $sql3=$data->sold_category_count();
     $categories=array();
     $count=array();
 
-    $sql=$data->view_categories();
+    $sql=$data->sold_category_count();
     $sql1=$data->count_users();
     $sql2=$data->countstock_details();
-    $a=array();
+    $sql3=$data->max_min_sales();
 
-    foreach ($sql3 as $k => $v)
+    foreach ($sql as $k => $v)
     {
-        array_push($categories,$sql3[$k]["category_name"]);
-        array_push($count,$sql3[$k]["total"]);
+        array_push($categories,$sql[$k]["category_name"]);
+        array_push($count,$sql[$k]["total"]);
     }
 ?>
 <head>
@@ -108,10 +107,41 @@ var myChart = new Chart(ctx, {
         <div class="column">
             <div>
                 <p class="incomes">TOP SELLING ITEM OF THE MONTH</p>
-                <img src="../public/images/topselling.png">
+                <p style="font-size:20px;color:#6D6E31;font-weight:bold;">
+                    <?php 
+                    echo $sql3[0]['model_name'];
+                    ?>
+                </p>
+                <p style="font-size:15px;color:#6D6E31;font-weight:bold;">
+                    <?php 
+                    echo $sql3[0]['category_name'];
+                    ?>
+                </p>
+                <p style="font-size:15px;color:blue;font-weight:bold;">
+                    <?php 
+                    echo $sql3[0]['total'];
+                    echo " sales";
+                    ?>
+                </p>
             </div>
             <div>
                 <p class="incomes">LEAST SELLING ITEM OF THE MONTH</p>
+                <p style="font-size:20px;color:#6D6E31;font-weight:bold;">
+                    <?php 
+                    echo $sql3[count($sql3)-1]['model_name'];
+                    ?>
+                </p>
+                <p style="font-size:15px;color:#6D6E31;font-weight:bold;">
+                    <?php     
+                    echo $sql3[count($sql3)-1]['category_name'];
+                    ?>
+                </p>  
+                <p style="font-size:15px;color:blue;font-weight:bold;">
+                    <?php 
+                    echo $sql3[count($sql3)-1]['total'];
+                    echo " sales";
+                    ?>
+                </p>  
             </div>
         </div>
         <div class="card emp">

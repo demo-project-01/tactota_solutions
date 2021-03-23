@@ -81,7 +81,7 @@
                     &nbsp&nbspNIC *
                     <span id='nic1'></span>
                 </label>
-                <input id='nic' class="text" type="text" name="nic8" required="" pattern="(([0-9]{9})[v,V])|(\d{12})" title="for new NIC's 12 numbers and for old NIC's 9 numbers and v">
+                <input id='nic' class="text" type="text" name="nic" required="" pattern="(([0-9]{9})[v,V])|(\d{12})" title="for new NIC's 12 numbers and for old NIC's 9 numbers and v">
                 
 
                 <label for='dob' id='left-label'>

@@ -488,6 +488,27 @@ class inventory_maintain
     public function get_bought_products(){
         return $this->inven->get_products_monthly();
     }
+    public function current_stock(){
+        return $this->inven->current_stock();
+    }
+
+    public function max_min_sales()
+    {
+        return $this->inven->max_min_sales();
+    }
+    public function max_sales_with_categories()
+    {
+        return $this->inven->max_sales_with_categories();
+    }
+    public function min_sales_with_categories()
+    {
+        return $this->inven->min_sales_with_categories();
+    }
+    public function sold_items()
+    {
+        return $this->inven->sold_items_all();
+    }
+    
 
 }
 

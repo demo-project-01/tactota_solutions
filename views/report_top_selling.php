@@ -5,6 +5,8 @@ $data = new inventory_maintain();
 $sql=$data->view_categories();
 $sql1=$data->view_brands();
 $sql2=$data->view_models();
+$sql3=$data->max_sales_with_categories();
+$sql3=$data->min_sales_with_categories();
 ?>
 
 
@@ -33,59 +35,45 @@ $sql2=$data->view_models();
     <table>
       <thead>
         <tr>
+            <th>Category Name</td>
+            <th>Brand Name</th>
+            <th>Model Name</th>
+            <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($sql3 as $k => $v){ ?>
+        <tr>
+          <td><?php echo $sql3[$k]["category_name"] ?></td>
+          <td><?php echo $sql3[$k]["brand_name"] ?></td>
+          <td><?php echo $sql3[$k]["model_name"] ?></td>
+          <td><?php echo $sql3[$k]["total"] ?></td>
+        </tr>
+        <?php } ?>
+       </tbody>
+    </table>
+  </div> 
+  <h1 id="h1">Least Selling</h1>
+  <div class="view-tbl" id="view-tbl1" width=50%>
+  <table>
+      <thead>
         <tr>
             <th>Category Name</td>
             <th>Brand Name</th>
             <th>Model Name</th>
             <th>Quantity</th>
         </tr>
-        </tr>
       </thead>
       <tbody>
+        <?php foreach ($sql3 as $k => $v){ ?>
         <tr>
-          <td>Laptop</td>
-          <td>Asus</td>
-          <td>Vivobook X512J</td>
-        <td>12</td>
+          <td><?php echo $sql3[$k]["category_name"] ?></td>
+          <td><?php echo $sql3[$k]["brand_name"] ?></td>
+          <td><?php echo $sql3[$k]["model_name"] ?></td>
+          <td><?php echo $sql3[$k]["total"] ?></td>
         </tr>
-        <tr>
-          <td>Printer</td>
-          <td>HP</td>
-          <td>Sw123</td>
-        <td>10</td>
-        </tr>
-        
-      </tbody>
-    </table>
-  </div> 
-  <h1 id="h1">Leat Selling</h1>
-  <div class="view-tbl" id="view-tbl1" width=50%>
-    <table>
-      <thead>
-        <tr>
-        <tr>
-            <th>Category Nmae</td>
-            <th>Brand Name</th>
-            <th>Model Name</th>
-            <th>Quantity</th>
-        </tr>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Laptop</td>
-          <td>Asus</td>
-          <td>Vivobook X512J</td>
-        <td>12</td>
-        </tr>
-        <tr>
-          <td>Printer</td>
-          <td>HP</td>
-          <td>Sw123</td>
-        <td>10</td>
-        </tr>
-        
-      </tbody>
+        <?php } ?>
+       </tbody>
     </table>
   </div> 
   </div>

@@ -224,7 +224,7 @@ $sql=$data->valid_prodcuts();
                     <input type="hidden" name="hidden_sprice" value="<?php echo $sql[$k]["sales_price"] ?>" >
                     <input type="hidden" name="hidden_sno" value="<?php echo $sql[$k]["serial_no"] ?>" >
                     <input type="hidden" name="hidden_modelid" value="<?php echo $sql[$k]["model_id"] ?>" >
-                    <td><input type="submit" name="add_to_bill" value="Add"></td>
+                    <td><input type="submit" class="button1" name="add_to_bill" value="Add" ></td>
                         
 
                    </form>     

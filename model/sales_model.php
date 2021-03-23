@@ -421,6 +421,14 @@ public function get_cheques_details(){
   return $result;
 
 }
+public function get_cheques_details_by_bank(){
+    $query = $this->mysqli->query("SELECT cheque.cheque_id,cheque.bank_name,cheque.due_date,bill.amount,cheque.bill_no from cheque INNER JOIN bill ON cheque.bill_no=bill.bill_no WHERE cheque.cheque_status=1 order by cheque.bank_name ASC");
+    while ($row = $query->fetch_assoc()) {
+        $result[] = $row;
+    }
+  return $result;
+
+}
 public function get_cheque($cheque_id){
       
     $query = $this->mysqli->query("SELECT cheque.cheque_id,cheque.bank_name,cheque.due_date,cheque.received_date,bill.amount,cheque.bill_no from cheque INNER JOIN bill ON cheque.bill_no=bill.bill_no WHERE cheque.cheque_id='" .$cheque_id. "'");

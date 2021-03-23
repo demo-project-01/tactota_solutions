@@ -91,6 +91,12 @@ input[type="submit"] {
     transition: .5s all;
     background:#61ca7d;
 }
+.button1 {  /*nuwan purchase*/
+    height: 20px; 
+    width: 20px; 
+    background: #007042;
+    } 
+    
 
 /* -----------------------------------------*/
 

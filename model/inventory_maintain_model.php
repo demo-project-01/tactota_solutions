@@ -590,5 +590,45 @@ public function get_products_monthly(){
     }
   return $result;
 }
+public function current_stock(){
+    $query = $this->mysqli->query("SELECT model.model_name,model.total_quantity,brand.brand_name,category.category_name,product_list.p_id FROM model INNER JOIN product_list ON model.model_id=product_list.model_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id");
+    while ($row = $query->fetch_assoc()) {
+        $result[] = $row;
+    }
+  return $result;
+}
+
+public function max_min_sales()
+{
+    $query = $this->mysqli->query("SELECT category.category_name,model.model_name,brand.brand_name, count(model.model_name)as total ,bill.date_time FROM purchase,items,product_list,category,model,bill,brand WHERE purchase.item_id=items.item_id AND items.p_id=product_list.p_id AND category.category_id=product_list.category_id AND model.model_id=product_list.model_id AND purchase.bill_no=bill.bill_no AND product_list.brand_id=brand.brand_id AND MONTH(bill.date_time) = MONTH(CURRENT_DATE()) group by model.model_name ORDER BY total DESC");
+    while ($row = $query->fetch_assoc()) {
+        $result[] = $row;
+    }
+  return $result;
+}
+public function max_sales_with_categories()
+{
+    $query = $this->mysqli->query("SELECT category.category_name,model.model_name,brand.brand_name, count(model.model_id)as total FROM purchase,items,product_list,category,model,bill,brand WHERE purchase.item_id=items.item_id AND items.p_id=product_list.p_id AND category.category_id=product_list.category_id AND model.model_id=product_list.model_id AND purchase.bill_no=bill.bill_no AND product_list.brand_id=brand.brand_id AND MONTH(bill.date_time) = MONTH(CURRENT_DATE()) group BY category.category_id ORDER BY total DESC");
+    while ($row = $query->fetch_assoc()) {
+        $result[] = $row;
+    }
+  return $result;
+}
+public function min_sales_with_categories()
+{
+    $query = $this->mysqli->query("SELECT category.category_name,model.model_name,brand.brand_name, count(model.model_id)as total FROM purchase,items,product_list,category,model,bill,brand WHERE purchase.item_id=items.item_id AND items.p_id=product_list.p_id AND category.category_id=product_list.category_id AND model.model_id=product_list.model_id AND purchase.bill_no=bill.bill_no AND product_list.brand_id=brand.brand_id AND MONTH(bill.date_time) = MONTH(CURRENT_DATE()) group BY category.category_id ORDER BY total ASC");
+    while ($row = $query->fetch_assoc()) {
+        $result[] = $row;
+    }
+  return $result;
+}
+public function sold_items_all()
+{
+    $query = $this->mysqli->query("SELECT category.category_name,model.model_name,brand.brand_name,product_list.p_id, count(model.model_name)as total FROM purchase,items,product_list,category,model,bill,brand WHERE purchase.item_id=items.item_id AND items.p_id=product_list.p_id AND category.category_id=product_list.category_id AND model.model_id=product_list.model_id AND purchase.bill_no=bill.bill_no AND product_list.brand_id=brand.brand_id AND MONTH(bill.date_time) = MONTH(CURRENT_DATE()) group by model.model_name ORDER BY product_list.p_id ASC");
+    while ($row = $query->fetch_assoc()) {
+        $result[] = $row;
+    }
+  return $result;
+}
     
 }
