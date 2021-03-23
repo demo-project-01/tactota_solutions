@@ -5,6 +5,7 @@ $data = new inventory_maintain();
 $sql=$data->view_categories();
 $sql1=$data->view_brands();
 $sql2=$data->view_models();
+$sql3=$data->current_stock();
 ?>
 
 
@@ -124,21 +125,20 @@ $sql2=$data->view_models();
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>P001</td>
-          <td>Laptop</td>
-          <td>Asus</td>
-          <td>Vivobook X512J</td>
-        <td>2</td>
-        </tr>
-        <tr>
-          <td>P001</td>
-          <td>Printer</td>
-          <td>HP</td>
-          <td>Sw123</td>
-        <td>5</td>
-        </tr>
+      <?php
+foreach ($sql3 as $k => $v)
+{
+    ?>
+    <tr>
         
+        <td><?php echo $sql3[$k]["p_id"] ?></td>
+        <td><?php echo $sql3[$k]["category_name"] ?></td>
+        <td><?php echo $sql3[$k]["brand_name"] ?></td>
+        <td><?php echo $sql3[$k]["model_name"] ?></td>
+        <td><?php echo $sql3[$k]["total_quantity"] ?></td>
+    </tr>
+    <?php
+} ?>
       </tbody>
     </table>
 </div>

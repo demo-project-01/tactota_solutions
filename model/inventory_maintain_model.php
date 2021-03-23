@@ -590,5 +590,12 @@ public function get_products_monthly(){
     }
   return $result;
 }
+public function current_stock(){
+    $query = $this->mysqli->query("SELECT model.model_name,model.total_quantity,brand.brand_name,category.category_name,product_list.p_id FROM model INNER JOIN product_list ON model.model_id=product_list.model_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id");
+    while ($row = $query->fetch_assoc()) {
+        $result[] = $row;
+    }
+  return $result;
+}
     
 }

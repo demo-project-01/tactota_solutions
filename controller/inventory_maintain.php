@@ -488,6 +488,9 @@ class inventory_maintain
     public function get_bought_products(){
         return $this->inven->get_products_monthly();
     }
+    public function current_stock(){
+        return $this->inven->current_stock();
+    }
 
 }
 
