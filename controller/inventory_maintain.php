@@ -496,6 +496,15 @@ class inventory_maintain
     {
         return $this->inven->max_min_sales();
     }
+    public function max_sales_with_categories()
+    {
+        return $this->inven->max_sales_with_categories();
+    }
+    public function min_sales_with_categories()
+    {
+        return $this->inven->min_sales_with_categories();
+    }
+    
 
 }
 

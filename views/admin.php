@@ -118,7 +118,7 @@ var myChart = new Chart(ctx, {
                     echo $sql3[0]['category_name'];
                     ?>
                 </p>
-                <p style="font-size:15px;color:#6D6E31;font-weight:bold;">
+                <p style="font-size:15px;color:blue;font-weight:bold;">
                     <?php 
                     echo $sql3[0]['total'];
                     echo " sales";
@@ -138,7 +138,7 @@ var myChart = new Chart(ctx, {
                     echo $sql3[count($sql3)-1]['category_name'];
                     ?>
                 </p>  
-                <p style="font-size:15px;color:#6D6E31;font-weight:bold;">
+                <p style="font-size:15px;color:blue;font-weight:bold;">
                     <?php 
                     echo $sql3[count($sql3)-1]['total'];
                     echo " sales";
