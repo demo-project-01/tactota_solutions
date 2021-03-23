@@ -365,6 +365,9 @@ class sales
     public function view_cheques(){
         return $this->sale->get_cheques_details();
     }
+    public function view_cheques_by_bank(){
+        return $this->sale->get_cheques_details_by_bank();
+    }
 
     public function view_cheque($id){
         $row=$this->sale->get_cheque($id);
