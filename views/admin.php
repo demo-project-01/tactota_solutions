@@ -107,7 +107,6 @@ var myChart = new Chart(ctx, {
         <div class="column">
             <div>
                 <p class="incomes">TOP SELLING ITEM OF THE MONTH</p>
-                <br/><br/>
                 <p style="font-size:20px;color:#6D6E31;font-weight:bold;">
                     <?php 
                     echo $sql3[0]['model_name'];
@@ -127,7 +126,6 @@ var myChart = new Chart(ctx, {
             </div>
             <div>
                 <p class="incomes">LEAST SELLING ITEM OF THE MONTH</p>
-                <br/><br/>
                 <p style="font-size:20px;color:#6D6E31;font-weight:bold;">
                     <?php 
                     echo $sql3[count($sql3)-1]['model_name'];
