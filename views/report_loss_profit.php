@@ -85,7 +85,7 @@ $sql4=$data->get_bought_products();
         <thead>
           <tr>
             <th>Date</th>
-            <th>Description</th>
+            <th>Payment Method</th>
             <th>Bill no</th>
             <th>Amount Rs.</th>
           </tr>
@@ -99,7 +99,7 @@ foreach ($sql3 as $k => $v)
     <tr>
         
         <td><?php echo $sql3[$k]["date_time"] ?></td>
-        <th>Sold item</td>
+        <td><?php echo $sql3[$k]["payment_method"] ?></td>
         <td><?php echo $sql3[$k]["bill_no"] ?></td>
         <td><?php echo $sql3[$k]["amount"] ?></td>
         
@@ -113,7 +113,7 @@ foreach ($sql3 as $k => $v)
          <tr>       
                     <td></td>
                     <td></td> 
-                    <td align="right">Total Amount</td>
+                    <td align="right">Total Income</td>
                     <td><?php echo number_format($total) ?></td>
         </tr>
         <?php
@@ -188,11 +188,27 @@ foreach ($sql4 as $k => $v)
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>20/11/2020</td>
-            <td>Profit / Loss </td>
-            <td>430.00</td>
-          </tr>
+        <?php
+     $income=$total_buy-$total;
+     ?> 
+         <tr>       
+                    <td><?php echo date("Y/m/d")?></td>
+                    <?php 
+                    if($income>=0){
+                      ?> 
+                       <td align="right">Total Profit</td>
+                    <td><?php echo number_format($total_buy-$total) ?></td>
+                    <?php  }?> 
+                     <?php 
+                      if($income<0){
+                      ?>   
+                      <td align="right">Total Lost</td>
+                      <td><?php echo number_format($total-$total_buy) ?></td>
+                      <?php }   
+                     ?>
+        </tr>
+        <?php
+  ?>
         </tbody>
       </table>
     </div>
