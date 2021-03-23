@@ -504,6 +504,10 @@ class inventory_maintain
     {
         return $this->inven->min_sales_with_categories();
     }
+    public function sold_items()
+    {
+        return $this->inven->sold_items_all();
+    }
     
 
 }
