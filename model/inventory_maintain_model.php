@@ -597,5 +597,14 @@ public function current_stock(){
     }
   return $result;
 }
+
+public function max_min_sales()
+{
+    $query = $this->mysqli->query("SELECT category.category_name,model.model_name,count(model.model_name)as total ,bill.date_time FROM purchase,items,product_list,category,model,bill WHERE purchase.item_id=items.item_id AND items.p_id=product_list.p_id AND category.category_id=product_list.category_id AND model.model_id=product_list.model_id AND purchase.bill_no=bill.bill_no AND MONTH(bill.date_time) = MONTH(CURRENT_DATE()) group by model.model_name ORDER BY total DESC");
+    while ($row = $query->fetch_assoc()) {
+        $result[] = $row;
+    }
+  return $result;
+}
     
 }

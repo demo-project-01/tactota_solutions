@@ -492,6 +492,11 @@ class inventory_maintain
         return $this->inven->current_stock();
     }
 
+    public function max_min_sales()
+    {
+        return $this->inven->max_min_sales();
+    }
+
 }
 
 
