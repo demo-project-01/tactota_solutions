@@ -17,46 +17,60 @@
 </head>
 <div class="content" style="width:auto;">
     <h1 id="tbl-heading">Add Return Items</h1><br/>
-    <div class="nav-bar">
+    <!--div class="nav-bar">
       <table class="selection">
         <tr>
           <td><label for="category" class="date-lbl">Category</label></td>
           <td><label for="brand" class="date-lbl">Brand</label></td>
           <td><label for="model" class="date-lbl">Model</label></td>
         </tr>
-        <tr>
-          <td>
+        <tr-->
+          <!--td>
             <select name="category" id="category">
               <option value="0">All</option>
-              <?php
+              <!-?php
                 foreach ($sql1 as $k => $v){  ?>
-                  <option value="<?php echo $sql1[$k]["category_id"] ?>"> <?php echo $sql1[$k]["category_name"] ?></option>  
-             <?php
+                  <option value="--<!?php echo $sql1[$k]["category_id"] ?>"> <!?php echo $sql1[$k]["category_name"] ?></option>  
+             <!?php
                 }
               ?>
             </select>
-          </td>
-          <td>
+          
+            <script>
+                Let dropdown =document.getElementById("category");
+                if (dropdown) dropdown.addEventListener("change",function(event){
+                  console.log (event.target.value);
+                  document.cookie="category_id"+event.target.value;
+                  console.log(documnet.cookie)
+                });
+            </script-->
+            <!--?php
+               $category_id=$_COOKIE['category_id'];
+               $sql2=$data->view_brands($category_id);
+            ?-->
+            
+          <!--/td>
+          <!td>
             <select name="brand" id="brand">
-              <option value="0">All</option>
-              <?php
-                foreach ($sql2 as $k => $v){  ?>
-                  <option value="<?php echo $sql2[$k]["brand_id"] ?>"> <?php echo $sql2[$k]["brand_name"] ?></option>   
-              <?php
+              <option value="0">All</option-->
+              <!--?php
+                foreach ($sql2 as $k => $v){  ?-->
+                  <!--option value="<!?php echo $sql2[$k]["brand_id"] ?>"> <!?php echo $sql2[$k]["brand_name"] ?></option-->   
+              <!--?php
                 }
               ?>
             </select>
           </td>
           <td>
             <select name="model" id="model">
-              <option value="0">All</option>
-              <?php
+              <option value="0">All</option-->
+              <!--?php
                 foreach ($sql3 as $k => $v){  ?>
-                  <option value="<?php echo $sql3[$k]["model_id"] ?>"> <?php echo $sql3[$k]["model_name"] ?></option>   
-              <?php
+                  <option value="<!?php echo $sql3[$k]["model_id"] ?>"> <!?php echo $sql3[$k]["model_name"] ?></option-->   
+              <!--?php
                 }
-              ?>
-            </select>
+              ?-->
+            <!--/select>
           </td>
         </tr>
         <tr>
@@ -65,7 +79,7 @@
           </td>
         </tr>
       </table>
-    </div>
+    </div-->
   
     <!--div class="new">
     <a class="add_button" href="#">
@@ -155,9 +169,9 @@
         </li>
     </ul>
 </div-->
-    <!--div class="search">
+    <div class="search">
     <input type="text" placeholder="Search..">
-    </div-->
+    </div>
     <div class="page">
     <h2 style="color:#007042;">Select Item To Add :</h2>
     <div class="view-tbl">  

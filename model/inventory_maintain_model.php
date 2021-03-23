@@ -189,14 +189,14 @@ class inventory_maintain_model
         }
         return $result;  
     }
-    public function count_sold_items(){
+    public function count_sold_items(){    //reshani
         $query=$this->mysqli->query("SELECT COUNT(purchase.item_id) FROM purchase");
         while ($row = $query->fetch_assoc()) {
             $result = $row;   
         }
         return $result;  
     }
-    public function count_stock_details(){
+    public function count_stock_details(){   //reshani
         $query=$this->mysqli->query("SELECT COUNT( DISTINCT product_list.category_id) FROM product_list WHERE product_list.product_status!=0");
         while ($row = $query->fetch_assoc()) {
             $result = $row;   
@@ -324,7 +324,7 @@ class inventory_maintain_model
             return 0;
         }
     }
-    public function valid_cust_name($cust_name){         //reshani ,add customer details
+   /* public function valid_cust_name($cust_name){         //reshani ,add customer details
         $result = "";
         $query = $this->mysqli->query("SELECT * FROM customer WHERE cust_name='" . $cust_name . "'");
         if ($query->num_rows > 0) {
@@ -371,7 +371,7 @@ class inventory_maintain_model
         return $stmt2->execute();
         }
 
-    }   
+    }   */
    
 /*public function delete_reminder_supplier($serial_no,$item_status){      //reshani
         $stmt=$this->mysqli->prepare("UPDATE item SET item.item_status=? WHERE item.serial_no=?");
