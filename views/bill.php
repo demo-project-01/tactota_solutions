@@ -13,6 +13,15 @@ $row=$data->get_bill_no();
   <link rel="stylesheet" href="../public/css/update.css">
   <link rel="stylesheet" href="../public/css/style1.css">
   <div class="content1">
+  <script>
+  function compute_total(){
+    var amount=document.getElementById('total_amount').value;
+    var discount=document.getElementById('discount').value;
+    var total_a=(amount*(100-discount)/100).toFixed(2);
+    document.getElementById('total').innerHTML=total_a;
+  }
+
+  </script>
  
      <div class="main-box1">
      <form action="../controller/sales.php?action=add_bill" method="post">
@@ -105,8 +114,6 @@ $row=$data->get_bill_no();
      <th scope="col">serial Number</th>
      <th scope="col">Warrenty</th>
      <th scope="col">Sales Price</th>
-     <th scope="col">Discount</th>
-     <th scope="col">Total Price</th>
 
    </tr>
  </thead>
@@ -119,49 +126,56 @@ $row=$data->get_bill_no();
           $total_items=0;
           foreach($_SESSION["purchase"] as $keys => $values)
             {
-                ?>
+              ?>
 
 
-                <tr>
-                    <td><?php echo $values["category_name"] ?></td>
-                    <td><?php echo $values["brand_name"] ?></td>
-                    <td><?php echo $values["model_name"] ?></td>
-                    <td><?php echo $values["serial_no"] ?></td>
-                    <td><?php echo $values["warrenty"] ?></td>
-                    <td><?php echo $values["sales_price"] ?></td>
-                    <input type="hidden" name="hidden_sno[]" value="<?php echo $values["serial_no"] ?>" >
-                    <input type="hidden" name="hidden_itemid[]" value="<?php echo $values["item_id"] ?>" >
-                    <td><input type="text" class="discount" name="discount"></td>
-                    <td><?php echo number_format($total+$values["sales_price"]) ?></td>                
-                </tr>
-                <?php
-                 $total_p=$total_p+$values["sales_price"];
-                 $total_items=$total_items+1;
+              <tr>
+                  <td><?php echo $values["category_name"] ?></td>
+                  <td><?php echo $values["brand_name"] ?></td>
+                  <td><?php echo $values["model_name"] ?></td>
+                  <td><?php echo $values["serial_no"] ?></td>
+                  <td ><?php echo $values["warrenty"] ?></td>
+                  <td><?php echo $values["sales_price"] ?></td>
+                  <input type="hidden" name="hidden_sno[]" value="<?php echo $values["serial_no"] ?>" >
+                  <input type="hidden" name="hidden_itemid[]" value="<?php echo $values["item_id"] ?>" >
+                  <input id="sales_price" type="hidden" name="hidden_sales_price[]" value="<?php echo $values["sales_price"] ?>">            
+              </tr>
+              <?php
+              $total_p=$total_p+$values["sales_price"];
+               $total_items=$total_items+1;
             } 
         }
         ?>
         <?php
    if(!empty($_SESSION["purchase"])){
      ?>
-         <tr>        <td></td>
+           <tr>       
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td align="right">Total items</td>
+                    <td align="right"><b>Total items</b></td>
                     <td><?php echo number_format($total_items) ?></td>
-                    <input type="hidden" name="hidden_total_i" value="<?php echo number_format($total_items) ?>" >
+                    <td align="right"><b>Total amount</b></td>
+                    <td><?php echo number_format($total_p) ?></td>
+                    <input name="total_amount" id="total_amount" type="hidden" name="hidden_total_2i" value="<?php echo ($total_p) ?>" onchange="compute_total()" read only>
         </tr>
-        <tr>        <td></td>
+        <tr>       
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td align="right"><b>Discount</b></td>
+                    <td><input id="discount" type="text" class="discount" name="discount" onchange="compute_total()">%</td>
+                    <input name="total_amount" id="total_amount" type="hidden" name="hidden_total_2i" value="<?php echo ($total_p) ?>" onchange="compute_total()" read only>
+        </tr>
+
+        <tr>       
                     <td></td>
-                    <td align="right">Total amount</td>
-                    <td><?php echo number_format($total_p,2) ?></td>
-                    <input type="hidden" name="hidden_total" value="<?php echo ($total_p) ?>" >
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><b>Total payment</b></td>
+                    <td id="total"></td>
+                    
         </tr>
         <?php
       }?>
