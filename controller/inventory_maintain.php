@@ -1,5 +1,6 @@
 <?php
 require_once("../model/inventory_maintain_model.php");
+require_once("../vendor/libs/fpdf.php");
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -10,7 +11,7 @@ class inventory_maintain
     {
 
         $this->inven = new inventory_maintain_model();
-
+        $this->fpdf = new fpdf();
     }
 
     public function newsuppliers()
@@ -511,6 +512,51 @@ class inventory_maintain
     {
         return $this->inven->sold_items_all();
     }
+    public function Header(){
+        $this->fpdf->Image();
+        $this->fpdf->SetFont('Arial','B',13);
+        // Move to the right
+        $this->fpdf->Cell(80);
+        // Title
+        $this->fpdf->Cell(80,10,'Employee List',1,0,'C');
+        // Line break
+        $this->fpdf->Ln(20);
+
+    }
+    public function Footer()
+{
+    // Position at 1.5 cm from bottom
+    $this->fpdf->SetY(-15);
+    // Arial italic 8
+    $this->fpdf->SetFont('Arial','I',8);
+    // Page number
+    $this->fpdf->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
+}
+    public function report_download(){
+
+
+    //  $display_heading = array('p_id'=>'ID', 'category_name'=> 'Category Name','brand_name'=>'Brand Name' , 'model_name' => 'Model Name' , 'Total'=> 'total','sales_price'=> 'Price',);
+      $display_heading = array('model_id'=>'Product ID', 'model_name'=> 'Category Name','total_quantity'=>'Brand NAme' , 'specification' => 'Model Name' , 'reorder_level'=> 'Quantity','sales_price'=> 'Price');
+        $result=$this->inven->sold_k();
+        $header=$this->inven->model_k();
+
+     //  print_r($result);
+     $this->fpdf->AddPage();
+      //foter page
+      $this->fpdf->AliasNbPages();
+      $this->fpdf->SetFont('Arial','B',12);
+      foreach($header as $heading) {
+        $this->fpdf->Cell(40,12,$display_heading[$heading['Column_name']],1);
+      }
+      foreach($result as $row) {
+        $this->fpdf->Ln();
+      foreach($row as $column)
+      $this->fpdf->Cell(40,12,$column,1);
+      }
+      $this->fpdf->Output();
+      
+    }
+    
     
 
 }
@@ -633,7 +679,10 @@ else if(isset($_GET['action']) && $_GET['action'] == 'view_categories'){   //res
 
 }else if(isset($_GET['action']) && $_GET['action'] == 'view_brands'){   //reshani
     $controller->view_brands();
+}else if(isset($_GET['action']) && $_GET['action'] == 'report_download'){  
+    $controller->report_download();
 }
+
 
 
 
