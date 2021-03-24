@@ -577,7 +577,15 @@ class inventory_maintain
       }
       $this->fpdf->Output();
     }
-    
+
+    public function get_expences()
+    {
+        return $this->inven->get_expences();
+    }
+    public function get_income()
+    {
+        return $this->inven->get_income();
+    }        
     
 
 }

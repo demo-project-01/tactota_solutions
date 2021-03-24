@@ -664,5 +664,21 @@ public function current_stock_report_download(){
     }
   return $result;
 }
+public function get_expences()
+{
+    $query=$this->mysqli->query("SELECT sum(supplier_product.unit_price * supplier_product.quantity) AS tot FROM supplier_product WHERE month(supplier_product.date)=month(CURRENT_DATE()) AND YEAR(CURRENT_DATE())=YEAR(supplier_product.date)");
+    while ($row = $query->fetch_assoc()) {
+        $result[] = $row;
+    }
+    return $result;
+}
+public function get_income()
+{
+    $query=$this->mysqli->query("SELECT sum(bill.amount) AS tot FROM bill WHERE month(bill.date_time)=month(CURRENT_DATE()) AND YEAR(CURRENT_DATE())=YEAR(bill.date_time)");
+    while ($row = $query->fetch_assoc()) {
+        $result[] = $row;
+    }
+    return $result;
+}
     
 }
