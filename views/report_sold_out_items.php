@@ -116,7 +116,7 @@ $sql3=$data->sold_items();
             <a class="button" href="admin.php" style="float:left;"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
           </td>
           <td class="center-btn">
-            <a class="button" href="#" style="float:right;"><i class="fa fa-download" aria-hidden="true">&nbsp&nbspDownload Report</i></a>
+            <a class="button" href="../controller/inventory_maintain.php?action=report_download" style="float:right;"><i class="fa fa-download" aria-hidden="true">&nbsp&nbspDownload Report</i></a>
           </td>
         </tr>
       </table>
