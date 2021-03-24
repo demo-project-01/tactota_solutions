@@ -6,7 +6,7 @@ $sql=$data->view_categories();
 $sql1=$data->view_brands();
 $sql2=$data->view_models();
 $sql3=$data->max_sales_with_categories();
-$sql3=$data->min_sales_with_categories();
+$sql4=$data->min_sales_with_categories();
 ?>
 
 
@@ -65,12 +65,12 @@ $sql3=$data->min_sales_with_categories();
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($sql3 as $k => $v){ ?>
+        <?php foreach ($sql4 as $k => $v){ ?>
         <tr>
-          <td><?php echo $sql3[$k]["category_name"] ?></td>
-          <td><?php echo $sql3[$k]["brand_name"] ?></td>
-          <td><?php echo $sql3[$k]["model_name"] ?></td>
-          <td><?php echo $sql3[$k]["total"] ?></td>
+          <td><?php echo $sql4[$k]["category_name"] ?></td>
+          <td><?php echo $sql4[$k]["brand_name"] ?></td>
+          <td><?php echo $sql4[$k]["model_name"] ?></td>
+          <td><?php echo $sql4[$k]["total"] ?></td>
         </tr>
         <?php } ?>
        </tbody>
