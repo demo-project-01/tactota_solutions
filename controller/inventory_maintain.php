@@ -442,6 +442,14 @@ class inventory_maintain
 
    }
 
+   public function review_clerk(){
+      $this->inven->review_reply();
+     
+    return $this->inven->review_clerk();
+
+     
+   }
+
    public function view_categories(){
         $row=$this->inven->view_categories();
         return $row;
