@@ -203,6 +203,13 @@ class inventory_maintain_model
         }
         return $result;  
     }
+    public function count_check_reminders(){    //reshani
+        $query=$this->mysqli->query("SELECT COUNT(cheque.cheque_id) FROM cheque WHERE cheque.cheque_status=1");
+        while ($row = $query->fetch_assoc()) {
+            $result = $row;   
+        }
+        return $result;
+    }
     
 
      public function display_few_stockreminders(){   //reshani  ,view few stock reminders in clerk dashbaord

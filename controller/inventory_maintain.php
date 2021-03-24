@@ -172,6 +172,9 @@ class inventory_maintain
     public function countstock_details(){   //reshani
         return $this->inven->count_stock_details();
     }
+    public function countcheck_reminders(){   //reshani
+        return $this->inven->count_check_reminders();
+    }
 
 
     public function reminderitems_suppliers($id){    //nuwan
@@ -618,7 +621,11 @@ else if(isset($_GET['action']) && $_GET['action'] == 'customer_details'){   //re
 }else if(isset($_GET['action']) && $_GET['action'] == 'countstock_details'){   //reshani
     $controller->countstock_details();
 
-}else if(isset($_GET['action']) && $_GET['action'] == 'view_categories'){   //reshani
+}else if(isset($_GET['action']) && $_GET['action'] == 'countcheck_reminders'){   //reshani
+    $controller->countcheck_reminders();
+
+}
+else if(isset($_GET['action']) && $_GET['action'] == 'view_categories'){   //reshani
     $controller->view_categories();
 
 }else if(isset($_GET['action']) && $_GET['action'] == 'view_models'){   //reshani
