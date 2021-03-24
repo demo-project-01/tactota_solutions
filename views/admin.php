@@ -17,6 +17,8 @@
         array_push($categories,$sql[$k]["category_name"]);
         array_push($count,$sql[$k]["total"]);
     }
+    $income=$data->get_income();
+    $expences=$data->get_expences();
 ?>
 <head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
@@ -71,44 +73,44 @@
             <canvas id="myChart" width=500 height=200px></canvas>
         </div>
         <script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: <?php echo json_encode($categories); ?>, /*use for convert php array into js array*/ 
-        datasets: [{
-            label: '# of Items',
-            data: <?php echo json_encode($count); ?>,
-            backgroundColor: [
-                'rgba(255, 99, 132)',
-                'rgba(54, 162, 235)',
-                'rgba(255, 206, 86)',
-                'rgba(75, 192, 192)',
-                'rgba(153, 102, 252)',
-                'rgba(255, 159, 64)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: <?php echo json_encode($categories); ?>, /*use for convert php array into js array*/ 
+                    datasets: [{
+                        label: '# of Items',
+                        data: <?php echo json_encode($count); ?>,
+                        backgroundColor: [
+                            'rgba(255, 99, 132)',
+                            'rgba(54, 162, 235)',
+                            'rgba(255, 206, 86)',
+                            'rgba(75, 192, 192)',
+                            'rgba(153, 102, 252)',
+                            'rgba(255, 159, 64)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
                 }
-            }]
-        }
-    }
-});
-</script>
+            });
+        </script>
         <div class="column">
             <div>
                 <p class="incomes">TOP SELLING ITEM OF THE MONTH</p>
@@ -149,17 +151,46 @@ var myChart = new Chart(ctx, {
                 </p>  
             </div>
         </div>
-        <div class="card emp">
+        <!--div class="card emp">
             <img src="../public/images/bestsales.png" alt="" width="100px" height="auto"><br/>
             <p class="incomes">BEST PERFORMING SALES PERSON OF THE MONTH</p>
             <br/>
             <p style="font-size:20px;color:#6D6E31;"><b>Mr.Amal Perera</b></p>
             <p style="color:red;font-size:40px;margin-top:12px;"><b>20</b></p>Sales</p>
+        </div-->
+        <div class="card emp">
+            <p style="font-family:times new roman;font-size:25px;font-weight:bold;color:007042;"><?php echo date('F, Y'); ?></p><br/>
+            <p class="incomes" style="font-family:times new roman;color:red;font-size:20px;">Expences
+            <?php 
+            $exp =$expences[0]['tot'];
+            echo $exp;
+            ?>
+            </p>
+            <p class="incomes" style="font-family:times new roman;color:green;font-size:20px;">Income
+            <?php
+             $inc =$income[0]['tot'];
+             echo $inc;
+            ?>
+            </p>
+            <br/>
+            <?php
+            if ($inc > $exp )
+            {
+                echo '<i class="fa fa-star fa-3x" aria-hidden="true" style="color:rgba(255, 206, 86);"></i><p class="incomes" style="font-family:times new roman;color:orange;font-size:20px;">Profit of the Month</p><br/><p style="font-family:times new roman;color:rgba(75, 192, 192);font-size:35px;">Rs. ';
+                echo $inc-$exp;
+                echo '</p>';
+            }
+            else
+            {
+                echo '<i class="fa fa-meh-o fa-3x" aria-hidden="true" style="color:rgba(255, 99, 132);"></i><p class="incomes" style="font-family:times new roman;color:rgba(255, 99, 132);font-size:20px;">Loss of the Month</p><br/><p style="font-family:times new roman;color:rgba(75, 192, 192);font-size:35px;">Rs. ';
+                echo $exp-$inc;
+                echo '</p>';
+            }
+            ?>
         </div>
-    </div>
-    
+    </div>   
     <div class="footer">
 	<p>© Tactota Solutions All rights reserved </p>
-</div>
+    </div>
 </div>
 </body>

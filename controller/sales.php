@@ -398,6 +398,19 @@ class sales
 
     }
 
+    public function search_cheque(){
+         $id = $_POST['query'];
+         $row1 = $this->sale->search_cheque($id);
+
+         if($row1!=""){
+            $_SESSION['search_cheque']=$row1;
+            header('location: ../views/view_all_cheques_search.php');
+            //   print_r($row1);
+        }else if($row1==0) {
+            echo "NOT FOUND";
+        }
+    }
+
 }
 $controller = new sales();
 if(isset($_GET['action']) && $_GET['action'] == "get_supplier_names") {
@@ -462,6 +475,9 @@ else if(isset($_GET['action']) && $_GET['action'] == 'add_new_model') {
 }else if(isset($_GET['action']) && $_GET['action'] == 'check_model') {
   
     $controller->check_model();
+}else if(isset($_GET['action']) && $_GET['action'] == 'search_cheque') {
+  
+    $controller->search_cheque();
 }
 
 

@@ -442,6 +442,14 @@ class inventory_maintain
 
    }
 
+   public function review_clerk(){
+      $this->inven->review_reply();
+     
+    return $this->inven->review_clerk();
+
+     
+   }
+
    public function view_categories(){
         $row=$this->inven->view_categories();
         return $row;
@@ -577,7 +585,15 @@ class inventory_maintain
       }
       $this->fpdf->Output();
     }
-    
+
+    public function get_expences()
+    {
+        return $this->inven->get_expences();
+    }
+    public function get_income()
+    {
+        return $this->inven->get_income();
+    }        
     
 
 }
