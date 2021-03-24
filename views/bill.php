@@ -154,9 +154,10 @@ $row=$data->get_bill_no();
                     <td></td>
                     <td align="right"><b>Total items</b></td>
                     <td><?php echo number_format($total_items) ?></td>
+                    <input type="hidden" name="hidden_total_i" value="<?php echo ($total_items) ?>"  read only>
                     <td align="right"><b>Total amount</b></td>
                     <td><?php echo number_format($total_p) ?></td>
-                    <input name="total_amount" id="total_amount" type="hidden" name="hidden_total_2i" value="<?php echo ($total_p) ?>" onchange="compute_total()" read only>
+                    <input name="total_amount" id="total_amount" type="hidden" value="<?php echo ($total_p) ?>" onchange="compute_total()" read only>
         </tr>
         <tr>       
                     <td></td>
@@ -165,7 +166,7 @@ $row=$data->get_bill_no();
                     <td></td>
                     <td align="right"><b>Discount</b></td>
                     <td><input id="discount" type="text" class="discount" name="discount" onchange="compute_total()">%</td>
-                    <input name="total_amount" id="total_amount" type="hidden" name="hidden_total_2i" value="<?php echo ($total_p) ?>" onchange="compute_total()" read only>
+                    
         </tr>
 
         <tr>       
