@@ -536,7 +536,7 @@ class inventory_maintain
 
 
     //  $display_heading = array('p_id'=>'ID', 'category_name'=> 'Category Name','brand_name'=>'Brand Name' , 'model_name' => 'Model Name' , 'Total'=> 'total','sales_price'=> 'Price',);
-      $display_heading = array('model_id'=>'Product ID', 'model_name'=> 'Category Name','total_quantity'=>'Brand NAme' , 'specification' => 'Model Name' , 'reorder_level'=> 'Quantity','sales_price'=> 'Price');
+      $display_heading = array('model_id'=>'Product ID', 'model_name'=> 'Category Name','total_quantity'=>'Brand Name' , 'specification' => 'Model Name' , 'reorder_level'=> 'Quantity','sales_price'=> 'Price');
         $result=$this->inven->sold_k();
         $header=$this->inven->model_k();
 
@@ -555,6 +555,27 @@ class inventory_maintain
       }
       $this->fpdf->Output();
       
+    }
+
+    public function current_stock_report_download(){
+        $display_heading = array('model_id'=>'Product ID', 'model_name'=> 'Category Name','total_quantity'=>'Brand Name' , 'specification' => 'Model Name' , 'reorder_level'=> 'Quantity','sales_price'=> 'Price');
+        $result=$this->inven->current_stock_report_download();
+        $header=$this->inven->model_k();
+
+    //  print_r($result);
+    $this->fpdf->AddPage();
+      //foter page
+      $this->fpdf->AliasNbPages();
+      $this->fpdf->SetFont('Arial','B',12);
+      foreach($header as $heading) {
+        $this->fpdf->Cell(40,12,$display_heading[$heading['Column_name']],1);
+      }
+      foreach($result as $row) {
+        $this->fpdf->Ln();
+      foreach($row as $column)
+      $this->fpdf->Cell(40,12,$column,1);
+      }
+      $this->fpdf->Output();
     }
     
     
@@ -681,6 +702,8 @@ else if(isset($_GET['action']) && $_GET['action'] == 'view_categories'){   //res
     $controller->view_brands();
 }else if(isset($_GET['action']) && $_GET['action'] == 'report_download'){  
     $controller->report_download();
+}else if(isset($_GET['action']) && $_GET['action'] == 'current_stock_report_download'){  
+    $controller->current_stock_report_download();
 }
 
 

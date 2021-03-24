@@ -656,5 +656,13 @@ public function model_k(){
 return $result;
  
 }
+
+public function current_stock_report_download(){
+    $query = $this->mysqli->query("SELECT product_list.p_id,category.category_name,brand.brand_name,model.model_name,model.total_quantity FROM model INNER JOIN product_list ON model.model_id=product_list.model_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id");
+    while ($row = $query->fetch_assoc()) {
+        $result[] = $row;
+    }
+  return $result;
+}
     
 }
