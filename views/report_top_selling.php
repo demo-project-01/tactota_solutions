@@ -42,14 +42,18 @@ $sql4=$data->min_sales_with_categories();
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($sql3 as $k => $v){ ?>
+        <?php 
+        foreach ($sql3 as $k => $v){ 
+          if ($sql3[$k]["total"]>1)
+          { ?>
         <tr>
           <td><?php echo $sql3[$k]["category_name"] ?></td>
           <td><?php echo $sql3[$k]["brand_name"] ?></td>
           <td><?php echo $sql3[$k]["model_name"] ?></td>
           <td><?php echo $sql3[$k]["total"] ?></td>
         </tr>
-        <?php } ?>
+        <?php }
+        } ?>
        </tbody>
     </table>
   </div> 
@@ -65,14 +69,17 @@ $sql4=$data->min_sales_with_categories();
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($sql4 as $k => $v){ ?>
+        <?php foreach ($sql4 as $k => $v){ 
+           if ($sql4[$k]["total"]<=1)
+           {?>
         <tr>
           <td><?php echo $sql4[$k]["category_name"] ?></td>
           <td><?php echo $sql4[$k]["brand_name"] ?></td>
           <td><?php echo $sql4[$k]["model_name"] ?></td>
           <td><?php echo $sql4[$k]["total"] ?></td>
         </tr>
-        <?php } ?>
+        <?php }
+        } ?>
        </tbody>
     </table>
   </div> 
