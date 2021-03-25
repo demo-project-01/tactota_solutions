@@ -470,8 +470,9 @@ public function get_sales_price($category,$brand,$model){
 
 public function search_cheque($id){
     $query = $this->mysqli->query("SELECT cheque.cheque_id,cheque.bank_name,cheque.due_date,bill.amount,cheque.bill_no from cheque INNER JOIN bill ON cheque.bill_no=bill.bill_no WHERE (cheque.cheque_id LIKE '%".$id."%' OR cheque.bank_name LIKE '%".$id."%' OR cheque.due_date LIKE '%".$id."%' OR bill.amount LIKE '%".$id."%' OR cheque.bill_no LIKE '%".$id."%') AND cheque.cheque_status=1"); 
-        while ($row = $query->fetch_assoc()) {
-            $result[] = $row;
+    if ($query->num_rows > 0) { 
+    while ($row = $query->fetch_assoc()) {
+            $result = $row;
         }
         return $result;
     }else
