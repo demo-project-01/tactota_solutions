@@ -1,3 +1,7 @@
+<?php
+ session_start();
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,3 +61,11 @@
 	</div>
 </body>
 </html>
+<script>
+
+setTimeout(function() {
+        let alert = document.querySelector(".alert");
+        alert.remove();
+    }, 1600);
+
+</script>
