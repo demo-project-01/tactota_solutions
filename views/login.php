@@ -18,6 +18,20 @@
 		<br/>
 		<br/>
 		<br/>
+		<?php if(isset($_SESSION['success'])): ?>
+        <div class="alert" id="activate">
+            <span class="activebtn">&times;</span>
+            <strong><?php echo $_SESSION['success']; ?></strong>
+        </div>
+    <?php endif; ?>
+    <?php unset($_SESSION['success']); ?>
+	<?php if(isset($_SESSION['reset_password'])): ?>
+        <div class="alert" id="activate">
+            <span class="activebtn">&times;</span>
+            <strong><?php echo $_SESSION['reset_password']; ?></strong>
+        </div>
+    <?php endif; ?>
+    <?php unset($_SESSION['reset_password']); ?>
 		<div class="main-container">
 			<div class="img">
 				<div><img src="../public/images/logo-m.jpeg" alt="logo" width=300 height=auto/></div>
