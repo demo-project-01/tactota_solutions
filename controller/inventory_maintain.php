@@ -593,8 +593,33 @@ class inventory_maintain
     public function get_income()
     {
         return $this->inven->get_income();
-    }        
-    
+    } 
+
+    public function get_bills_week(){
+        return $this->inven->get_bills_week_details();
+    }
+    public function get_bought_products_week(){
+        return $this->inven->get_bought_products_week_details();
+    }
+
+    public function get_bills_month(){
+        return $this->inven->get_bills_month_details();
+    }
+    public function get_bought_products_month(){
+        return $this->inven->get_bought_products_month_details();
+    }
+
+    public function get_bills_year(){
+        return $this->inven->get_bills_year_details();
+    } public function get_bought_products_year(){
+        return $this->inven->get_bought_products_year_details();
+    }       
+    public function search_income(){
+         $date1=$name=$_GET['f_date'];
+         $date2=$name=$_GET['t_date'];
+         print_r($date1);print_r($date2);
+
+    }
 
 }
 
@@ -720,6 +745,8 @@ else if(isset($_GET['action']) && $_GET['action'] == 'view_categories'){   //res
     $controller->report_download();
 }else if(isset($_GET['action']) && $_GET['action'] == 'current_stock_report_download'){  
     $controller->current_stock_report_download();
+}else if(isset($_GET['action']) && $_GET['action'] == 'search_income'){  
+    $controller->search_income();
 }
 
 

@@ -2,11 +2,25 @@
 include 'admin_sidebar.php';
 require '../controller/inventory_maintain.php';
 $data = new inventory_maintain();
-$sql=$data->view_categories();
-$sql1=$data->view_brands();
-$sql2=$data->view_models();
-$sql3=$data->get_bills();
-$sql4=$data->get_bought_products();
+
+if(isset($_GET['action'])){
+  if($_GET["action"]=="week"){ 
+    $sql1=$data->get_bills_week();
+    $sql2=$data->get_bought_products_week();
+  }
+  else if($_GET["action"]=="month"){ 
+    $sql1=$data->get_bills_month();
+    $sql2=$data->get_bought_products_month();
+  }
+  else if($_GET["action"]=="year"){ 
+    $sql1=$data->get_bills_year();
+    $sql2=$data->get_bought_products_year();
+   }
+ }else{
+  $sql1=$data->get_bills();
+  $sql2=$data->get_bought_products();
+  
+ }
 ?>
 
 <head>
@@ -16,52 +30,23 @@ $sql4=$data->get_bought_products();
 </head>
 <body>
 <div class="content" style="width:auto;">
+   <div class="new">
+      <a class="add_button" href="report_loss_profit.php?action=week">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        &nbsp&nbspWeekly</a>
+    <a class="add_button" href="report_loss_profit.php?action=month">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        &nbsp&nbspMonthly</a>
+    <a class="add_button" href="report_loss_profit.php?action=year">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        &nbsp&nbspYearly</a>
+    </div>
   <h1 id="tbl-heading">View Income Reports</h1>
+  
   <div class="nav-bar">
+  <form action="../controller/inventory_maintain.php?action=search_income" method="post">
       <table class="selection">
-        <tr>
-          <td><label for="category" class="date-lbl">Category</label></td>
-          <td><label for="brand" class="date-lbl">Brand</label></td>
-          <td><label for="model" class="date-lbl">Model</label></td>
-        </tr>
-        <tr>
-          <td>
-            <select name="category" id="category">
-              <option value="0">All</option>
-              <?php
-                foreach ($sql as $k => $v){  ?>
-                  <option value="<?php echo $sql[$k]["category_id"] ?>"> <?php 
-                    echo $sql[$k]["category_name"] ?>
-                  </option>   <?php
-                }
-              ?>
-            </select>
-          </td>
-          <td>
-            <select name="brand" id="brand">
-              <option value="0">All</option>
-              <?php
-                foreach ($sql1 as $k => $v){  ?>
-                  <option value="<?php echo $sql1[$k]["brand_id"] ?>"> <?php 
-                    echo $sql1[$k]["brand_name"] ?>
-                  </option>   <?php
-                }
-              ?>
-            </select>
-          </td>
-          <td>
-            <select name="model" id="model">
-              <option value="0">All</option>
-              <?php
-                foreach ($sql2 as $k => $v){  ?>
-                  <option value="<?php echo $sql2[$k]["model_id"] ?>"> <?php 
-                    echo $sql2[$k]["model_name"] ?>
-                  </option>   <?php
-                }
-              ?>
-            </select>
-          </td>
-        </tr>
+    
         <tr>
           <td colspan=3>
             <label for="f_date" class="date-lbl">Time Range :<br/>From</label>
@@ -77,7 +62,7 @@ $sql4=$data->get_bought_products();
         </tr>
       </table>
     </div>
-  
+  </form>
   <div class="page">
     <h1 id="h1">Income</h1>
     <div class="view-tbl" id="view-tbl1">
@@ -93,22 +78,22 @@ $sql4=$data->get_bought_products();
         <tbody>
         <?php
   $total=0;
-foreach ($sql3 as $k => $v)
+foreach ($sql1 as $k => $v)
 {
     ?>
     <tr>
         
-        <td><?php echo $sql3[$k]["date_time"] ?></td>
-        <td><?php echo $sql3[$k]["payment_method"] ?></td>
-        <td><?php echo $sql3[$k]["bill_no"] ?></td>
-        <td><?php echo $sql3[$k]["amount"] ?></td>
+        <td><?php echo $sql1[$k]["date_time"] ?></td>
+        <td><?php echo $sql1[$k]["payment_method"] ?></td>
+        <td><?php echo $sql1[$k]["bill_no"] ?></td>
+        <td><?php echo $sql1[$k]["amount"] ?></td>
         
     </tr>
     <?php
-    $total=$total+$sql3[$k]["amount"];
+    $total=$total+$sql1[$k]["amount"];
 } ?>
  <?php
-   if(!empty($sql3)){
+   if(!empty($sql1)){
      ?>
          <tr>       
                     <td></td>
@@ -140,25 +125,25 @@ foreach ($sql3 as $k => $v)
         <tbody>
         <?php
   $total_buy=0;
-foreach ($sql4 as $k => $v)
+foreach ($sql2 as $k => $v)
 {
     ?>
     <tr>
         
-        <td><?php echo $sql4[$k]["date"] ?></td>
-        <td><?php echo $sql4[$k]["category_name"] ?></td>
-        <td><?php echo $sql4[$k]["brand_name"] ?></td>
-        <td><?php echo $sql4[$k]["model_name"] ?></td>
-        <td><?php echo $sql4[$k]["sup_name"] ?></td>
-        <td><?php echo $sql4[$k]["quantity"] ?></td>
-        <td><?php echo $sql4[$k]["unit_price"] ?></td>
-        <td><?php echo number_format($sql4[$k]["quantity"]*$sql4[$k]["unit_price"]) ?></td>
+        <td><?php echo $sql2[$k]["date"] ?></td>
+        <td><?php echo $sql2[$k]["category_name"] ?></td>
+        <td><?php echo $sql2[$k]["brand_name"] ?></td>
+        <td><?php echo $sql2[$k]["model_name"] ?></td>
+        <td><?php echo $sql2[$k]["sup_name"] ?></td>
+        <td><?php echo $sql2[$k]["quantity"] ?></td>
+        <td><?php echo $sql2[$k]["unit_price"] ?></td>
+        <td><?php echo number_format($sql2[$k]["quantity"]*$sql2[$k]["unit_price"]) ?></td>
     </tr>
     <?php
-    $total_buy=$total_buy+($sql4[$k]["quantity"]*$sql4[$k]["unit_price"]);
+    $total_buy=$total_buy+($sql2[$k]["quantity"]*$sql2[$k]["unit_price"]);
 } ?>
  <?php
-   if(!empty($sql4)){
+   if(!empty($sql2)){
      ?>
          <tr>       
                     <td></td>
@@ -189,7 +174,7 @@ foreach ($sql4 as $k => $v)
         </thead>
         <tbody>
         <?php
-     $income=$total_buy-$total;
+     $income=$total-$total_buy;
      ?> 
          <tr>       
                     <td><?php echo date("Y/m/d")?></td>
@@ -197,13 +182,13 @@ foreach ($sql4 as $k => $v)
                     if($income>=0){
                       ?> 
                        <td align="right">Total Profit</td>
-                    <td><?php echo number_format($total_buy-$total) ?></td>
+                    <td><?php echo number_format($total-$total_buy) ?></td>
                     <?php  }?> 
                      <?php 
                       if($income<0){
                       ?>   
                       <td align="right">Total Lost</td>
-                      <td><?php echo number_format($total-$total_buy) ?></td>
+                      <td><?php echo number_format($total_buy-$total) ?></td>
                       <?php }   
                      ?>
         </tr>

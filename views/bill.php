@@ -164,8 +164,8 @@ $row=$data->get_bill_no();
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td align="right"><b>Discount</b></td>
-                    <td><input id="discount" type="text" class="discount" name="discount" onchange="compute_total()">%</td>
+                    <td align="right"><b>Discount(%)</b></td>
+                    <td><input id="discount" type="text" class="discount" name="discount" value="0" onchange="compute_total()"></td>
                     
         </tr>
 
