@@ -1,3 +1,7 @@
+<?php
+ session_start();
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +20,13 @@
 		<br/>
 		<br/>
 		<br/>
+		<?php if(isset($_SESSION['forgetpassword'])): ?>
+                   <div class="alert" id="activate">
+            <span class="activebtn">&times;</span>
+            <strong><?php echo $_SESSION['forgetpassword']; ?></strong>
+                   </div>
+                <?php endif; ?>
+               <?php unset($_SESSION['forgetpassword']); ?>
 		<div class="main-container">
 			<div class="img">
 				<div><img src="../public/images/logo-m.jpeg" alt="logo" width=300 height=auto /></div>
@@ -50,3 +61,11 @@
 	</div>
 </body>
 </html>
+<script>
+
+setTimeout(function() {
+        let alert = document.querySelector(".alert");
+        alert.remove();
+    }, 1600);
+
+</script>

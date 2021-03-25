@@ -398,10 +398,12 @@ class inventory_maintain
 
         $result=$mail->send();
         if($result==false){
-            echo "worng";
+            $_SESSION['email_sent_supplier']="unsuccessfull";
+            header('location: ../views/stockreminders.php');
         }else{
-           // header('location: ../views/check_email.php');
-            echo "true";
+            $_SESSION['email_sent_supplier']="successfull";
+           header('location: ../views/stockreminders.php');
+        //   echo "true";
         }
    }
 

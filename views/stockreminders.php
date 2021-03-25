@@ -17,6 +17,14 @@ $sql= $_SESSION['reminderitem_suppliers'];
 
   <h1 id="tbl-heading"> Stock Reminder - SUPPLIERS</h1>
 
+  <?php if(isset($_SESSION['email_sent_supplier'])): ?>
+                   <div class="alert" id="activate">
+            <span class="activebtn">&times;</span>
+            <strong><?php echo $_SESSION['email_sent_supplier']; ?></strong>
+                   </div>
+                <?php endif; ?>
+               <?php unset($_SESSION['email_sent_supplier']); ?>
+
   <div class="search">
     <input type="text" placeholder="Search..">
   </div>
@@ -63,4 +71,11 @@ $sql= $_SESSION['reminderitem_suppliers'];
       </div>
     </div>
 </body>
+<script>
 
+setTimeout(function() {
+        let alert = document.querySelector(".alert");
+        alert.remove();
+    }, 1600);
+
+</script>
