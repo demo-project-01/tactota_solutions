@@ -614,11 +614,10 @@ class inventory_maintain
     } public function get_bought_products_year(){
         return $this->inven->get_bought_products_year_details();
     }       
-    public function search_income(){
-         $date1=$name=$_GET['f_date'];
-         $date2=$name=$_GET['t_date'];
-         print_r($date1);print_r($date2);
-
+    public function get_bills_range($date1,$date2){
+        return $this->inven->get_bills_range($date1,$date2);
+    } public function get_bought_products_range($date1,$date2){
+        return $this->inven->get_bought_products_range($date1,$date2);
     }
 
 }

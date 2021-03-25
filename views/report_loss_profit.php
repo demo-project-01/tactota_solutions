@@ -21,6 +21,19 @@ if(isset($_GET['action'])){
   $sql2=$data->get_bought_products();
   
  }
+ if(isset($_POST["search"])){
+  $date1=$name=$_POST['f_date'];
+  $date2=$name=$_POST['t_date'];
+  if($date1>$date2){
+    $sql1=$data->get_bills_month();
+    $sql2=$data->get_bought_products_month();
+    echo '<script>alert("Invalid time period")</script>';
+    
+  }
+ // print_r($date1);print_r($date2);
+ $sql1=$data->get_bills_range($date1,$date2);
+ $sql2=$data->get_bought_products_range($date1,$date2);
+ }
 ?>
 
 <head>
@@ -44,25 +57,26 @@ if(isset($_GET['action'])){
   <h1 id="tbl-heading">View Income Reports</h1>
   
   <div class="nav-bar">
-  <form action="../controller/inventory_maintain.php?action=search_income" method="post">
+  
       <table class="selection">
     
-        <tr>
+        <tr><form action="report_loss_profit.php?action=?" method="post">
           <td colspan=3>
             <label for="f_date" class="date-lbl">Time Range :<br/>From</label>
-              <input type="date" id="f_date" name="f_date" placeholder="Select start date" min="2017-04-01" max="2020-11-21">
+              <input type="date" id="f_date" name="f_date" placeholder="Select start date">
             <label for="t_date" class="date-lbl"> to </label>
-               <input type="date" id="t_date" name="t_date" placeholder="Select End date" min="2017-04-01" max="2020-11-21">
+               <input type="date" id="t_date" name="t_date" placeholder="Select End date">
           </td>
+          <tbody>
         </tr>
-        <tr>
-          <td colspan=3>
-            <a class="button" href="#">Search </a>
-          </td>
-        </tr>
+        <td>
+          <td><input type="submit" id="search" class="add_button" name="search" value="Search" >
+        
+        </tbody>
+        </form>
       </table>
     </div>
-  </form>
+  
   <div class="page">
     <h1 id="h1">Income</h1>
     <div class="view-tbl" id="view-tbl1">
@@ -78,6 +92,7 @@ if(isset($_GET['action'])){
         <tbody>
         <?php
   $total=0;
+  if(!empty($sql1)){
 foreach ($sql1 as $k => $v)
 {
     ?>
@@ -91,7 +106,9 @@ foreach ($sql1 as $k => $v)
     </tr>
     <?php
     $total=$total+$sql1[$k]["amount"];
-} ?>
+} 
+   }
+?>
  <?php
    if(!empty($sql1)){
      ?>
@@ -125,6 +142,7 @@ foreach ($sql1 as $k => $v)
         <tbody>
         <?php
   $total_buy=0;
+  if(!empty($sql2)){
 foreach ($sql2 as $k => $v)
 {
     ?>
@@ -141,7 +159,8 @@ foreach ($sql2 as $k => $v)
     </tr>
     <?php
     $total_buy=$total_buy+($sql2[$k]["quantity"]*$sql2[$k]["unit_price"]);
-} ?>
+} 
+  }?>
  <?php
    if(!empty($sql2)){
      ?>
