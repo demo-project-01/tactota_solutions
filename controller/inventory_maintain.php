@@ -622,6 +622,25 @@ class inventory_maintain
         return $this->inven->get_bought_products_range($date1,$date2);
     }
 
+    public function review_annual(){
+        return $this->inven->review_annual();
+    }
+    public function review_monthly(){
+        return $this->inven->review_monthly();
+    }
+    public function review_weekly(){
+         return  $this->inven->review_monthly();
+    }
+    public function review_all(){
+    
+            return $this->inven->review_all();        
+    }
+    public function review_time(){
+        $row = $_post['f_data'];
+        $row1 = $_post['t_data'];
+           return $this->inven->review_time($row,$row1);
+    }
+
 }
 
 
@@ -749,7 +768,6 @@ else if(isset($_GET['action']) && $_GET['action'] == 'view_categories'){   //res
 }else if(isset($_GET['action']) && $_GET['action'] == 'search_income'){  
     $controller->search_income();
 }
-
 
 
 

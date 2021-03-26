@@ -817,4 +817,66 @@ public function get_bought_products_range($date1,$date2){
     }
   return $result;
 }
+public function review_annual(){
+  $query = $this->mysqli->query("SELECT * from feedback where YEAR(date) = YEAR(DATE_SUB(CURDATE(), INTERVAL 1 YEAR))");
+    if ($query->num_rows > 0) {
+        while ($row = $query->fetch_assoc()) {
+            $result[] = $row;
+        }
+        return $result;
+    }else
+    {
+        return 0;
+    }
+}
+public function review_monthly(){
+    $query = $this->mysqli->query("SELECT * from feedback where MONTH(date) = MONTH(DATE_SUB(CURDATE(), INTERVAL 1 MONTH))");
+      if ($query->num_rows > 0) {
+          while ($row = $query->fetch_assoc()) {
+              $result[] = $row;
+          }
+          return $result;
+      }else
+      {
+          return 0;
+      }
+  }
+
+  public function review_weekly(){
+    $query = $this->mysqli->query("SELECT * from feedback where date >= curdate() - INTERVAL DAYOFWEEK(curdate())+6 DAY
+    AND date < curdate() - INTERVAL DAYOFWEEK(curdate())-1 DAY");
+      if ($query->num_rows > 0) {
+          while ($row = $query->fetch_assoc()) {
+              $result[] = $row;
+          }
+          return $result;
+      }else
+      {
+          return 0;
+      }
+  }
+  public function review_time($row,$row1){
+    $query = $this->mysqli->query("SELECT * from feedback where (date between $row1 AND $row)");
+      if ($query->num_rows > 0) {
+          while ($row = $query->fetch_assoc()) {
+              $result[] = $row;
+          }
+          return $result;
+      }else
+      {
+          return 0;
+      }
+  }
+  public function review_all(){
+    $query = $this->mysqli->query("SELECT * from feedback");
+      if ($query->num_rows > 0) {
+          while ($row = $query->fetch_assoc()) {
+              $result[] = $row;
+          }
+          return $result;
+      }else
+      {
+          return 0;
+      }
+  }
 }

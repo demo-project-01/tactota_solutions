@@ -126,4 +126,8 @@ $sql3=$data->sold_items();
 </div>
 
 
+<script>
+  
 
+
+</script>
