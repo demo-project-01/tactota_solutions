@@ -231,7 +231,7 @@ class inventory_maintain_model
         return $result;
     
     }
-     public function diplay_shop_return_items(){       //reshani, display retrun items
+     public function diplay_shop_return_items(){       //reshani, display all retrun items
            $query=$this->mysqli->query("SELECT items.serial_no,category.category_name,brand.brand_name,model.model_name,shop_return_items.returned_date,shop_return_items.description FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id INNER JOIN shop_return_items ON items.item_id= shop_return_items.item_id");
            while ($row = $query->fetch_assoc()) {
             $result[]= $row;
@@ -248,7 +248,7 @@ class inventory_maintain_model
     public function display_returnitem($id){          //reshani, display one return item details
 
         $result="";
-        $query=$this->mysqli->query("SELECT items.serial_no,product_list.p_id,category.category_name,brand.brand_name,model.model_name,items.item_id FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id WHERE items.serial_no='" . $id . "'");
+        $query=$this->mysqli->query("SELECT items.item_status,items.serial_no,product_list.p_id,category.category_name,brand.brand_name,model.model_name,items.item_id FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id WHERE items.serial_no='" . $id . "'");
         while ($row = $query->fetch_assoc()) {
             $result= $row;
         }
@@ -256,7 +256,7 @@ class inventory_maintain_model
     
     }
     public function shopkeeper_return_items(){        //reshani
-        $query=$this->mysqli->query("SELECT product_list.p_id,category.category_name,brand.brand_name,model.model_name,items.serial_no,items.item_id FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id AND items.item_status='1'");
+        $query=$this->mysqli->query("SELECT product_list.p_id,category.category_name,brand.brand_name,model.model_name,items.serial_no,items.item_id FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id WHERE items.item_status!=2");
         while ($row = $query->fetch_assoc()) {
             $result[]= $row;
         }
@@ -274,6 +274,14 @@ class inventory_maintain_model
         $query=$this->mysqli->query("SELECT supplier.sup_id,items.serial_no FROM  supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN items ON supplier_product.p_id=items.p_id AND items.serial_no LIKE '$serial_no'");
         while ($row = $query->fetch_assoc()) {
             $result= $row['sup_id'];
+        }
+        return $result;
+    }
+    public function get_custid_serial_no($serial_no){    //reshani
+        $result="";
+        $query=$this->mysqli->query("SELECT purchase.cust_id,items.serial_no FROM  purchase INNER JOIN items ON purchase.item_id=items.item_id AND items.serial_no LIKE '$serial_no'");
+        while ($row = $query->fetch_assoc()) {
+            $result= $row['cust_id'];
         }
         return $result;
     }
@@ -295,13 +303,24 @@ class inventory_maintain_model
         return $result;
     }*/
 
-    public function add_return_item($sup_id,$returned_date,$description,$item_id){   //reshani,add retrun items to return_items_table
+    public function add_return_item($sup_id,$returned_date,$description,$item_id){   //reshani,add retrun items to shop_return_items_table
         $stmt=$this->mysqli->prepare("INSERT INTO shop_return_items(sup_id,returned_date,description,item_id) VALUES(?,?,?,?)");
         if($stmt==false){
             return 0;
         }else{
             $stmt->bind_param('ssss',$sup_id,$returned_date,$description,$item_id);
             return $stmt->execute();
+        
+        }
+    }
+    public function add_customer_return_item($cust_id,$returned_date,$description,$item_id){   //reshani,add retrun items to customer_return_items_table
+        $stmt=$this->mysqli->prepare("INSERT INTO customer_return_item(cust_id,returned_date,description,item_id) VALUES(?,?,?,?)");
+        if($stmt==false){
+            return 0;
+        }else{
+            $stmt->bind_param('ssss',$cust_id,$returned_date,$description,$item_id);
+            return $stmt->execute();
+            
         
         }
     }

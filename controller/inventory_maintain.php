@@ -192,30 +192,45 @@ class inventory_maintain
       }
     public function add_returnitem_details(){       //reshani
        // $description="";
-        $item_status=0;
+        $item_status=2;
+        $item=$_POST['item_status'];
         $serial_no=$_POST['serial_no'];
         $description=$_POST['description'];
         $returned_date=date("Y-m-d");
         $sup_id=$this->inven->get_supid_serial_no( $serial_no);
+        $cust_id=$this->inven->get_custid_serial_no($serial_no);
         $item_id=$this->inven->get_item_id($serial_no);
         $model_no=$_POST['model_name'];
-        /*printf($item_id);
+       /* printf($item_id);
         printf($sup_id);
         printf($serial_no);
         printf($description);
         printf($returned_date);
         printf($item_status);*/
        //$serial_no=$this->inven->get_supid_serial_no1();
+        /*$a=$this->inven->add_return_item($sup_id,$returned_date,$description,$item_id);
+        print_r($a);*/
 
-       if($this->inven->add_return_item($sup_id,$returned_date,$description,$item_id)){
+       if($item==1){
+            if($this->inven->add_return_item($sup_id,$returned_date,$description,$item_id)){
+                if($this->inven->add_item_status($item_status,$item_id,$model_no)){
+                    header('location: ../views/shopkeeper_return_items.php');
+                }
+                
+            }else{
+                echo "error1";
+            }
+       }else{
+        if($this->inven->add_customer_return_item($cust_id,$returned_date,$description,$item_id)){
             if($this->inven->add_item_status($item_status,$item_id,$model_no)){
                 header('location: ../views/shopkeeper_return_items.php');
-            }
-            
+            } 
         }else{
-            echo "error";
+            echo "error2";
         }
 
+       }
+       
     }
 
     public function display_shop_returnitem_details(){   //reshani

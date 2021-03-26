@@ -4,9 +4,9 @@
   // session_start();
    $data=new inventory_maintain();
    $sql=$data->display_shopkeeper_return_items();
-   $sql1=$data->view_categories();
+   /*$sql1=$data->view_categories();
    $sql2=$data->view_brands();
-   $sql3=$data->view_models();
+   $sql3=$data->view_models();*/
  
 ?>
 <head>
@@ -195,7 +195,7 @@
                 <tr>
                     <td><?php echo $sql[$k]["serial_no"] ?></td>
                     <td><?php echo $sql[$k]["category_name"] ?></td>
-		            <td><?php echo $sql[$k]["brand_name"] ?></td>
+		                <td><?php echo $sql[$k]["brand_name"] ?></td>
                     <td><?php echo $sql[$k]["model_name"] ?></td>
                     
                     <td><a href="../controller/inventory_maintain.php?action=display_onereturnitem_details&id=<?php  echo $sql[$k]["serial_no"]; ?>" class="view">
