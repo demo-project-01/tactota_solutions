@@ -31,7 +31,7 @@ $data=new sales();
          </thead>
          <tboady>
          <?php
-
+  if(!empty($sql)){
 foreach ($sql as $k => $v)
 {
     ?>
@@ -46,6 +46,7 @@ foreach ($sql as $k => $v)
          <i class="fa fa-eye" aria-hidden="true" id="tbl-icon">&nbsp&nbspView</i></a>
     </tr>
     <?php
+ }
 } ?>
          </tbody>
        </table>

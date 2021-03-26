@@ -204,7 +204,7 @@ $sql=$data->valid_prodcuts();
             </thead>
             <tbody>
             <?php
-
+          if(!empty($sql)){
             foreach ($sql as $k => $v)
             {
                 ?>
@@ -230,7 +230,7 @@ $sql=$data->valid_prodcuts();
                    </form>     
                 </tr>
                 <?php
-
+             }
             } ?>
             </tbody>
 

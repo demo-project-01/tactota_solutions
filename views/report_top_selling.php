@@ -9,10 +9,12 @@ $sql3=$data->max_sales_with_categories();
 $sql4=$data->min_sales_with_categories();
 $maxmodels=array();       // need to clarify the same model is not in top and least tables. (there may be models that sold only that in their category)
 $minmodels=array();
+if(!empty($sql4)){
 foreach ($sql4 as $k => $v)
   {
     array_push($minmodels,$sql4[$k]["model_name"]);
   }
+}
 ?>
 
 
@@ -39,6 +41,7 @@ foreach ($sql4 as $k => $v)
       </thead>
       <tbody>
         <?php 
+         if(!empty($sql3)){
         foreach ($sql3 as $k => $v){ 
           if ($sql3[$k]["total"]>1) //cant consider one item sale as top selling :)
           {
@@ -51,7 +54,9 @@ foreach ($sql4 as $k => $v)
           <td><?php echo $sql3[$k]["total"] ?></td>
         </tr>
         <?php }
-        } ?>
+        } 
+      }
+      ?>
        </tbody>
     </table>
   </div> 
@@ -68,6 +73,7 @@ foreach ($sql4 as $k => $v)
       </thead>
       <tbody>
         <?php
+         if(!empty($sql4)){
          foreach ($sql4 as $k => $v){ 
            if (!in_array($sql4[$k]["model_name"],$maxmodels))       //same model is not be in the top and least both tables
            {
@@ -79,7 +85,8 @@ foreach ($sql4 as $k => $v)
           <td><?php echo $sql4[$k]["total"] ?></td>
         </tr>
         <?php }
-        } ?>
+        } 
+      }?>
        </tbody>
     </table>
   </div> 

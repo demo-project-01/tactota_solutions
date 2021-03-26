@@ -2,6 +2,7 @@
 include 'shopkeeper_sidebar.php';
 require '../controller/inventory_maintain.php';
 $row=$_SESSION['return_item'];
+//echo($row['item_status']);
 ?>
 <head>
 <link rel="stylesheet" href="../public/css/update.css">
@@ -19,9 +20,21 @@ $row=$_SESSION['return_item'];
        
         <tr>
             <th>Type</th>
+            <?php
+            if(($row["item_status"])==1){
+              ?>
             <td>   
-              <input type='text'class="text"  placeholder="Shop Return"  value="Shop Return" disabled>
+              <input type='text'class="text" placeholder="Shop Return"  value="Shop Return" disabled>
             </td>
+            <?php }?>
+
+            <?php
+            if(($row["item_status"])==0){
+              ?>
+            <td>   
+              <input type='text'class="text"  placeholder="Shop Return"  value="Customer Return" disabled>
+            </td>
+            <?php }?>
         </tr>
         <tr>
         <th>Serial Number</th>
@@ -29,6 +42,9 @@ $row=$_SESSION['return_item'];
            <input type='text' placeholder="" name="serial_no" value="<?php echo $row['serial_no']?>"readonly>
            </td>
         </tr>
+        
+           <input type='hidden' placeholder="" name="item_status" value="<?php echo $row['item_status']?>"readonly>
+        
         <tr>
             <th>Category Name</th>
             <td>   

@@ -41,6 +41,7 @@
             </thead>
             <tbody>
             <?php
+            if(!empty($sql)){
          foreach ($sql as $k => $v)
            {
              ?>
@@ -56,9 +57,9 @@
              <td><a href="../controller/inventory_maintain.php?action=view_inbox_delete&id=<?php echo $sql[$k]["email_id"]; ?>" title="Delete"><i class="fa fa-trash-o" aria-hidden="true" id="tbl-icon"></i></a></td>
             </tr>
   <?php
-
- } ?>
-          <?php 
+           }
+                           } ?>
+                              <?php 
       
           
           ?>

@@ -18,7 +18,7 @@ $sql=$_SESSION['supplier_details'];
  </tr>
  </thead>
  <tbody>
- <?php
+ <?php  if(!empty($sql)){
  foreach ($sql as $k => $v)
  {
   ?>
@@ -36,7 +36,7 @@ $sql=$_SESSION['supplier_details'];
    <td><a href ="#" title="Delete"><i class="fa fa-trash" aria-hidden="true" id="tbl-icon"></i></a></td>
   </tr>
   <?php
-
+ }
  } ?>
  </tbody>
 </table>

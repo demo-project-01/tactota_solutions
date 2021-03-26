@@ -43,6 +43,7 @@ $sql= $_SESSION['reminderitem_suppliers'];
         </thead>
         <tbody>
         <?php
+         if(!empty($sql)){
         foreach ($sql as $k => $v)
         {
             ?>
@@ -56,7 +57,7 @@ $sql= $_SESSION['reminderitem_suppliers'];
                 <td><a href = "../controller/inventory_maintain.php?action=send_email_form&id=<?php echo $sql[$k]["email_address"]?>&id1=<?php echo $sql[$k]['p_id'] ?>"  title="view"><i class="fa fa-eye" aria-hidden="true" id="tbl-icon">&nbsp&nbspView</i></a> </td>
             </tr>
             <?php
-
+             }
         } ?>
 <tr>
     <td colspan=5 >
