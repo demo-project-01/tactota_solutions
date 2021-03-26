@@ -25,7 +25,7 @@
             </thead>
             <tbody>
             <?php
-
+         if(!empty($sql)){
             foreach ($sql as $k => $v)
             {
                 ?>
@@ -39,6 +39,7 @@
                     </td>
                 </tr>
                 <?php
+            }
             } ?>
             </tbody>
        </table>

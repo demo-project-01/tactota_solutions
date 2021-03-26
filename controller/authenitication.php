@@ -44,6 +44,7 @@ class authenitication
 
              //print $row;
             if ($row == "0") {
+                $_SESSION['success'] = "You are password or username wrong ";
                 header('location: ../views/login.php');
             } else {
                 $role = $this->auth->getposition($row);
@@ -53,19 +54,19 @@ class authenitication
                     $_SESSION['username'] = $username;
                     $_SESSION['emp_id'] = $row;
                     $_SESSION['role']=$role;
-                    $_SESSION['success'] = "You are now logged in";
+                  //  $_SESSION['success'] = "You are now logged in";
                     header('location: ../views/admin.php');
                 } elseif ($role == "Clerk") {
                     $_SESSION['username'] = $username;
                     $_SESSION['emp_id']=$row;
                     $_SESSION['role']=$role;
-                    $_SESSION['success'] = "You are now logged in";
+                  //  $_SESSION['success'] = "You are now logged in";
                     header('location: ../views/clerk.php');
                 } elseif ($role == "Shopkeeper") {
                     $_SESSION['username'] = $username;
                     $_SESSION['emp_id']=$row;
                     $_SESSION['role']=$role;
-                    $_SESSION['success'] = "You are now logged in";
+                   // $_SESSION['success'] = "You are now logged in";
                     header('location: ../views/shopkeeper_dashbord.php');
                 }
 
@@ -81,7 +82,7 @@ class authenitication
         $row = $this->auth->valid_email($email);
 
         if ($row == "0") {
-
+            $_SESSION['forgetpassword']="Yor are wrong email";
             header('location: ../views/forgetpassword.php');
         }
         else
@@ -146,6 +147,7 @@ class authenitication
               if($result==false){
                  echo "wrong";
               }else{
+                $_SESSION['reset_password']="reset password is successfull";
                   header('location: ../views/login.php');
               }
         }

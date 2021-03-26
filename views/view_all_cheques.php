@@ -1,17 +1,19 @@
 <?php
    include 'admin_sidebar.php';
+   require '../controller/sales.php';
   // include 'view_all_cheques_search.php';
-  // $data=new sales();
+   $data=new sales();
    //$sql=$data->view_cheques();
- /*  if(isset($_GET['action'])){
+   if(isset($_GET['action'])){
       if($_GET["action"]=="bank"){
           $sql=$data->view_cheques_by_bank();
+         $_SESSION['search_cheque']=$sql;
       }
       else if($_GET["action"]=="customer_return"){
           $sql=$data->view_cheques();
-          
+          $_SESSION['search_cheque']=$sql;
       }
-     }*/
+     }
 ?>
 <head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>

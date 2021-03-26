@@ -2,7 +2,7 @@
 
 require '../controller/sales.php';
 //session_start();
-$sql=$_SESSION['search_cheque'];
+//$sql=$_SESSION['search_cheque'];
 //print_r($sql);
 $data=new sales();
  if(isset($_POST['action'])){
@@ -13,6 +13,8 @@ $data=new sales();
         $sql=$data->view_cheques();
         
     }
+   }else{
+    $sql=$_SESSION['search_cheque'];
    }
 
 ?>
@@ -29,7 +31,7 @@ $data=new sales();
          </thead>
          <tboady>
          <?php
-
+  if(!empty($sql)){
 foreach ($sql as $k => $v)
 {
     ?>
@@ -44,6 +46,7 @@ foreach ($sql as $k => $v)
          <i class="fa fa-eye" aria-hidden="true" id="tbl-icon">&nbsp&nbspView</i></a>
     </tr>
     <?php
+ }
 } ?>
          </tbody>
        </table>

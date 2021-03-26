@@ -25,7 +25,7 @@
             </thead>
             <tbody>
             <?php
-
+       if(!empty($sql)){
             foreach ($sql as $k => $v)
             {
                 ?>
@@ -37,7 +37,8 @@
                     <td><a href="../controller/sales.php?action=view_bill&id=<?php  echo $sql[$k]["bill_no"]?>" class="view" title="view"><i class="fa fa-eye" aria-hidden="true" id="tbl-icon">&nbsp&nbsp</i></a></td>
                 </tr>
                 <?php
-            } ?>
+            } 
+        }?>
             </tbody>
        </table>
     </div>

@@ -69,7 +69,7 @@
     </div>
     <div class="row">
         <div class="graph">
-            <b><p class="incomes">SALES CHART OF THE MONTH</p></b>
+            <b><p class="incomes" style="font-size:20;font-family:times new roman;font-weight:bold;">SALES CHART OF THE MONTH</p></b>
             <canvas id="myChart" width=500 height=200px></canvas>
         </div>
         <script>
@@ -87,7 +87,8 @@
                             'rgba(255, 206, 86)',
                             'rgba(75, 192, 192)',
                             'rgba(153, 102, 252)',
-                            'rgba(255, 159, 64)'
+                            'rgba(255, 159, 64)',
+                            'rgba(205, 199, 24)'
                         ],
                         borderColor: [
                             'rgba(255, 99, 132, 1)',
@@ -95,7 +96,8 @@
                             'rgba(255, 206, 86, 1)',
                             'rgba(75, 192, 192, 1)',
                             'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(205, 199, 24,1)'
                         ],
                         borderWidth: 1
                     }]
@@ -113,7 +115,7 @@
         </script>
         <div class="column">
             <div>
-                <p class="incomes">TOP SELLING ITEM OF THE MONTH</p>
+                <p style="color:rgba(255, 99, 132);font-size:20;font-family:times new roman;font-weight:bold;"> TOP <br/> SELLING</p><!--p style="color:000000;font-size:15px;">ITEM OF THE MONTH</p-->
                 <p style="font-size:20px;color:#6D6E31;font-weight:bold;">
                     <?php 
                     echo $sql3[0]['model_name'];
@@ -132,7 +134,7 @@
                 </p>
             </div>
             <div>
-                <p class="incomes">LEAST SELLING ITEM OF THE MONTH</p>
+                <p style="color:rgba(255, 99, 132);font-size:20;font-family:times new roman;font-weight:bold;">LEAST <br/>SELLING </p>
                 <p style="font-size:20px;color:#6D6E31;font-weight:bold;">
                     <?php 
                     echo $sql3[count($sql3)-1]['model_name'];
