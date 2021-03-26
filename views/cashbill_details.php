@@ -129,7 +129,7 @@ $row=$_SESSION['bill_details'];
 
  <tbody>
  <?php
- 
+  if(!empty($row)){
           foreach($row as $k => $v)
             {
                 ?>
@@ -145,7 +145,8 @@ $row=$_SESSION['bill_details'];
                                 
                 </tr>
                 <?php
-            } ?>
+            } 
+          }?>
         
 </table>
 </div>

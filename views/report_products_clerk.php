@@ -95,6 +95,7 @@ $sql3=$data->current_stock();
       </thead>
       <tbody>
       <?php
+      if(!empty($sql3)){
 foreach ($sql3 as $k => $v)
 {
     ?>
@@ -107,6 +108,7 @@ foreach ($sql3 as $k => $v)
         <td><?php echo $sql3[$k]["total_quantity"] ?></td>
     </tr>
     <?php
+}
 } ?>
       </tbody>
     </table>

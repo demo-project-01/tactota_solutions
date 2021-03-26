@@ -16,6 +16,7 @@ $sql=$_SESSION['update_product'];
             </thead>
             <tbody>
             <?php
+             if(!empty($sql)){
 foreach ($sql as $k => $v)
 {
     ?>
@@ -33,7 +34,7 @@ foreach ($sql as $k => $v)
 
                 </tr>
                 <?php
-
+}
 } ?>
             </tbody>
         </table>

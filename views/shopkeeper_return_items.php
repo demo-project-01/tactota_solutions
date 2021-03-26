@@ -188,7 +188,7 @@
             </thead>
             <tbody>
             <?php
-
+         if(!empty($sql)){
             foreach ($sql as $k => $v)
             {
                 ?>
@@ -202,7 +202,8 @@
                     <i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
                 </tr>
                 <?php
-            } ?>
+            } 
+          }?>
             </tbody>
        </table>
     </div>
