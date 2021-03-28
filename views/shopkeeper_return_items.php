@@ -7,7 +7,12 @@
    /*$sql1=$data->view_categories();
    $sql2=$data->view_brands();
    $sql3=$data->view_models();*/
- 
+   /*$numbr_of_results = $data->countitems();
+   print_r($numbr_of_results);
+   $results_per_page =10;  //define how many results you want per page
+   $numbr_of_pages = ((int)($numbr_of_results) / ($results_per_page));
+   print_r($numbr_of_pages);*/
+
 ?>
 <head>
     <link rel="stylesheet" href="../public/css/dropdown.css">
@@ -197,7 +202,6 @@
                     <td><?php echo $sql[$k]["category_name"] ?></td>
 		                <td><?php echo $sql[$k]["brand_name"] ?></td>
                     <td><?php echo $sql[$k]["model_name"] ?></td>
-                    
                     <td><a href="../controller/inventory_maintain.php?action=display_onereturnitem_details&id=<?php  echo $sql[$k]["serial_no"]; ?>" class="view">
                     <i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
                 </tr>

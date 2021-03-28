@@ -176,6 +176,9 @@ class inventory_maintain
     public function countcheck_reminders(){   //reshani
         return $this->inven->count_check_reminders();
     }
+   /* public function countitems(){   //reshani
+        return $this->inven->count_items();
+    }*/
 
 
     public function reminderitems_suppliers($id){    //nuwan
@@ -189,7 +192,9 @@ class inventory_maintain
         $row=$this->inven->display_returnitem($id);       
         $_SESSION['return_item']=$row;
         header('location: ../views/view_one_returnitem.php');
+
       }
+    
     public function add_returnitem_details(){       //reshani
        // $description="";
         $item_status=2;
@@ -245,6 +250,7 @@ class inventory_maintain
     public function display_all_returnitem_details(){
         return $this->inven->all_return_items();
     }
+   
 
    /*public function delete_reminder_suppliers($serial_no){   //reshani
         $item_status=0;
@@ -782,7 +788,12 @@ else if(isset($_GET['action']) && $_GET['action'] == 'view_categories'){   //res
     $controller->current_stock_report_download();
 }else if(isset($_GET['action']) && $_GET['action'] == 'search_income'){  
     $controller->search_income();
-}
+}/*else if(isset($_GET['action']) && $_GET['action'] == 'countitems'){  
+    $controller->countitems();
+}*/
+
+
+
 
 
 
