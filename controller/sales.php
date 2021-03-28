@@ -180,7 +180,11 @@ class sales
         $cust_id= $this->sale->get_cust_id();
         $total_items=$_POST['hidden_total_i'];
         $model_no=$this->sale->get_model_no($serial_no,$total_items);
-        print_r($model_no); 
+        //print_r($model_no); 
+        if($recived_date>$due_date and $payment_method=="cheque"){
+            echo'<script>alert("invalid check dates")</script>';
+        }
+    else{
      if($payment_method=="cheque"){
      if($this->sale->insert_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id,$model_no)){
         unset($_SESSION["purchase"]);
@@ -195,7 +199,7 @@ class sales
                 echo'<script>alert("payment Done")</script>';
                }   
         }
-    
+    }
     }
      public function get_product_details(){//nuwan
         return $this->sale->get_product();
