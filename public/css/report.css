@@ -112,3 +112,12 @@ a:hover
   width: 8%;  height: 1.5em;
  
 }
+input[type=text-box] {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid green;
+  border-radius: 4px;
+  height: 10%;
+}
