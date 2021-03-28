@@ -105,7 +105,9 @@ class inventory_maintain_model
     public function get_view_supplier_product_details($id){//new22
        // $result = "";
         //$query = $this->mysqli->query("SELECT * FROM supplier INNER JOIN product  AND supplier.sup_id='" . $id . "'");
-        $query = $this->mysqli->query("SELECT s.sup_id, p.product_id,c.category_name,b.brand_name, m.model_no from supplier AS s,product_list as p ,supplier_product as sp ON sp.sup_id=s.sup_id INNER JOIN category AS c ON p.category_id=c.category_id INNER JOIN brand AS b ON p.brand_id=b.brand_id INNER JOIN model AS m ON p.model_id=m.model_id AND p.p_id=sp.p_id AND s.sup_id='" . $id . "' ");
+        $query = $this->mysqli->query("SELECT s.sup_id, p.p_id,c.category_name,b.brand_name, m.model_name 
+        FROM supplier_product AS sp, supplier AS s, product_list AS p ,category AS c, model AS m, brand AS b 
+        WHERE sp.sup_id=s.sup_id AND sp.p_id=p.p_id AND p.category_id=c.category_id AND p.brand_id=b.brand_id AND p.model_id=m.model_id AND s.sup_id='" . $id . "' ");
         if ($query->num_rows > 0) {
             while ($row = $query->fetch_assoc()) {
                 $result[] = $row;
