@@ -423,6 +423,9 @@ class sales
                 echo "NOT FOUND";
             }
     }
+    public function valid_prodcuts_search($model){
+        return $this->sale->view_products_search($model);
+    }
 
 }
 $controller = new sales();

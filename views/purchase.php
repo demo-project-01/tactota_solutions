@@ -50,6 +50,10 @@ $sql=$data->valid_prodcuts();
             $_SESSION["purchase"][0]=$item_array;
            }
       }
+      if(isset($_POST["search"])){
+        $model=$name=$_POST['model_name'];
+        $sql=$data->valid_prodcuts_search($model);
+       }
 ?>
    
 <head>
@@ -63,53 +67,22 @@ $sql=$data->valid_prodcuts();
 <div class="new">
         <a class="add_button" href="view_purchase_list.php"> View selected Items</a></a>
     </div>
-<h1 id="tbl-heading"> Purchase</h1><div class="nav-bar">
+<h1 id="tbl-heading"> Purchase</h1>
+<div class="nav-bar">
+  
       <table class="selection">
-        <tr>
-          <td><label for="category" class="date-lbl">Category</label></td>
-          <td><label for="brand" class="date-lbl">Brand</label></td>
-          <td><label for="model" class="date-lbl">Model</label></td>
-        </tr>
-        <tr>
-          <td>
-            <select name="category" id="category">
-              <option value="0">All</option>
-              <?php
-                foreach ($sql1 as $k => $v){  ?>
-                  <option value="<?php echo $sql1[$k]["category_id"] ?>"> <?php echo $sql1[$k]["category_name"] ?></option>  
-             <?php
-                }
-              ?>
-            </select>
-          </td>
-          <td>
-            <select name="brand" id="brand">
-              <option value="0">All</option>
-              <?php
-                foreach ($sql2 as $k => $v){  ?>
-                  <option value="<?php echo $sql2[$k]["brand_id"] ?>"> <?php echo $sql2[$k]["brand_name"] ?></option>   
-              <?php
-                }
-              ?>
-            </select>
-          </td>
-          <td>
-            <select name="model" id="model">
-              <option value="0">All</option>
-              <?php
-                foreach ($sql3 as $k => $v){  ?>
-                  <option value="<?php echo $sql3[$k]["model_id"] ?>"> <?php echo $sql3[$k]["model_name"] ?></option>   
-              <?php
-                }
-              ?>
-            </select>
-          </td>
-        </tr>
-        <tr>
+    
+        <tr><form action="purchase.php?action=?" method="post">
           <td colspan=3>
-            <a class="button" href="#">Search </a>
+            <b><label for="model_name" class="date-lbl">Model Name :</label><b>
+              <input type="text-box" id="model_name" name="model_name" placeholder="Model Name">
+              <input type="submit" id="search" class="add_button" name="search" value="Search" >
           </td>
+          <tbody>
         </tr>
+       
+        </tbody>
+        </form>
       </table>
     </div>
 
