@@ -829,7 +829,7 @@ public function get_bills_range($date1,$date2){
   return $result;
 }
 public function get_bought_products_range($date1,$date2){
-    
+    $result="";
     $query = $this->mysqli->query("SELECT supplier_product.date,supplier_product.unit_price,supplier_product.quantity,supplier.sup_name,brand.brand_name,category.category_name,model.model_name FROM supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN product_list ON supplier_product.p_id=product_list.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE supplier_product.date BETWEEN '$date1' AND '$date2'");
     while ($row = $query->fetch_assoc()) {
         $result[] = $row;
