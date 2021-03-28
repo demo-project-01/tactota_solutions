@@ -656,6 +656,54 @@ class inventory_maintain
            return $this->inven->review_time($row,$row1);
     }
 
+    public function returnitem_search(){   //janith Rathnayaka 
+        $keyword = $_POST['keywords'];
+        $sortBy = $_POST['sortBy'];
+//       print_r($keyword);
+  //    print_r($sortBy);
+        if($sortBy=="shop" && $keyword==''){
+         $row= $this->inven->diplay_shop_return_items();
+      //   print_r($row);
+         $_SESSION['return_search_sort']=$row;
+       header('location:../views/returnitems_search.php'); 
+      }else if($sortBy=="customer" && $keyword==''){
+          $row1=$this->inven->diplay_cus_return_items();
+          $_SESSION['return_search_sort']=$row1;
+         // print_r($row1);
+          header('location:../views/returnitems_search.php'); 
+          }else if($sortBy=="shop"){
+         $row3= $this->inven->diplay_shop_return_items_search($keyword);
+           if($row3=="0"){
+              echo "NOT FOUND";
+           }else{
+              $_SESSION['return_search_sort']=$row3;
+          
+                   header('location:../views/returnitems_search.php'); 
+           }
+       
+        }else if($sortBy=="customer"){
+          $row4=$this->inven->diplay_cus_return_items_search($keyword);
+          if($row4=="0"){
+              echo "NOT FOUND";
+          }else{
+              $_SESSION['return_search_sort']=$row4;
+              //      print_r($row4);
+                    header('location:../views/returnitems_search.php'); 
+          }
+       
+        }else if($sortBy==""){
+            $row5 = $this->inven->all_return_items($keyword);
+            if($row5=="0"){
+                echo "NOT FOUND";
+            }else{
+              $_SESSION['return_search_sort']=$row5;
+              //    print_r($row5);
+                header('location:../views/returnitems_search.php');
+            }
+     
+        }
+}
+
 }
 
 
@@ -782,6 +830,8 @@ else if(isset($_GET['action']) && $_GET['action'] == 'view_categories'){   //res
     $controller->current_stock_report_download();
 }else if(isset($_GET['action']) && $_GET['action'] == 'search_income'){  
     $controller->search_income();
+}else if(isset($_GET['action']) && $_GET['action'] == 'returnitem_search'){  
+    $controller->returnitem_search();
 }
 
 
