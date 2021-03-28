@@ -163,7 +163,7 @@ class sales
     
       public function add_bill(){ //nuwan
         $item_id=$_POST['hidden_itemid'];
-        $id= $this->sale->get_emp_id();
+        $id= $_SESSION['emp_id'];
         $bill_no= $this->sale->get_bill_no();
         $date_time = $_POST['date_time'];
         $amount = $_POST['total_amount']*(100- $_POST['discount'])/100;
