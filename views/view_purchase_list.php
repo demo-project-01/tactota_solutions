@@ -109,8 +109,9 @@ if(isset($_GET['action']))
         </table>
     </div>
 
+
+</div>
 <div class="footer">
 	<p>© Tactota Solutions All rights reserved </p>
-</div>
 </div>
 </body>

@@ -7,10 +7,14 @@
 ?>
 <head>
 <link rel="stylesheet" href="../public/css/update.css">
+<link rel="stylesheet" href="../public/css/report.css"></link>
 </head>
 <div class="content" style="width:auto;">
     <h1 id="tbl-heading">Bills Details</h1><br/>
-    <div class="view-tbl">
+    <div class="search">
+        <input type="text" placeholder="Search.."  id="search_text">
+    </div>
+    <div class="view-tbl" id="result">
        <table>
             <thead>
                 <tr>
