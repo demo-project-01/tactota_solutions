@@ -494,5 +494,20 @@ public function bill_details_search($row){
             return 0;
         }
  }
+ public function view_products_search($model){
+    $query = $this->mysqli->query("SELECT items.item_id,items.serial_no,product_list.warrenty,category.category_name,brand.brand_name,model.model_id,model.model_name,model.sales_price FROM items INNER JOIN product_list ON items.p_id=product_list.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE items.item_status=1 AND model.model_name LIKE  '%" . $model . "%'");
+    if ($query->num_rows > 0){ 
+    while ($row = $query->fetch_assoc()) {
+
+           $result[] = $row;
+    }
+    return $result;
+    }
+    else
+    {
+        return 0;
+    }
+
+ }
 
 }
