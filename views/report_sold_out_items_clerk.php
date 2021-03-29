@@ -109,13 +109,13 @@ $sql3=$data->sold_items();
       </tbody>
     </table>
   </div>
-  <table>
+  <!--table>
         <tr>
           <td class="center-btn">
             <a class="button" href="clerk.php" style="float:left;"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
           </td>
         </tr>
-      </table>
+      </table-->
   </div>
 <div class="footer">
 	<p>© Tactota Solutions All rights reserved </p>

@@ -70,18 +70,20 @@ input[type="text"]:disabled {
 
 input[type="submit"] {
     /*font-weight: bolder;*/
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 1.1em;
-    color: #ffffff;
-    background: #007042;
-    outline: none;
-    border: 1px solid #007042;
-    cursor: pointer;
-    padding: 0.3em;
-    -webkit-appearance: none;
-    width: 50%;
-    margin: 0.5em 0;
-    letter-spacing: 4px;
+    font-family: 'Times New Roman', Times, serif;
+    width: 20%;
+
+    right: 0px;
+    padding: 10px;
+    box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 2px solid #eef3ef;
+    background-color: #007042;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bolder;
+    color: #fff;
 }
  input[type="submit"]:hover {      /*reshani*/
    -webkit-transition: .5s all;

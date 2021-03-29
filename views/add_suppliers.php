@@ -42,7 +42,9 @@ include 'clerk_sidebar.php';
         </tr>
         
         <tr>
-        <td colspan=2><input type="submit" name="add_supplier" value="Add"></td>
+        <td colspan=2>
+        <a class="add_button" href="supplier_details.php"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
+                            &nbsp&nbsp<input type="submit" name="add_supplier" value="Add"></td>
         </tr>
       </tbody>
    </table>
