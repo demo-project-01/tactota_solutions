@@ -197,7 +197,7 @@
                     <th> Category Name</th>
                     <th> Brand Name</th>  
                     <th> Model Name</th>
-                    <th> Return Type</th>
+                    <th> Sell / Not Sell</th>
                     <th>Actions</th>
                 </tr>
             </thead>

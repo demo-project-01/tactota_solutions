@@ -1,45 +1,81 @@
 <?php
    include 'clerk_sidebar.php';
-
+   require '../controller/inventory_maintain.php';
+   $data=new inventory_maintain();
+   $sql=$data->display_all_returnitem_details();
+   if(isset($_GET['action'])){
+    if($_GET["action"]=="shop_return"){
+        $sql=$data->display_shop_returnitem_details();
+    }
+    else if($_GET["action"]=="customer_return"){
+        $sql=$data->display_cus_returnitem_details();
+        
+    }
+    else if($_GET["action"]=="shop_customer_return"){
+        $sql=$data->display_all_returnitem_details();
+        
+    }
+   }
 ?>
 <head>
 <link rel="stylesheet" href="../public/css/view_user.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
 <div class="content" style="width:auto;">
     <h1 id="tbl-heading">Return Items</h1><br/>
-   
-    <div class="search">
-    <input type="text" id="keywords" placeholder="Search.." onkeyup="searchFilter()"> 
-    <select id="sortBy" onchange="searchFilter()">
-        <option value="">Sort By</option>
-        <option value="shop">Shop Return Items</option>
-        <option value="customer">Customer Return Items</option>
-    </select>
+    <div class="new">
+    <a class="add_button" href="returnitems.php?action=shop_return">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        &nbsp&nbsp Shop Return Items</a>
+
+    <a class="add_button" href="returnitems.php?action=customer_return">
+        <i class="fa fa-user-o" aria-hidden="true"></i>
+        &nbsp&nbsp Customer Return Items</a>
+
+    <a class="add_button" href="returnitems.php?action=shop_customer_return">
+        <i class="fas fa-cart-arrow-down" aria-hidden="true"></i>
+        &nbsp&nbsp All Return Items</a>
     </div>
-    <div class="view-tbl" id="posts_content">
-     
+    <!--div class="search">
+    <input type="text" placeholder="Search..">
+    </div-->
+    <div class="view-tbl">
+       <table>
+            <thead>
+                <tr>
+                <!--th> Product ID</th-->
+                    <th> Serial Number</th>
+                    <th> Category Name</th>
+                    <th> Brand Name</th>  
+                    <th> Model Number</th>
+                    <th>Returned Date</th>
+                    <th>Description</th>
+                    <!--th scope="col" colspan=2 border=0></th-->
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+      if(!empty($sql)){
+            foreach ($sql as $k => $v)
+            {
+                ?>
+                <tr>
+                <!--td><!-?php echo $sql[$k]["p_id"] ?></td-->
+                    <td><?php echo $sql[$k]["serial_no"] ?></td>
+                    <td><?php echo $sql[$k]["category_name"] ?></td>
+		            <td><?php echo $sql[$k]["brand_name"] ?></td>
+                    <td><?php echo $sql[$k]["model_name"] ?></td>
+                    <td><?php echo $sql[$k]["returned_date"] ?></td>
+                    <td><?php echo $sql[$k]["description"] ?></td>
+                    <!--td><a href="../controller/inventory_maintain.php?action=display_onereturnitem_details&id=<!-?php  echo $sql[$k]["p_id"]; ?>" class="view"-->
+                    <!--i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td-->
+                </tr>
+                <?php
+            }
+         } ?>
+            </tbody>
+       </table>
     </div>
     <div class="footer">
 		<p>© Tactota Solutions All rights reserved </p>
     </div>  
 </div>
-
-<script>
-function searchFilter() {
-  
-    var keywords = $('#keywords').val();
-    var sortBy = $('#sortBy').val();
-    $.ajax({
-        type: 'POST',
-        url: '../controller/inventory_maintain.php?action=returnitem_search',
-        data:'&keywords='+keywords+'&sortBy='+sortBy,
-        success: function (html) {
-            $('#posts_content').html(html);
-            
-        }
-    });
-   
-}
-searchFilter()
-</script>
