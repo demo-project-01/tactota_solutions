@@ -149,14 +149,17 @@ class inventory_maintain
             header('location: ../views/view_all_products.php');
         }
     }
-    public function display_reminders($row){   //reshani
-        $row1= $this->inven->display_stockreminders($row);
-        if($row1!=""){
-            $_SESSION['reminderitems_search']=$row1;
-            header('location: ../views/reminderitems_search.php');
-        }else if($row1==0) {
-            echo "NOT FOUND";
-        }
+    public function display_reminders(){   //reshani
+        return $this->inven->display_stockreminders();
+    }
+    public function  remainder_details($row){
+        $row1=$this->inven->display_stockreminders($row);
+           if($row1!=""){
+                $_SESSION['remainder_search']=$row1;
+                header('location: ../views/remainderitems_search.php');
+            }else if($row1==0) {
+                echo "NOT FOUND";
+            }
     }
 
     public function countsuppliers(){              //reshani clerk dashboard
@@ -721,15 +724,6 @@ class inventory_maintain
      
         }
 }
-public function  remainder_details($row){
-    $row1=$this->inven->display_stockreminders($row);
-       if($row1!=""){
-            $_SESSION['remainder_search']=$row1;
-            header('location: ../views/remainderitems_search.php');
-        }else if($row1==0) {
-            echo "NOT FOUND";
-        }
-}
 
 }
 
@@ -764,8 +758,7 @@ else if(isset($_GET['action']) && $_GET['action'] == 'update_supplier_details') 
     $controller->view_supplier_details($id);
 }
 else if(isset($_GET['action']) && $_GET['action'] == 'display_reminders'){  //reshani
-    $row=$_POST['query'];
-    $controller->display_reminders($row);
+    $controller->display_reminders();
 }
 else if(isset($_GET['action']) && $_GET['action'] == 'reminderitems_suppliers'){  //nuwan
     $id=$_GET["id"];
