@@ -1,16 +1,20 @@
 <?php
 include 'shopkeeper_sidebar.php';
-require '../controller/inventory_maintain.php';
+//require '../controller/inventory_maintain.php';
+session_start();
 $row=$_SESSION['return_item'];
 //echo($row['item_status']);
 ?>
 <head>
 <link rel="stylesheet" href="../public/css/update.css">
 <link rel="stylesheet" href="../public/css/email.css">
+<link rel="stylesheet" href="../public/css/report.css"></link>
+
 
 </head>
 
   <div class="content"style="width:auto;">
+  <div class="page">
   <h1 id="tbl-heading"> Return Item Details</h1>
  
   <div class="update-tbl">
@@ -21,7 +25,7 @@ $row=$_SESSION['return_item'];
         <tr>
             <th>Type</th>
             <?php
-            if(($row["item_status"])==1){
+            if(($row[0]["item_status"])==1){
               ?>
             <td>   
               <input type='text'class="text" placeholder="Shop Return"  value="Shop Return" disabled>
@@ -29,7 +33,7 @@ $row=$_SESSION['return_item'];
             <?php }?>
 
             <?php
-            if(($row["item_status"])==0){
+            if(($row[0]["item_status"])==0){
               ?>
             <td>   
               <input type='text'class="text"  placeholder="Shop Return"  value="Customer Return" disabled>
@@ -39,26 +43,26 @@ $row=$_SESSION['return_item'];
         <tr>
         <th>Serial Number</th>
            <td>
-           <input type='text' placeholder="" name="serial_no" value="<?php echo $row['serial_no']?>"readonly>
+           <input type='text' placeholder="" name="serial_no" value="<?php echo $row[0]['serial_no']?>"readonly>
            </td>
         </tr>
         
-           <input type='hidden' placeholder="" name="item_status" value="<?php echo $row['item_status']?>"readonly>
+           <input type='hidden' placeholder="" name="item_status" value="<?php echo $row[0]['item_status']?>"readonly>
         
         <tr>
             <th>Category Name</th>
             <td>   
-              <input type='text'class="text"  placeholder="Laptop" name="category_name"value="<?php echo $row['category_name'] ?>" disabled>
+              <input type='text'class="text"  placeholder="Laptop" name="category_name"value="<?php echo $row[0]['category_name'] ?>" disabled>
             </td>
         </tr>
         <tr>
             <th>Brand Name</th>
-            <td>  <input type='text' placeholder="Asus" name="brand_name" value="<?php echo $row['brand_name'] ?>"disabled>
+            <td>  <input type='text' placeholder="Asus" name="brand_name" value="<?php echo $row[0]['brand_name'] ?>"disabled>
            </td>
         </tr>
         <tr>
             <th>Model Name</th>
-            <td> <input type='text'  placeholder="1234" name="model_name"value="<?php echo $row['model_name'] ?>"  readonly>
+            <td> <input type='text'  placeholder="1234" name="model_name"value="<?php echo $row[0]['model_name'] ?>"  readonly>
             </td>
         </tr>
         
@@ -79,7 +83,16 @@ $row=$_SESSION['return_item'];
    
 </table>
 </div>
-  
+<table>
+        <tr>
+          <td class="center-btn">
+            <a class="button" href="shopkeeper_return_items.php" style="float:left;"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
+          </td>
+        </tr>
+</table>
+
+
+</div> 
     <div class="footer">
 			<p>© Tactota Solutions All rights reserved </p>
       </div>  

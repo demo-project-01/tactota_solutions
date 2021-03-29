@@ -210,6 +210,8 @@ class inventory_maintain_model
         }
         return $result;
     }
+  
+
     /*public function count_items(){
         $query=$this->mysqli->query("SELECT COUNT(items.item_id) FROM items");
         while ($row = $query->fetch_assoc()) {
@@ -264,7 +266,7 @@ class inventory_maintain_model
 }
 public function display_returnitem($id){          //reshani, display one return item details
 
-    $result="";
+   // $result="";
     $query=$this->mysqli->query("SELECT items.item_status,items.serial_no,product_list.p_id,category.category_name,brand.brand_name,model.model_name,items.item_id FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id WHERE items.serial_no='" . $id . "'");
     if ($query->num_rows > 0) {
         while ($row = $query->fetch_assoc()) {
@@ -305,7 +307,7 @@ public function diplay_cus_return_items_search($id){
 
 
     public function shopkeeper_return_items(){        //reshani
-        $query=$this->mysqli->query("SELECT product_list.p_id,category.category_name,brand.brand_name,model.model_name,items.serial_no,items.item_id FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id WHERE items.item_status!=2");
+        $query=$this->mysqli->query("SELECT product_list.p_id,category.category_name,brand.brand_name,model.model_name,items.serial_no,items.item_id,items.item_status FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id WHERE items.item_status!=2 AND items.item_status!=3 LIMIT 15");
         while ($row = $query->fetch_assoc()) {
             $result[]= $row;
         }
@@ -378,17 +380,27 @@ public function diplay_cus_return_items_search($id){
         
         }
     }
-    public function add_item_status($item_status,$item_id,$model_no){     //reshani 
+    public function add_item_status($item_status_shop,$item_id,$model_no){     //reshani  shop retirn item
         $stmt = $this->mysqli->prepare("UPDATE items SET item_status= ? WHERE item_id=?");
         if($stmt==FALSE)
             return 0;
         else{
-            $stmt->bind_param('ss',$item_status,$item_id);
+            $stmt->bind_param('ss',$item_status_shop,$item_id);
              $stmt->execute();
         }
         $stmt1 = $this->mysqli->prepare("UPDATE model SET model.total_quantity=model.total_quantity-1 WHERE model.model_name=?");  
         $stmt1->bind_param('s',$model_no); 
        return $stmt1->execute();
+    }
+
+    public function add_item_status_cust($item_status_cust,$item_id){  //reshani customer return
+        $stmt = $this->mysqli->prepare("UPDATE items SET item_status= ? WHERE item_id=?");
+        if($stmt==FALSE)
+            return 0;
+        else{
+            $stmt->bind_param('ss',$item_status_cust,$item_id);
+             $stmt->execute();
+        }
     }
      public function valid_email_address($email_address)        //reshani  ,add customer details
     {

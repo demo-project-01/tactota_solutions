@@ -1,5 +1,6 @@
 <?php
   require_once('shopkeeper_sidebar.php');
+  
 ?>
 <head>
 
@@ -19,9 +20,7 @@
       <input type="text" id="search" placeholder="Search Product" name="search">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
-  </div>
-  <div id="result" style="text-align: center">
-  </div>
+ 
 
   <div class="footer" style="margin-top:350px;">
         <p>© Tactota Solutions All rights reserved </p>
