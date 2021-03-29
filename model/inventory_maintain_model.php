@@ -151,13 +151,19 @@ class inventory_maintain_model
         }
     }
      public function display_stockreminders($id){   //reshani  ,view stock reminders
-       // $result="";
-         
+        //$result="";
          $query=$this->mysqli->query("SELECT product_list.p_id,category.category_name,brand.brand_name,model.model_name FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id WHERE model.total_quantity<=model.reorder_level AND category.category_name LIKE  '%" . $id . "%' OR brand.brand_name LIKE  '%" . $id . "%' OR model.model_name LIKE  '%" . $id . "%'  ");  /*modified*/
-         while ($row = $query->fetch_assoc()) {
+         if ($query->num_rows > 0){
+              while ($row = $query->fetch_assoc()) {
+
              $result[] = $row;   
          }
-         return $result;   
+         return $result;  
+        }
+         else
+         {
+             return 0;
+         } 
      }
     public function count_suppliers(){   //reshani
         $query=$this->mysqli->query("SELECT COUNT(sup_id) FROM supplier");

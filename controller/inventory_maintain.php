@@ -152,6 +152,15 @@ class inventory_maintain
     public function display_reminders(){   //reshani
         return $this->inven->display_stockreminders();
     }
+    public function  remainder_details($row){
+        $row1=$this->inven->display_stockreminders($row);
+           if($row1!=""){
+                $_SESSION['remainder_search']=$row1;
+                header('location: ../views/remainderitems_search.php');
+            }else if($row1==0) {
+                echo "NOT FOUND";
+            }
+    }
 
     public function countsuppliers(){              //reshani clerk dashboard
         return $this->inven->count_suppliers();
@@ -713,15 +722,6 @@ class inventory_maintain
                 header('location:../views/returnitems_search.php');
             }
      
-        }
-}
-public function  remainder_details($row){
-    $row1=$this->inven->display_stockreminders($row);
-       if($row1!=""){
-            $_SESSION['remainder_search']=$row1;
-            header('location: ../views/remainderitems_search.php');
-        }else if($row1==0) {
-            echo "NOT FOUND";
         }
 }
 
