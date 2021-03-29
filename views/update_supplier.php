@@ -51,6 +51,8 @@ include 'clerk_sidebar.php';
                 
                 <tr>
                     <td colspan=2>
+                        <a class="add_button" href="supplier_details.php"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
+                            &nbsp&nbsp
                         <input type="submit" name="update_supplier" value="update"></td>
                 </tr>
                 </tbody>

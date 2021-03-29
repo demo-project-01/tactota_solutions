@@ -81,10 +81,10 @@ $sql3 = $data->get_model_name();
                          <option value="<?php echo $sql3[$k]["model_id"] ?>"><?php echo $sql3[$k]["model_name"] ?></option>
                        <?php
                          }
-                ?>
-                    </select>
+                        ?>
+                            </select>
 
-</td>
+                    </td>
                 </tr>
                 <tr>
                     <th>Quantity</th>
@@ -157,18 +157,16 @@ $sql3 = $data->get_model_name();
                         <button id="add" style="float: right;">Add new row</button>
 
                     </td>
-
-
-
-
                 </tr>
-
-
-
 
                 <tr>
-                    <td colspan=2><input type="submit" id="submit" name="add_product" value="Add"></td>
+                    <td colspan=2>
+                        <a class="add_button" href="view_all_products.php"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
+                            &nbsp&nbsp
+                        <input type="submit" id="submit" name="add_product" value="Add">
+                    </td>
                 </tr>
+
                 </tbody>
             </table>
         </div>

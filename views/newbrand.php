@@ -43,7 +43,10 @@ $sql=$data->get_supplier_names();
 
 
                 <tr>
-                    <td colspan=2><input type="submit" id="submit" name="add_brand" value="Add"></td>
+
+                    <td colspan=2>
+                    <a class="add_button" href="view_all_products.php"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
+                            &nbsp&nbsp<input type="submit" id="submit" name="add_brand" value="Add"></td>
                 </tr>
                 </tbody>
             </table>
