@@ -55,6 +55,14 @@ $sql=$data->valid_prodcuts();
         $sql=$data->valid_prodcuts_search($model);
        }
 ?>
+
+<?php if(isset($_SESSION['flash_payment'])): ?>
+        <div class="alert" id="activate">
+            <span class="activebtn">&times;</span>
+            <strong><?php echo $_SESSION['flash_payment']; ?></strong>
+        </div>
+    <?php endif; ?>
+    <?php unset($_SESSION['flash_payment']); ?>
    
 <head>
     <link rel="stylesheet" href="../public/css/view_user.css"> 
@@ -143,3 +151,11 @@ $sql=$data->valid_prodcuts();
 </div>
 
 </body>
+<script>
+
+setTimeout(function() {
+        let alert = document.querySelector(".alert");
+        alert.remove();
+    }, 1600);
+
+</script>
