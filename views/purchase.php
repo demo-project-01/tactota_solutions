@@ -51,7 +51,7 @@ $sql=$data->valid_prodcuts();
            }
       }
       else if(isset($_POST["search"])){
-        $model=$name=$_POST['model_name'];
+        $model=$_POST['model_name'];
         $sql=$data->valid_prodcuts_search($model);
        }
 ?>
