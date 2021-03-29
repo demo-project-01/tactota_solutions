@@ -102,10 +102,8 @@ class inventory_maintain_model
          return $result;
      }
     
-    public function get_view_supplier_product_details($id){//new22
-       // $result = "";
-        //$query = $this->mysqli->query("SELECT * FROM supplier INNER JOIN product  AND supplier.sup_id='" . $id . "'");
-        $query = $this->mysqli->query("SELECT s.sup_id, p.p_id,c.category_name,b.brand_name, m.model_name 
+    public function get_view_supplier_product_details($id){
+        $query = $this->mysqli->query("SELECT distinct m.model_name,s.sup_id, p.p_id,c.category_name,b.brand_name
         FROM supplier_product AS sp, supplier AS s, product_list AS p ,category AS c, model AS m, brand AS b 
         WHERE sp.sup_id=s.sup_id AND sp.p_id=p.p_id AND p.category_id=c.category_id AND p.brand_id=b.brand_id AND p.model_id=m.model_id AND s.sup_id='" . $id . "' ");
         if ($query->num_rows > 0) {
@@ -315,8 +313,8 @@ public function diplay_cus_return_items_search($id){
         }
         return $result;
     }
-    public function all_return_items(){
-        $query=$this->mysqli->query("SELECT items.serial_no,category.category_name,brand.brand_name,model.model_name,customer_return_item.returned_date,customer_return_item.description FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id INNER JOIN customer_return_item ON items.item_id=customer_return_item.item_id UNION SELECT items.serial_no,category.category_name,brand.brand_name,model.model_name,shop_return_items.returned_date,shop_return_items.description FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id INNER JOIN shop_return_items ON items.item_id= shop_return_items.item_id  WHERE items.serial_no LIKE  '%" . $id . "%' OR category.category_name LIKE  '%" . $id . "%' OR brand.brand_name LIKE  '%" . $id . "%' OR model.model_name LIKE  '%" . $id . "%' OR shop_return_items.returned_date LIKE  '%" . $id . "%' OR customer_return_item.returned_date LIKE  '%" . $id . "%'");
+    public function all_return_items($id){
+        $query=$this->mysqli->query("SELECT items.serial_no,category.category_name,brand.brand_name,model.model_name,customer_return_item.returned_date,customer_return_item.description FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id INNER JOIN customer_return_item ON items.item_id=customer_return_item.item_id UNION SELECT items.serial_no,category.category_name,brand.brand_name,model.model_name,shop_return_items.returned_date,shop_return_items.description FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id INNER JOIN shop_return_items ON items.item_id= shop_return_items.item_id  WHERE items.serial_no LIKE  '%" . $id . "%' OR category.category_name LIKE  '%" . $id . "%' OR brand.brand_name LIKE  '%" . $id . "%' OR model.model_name LIKE  '%" . $id . "%' OR shop_return_items.returned_date LIKE  '%" . $id . "%'");
         if ($query->num_rows > 0) {
             while ($row = $query->fetch_assoc()) {
                 $result[] = $row;

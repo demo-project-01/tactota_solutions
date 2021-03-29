@@ -91,39 +91,45 @@ class sales
         $count=0; $arr=0;
       
        
-         if($quantity<0){
+         if($quantity<=0){
                  $quantity_error="password must be more than 0";
                  $count++;
+              //   print_r($count);
+
          }
 
          if($product_cost>$sales_price){
              $count++;
+          //   print_r($count);
          }
          if($product_cost<0 || $sales_price<0){
               $count++;
+              //print_r($count);
          }
          if($quantity<$reorder_level){
              $count++;
+            //  print_r($count);
          }
 
-         if($quantity!=$arr){
+         if($quantity==$arr){
              $count++;
+          //  print_r($count);
          }
  
      //     $total_quantity = $model_details[0]["quantity"] + $quantity;
    //      print_r($total_quantity);
  //       if ($this->sale->update_model($model_id,$quantity,$reorder_level,$sales_price,$specification)){
- 
+ //print_r($count);
 
   if($count==0) {
-     if($total1=$this->sale->add_new_product($category_id, $product_cost, $brand_id, $reorder_level, $model_id, $quantity,$product_status, $product_date, $serial_number,$item_status, $supplier_id,$warranty))
+     if($total1=$this->sale->add_new_product($category_id,$sales_price,$product_cost, $brand_id, $reorder_level, $model_id, $quantity,$product_status, $product_date, $serial_number,$item_status, $supplier_id,$warranty))
       {    $_SESSION['addnewproduct']="Add new product is successful ";
-           header('location: ../views/view_all_products.php');
+        header('location: ../views/newproduct.php');
        // print_r($total1);   
         echo "successful";
         } else {
-          //  $_SESSION['addnewproduct']="Add new product is unsuccessful ";
-           //   header('location: ../views/newproduct.php');
+           $_SESSION['addnewproduct']="Add new product is unsuccessful ";
+              header('location: ../views/newproduct.php');
              echo "unsuccessful1";
         }
     } else{
@@ -133,7 +139,7 @@ class sales
         //$_SESSION['addnewproduct']="Add new product is unsuccessful ";
       //}
     }           
-
+  
     }
     public function valid_prodcuts(){
         return $this->sale->view_products();
@@ -188,14 +194,16 @@ class sales
      if($payment_method=="cheque"){
      if($this->sale->insert_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id,$model_no)){
         unset($_SESSION["purchase"]);
-         header('location: ../views/view_purchase_list.php');
+        $_SESSION["flash_payment"]="Payment Done";
+         header('location: ../views/purchase.php');
          echo'<script>alert("payment Done")</script>';
         }
     }
         else if($payment_method=="cash"){
             if($this->sale->insert_cash_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id,$model_no)){
                 unset($_SESSION["purchase"]);
-                 header('location: ../views/view_purchase_list.php');
+                $_SESSION["flash_payment"]="Payment Done";
+                 header('location: ../views/purchase.php');
                 echo'<script>alert("payment Done")</script>';
                }   
         }

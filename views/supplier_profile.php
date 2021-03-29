@@ -5,7 +5,6 @@ include 'clerk_sidebar.php';
 <?php
 $row=$_SESSION['supplier_profile_details'];
 $row2=$_SESSION['supplier_product_details'];
-$row3=array_unique($row2);
 ?>
 <head>
 <link rel="stylesheet" href="../public/css/update.css">
@@ -61,7 +60,7 @@ $row3=array_unique($row2);
         </tr>
         </thead>
         <?php 
-        if(empty($row3)){  ?>
+        if(empty($row2)){  ?>
                 <tbody>
 
         <tr>
@@ -76,11 +75,11 @@ $row3=array_unique($row2);
           <td style="width:30%;">Model Name</td>
         </tr>
         <?php 
-        foreach ($row3 as $k => $v) {   ?>
+        foreach ($row2 as $k => $v) {   ?>
         <tr>
-          <td><?php echo $row3[$k]["category_name"] ?></td>
-          <td><?php echo $row3[$k]["brand_name"] ?></td>
-          <td><?php echo $row3[$k]["model_name"] ?></td>
+          <td><?php echo $row2[$k]["category_name"] ?></td>
+          <td><?php echo $row2[$k]["brand_name"] ?></td>
+          <td><?php echo $row2[$k]["model_name"] ?></td>
         </tr>
         <?php   
         }

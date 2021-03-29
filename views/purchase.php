@@ -50,11 +50,19 @@ $sql=$data->valid_prodcuts();
             $_SESSION["purchase"][0]=$item_array;
            }
       }
-      if(isset($_POST["search"])){
+      else if(isset($_POST["search"])){
         $model=$name=$_POST['model_name'];
         $sql=$data->valid_prodcuts_search($model);
        }
 ?>
+
+<?php if(isset($_SESSION['flash_payment'])): ?>
+        <div class="alert" id="activate">
+            <span class="activebtn">&times;</span>
+            <strong><?php echo $_SESSION['flash_payment']; ?></strong>
+        </div>
+    <?php endif; ?>
+    <?php unset($_SESSION['flash_payment']); ?>
    
 <head>
     <link rel="stylesheet" href="../public/css/view_user.css"> 
@@ -87,80 +95,6 @@ $sql=$data->valid_prodcuts();
     </div>
 
 
-<!--div class="dropdown">
-    <ul style="position:relative;z-index:10;">
-    
-        <li><a href="#">Categories</a>
-        
-            <ul>
-                
-                <li><a href="#">Laptop</a>
-                    <ul>
-                        <li><a href="#">Asus</a></li>
-                        <li><a href="#">HP</a></li>
-                        <li><a href="#">Dell</a></li>
-                        <li><a href="#">Acer</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#">Wireless Mouse-USB</a>
-                    <ul>
-                        <li><a href="#">Logitech</a></li>
-                    </ul>
-                </li>
-                
-                <li><a href="#">Head Phones</a>
-                    <ul>
-                        <li><a href="#">AKG</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#">Printers</a>
-                    <ul>
-                        <li><a href="#">Cannon</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#">Keyboard-Gaming</a>
-                    <ul>
-                        <li><a href="#">Fantech</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#">Keyboard-Wireless slim</a>
-                    <ul>
-                        <li><a href="#">K1000</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#">Multimedia Office Keyboard</a>
-                    <ul>
-                        <li><a href="#">Fantech</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#">CMOS Battery</a>
-                    <ul>
-                        <li><a href="#">Sony</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#">UPS Battery</a>
-                    <ul>
-                        <li><a href="#">CyberPower</a></li>
-                    </ul>
-                </li>
-                   
-            </ul>
-        
-        </li>
-    </ul>
-</div-->
-
-    <!--div class="search">
-            <input type="text" placeholder="Search..">
-    </div-->
-    
     <div class="view-tbl">
         <table>
             <thead>
@@ -197,7 +131,7 @@ $sql=$data->valid_prodcuts();
                     <input type="hidden" name="hidden_sprice" value="<?php echo $sql[$k]["sales_price"] ?>" >
                     <input type="hidden" name="hidden_sno" value="<?php echo $sql[$k]["serial_no"] ?>" >
                     <input type="hidden" name="hidden_modelid" value="<?php echo $sql[$k]["model_id"] ?>" >
-                    <td><input type="submit" class="button1" name="add_to_bill" value="Add" ></td>
+                    <td><input type="submit" class="add_button" name="add_to_bill" value="Add" ></td>
                         
 
                    </form>     
@@ -217,3 +151,11 @@ $sql=$data->valid_prodcuts();
 </div>
 
 </body>
+<script>
+
+setTimeout(function() {
+        let alert = document.querySelector(".alert");
+        alert.remove();
+    }, 1600);
+
+</script>

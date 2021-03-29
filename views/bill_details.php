@@ -43,7 +43,7 @@ $row=$_SESSION['bill_details'];
       
                <div class="row">
            <div class="col-25">
-            <b><label1>Total Price</label1></b>
+            <b><label1>Total Price(Rs.)</label1></b>
            </div>
            <div class="col-75">
            <input type="text" name="amount" value="<?php echo $row[0]['amount'] ?>" disabled>

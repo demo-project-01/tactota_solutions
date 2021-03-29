@@ -255,6 +255,7 @@ class authenitication
 
                       $result=$this->send_email($email,$firstname,$token,$emp_id);
                       if($result==true){
+                        $_SESSION['register_error']="Register successful";
                           header('location: ../views/successful_register.php');
                       } else
                           $_SESSION['register_error']="Registration Unsuccessful";
