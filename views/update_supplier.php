@@ -29,18 +29,18 @@ include 'clerk_sidebar.php';
                 </tr>
                 <tr>
                     <th>Supplier Name</th>
-                    <td>  <input type='text' name="sup_name" value="<?php echo $row['sup_name'] ?>" >
+                    <td>  <input type='text' name="sup_name" value="<?php echo $row['sup_name'] ?>" required="">
                     </td>
                 </tr>
                 <tr>
                     <th>Email Address</th>
-                    <td><input type='text' name="email_address" value="<?php echo $row['email_address'] ?>">
+                    <td><input type='text' name="email_address" value="<?php echo $row['email_address'] ?>" required="">
                     </td>
                 </tr>
 
                 <tr>
                     <th>Address</th>
-                    <td><input type='text'  placeholder="Supplier Address" name="address" value="<?php echo $row['address'] ?>">
+                    <td><input type='text'  placeholder="Supplier Address" name="address" value="<?php echo $row['address'] ?>" required="">
                     </td>
                 </tr>
                 <tr>
