@@ -482,7 +482,7 @@ public function search_cheque($id){
    
 } 
 public function bill_details_search($row){
-    $query = $this->mysqli->query("SELECT  DISTINCT bill.bill_no,customer.cust_name,cust_telephone.telephone_no,bill.date_time from bill INNER JOIN purchase ON bill.bill_no=purchase.bill_no INNER JOIN customer ON purchase.cust_id=customer.cust_id INNER JOIN cust_telephone ON customer.cust_id=cust_telephone.cust_id WHERE bill.bill_no LIKE  '%" . $row . "%'");
+    $query = $this->mysqli->query("SELECT  DISTINCT bill.bill_no,customer.cust_name,cust_telephone.telephone_no,bill.date_time from bill INNER JOIN purchase ON bill.bill_no=purchase.bill_no INNER JOIN customer ON purchase.cust_id=customer.cust_id INNER JOIN cust_telephone ON customer.cust_id=cust_telephone.cust_id WHERE bill.bill_no LIKE  '%" . $row . "%' OR customer.cust_name LIKE  '%" . $row . "%'");
     if ($query->num_rows > 0){ 
         while ($row = $query->fetch_assoc()) {
             $result[] = $row;

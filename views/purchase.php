@@ -82,7 +82,7 @@ $sql=$data->valid_prodcuts();
     
         <tr><form action="purchase.php?action=?" method="post">
           <td colspan=3>
-            <b><label for="model_name" class="date-lbl">Model Name :</label><b>
+            <label for="model_name" class="date-lbl">Model Name :</label>
               <input type="text-box" id="model_name" name="model_name" placeholder="Model Name">
               <input type="submit" id="search" class="add_button" name="search" value="Search" >
           </td>
