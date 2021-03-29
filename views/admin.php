@@ -115,6 +115,7 @@
         </script>
         <div class="column">
             <div>
+                <a href="report_top_selling.php">
                 <p style="color:rgba(255, 99, 132);font-size:20;font-family:times new roman;font-weight:bold;"> TOP <br/> SELLING</p><!--p style="color:000000;font-size:15px;">ITEM OF THE MONTH</p-->
                 <p style="font-size:20px;color:#6D6E31;font-weight:bold;">
                     <?php 
@@ -132,8 +133,10 @@
                     echo " sales";
                     ?>
                 </p>
+                </a>
             </div>
             <div>
+                <a href="report_top_selling.php">
                 <p style="color:rgba(255, 99, 132);font-size:20;font-family:times new roman;font-weight:bold;">LEAST <br/>SELLING </p>
                 <p style="font-size:20px;color:#6D6E31;font-weight:bold;">
                     <?php 
@@ -151,6 +154,7 @@
                     echo " sales";
                     ?>
                 </p>  
+                </a>
             </div>
         </div>
         <!--div class="card emp">
@@ -161,6 +165,7 @@
             <p style="color:red;font-size:40px;margin-top:12px;"><b>20</b></p>Sales</p>
         </div-->
         <div class="card emp">
+            <a href="report_loss_profit.php">
             <p style="font-family:times new roman;font-size:25px;font-weight:bold;color:007042;"><?php echo date('F, Y'); ?></p><br/>
             <p class="incomes" style="font-family:times new roman;color:red;font-size:20px;">Expences
             <?php 
@@ -189,6 +194,7 @@
                 echo '</p>';
             }
             ?>
+            </a>
         </div>
     </div>   
     <div class="footer">

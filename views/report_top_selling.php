@@ -89,7 +89,14 @@ foreach ($sql4 as $k => $v)
       }?>
        </tbody>
     </table>
-  </div> 
+  </div>
+  <table>
+        <tr>
+          <td class="center-btn">
+            <a class="button" href="admin.php" style="float:left;"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
+          </td>
+        </tr>
+      </table> 
   </div>
 <div class="footer">
 	<p>© Tactota Solutions All rights reserved </p>
