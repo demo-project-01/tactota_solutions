@@ -3,10 +3,8 @@ include 'clerk_sidebar.php';
 
 ?>
 <?php
-session_start();
 $row=$_SESSION['supplier_profile_details'];
 $row2=$_SESSION['supplier_product_details'];
-
 ?>
 <head>
 <link rel="stylesheet" href="../public/css/update.css">
@@ -56,31 +54,37 @@ $row2=$_SESSION['supplier_product_details'];
     </div>
     <div id="product">
       <table style="float:top;">
+      <thead>
         <tr>
-          <th colspan=4>Product List :</td>
+          <th colspan=3>Product List :</th>
         </tr>
-  <?php if(empty($row2)){  ?>
+        </thead>
+        <?php 
+        if(empty($row2)){  ?>
+                <tbody>
+
         <tr>
-          <td colspan=4><?php echo "No products to show !"; ?></td>
-  <?php }
+          <td colspan=3>No products to show !</td>
+        </tr>
+        <?php 
+        }
         else{ ?>
         <tr>
-          <td>Product ID</td>
-          <td>Product Name</td>
-          <td>Brand Name</td>
-          <td>Model No.</td>
+          <td style="width:30%;">category Name</td>
+          <td style="width:30%;">Brand Name</td>
+          <td style="width:30%;">Model Name</td>
         </tr>
-  <?php foreach ($row2 as $k => $v)
-          {   ?>
+        <?php 
+        foreach ($row2 as $k => $v) {   ?>
         <tr>
-          <td><?php echo $row2[$k]["p_id"] ?></td>
-          <td><?php echo $row2[$k]["p_name"] ?></td>
+          <td><?php echo $row2[$k]["category_name"] ?></td>
           <td><?php echo $row2[$k]["brand_name"] ?></td>
-          <td><?php echo $row2[$k]["model_no"] ?></td>
+          <td><?php echo $row2[$k]["model_name"] ?></td>
         </tr>
-  <?php   }
+        <?php   
+        }
         }  ?>
-        
+        </tbody>
       </table>
     </div>
   </div>

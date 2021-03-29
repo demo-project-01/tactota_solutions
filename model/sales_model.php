@@ -109,7 +109,7 @@ class sales_model
 
 
 
-public function add_new_product($category_id, $product_cost, $brand_id, $reorder_level, $model_id, $quantity,$product_status, $product_date, $serial_number,$item_status, $supplier_id,$warranty){
+public function add_new_product($category_id,$sales_price, $product_cost, $brand_id, $reorder_level, $model_id, $quantity,$product_status, $product_date, $serial_number,$item_status, $supplier_id,$warranty){
 
          $stmt=$this->mysqli->prepare("INSERT INTO product_list(product_status,category_id,model_id,brand_id,warrenty) VALUES (?,?,?,?,?)");                                 
         if($stmt == false){
@@ -122,11 +122,11 @@ public function add_new_product($category_id, $product_cost, $brand_id, $reorder
                      $tot_quantity=$this->get_total_quantity($model_id);
                      $tot_quantity1 = array_sum($tot_quantity);
                      $tot_quantity1 = $tot_quantity1 + $quantity;
-                     $stmt3 = $this->mysqli->prepare("UPDATE  model SET total_quantity=? WHERE model_id =?");
+                     $stmt3 = $this->mysqli->prepare("UPDATE  model SET  total_quantity=? , sales_price=? WHERE model_id =?");
                      if($stmt3==FALSE)
                          return 0;
                      else{
-                         $stmt3->bind_param('ss',$tot_quantity1,$model_id);
+                         $stmt3->bind_param('sss',$tot_quantity1,$sales_price,$model_id);
                          $stmt3->execute();
                      }
 
