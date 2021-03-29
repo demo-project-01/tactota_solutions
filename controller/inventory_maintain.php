@@ -715,6 +715,15 @@ class inventory_maintain
      
         }
 }
+public function  remainder_details($row){
+    $row1=$this->inven->display_stockreminders($row);
+       if($row1!=""){
+            $_SESSION['remainder_search']=$row1;
+            header('location: ../views/remainderitems_search.php');
+        }else if($row1==0) {
+            echo "NOT FOUND";
+        }
+}
 
 }
 
@@ -844,6 +853,9 @@ else if(isset($_GET['action']) && $_GET['action'] == 'view_categories'){   //res
     $controller->search_income();
 }else if(isset($_GET['action']) && $_GET['action'] == 'returnitem_search'){  
     $controller->returnitem_search();
+}else if(isset($_GET['action']) && $_GET['action'] == 'remainder_details') {
+    $row=$_POST['query'];
+     $controller->remainder_details($row);
 }
 
 
