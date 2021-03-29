@@ -191,13 +191,15 @@ class inventory_maintain
     public function display_onereturnitem_details($id){    //reshani
         $row=$this->inven->display_returnitem($id);       
         $_SESSION['return_item']=$row;
+        //print_r($row);
         header('location: ../views/view_one_returnitem.php');
 
       }
     
     public function add_returnitem_details(){       //reshani
        // $description="";
-        $item_status=2;
+        $item_status_shop=2;
+        $item_status_cust=3;
         $item=$_POST['item_status'];
         $serial_no=$_POST['serial_no'];
         $description=$_POST['description'];
@@ -218,8 +220,10 @@ class inventory_maintain
 
        if($item==1){
             if($this->inven->add_return_item($sup_id,$returned_date,$description,$item_id)){
-                if($this->inven->add_item_status($item_status,$item_id,$model_no)){
+                if($this->inven->add_item_status($item_status_shop,$item_id,$model_no)){
+                    $_SESSION['flash_msg_return']="Adding successful!";
                     header('location: ../views/shopkeeper_return_items.php');
+
                 }
                 
             }else{
@@ -227,7 +231,8 @@ class inventory_maintain
             }
        }else{
         if($this->inven->add_customer_return_item($cust_id,$returned_date,$description,$item_id)){
-            if($this->inven->add_item_status($item_status,$item_id,$model_no)){
+            if($this->inven->add_item_status_cust($item_status_cust,$item_id)){
+                $_SESSION['flash_msg_return']="Adding Successful!";
                 header('location: ../views/shopkeeper_return_items.php');
             } 
         }else{
@@ -247,6 +252,7 @@ class inventory_maintain
     public function display_shopkeeper_return_items(){  //reshani
         return $this->inven->shopkeeper_return_items();
     }
+   
     public function display_all_returnitem_details(){
         return $this->inven->all_return_items();
     }

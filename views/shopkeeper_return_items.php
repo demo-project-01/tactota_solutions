@@ -22,6 +22,15 @@
 </head>
 <div class="content" style="width:auto;">
     <h1 id="tbl-heading">Add Return Items</h1><br/>
+    <?php if(isset($_SESSION['flash_msg_return'])): ?>
+        <div class="alert" id="activate">
+            <span class="activebtn">&times;</span>
+            <strong><?php echo $_SESSION['flash_msg_return']; ?></strong>
+        </div>
+    <?php endif; ?>
+    <?php unset($_SESSION['flash_msg_return']); ?>
+
+    
     <!--div class="nav-bar">
       <table class="selection">
         <tr>
@@ -188,6 +197,7 @@
                     <th> Category Name</th>
                     <th> Brand Name</th>  
                     <th> Model Name</th>
+                    <th> Return Type</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -202,6 +212,17 @@
                     <td><?php echo $sql[$k]["category_name"] ?></td>
 		                <td><?php echo $sql[$k]["brand_name"] ?></td>
                     <td><?php echo $sql[$k]["model_name"] ?></td>
+
+                    <?php
+                    if(($sql[$k]["item_status"])==1){
+                    ?>
+                    <td><?php echo "Not Sell" ?></td>
+                    <?php }?>
+                    <?php
+                    if(($sql[$k]["item_status"])==0){
+                    ?>
+                    <td><?php echo "Sell" ?></td>
+                    <?php }?>
                     <td><a href="../controller/inventory_maintain.php?action=display_onereturnitem_details&id=<?php  echo $sql[$k]["serial_no"]; ?>" class="view">
                     <i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
                 </tr>
@@ -217,3 +238,11 @@
     </div> 
    
 </div>
+<script>
+
+setTimeout(function() {
+        let alert = document.querySelector(".alert");
+        alert.remove();
+    }, 1600);
+
+</script>
