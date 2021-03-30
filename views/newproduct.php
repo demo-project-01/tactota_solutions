@@ -88,7 +88,7 @@ $sql3 = $data->get_model_name();
                 </tr>
                 <tr>
                     <th>Quantity</th>
-                    <td>
+                    <td><labal id="quantity1"> </labal>
                         <input class="text" id="quantity" min="1" type="number"  name="quantity" required="">
 
                     </td>
@@ -337,6 +337,14 @@ $sql3 = $data->get_model_name();
             $('#reorder1').html('').css('color', '');
         } else
             $('#reorder1').html('need to less than quantity').css('color', 'red');
+
+    });
+
+    $('#quantity').on('keyup', function () {
+        if (parseFloat($('#quantity').val()) > 1 ) {
+            $('#quantity1').html('').css('color', '');
+        } else
+            $('#quantity1').html('quantity value less than 0 ').css('color', 'red');
 
     });
 
