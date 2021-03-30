@@ -15,7 +15,7 @@ $sql= $_SESSION['reminderitem_suppliers'];
 <body>
   <div class="content"style="width:auto;">
 
-      <h1 id="tbl-heading"> Stock Reminder - SUPPLIERS</h1>
+      <h1 id="tbl-heading"> Stock Reminder - Suppliers</h1>
 
       <?php if(isset($_SESSION['email_sent_supplier'])): ?>
                     <div class="alert" id="activate">

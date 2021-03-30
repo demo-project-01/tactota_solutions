@@ -150,7 +150,7 @@ class inventory_maintain
         }
     }
     public function display_reminders(){   //reshani
-        return $this->inven->display_stockreminders();
+        $row1=$this->inven->display_stockreminders($row);
     }
     public function  remainder_details($row){
         $row1=$this->inven->display_stockreminders($row);
@@ -855,7 +855,7 @@ else if(isset($_GET['action']) && $_GET['action'] == 'view_categories'){   //res
     $controller->returnitem_search();
 }else if(isset($_GET['action']) && $_GET['action'] == 'remainder_details') {
     $row=$_POST['query'];
-     $controller->remainder_details($row);
+    $controller->remainder_details($row);
 }
 
 

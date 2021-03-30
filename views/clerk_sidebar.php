@@ -69,7 +69,7 @@ $sql= $data->get_username();
 <div class="sidebar">
     <a href="clerk.php"><i class="fas fa-home"></i></i><span>Dashboard</span></a>
     <a href="view_all_products.php"><i class="fas fa-cart-plus"></i></i><span>Product</span></a>
-    <a href="reminderitems.php"><i class="fa fa-bell-o"></i></i><span>Reminder Items</span></a>
+    <a href="reminderitems.php"><i class="fa fa-bell-o"></i></i><span>Reminder Products</span></a>
     <a href="returnitems.php"><i class="fas fa-cart-arrow-down"></i></i><span>Return Items</span></a>
     <a href="supplier_details.php"><i class="fas fa-people-carry"></i></i><span>Suppliers</span></a>
     <a href="inbox_supplier_reply.php"><i class="fas fa-inbox"></i></i><span>Supplier Response</span></a>
