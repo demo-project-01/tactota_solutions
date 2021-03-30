@@ -29,10 +29,11 @@ if(isset($_GET['action'])){
     $sql2=$data->get_bought_products_month();
     echo '<script>alert("Invalid time period")</script>';
     
-  }
+  }else{
  // print_r($date1);print_r($date2);
  $sql1=$data->get_bills_range($date1,$date2);
  $sql2=$data->get_bought_products_range($date1,$date2);
+}
  }
 ?>
 
@@ -46,13 +47,13 @@ if(isset($_GET['action'])){
    <div class="new">
       <a class="add_button" href="report_loss_profit.php?action=week">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-        &nbsp&nbspWeekly</a>
+        &nbsp&nbspWeek</a>
     <a class="add_button" href="report_loss_profit.php?action=month">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-        &nbsp&nbspMonthly</a>
+        &nbsp&nbspMonth</a>
     <a class="add_button" href="report_loss_profit.php?action=year">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-        &nbsp&nbspYearly</a>
+        &nbsp&nbspYear</a>
     </div>
   <h1 id="tbl-heading">View Income Reports</h1>
   

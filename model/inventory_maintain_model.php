@@ -853,65 +853,105 @@ public function get_income()
     return $result;
 }
 public function get_bills_week_details(){
-    $query = $this->mysqli->query("SELECT * FROM bill WHERE (CURRENT_DATE())-(bill.date_time)<=7");
+    $query = $this->mysqli->query("SELECT * FROM bill WHERE DATEDIFF(CURRENT_DATE(),bill.date_time)<=7");
+    if ($query->num_rows > 0) {
     while ($row = $query->fetch_assoc()) {
         $result[] = $row;
     }
   return $result;
+      }else
+        {
+            return 0;
+        }
 }
 public function get_bought_products_week_details(){
-    $result = "";
-    $query = $this->mysqli->query("SELECT supplier_product.date,supplier_product.unit_price,supplier_product.quantity,supplier.sup_name,brand.brand_name,category.category_name,model.model_name FROM supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN product_list ON supplier_product.p_id=product_list.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE (CURRENT_DATE())-(supplier_product.date)<=7");
-    while ($row = $query->fetch_assoc()) {
+ 
+    $query = $this->mysqli->query("SELECT supplier_product.date,supplier_product.unit_price,supplier_product.quantity,supplier.sup_name,brand.brand_name,category.category_name,model.model_name FROM supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN product_list ON supplier_product.p_id=product_list.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE DATEDIFF(CURRENT_DATE(),supplier_product.date)<=7");
+    if ($query->num_rows > 0) {
+         while ($row = $query->fetch_assoc()) {
         $result[] = $row;
     }
   return $result;
+}else
+{
+    return 0;
+}
 
 }
 public function get_bills_month_details(){
-    $query = $this->mysqli->query("SELECT * FROM bill WHERE (CURRENT_DATE())-(bill.date_time)<=31");
-    while ($row = $query->fetch_assoc()) {
+    $query = $this->mysqli->query("SELECT * FROM bill WHERE month(bill.date_time)=month(CURRENT_DATE()) AND YEAR(CURRENT_DATE())=YEAR(bill.date_time)");
+    if ($query->num_rows > 0) {
+        while ($row = $query->fetch_assoc()) {
         $result[] = $row;
     }
   return $result;
+}else
+{
+    return 0;
+}
 }
 public function get_bought_products_month_details(){
-    $query = $this->mysqli->query("SELECT supplier_product.date,supplier_product.unit_price,supplier_product.quantity,supplier.sup_name,brand.brand_name,category.category_name,model.model_name FROM supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN product_list ON supplier_product.p_id=product_list.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE (CURRENT_DATE())-(supplier_product.date)<=365");
-    while ($row = $query->fetch_assoc()) {
+    $query = $this->mysqli->query("SELECT supplier_product.date,supplier_product.unit_price,supplier_product.quantity,supplier.sup_name,brand.brand_name,category.category_name,model.model_name FROM supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN product_list ON supplier_product.p_id=product_list.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE month(supplier_product.date)=month(CURRENT_DATE()) AND YEAR(CURRENT_DATE())=YEAR(supplier_product.date)");
+    if ($query->num_rows > 0) {
+        while ($row = $query->fetch_assoc()) {
         $result[] = $row;
     }
   return $result;
-
+    }else
+  {
+    return 0;
+  }
 }
 public function get_bills_year_details(){
-    $query = $this->mysqli->query("SELECT * FROM bill WHERE (CURRENT_DATE())-(bill.date_time)<=365");
+    $query = $this->mysqli->query("SELECT * FROM bill WHERE YEAR(CURRENT_DATE())=YEAR(bill.date_time)");
+    if ($query->num_rows > 0) {
     while ($row = $query->fetch_assoc()) {
         $result[] = $row;
     }
   return $result;
+}else
+{
+  return 0;
+}
 }
 public function get_bought_products_year_details(){
-    $query = $this->mysqli->query("SELECT supplier_product.date,supplier_product.unit_price,supplier_product.quantity,supplier.sup_name,brand.brand_name,category.category_name,model.model_name FROM supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN product_list ON supplier_product.p_id=product_list.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE (CURRENT_DATE())-(supplier_product.date)<=365");
+    $query = $this->mysqli->query("SELECT supplier_product.date,supplier_product.unit_price,supplier_product.quantity,supplier.sup_name,brand.brand_name,category.category_name,model.model_name FROM supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN product_list ON supplier_product.p_id=product_list.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE YEAR(CURRENT_DATE())=YEAR(supplier_product.date)");
+    if ($query->num_rows > 0) {
     while ($row = $query->fetch_assoc()) {
         $result[] = $row;
     }
   return $result;
+}else
+{
+  return 0;
+}
 
 }
 public function get_bills_range($date1,$date2){
     $query = $this->mysqli->query("SELECT * FROM bill WHERE bill.date_time BETWEEN '$date1' AND '$date2'");
+    if ($query->num_rows > 0){
     while ($row = $query->fetch_assoc()) {
         $result[] = $row;
     }
   return $result;
+}else
+{
+  return 0;
+}
+
 }
 public function get_bought_products_range($date1,$date2){
-    $result="";
+    //$result="";
     $query = $this->mysqli->query("SELECT supplier_product.date,supplier_product.unit_price,supplier_product.quantity,supplier.sup_name,brand.brand_name,category.category_name,model.model_name FROM supplier_product INNER JOIN supplier ON supplier_product.sup_id=supplier.sup_id INNER JOIN product_list ON supplier_product.p_id=product_list.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE supplier_product.date BETWEEN '$date1' AND '$date2'");
+    if ($query->num_rows > 0){
     while ($row = $query->fetch_assoc()) {
         $result[] = $row;
     }
   return $result;
+}else
+{
+  return 0;
+}
 }
 public function review_annual(){
   $query = $this->mysqli->query("SELECT * from feedback where YEAR(date) = YEAR(DATE_SUB(CURDATE(), INTERVAL 1 YEAR))");
