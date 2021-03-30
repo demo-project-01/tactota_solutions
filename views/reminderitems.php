@@ -11,7 +11,7 @@
     <script src="../public/js/remainder_items.js"></script>  
 </head>
 <div class="content"style="width:auto;">
-    <h1 id="tbl-heading">Reminder Items</h1>
+    <h1 id="tbl-heading">Reminder Products</h1>
     <div class="search">
     <input type="text" placeholder="Search.."  id="search_text">
   </div>
