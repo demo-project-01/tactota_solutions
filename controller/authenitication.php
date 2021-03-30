@@ -351,14 +351,8 @@ class authenitication
     public function sent_view_profile($id)
     {
              $row = $this->auth->get_view_details($id);
-
-        if($_SESSION['role']=="Clerk"){
-            $_SESSION['row'] = $row;
+             $_SESSION['view_profile'] = $row;
             header('location: ../views/view_profile.php');
-        } elseif ($_SESSION['role']=="Admin") {
-            $_SESSION['row'] = $row;
-            header('location: ../views/view_profile.php');
-        }
 
     }
 
