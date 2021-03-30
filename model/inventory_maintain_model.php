@@ -143,7 +143,7 @@ class inventory_maintain_model
     }
 
     public function update_product_details($id,$reorder_level,$warranty,$sales_price){
-        $stmt = $this->mysqli->prepare("UPDATE product_list INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id  SET model.reorder_level= ? ,  product_list.warranty= ?,  model.sales_price= ?
+        $stmt = $this->mysqli->prepare("UPDATE product_list INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id  SET model.reorder_level= ? ,  product_list.warrenty= ?,  model.sales_price= ?
                                         WHERE product_list.p_id=?");
         if($stmt==FALSE)
             return 0;
@@ -248,8 +248,8 @@ class inventory_maintain_model
         return $result;
     
     }
-    public function diplay_shop_return_items(){       //reshani, display all retrun items
-        $query=$this->mysqli->query("SELECT items.serial_no,category.category_name,brand.brand_name,model.model_name,shop_return_items.returned_date,shop_return_items.description FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id INNER JOIN shop_return_items ON items.item_id= shop_return_items.item_id");
+    public function diplay_shop_return_items(){       //reshani, display all shop retrun items
+        $query=$this->mysqli->query("SELECT items.serial_no,category.category_name,brand.brand_name,model.model_name,shop_return_items.returned_date,shop_return_items.description FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id INNER JOIN shop_return_items ON items.item_id= shop_return_items.item_id ORDER BY shop_return_items.returned_date DESC");
         if ($query->num_rows > 0) {
          while ($row = $query->fetch_assoc()) {
              $result[] = $row;
@@ -325,7 +325,7 @@ public function shopkeeper_return_items($row){        //reshani
         }
 }
 public function all_return_items(){
-        $query=$this->mysqli->query("SELECT items.serial_no,category.category_name,brand.brand_name,model.model_name,customer_return_item.returned_date,customer_return_item.description FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id INNER JOIN customer_return_item ON items.item_id=customer_return_item.item_id UNION SELECT items.serial_no,category.category_name,brand.brand_name,model.model_name,shop_return_items.returned_date,shop_return_items.description FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id INNER JOIN shop_return_items ON items.item_id= shop_return_items.item_id");
+        $query=$this->mysqli->query("SELECT items.serial_no,category.category_name,brand.brand_name,model.model_name,customer_return_item.returned_date,customer_return_item.description FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id INNER JOIN customer_return_item ON items.item_id=customer_return_item.item_id UNION SELECT items.serial_no,category.category_name,brand.brand_name,model.model_name,shop_return_items.returned_date,shop_return_items.description FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id INNER JOIN shop_return_items ON items.item_id= shop_return_items.item_id ");
         if ($query->num_rows > 0) {
             while ($row = $query->fetch_assoc()) {
                 $result[] = $row;
@@ -491,7 +491,7 @@ public function all_return_items(){
     
 
      public function get_delete_product_details($id){
-        $result = "";
+        //$result = "";
         $query = $this->mysqli->query("SELECT product.quantity,COUNT(item.serial_no) FROM  product INNER JOIN item ON product.p_id=item.p_id AND product.p_id='" . $id . "'");
         while ($row = $query->fetch_assoc()) {
             $result = $row;
