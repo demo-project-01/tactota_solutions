@@ -310,16 +310,19 @@ public function diplay_cus_return_items_search($id){
     }
 }
 
-
-
-    public function shopkeeper_return_items(){        //reshani
-        $query=$this->mysqli->query("SELECT  product_list.p_id,category.category_name,brand.brand_name,model.model_name,items.serial_no,items.item_id,items.item_status FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id WHERE items.item_status!=2 AND items.item_status!=3 LIMIT 15");
-        while ($row = $query->fetch_assoc()) {
-            $result[]= $row;
-        }
+public function shopkeeper_return_items($row){        //reshani
+    $query=$this->mysqli->query("SELECT category.category_name,brand.brand_name,model.model_name,items.serial_no,items.item_status FROM items INNER JOIN product_list ON items.p_id=product_list.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE (items.item_status=1 OR items.item_status=0) AND items.serial_no LIKE '%" . $row . "%' OR category.category_name LIKE '%" . $row . "%' OR brand.brand_name LIKE '%" . $row . "%' OR model.model_name LIKE '%" . $row . "%' LIMIT 15");
+        if ($query->num_rows > 0) {
+            while ($row = $query->fetch_assoc()) {
+                $result[]= $row;
+            }
         return $result;
-    }
-    public function all_return_items(){
+        }else
+        {
+            return 0;
+        }
+}
+public function all_return_items(){
         $query=$this->mysqli->query("SELECT items.serial_no,category.category_name,brand.brand_name,model.model_name,customer_return_item.returned_date,customer_return_item.description FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id INNER JOIN customer_return_item ON items.item_id=customer_return_item.item_id UNION SELECT items.serial_no,category.category_name,brand.brand_name,model.model_name,shop_return_items.returned_date,shop_return_items.description FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN items ON product_list.p_id=items.p_id INNER JOIN shop_return_items ON items.item_id= shop_return_items.item_id");
         if ($query->num_rows > 0) {
             while ($row = $query->fetch_assoc()) {

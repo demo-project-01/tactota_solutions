@@ -258,8 +258,16 @@ class inventory_maintain
     public function display_cus_returnitem_details(){   //reshani
         return $this->inven->diplay_cus_return_items();
     }
-    public function display_shopkeeper_return_items(){  //reshani
-        return $this->inven->shopkeeper_return_items();
+    public function display_shopkeeper_return_items($row){  //reshani
+        $row1=$this->inven->shopkeeper_return_items($row);
+           if($row1!=""){
+                $_SESSION['add_return_search']=$row1;
+                header('location: ../views/shopkeeper_return_items_search.php');
+            }else if($row1==0) {
+                echo "NOT FOUND";
+            }
+        
+        //return $this->inven->shopkeeper_return_items();
     }
    
     public function display_all_returnitem_details(){
@@ -775,7 +783,8 @@ else if(isset($_GET['action']) && $_GET['action'] == 'add_returnitem_details'){ 
     $controller->add_returnitem_details();
 }
 else if(isset($_GET['action']) && $_GET['action'] == 'display_shopkeeper_return_items'){  //reshani
-    $controller->display_shopkeeper_return_items();
+    $row=$_POST['query'];
+    $controller->display_shopkeeper_return_items($row);
 }
 /*else if(isset($_GET['action']) && $_GET['action'] == 'delete_reminder_suppliers'){  //reshani
     $serial_no=$_GET["id"];

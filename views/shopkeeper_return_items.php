@@ -1,9 +1,9 @@
 <?php
    include 'shopkeeper_sidebar.php';
-   require '../controller/inventory_maintain.php';
-  // session_start();
-   $data=new inventory_maintain();
-   $sql=$data->display_shopkeeper_return_items();
+   //require '../controller/inventory_maintain.php';
+   session_start();
+   /*$data=new inventory_maintain();
+   $sql=$data->display_shopkeeper_return_items();*/
    /*$sql1=$data->view_categories();
    $sql2=$data->view_brands();
    $sql3=$data->view_models();*/
@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="../public/css/update.css"></link>
     <link rel="stylesheet" href="../public/css/report.css"></link>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+<script src="../public/js/add_retrunitems.js"></script> 
 </head>
 <div class="content" style="width:auto;">
     <h1 id="tbl-heading">Add Return Items</h1><br/>
@@ -184,53 +186,12 @@
     </ul>
 </div-->
     <div class="search">
-    <input type="text" placeholder="Search..">
+    <input type="text" placeholder="Search.." id="search_text">
     </div>
     <div class="page">
     <h2 style="color:#007042;">Select Item To Add :</h2>
-    <div class="view-tbl">  
-       <table>
-            <thead>
-                
-                <tr>
-                   <th> Serial Number</th>
-                    <th> Category Name</th>
-                    <th> Brand Name</th>  
-                    <th> Model Name</th>
-                    <th> Sell / Not Sell</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php
-         if(!empty($sql)){
-            foreach ($sql as $k => $v)
-            {
-                ?>
-                <tr>
-                    <td><?php echo $sql[$k]["serial_no"] ?></td>
-                    <td><?php echo $sql[$k]["category_name"] ?></td>
-		                <td><?php echo $sql[$k]["brand_name"] ?></td>
-                    <td><?php echo $sql[$k]["model_name"] ?></td>
-
-                    <?php
-                    if(($sql[$k]["item_status"])==1){
-                    ?>
-                    <td><?php echo "Not Sell" ?></td>
-                    <?php }?>
-                    <?php
-                    if(($sql[$k]["item_status"])==0){
-                    ?>
-                    <td><?php echo "Sell" ?></td>
-                    <?php }?>
-                    <td><a href="../controller/inventory_maintain.php?action=display_onereturnitem_details&id=<?php  echo $sql[$k]["serial_no"]; ?>" class="view">
-                    <i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
-                </tr>
-                <?php
-            } 
-          }?>
-            </tbody>
-       </table>
+    <div class="view-tbl" id="result">  
+       
     </div>
     </div> 
     <div class="footer">
