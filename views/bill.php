@@ -90,7 +90,7 @@ $row=$data->get_bill_no();
             <label1>Email</label1>
           </div>
           <div class="col-75">
-            <input type="text" id="email_address" name="email_address" required="">
+            <input type="text" id="email_address" name="email_address">
           </div>
         </div>
 
