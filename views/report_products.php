@@ -85,11 +85,11 @@ $sql3=$data->current_stock();
   <table>
       <thead>
         <tr>
-          <th>Product ID</th>
-          <th>Category Name</th>
+          <th>Product Name</th>
           <th>Brand Name</th>
           <th>Model Name</th>
           <th>Quantity</th>
+          <th>Reorder Level</th>
         </tr>
       </thead>
       <tbody>
@@ -100,11 +100,11 @@ foreach ($sql3 as $k => $v)
     ?>
     <tr>
         
-        <td><?php echo $sql3[$k]["p_id"] ?></td>
         <td><?php echo $sql3[$k]["category_name"] ?></td>
         <td><?php echo $sql3[$k]["brand_name"] ?></td>
         <td><?php echo $sql3[$k]["model_name"] ?></td>
         <td><?php echo $sql3[$k]["total_quantity"] ?></td>
+        <td><?php echo $sql3[$k]["reorder_level"] ?></td>
     </tr>
     <?php
    }

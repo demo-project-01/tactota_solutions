@@ -25,7 +25,7 @@ body{
 .add_button
 {
     right: 0px;
-    padding: 10px;
+    padding: 5px;
     box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
     border: 2px solid #eef3ef;
     background-color: #007042;
