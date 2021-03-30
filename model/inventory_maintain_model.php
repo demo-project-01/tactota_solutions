@@ -143,7 +143,7 @@ class inventory_maintain_model
     }
 
     public function update_product_details($id,$reorder_level,$warranty,$sales_price){
-        $stmt = $this->mysqli->prepare("UPDATE product_list INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id  SET model.reorder_level= ? ,  product_list.warranty= ?,  model.sales_price= ?
+        $stmt = $this->mysqli->prepare("UPDATE product_list INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id  SET model.reorder_level= ? ,  product_list.warrenty= ?,  model.sales_price= ?
                                         WHERE product_list.p_id=?");
         if($stmt==FALSE)
             return 0;
@@ -491,7 +491,7 @@ public function all_return_items(){
     
 
      public function get_delete_product_details($id){
-        $result = "";
+        //$result = "";
         $query = $this->mysqli->query("SELECT product.quantity,COUNT(item.serial_no) FROM  product INNER JOIN item ON product.p_id=item.p_id AND product.p_id='" . $id . "'");
         while ($row = $query->fetch_assoc()) {
             $result = $row;
