@@ -435,6 +435,18 @@ class sales
         return $this->sale->view_products_search($model);
     }
 
+    public function get_model_brand(){
+        $brand = $_POST['brand'];
+        $model = $_POST['model'];
+        $row = $this->sale->check_brand_equal_model($brand,$model);
+        if($row != "0" )
+        {
+            echo "taken";
+        }else{
+            echo "not_taken";
+        }
+    }
+
 }
 $controller = new sales();
 if(isset($_GET['action']) && $_GET['action'] == "get_supplier_names") {
@@ -505,6 +517,12 @@ else if(isset($_GET['action']) && $_GET['action'] == 'add_new_model') {
 }else if(isset($_GET['action']) && $_GET['action'] == 'bill_details') {
     $row=$_POST['query'];
      $controller->bill_details($row);
+}else if(isset($_GET['action']) && $_GET['action'] == 'get_model_brand') {
+
+     $controller->get_model_brand();
 }
+
+
+
 
 

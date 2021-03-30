@@ -71,8 +71,9 @@ $sql3 = $data->get_model_name();
               
                 <tr>
                     <th>Model Name</th>
+                    <labal id="uname"> </labal>
                     <td>
-
+                  
                             <select class="select_supplier" id="model" name="model" >
                        <?php
 
@@ -88,6 +89,7 @@ $sql3 = $data->get_model_name();
                 </tr>
                 <tr>
                     <th>Quantity</th>
+                    <labal id="uname"> </labal>
                     <td><labal id="quantity1"> </labal>
                         <input class="text" id="quantity" min="1" type="number"  name="quantity" required="">
 
@@ -129,15 +131,6 @@ $sql3 = $data->get_model_name();
                                     }
                                     ?>
                          </select>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th>Re-Order Level</th>
-                    <td>
-                        <labal id="reorder1"> </labal>
-                        <input class="text" id="reorder"  type="number"  min="1" name="reorder_level" required="">
-
                     </td>
                 </tr>
 
@@ -363,26 +356,28 @@ $sql3 = $data->get_model_name();
 $('document').ready(function() {
   
     $('#category,#brand,#model').on('blur', function(){
-        var category = $('#category').val();
+       
         var brand = $('#brand').val();
         var model = $('#model').val();
-        if (category == '') {
-            return;
-        }if (brand == '') {
+       if (brand == '') {
             return;
         }if (model == '') {
             return;
         }
         $.ajax({
-            url: '../controller/sales.php?action=get_sales_price',
+            url: '../controller/sales.php?action=get_model_brand',
             type: 'post',
-            data: {
-                'category' : category,
+            data: {        
                 'brand': brand,
                 'model' : model
             },
            success: function(response){
-            <?php  $_SESSION['price']= response;  ?>
+            if (response == 'taken' ) {
+                 
+                    $('#uname').html('diffrent brand can not use same model').css('color','red');
+                }else if (response == 'not_taken') {
+                    $('#uname').html('diffrent brand can not use same model').css('color','red');
+                }
 
             }
         });
