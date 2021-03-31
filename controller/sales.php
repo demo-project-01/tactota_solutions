@@ -80,18 +80,28 @@ class sales
         $warranty = $_POST['warranty'];
         $sales_price = $_POST['sales_price'];
         $serial_number = $_POST['serial_number'];
-        $reorder_level = $_POST['reorder_level'];
+      //  $reorder_level = $_POST['reorder_level'];
         $product_status=true;
         $item_status=true;
         $product_date=date("Y-m-d");
       //  $product_id = $this->sale->get_product_id();
     //    $model_details = $this->sale->get_model_details($model_id); 
       
-      
         $count=0; $arr=0;
-      
-       
-         if($quantity<=0){
+           $c=0;
+            //  $row=$this->sale->check_brand_equal_model($model_id);
+
+
+
+
+              foreach($serial_number as $value){
+                     $c++;
+                }
+            if($quantity!=$c){
+                $count++; 
+            }
+ 
+        if($quantity<=0){
                  $quantity_error="password must be more than 0";
                  $count++;
               //   print_r($count);
@@ -139,7 +149,7 @@ class sales
         //$_SESSION['addnewproduct']="Add new product is unsuccessful ";
       //}
     }           
-  
+         
     }
     public function valid_prodcuts(){
         return $this->sale->view_products();
@@ -190,14 +200,22 @@ class sales
         if($recived_date>$due_date and $payment_method=="cheque"){
             echo'<script>alert("invalid check dates")</script>';
         }
+
     else{
+
      if($payment_method=="cheque"){
-     if($this->sale->insert_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id,$model_no)){
+        if(empty($bank_name)OR empty($cheque_no) OR empty($recived_date) OR empty($due_date) ){
+            echo'<script>alert("No complete cheque details")</script>';
+        }
+     else { 
+         if($this->sale->insert_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id,$model_no)){
         unset($_SESSION["purchase"]);
         $_SESSION["flash_payment"]="Payment Done";
          header('location: ../views/purchase.php');
          echo'<script>alert("payment Done")</script>';
         }
+    }
+
     }
         else if($payment_method=="cash"){
             if($this->sale->insert_cash_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id,$model_no)){
@@ -435,6 +453,18 @@ class sales
         return $this->sale->view_products_search($model);
     }
 
+    public function get_model_brand(){
+        $brand = $_POST['brand'];
+        $model = $_POST['model'];
+        $row = $this->sale->check_brand_equal_model($brand,$model);
+        if($row != "0" )
+        {
+            echo "taken";
+        }else{
+            echo "not_taken";
+        }
+    }
+
 }
 $controller = new sales();
 if(isset($_GET['action']) && $_GET['action'] == "get_supplier_names") {
@@ -505,6 +535,12 @@ else if(isset($_GET['action']) && $_GET['action'] == 'add_new_model') {
 }else if(isset($_GET['action']) && $_GET['action'] == 'bill_details') {
     $row=$_POST['query'];
      $controller->bill_details($row);
+}else if(isset($_GET['action']) && $_GET['action'] == 'get_model_brand') {
+
+     $controller->get_model_brand();
 }
+
+
+
 
 

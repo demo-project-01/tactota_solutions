@@ -28,7 +28,7 @@ $row=$_SESSION['view_inbox_email'];
                 <tr id="email-tr">
                     <td colspan=2>
                         <a class="add_button" href="inbox_supplier_reply.php"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
-                        <a class="add_button" href="#" ><i class="fa fa-trash" aria-hidden="true">&nbsp&nbspDelete</i></a>
+                        <a class="add_button" href="../controller/inventory_maintain.php?action=view_inbox_delete&id=<?php echo $sql[$k]["email_id"]; ?>" ><i class="fa fa-trash" aria-hidden="true">&nbsp&nbspDelete</i></a>
                     </td>
                 </tr>
 

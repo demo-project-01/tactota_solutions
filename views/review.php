@@ -59,7 +59,7 @@ else if($_GET["action"]=="time"){
                <th>Date</th>
                <th>Email</th>
                <th>Subject</th>
-                         
+               <th>Action</th>        
             </tr>
          </thead>
          <tboady>
@@ -74,7 +74,7 @@ foreach ($sql as $k => $v)
         <td><?php echo $sql[$k]["email"] ?></td>
         <td><?php echo $sql[$k]["subject"] ?></td>
        
-        <td><a href="../controller/sales.php?action=cheque_clearance&id=<?php  echo $sql[$k]["cheque_id"]; ?>" title="view">
+        <td><a href="../controller/invertory_maintain.php?action=review_&id=<?php  echo $sql[$k]["email_id"]; ?>" title="view">
          <i class="fa fa-eye" aria-hidden="true" id="tbl-icon">&nbsp&nbspView</i></a>
     </tr>
     <?php

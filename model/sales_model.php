@@ -510,4 +510,19 @@ public function bill_details_search($row){
 
  }
 
+ public function check_brand_equal_model($model){
+    $query = $this->mysqli->query("SELECT count(brand.brand_name),brand.brand_name from product_list INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE model.model_name='".$model."' ");
+    if ($query->num_rows > 0){ 
+    while ($row = $query->fetch_assoc()) {
+
+           $result[] = $row;
+    }
+    return $result;
+    }
+    else
+    {
+        return 0;
+    } 
+ }
+
 }
