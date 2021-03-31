@@ -9,7 +9,7 @@ $sql=$_SESSION['update_product'];
                 <th>Category Name</th>
                 <th>Brand Name</th>
                 <th>Model Name</th>
-                <th>Quantity</th>
+                <th>Current Quantity</th>
                 <th >Cost per Item</th>
                 <th colspan=3>Action</th>
             </tr>
