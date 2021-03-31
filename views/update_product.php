@@ -72,7 +72,7 @@ include 'clerk_sidebar.php';
 
                 <tr>
                     <td colspan=2>
-                        <a class="add_button" href="view_all_products.php"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
+                        <a class="add_button" href="view_one_model.php"><i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbspBack</i></a>
                             &nbsp&nbsp
                         <input type="submit" name="update_product" value="Update"></td>
                 </tr>

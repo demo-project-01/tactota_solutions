@@ -146,7 +146,7 @@ class inventory_maintain
         if ($row == "0") {
             header('location: ../views/update_product.php');
         }else{
-            header('location: ../views/view_all_products.php');
+            header('location: ../views/view_one_model.php');
         }
     }
     public function display_reminders(){   //reshani
@@ -771,6 +771,13 @@ class inventory_maintain
         }
 }
 
+    public function view_one_model_details($id)
+    {
+        $row= $this->inven->view_one_model_details($id);
+        $_SESSION['one_model_details']=$row;
+        header('location: ../views/view_one_model.php');
+    }
+
 }
 
 
@@ -911,6 +918,10 @@ else if(isset($_GET['action']) && $_GET['action'] == 'view_categories'){   //res
     $id=$_GET["id"];
   //  print_r($id);
    $controller->view_feedback($id);
+}
+else if(isset($_GET['action']) && $_GET['action'] == 'view_one_model_details') {
+    $id=$_GET["id"];
+    $controller->view_one_model_details($id);
 }
 
 

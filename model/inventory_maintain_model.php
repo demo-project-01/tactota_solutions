@@ -1034,4 +1034,22 @@ public function review_monthly(){
           return 0;
       }
   }
+
+  public function view_one_model_details($id){
+    $query = $this->mysqli->query("SELECT product_list.p_id, supplier.sup_name,model.model_name,category.category_name, supplier_product.quantity, supplier_product.date,supplier_product.unit_price,  product_list.warrenty FROM model
+             INNER JOIN product_list ON product_list.model_id=model.model_id
+             INNER JOIN supplier_product ON supplier_product.p_id=product_list.p_id
+             INNER JOIN category ON category.category_id=product_list.category_id
+             INNER JOIN supplier ON supplier.sup_id=supplier_product.sup_id
+             WHERE model.model_id='" . $id . "' ");
+   if ($query->num_rows > 0) {
+       while ($row = $query->fetch_assoc()) {
+           $result[] = $row;
+    }
+    return $result;
+   }
+   else{
+        return 0;
+    }
+} 
 }
