@@ -522,11 +522,25 @@ class inventory_maintain
      //   print_r($row['email_id']);
         if($row!=""){  
            $_SESSION['view_inbox_email']=$row;
-          header('location:../views/view_inbox.php');
+          header('location:../views/view_feedback.php');
         }else{
             $_SESSION['view_inbox_email']="No details";
-            header('location:../views/view_inbox.php');
+            header('location:../views/view_feedback.php');
         }
+    }
+
+
+    public function view_feedback($id){
+            // print_r($id);
+       $row = $this->inven->view_feedback($id);
+        //   print_r($row['email_id']);
+           if($row!=""){  
+              $_SESSION['view_feedback']=$row;
+             header('location:../views/view_feedback.php');
+           }else{
+               $_SESSION['view_feedback']="No details";
+               header('location:../views/view_feedback.php');
+           }
     }
 
     public function view_inbox_delete($id){
@@ -612,6 +626,7 @@ class inventory_maintain
     }
 
     public function current_stock_report_download(){
+
         $display_heading = array('model_id'=>'Product ID', 'model_name'=> 'Category Name','total_quantity'=>'Brand Name' , 'specification' => 'Model Name' , 'reorder_level'=> 'Quantity','sales_price'=> 'Price');
         $result=$this->inven->current_stock_report_download();
         $header=$this->inven->model_k();
@@ -865,6 +880,10 @@ else if(isset($_GET['action']) && $_GET['action'] == 'view_categories'){   //res
 }else if(isset($_GET['action']) && $_GET['action'] == 'remainder_details') {
     $row=$_POST['query'];
     $controller->remainder_details($row);
+}else if(isset($_GET['action']) && $_GET['action'] == 'view_feedback') {
+    $id=$_GET["id"];
+  //  print_r($id);
+   $controller->view_feedback($id);
 }
 
 

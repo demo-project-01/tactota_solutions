@@ -739,8 +739,15 @@ public function review_clerk(){
          return  $stmt->execute();
     }
   
-
    }
+
+   public function view_feedback($id){
+    $query = $this->mysqli->query("SELECT * FROM feedback  WHERE feedback_id=".$id." ");
+    while ($row = $query->fetch_assoc()) {
+        $result = $row;
+    }
+    return $result;
+       }
    public function get_bills_monthly(){
     $query = $this->mysqli->query("SELECT * FROM bill WHERE MONTH(CURRENT_DATE())-MONTH(bill.date_time)<=1");
     while ($row = $query->fetch_assoc()) {

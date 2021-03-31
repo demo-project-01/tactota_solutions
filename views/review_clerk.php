@@ -3,7 +3,7 @@
   require '../controller/inventory_maintain.php';
    $data=new inventory_maintain();
    $sql=$data->review_clerk();
- //  print_r($sql);
+ // print_r($sql);
 ?>
 <link rel="stylesheet" href="..public/css/style1.css">
 <link rel="stylesheet" href="../public/css/update.css">
@@ -35,7 +35,7 @@
                 <tr>
                     <th>Date</th>
                     <th>Email</th>
-                    <th>Description</th>
+                    <th>Subject</th>
                     <th scope="col" colspan=2 >Action</th>
                 </tr>
             </thead>
@@ -53,8 +53,8 @@
          
 
            
-             <td><a href="../controller/inventory_maintain.php?action=view_inbox&id=<?php echo $sql[$k]["email_id"]; ?>" title="View"><i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
-             <td><a href="../controller/inventory_maintain.php?action=view_inbox_delete&id=<?php echo $sql[$k]["email_id"]; ?>" title="Delete"><i class="fa fa-trash-o" aria-hidden="true" id="tbl-icon"></i></a></td>
+             <td><a href="../controller/inventory_maintain.php?action=view_feedback&id=<?php echo $sql[$k]['feedback_id'] ?>" title="View"><i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
+            
             </tr>
   <?php
            }

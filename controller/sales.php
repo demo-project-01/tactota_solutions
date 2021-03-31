@@ -80,18 +80,28 @@ class sales
         $warranty = $_POST['warranty'];
         $sales_price = $_POST['sales_price'];
         $serial_number = $_POST['serial_number'];
-        $reorder_level = $_POST['reorder_level'];
+      //  $reorder_level = $_POST['reorder_level'];
         $product_status=true;
         $item_status=true;
         $product_date=date("Y-m-d");
       //  $product_id = $this->sale->get_product_id();
     //    $model_details = $this->sale->get_model_details($model_id); 
       
-      
         $count=0; $arr=0;
-      
-       
-         if($quantity<=0){
+           $c=0;
+            //  $row=$this->sale->check_brand_equal_model($model_id);
+
+
+
+
+              foreach($serial_number as $value){
+                     $c++;
+                }
+            if($quantity!=$c){
+                $count++; 
+            }
+ 
+        if($quantity<=0){
                  $quantity_error="password must be more than 0";
                  $count++;
               //   print_r($count);
@@ -139,7 +149,7 @@ class sales
         //$_SESSION['addnewproduct']="Add new product is unsuccessful ";
       //}
     }           
-  
+         
     }
     public function valid_prodcuts(){
         return $this->sale->view_products();
