@@ -2,10 +2,24 @@
 include 'admin_sidebar.php';
 require '../controller/inventory_maintain.php';
 $data = new inventory_maintain();
-$sql=$data->view_categories();
-$sql1=$data->view_brands();
-$sql2=$data->view_models();
-$sql3=$data->sold_items();
+
+$sql=$data->sold_items();
+
+if(isset($_POST["search_items"])){
+  $date1=$name=$_POST['from_date'];
+  $date2=$name=$_POST['to_date'];
+  if($date1>$date2){
+    $sql=$data->sold_items();
+    echo '<script>alert("Invalid time period")</script>';
+    
+  }else{
+ // print_r($date1);print_r($date2);
+ 
+ $sql=$data->get_sold_time_range($date1,$date2);
+
+}
+}
+
 ?>
 
 
@@ -18,72 +32,25 @@ $sql3=$data->sold_items();
 <div class="content" style="width:auto;">
   <h1 id="tbl-heading">Sold out Products Report</h1>
   <div class="nav-bar">
-      <table class="selection">
-        <tr>
-          <td><label for="category" class="date-lbl">Category</label></td>
-          <td><label for="brand" class="date-lbl">Brand</label></td>
-          <td><label for="model" class="date-lbl">Model</label></td>
-        </tr>
-        <tr>
-          <td>
-            <select name="category" id="category">
-              <option value="0">All</option>
-              <?php
-                 if(!empty($sql)){
-                foreach ($sql as $k => $v){  ?>
-                  <option value="<?php echo $sql[$k]["category_id"] ?>"> <?php 
-                    echo $sql[$k]["category_name"] ?>
-                  </option>   <?php
-                 }
-                }
-              ?>
-            </select>
-          </td>
-          <td>
-            <select name="brand" id="brand">
-              <option value="0">All</option>
-              <?php 
-                 if(!empty($sql1)){
-                foreach ($sql1 as $k => $v){  ?>
-                  <option value="<?php echo $sql1[$k]["brand_id"] ?>"> <?php 
-                    echo $sql1[$k]["brand_name"] ?>
-                  </option>   <?php
-                 }
-                }
-              ?>
-            </select>
-          </td>
-          <td>
-            <select name="model" id="model">
-              <option value="0">All</option>
-              <?php
-                 if(!empty($sql2)){
-                foreach ($sql2 as $k => $v){  ?>
-                  <option value="<?php echo $sql2[$k]["model_id"] ?>"> <?php 
-                    echo $sql2[$k]["model_name"] ?>
-                  </option>   <?php
-                 }
-                }
-              ?>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td colspan=3>
-            <label for="f_date" class="date-lbl">Time Range :<br/>From</label>
-              <input type="date" id="f_date" name="f_date" placeholder="Select start date" min="2017-04-01" max="2020-11-21">
-            <label for="t_date" class="date-lbl"> to </label>
-               <input type="date" id="t_date" name="t_date" placeholder="Select End date" min="2017-04-01" max="2020-11-21">
-          </td>
-        </tr>
-        <tr>
-          <td colspan=3>
-            <a class="button" href="#">Search </a>
-          </td>
-        </tr>
-      </table>
-    </div>
-    <div class="page">
+     
+  <table class="selection">
+    
+    <tr><form action="report_sold_out_items.php?action=?" method="post">
+      <td colspan=3>
+        <label for="from_date" class="date-lbl">Time Range :<br/>From</label>
+          <input type="date" id="from_date" name="from_date" placeholder="Select start date">
+        <label for="to_date" class="date-lbl"> to </label>
+           <input type="date" id="to_date" name="to_date" placeholder="Select End date">
+      </td>
+      <tbody>
+    </tr>
+    <td>
+      <td><input type="submit" id="search" class="add_button" name="search_items" value="Search" >
+    
+    </tbody>
+    </form>
+  </table>
+</div>
 
   <div class="view-tbl" id="view-tbl1">
     <table>
@@ -98,16 +65,16 @@ $sql3=$data->sold_items();
       </thead>
       <tbody>
       <?php
-      if(!empty($sql3)){
-            foreach ($sql3 as $k => $v)
+      if(!empty($sql)){
+            foreach ($sql as $k => $v)
             {
                 ?>
                 <tr>
-                    <td><?php echo $sql3[$k]["p_id"] ?></td>
-                    <td><?php echo $sql3[$k]["category_name"] ?></td>
-		                <td><?php echo $sql3[$k]["brand_name"] ?></td>
-                    <td><?php echo $sql3[$k]["model_name"] ?></td>
-                    <td><?php echo $sql3[$k]["total"] ?></td>
+                    <td><?php echo $sql[$k]["p_id"] ?></td>
+                    <td><?php echo $sql[$k]["category_name"] ?></td>
+		                <td><?php echo $sql[$k]["brand_name"] ?></td>
+                    <td><?php echo $sql[$k]["model_name"] ?></td>
+                    <td><?php echo $sql[$k]["total"] ?></td>
                 </tr>
                 <?php
             }

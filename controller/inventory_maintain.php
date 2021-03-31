@@ -783,6 +783,9 @@ class inventory_maintain
         $_SESSION['one_model_details']=$row;
         header('location: ../views/view_one_model.php');
     }
+    public function get_sold_time_range($date1,$date2){
+        return $this->inven->get_sold_time_range($date1,$date2);
+    }
 
 }
 
