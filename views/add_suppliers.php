@@ -8,6 +8,13 @@ include 'clerk_sidebar.php';
 
 <div class="content"style="width:auto;">
   <h1 id="tbl-heading">Add new Supplier</h1>
+  <?php if(isset($_SESSION['supplier_details_unsuccess'])): ?>
+        <div class="alert" id="activate">
+            <span class="activebtn">&times;</span>
+            <strong><?php echo $_SESSION['supplier_details_unsuccess']; ?></strong>
+        </div>
+    <?php endif; ?>
+    <?php unset($_SESSION['supplier_details_unsuccess']); ?>
 
   <form action="../controller/inventory_maintain.php?action=newsuppliers" method="post">
   <div class="update-tbl">
@@ -55,5 +62,12 @@ include 'clerk_sidebar.php';
       </div>
 </div>
 
+<script>
+
+    setTimeout(function() {
+        let alert = document.querySelector(".alert");
+        alert.remove();
+    }, 1600);
+</script>
 
 

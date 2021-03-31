@@ -40,15 +40,19 @@ class inventory_maintain
 
         if ($row != "0") {
 
-            echo "email already does not has";
+            $_SESSION['supplier_details_unsuccess']="Already add email";
+            header('location: ../views/add_suppliers.php');
         }
         else if($row1 != "0" )
-        {
-            echo "name already has";
+        {       
+            $_SESSION['supplier_details_unsuccess']="Already add supplier name";
+            header('location: ../views/add_suppliers.php');
+       //     echo "name already has";
         }else{
             $sup_id = $this->inven->getsupid();
             echo $sup_id;
             if($this->inven->supplier_register($sup_id,$name,$address,$mobile_no,$email) !=0){
+                $_SESSION['supplier_details_success']="Successfull Add supplier";
                 header('location: ../views/supplier_details.php');
             }else{
                 echo "wrong";

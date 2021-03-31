@@ -229,7 +229,7 @@ class authenitication
           }
 
           $token=bin2hex(random_bytes(50));
-
+              //rand()
           $verifed=false;
           $count=0;
          $row = $this->auth->valid_email($email);

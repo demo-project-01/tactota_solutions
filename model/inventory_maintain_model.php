@@ -758,11 +758,17 @@ foreach($emails as $email_number) {
     }
 }
 public function review_clerk(){
+ //   $result="";
     $query = $this->mysqli->query("SELECT * FROM feedback");
-    while ($row = $query->fetch_assoc()) {
-        $result[] = $row;
+    if ($query->num_rows > 0) {
+        while ($row = $query->fetch_assoc()) {
+            $result[] = $row;
+        }
+        return $result;
+    }else
+    {
+        return 0;
     }
-    return $result;
    }
 
 
