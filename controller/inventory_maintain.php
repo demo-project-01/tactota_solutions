@@ -223,10 +223,14 @@ class inventory_maintain
         printf($description);
         printf($returned_date);
         printf($item_status);*/
+       /* print_r($cust_id);
+        print_r($item_id);*/
        //$serial_no=$this->inven->get_supid_serial_no1();
         /*$a=$this->inven->add_return_item($sup_id,$returned_date,$description,$item_id);
         print_r($a);*/
-
+        
+       
+      
        if($item==1){
             if($this->inven->add_return_item($sup_id,$returned_date,$description,$item_id)){
                 if($this->inven->add_item_status($item_status_shop,$item_id,$model_no)){
@@ -238,13 +242,20 @@ class inventory_maintain
             }else{
                 echo "error1";
             }
-       }else{
-        if($this->inven->add_customer_return_item($cust_id,$returned_date,$description,$item_id)){
-            if($this->inven->add_item_status_cust($item_status_cust,$item_id)){
-                $_SESSION['flash_msg_return']="Adding Successful!";
-                header('location: ../views/shopkeeper_return_items.php');
-            } 
-        }else{
+       }
+       else if($item==0){
+              $row1= $this->inven->add_customer_return_item($cust_id,$returned_date,$description,$item_id);
+              if($row1!="0"){
+                $row=$this->inven->add_item_status_cust($item_status_cust,$item_id);
+              if($row!="0"){
+                    $_SESSION['flash_msg_return']="Adding Successful!";
+                    header('location: ../views/shopkeeper_return_items.php');
+                } else{
+                    echo "errrrrrrrrrr";
+                }
+
+            }
+        else{
             echo "error2";
         }
 
@@ -260,10 +271,10 @@ class inventory_maintain
     }
     public function display_shopkeeper_return_items($row){  //reshani
         $row1=$this->inven->shopkeeper_return_items($row);
-           if($row1!=""){
+           if($row1!="0"){
                 $_SESSION['add_return_search']=$row1;
                 header('location: ../views/shopkeeper_return_items_search.php');
-            }else if($row1==0) {
+            }else if($row1=="0") {
                 echo "NOT FOUND";
             }
         
