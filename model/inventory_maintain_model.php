@@ -57,14 +57,15 @@ class inventory_maintain_model
 
     }
     public function supplier_register($sup_id,$name,$address,$mobile_no,$email){
-        $stmt = $this->mysqli->prepare("INSERT INTO supplier (sup_id,sup_name,email_address)
-                                        VALUES (?,?,?)"); //modified by reshani
+        $status=1;
+        $stmt = $this->mysqli->prepare("INSERT INTO supplier (sup_id,sup_name,email_address,active_status)
+                                        VALUES (?,?,?,?)"); //modified by reshani
 
         if($stmt == false)
         {
             return 0;
         }else{
-            $stmt->bind_param('sss',$sup_id,$name,$email);
+            $stmt->bind_param('ssss',$sup_id,$name,$email,$status);
 
             $stmt1 = $this->mysqli->prepare("INSERT INTO sup_address (sup_id,address)
                                         VALUES (?,?)");
@@ -215,17 +216,51 @@ class inventory_maintain_model
     }
     public function count_stock_details(){   //reshani
         $query=$this->mysqli->query("SELECT COUNT( DISTINCT product_list.category_id) FROM product_list WHERE product_list.product_status!=0");
-        while ($row = $query->fetch_assoc()) {
-            $result = $row;   
-        }
-        return $result;  
-    }
-    public function count_check_reminders(){    //reshani
-        $query=$this->mysqli->query("SELECT COUNT(cheque.cheque_id) FROM cheque WHERE cheque.cheque_status=1");
+        if ($query->num_rows > 0) {
         while ($row = $query->fetch_assoc()) {
             $result = $row;   
         }
         return $result;
+        }else{
+                
+            return 0;
+        }  
+    }
+    public function count_check_reminders(){    //reshani
+        $query=$this->mysqli->query("SELECT COUNT(cheque.cheque_id) FROM cheque WHERE cheque.cheque_status=1");
+        if ($query->num_rows > 0) {
+        while ($row = $query->fetch_assoc()) {
+            $result = $row;   
+        }
+        return $result;
+        }else{
+            
+            return 0;
+        }
+    }
+    public function count_reviews(){   //reshani
+        $query=$this->mysqli->query("SELECT COUNT(feedback.feedback_id) FROM feedback");
+        if ($query->num_rows > 0) {
+        while ($row = $query->fetch_assoc()) {
+            $result = $row;   
+        }
+        return $result;
+        }else{
+          
+            return 0;
+        }
+    }
+    public function count_inbox(){
+        $query=$this->mysqli->query("SELECT COUNT(supplier_reply.email_id) FROM supplier_reply");
+        if ($query->num_rows > 0) {
+        while ($row = $query->fetch_assoc()) {
+            $result = $row;   
+        }
+        return $result;
+        }else{
+          
+            return 0;
+        }
     }
   
 

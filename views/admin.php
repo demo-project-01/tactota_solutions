@@ -11,6 +11,7 @@
     $sql2=$data->countstock_details();
     $sql3=$data->max_min_sales();
     $sql4=$data->countcheck_reminders();
+    $sql5=$data->count_review();
 
     foreach ($sql as $k => $v)
     {
@@ -38,11 +39,15 @@
         <?php }?> 
         </a>
         <a href ="review.php">
+        <?php
+        foreach ($sql5 as $k => $v){
+            ?>
         <div class="income2"> 
             <i class="fas fa-thumbs-up fa-3x icon-left"></i>
             <b><p class="incomes">REVIEW</p></b> 
-            <b><p class="inform">10 Record(s)</p></b> 
-        </div>   
+            <b><p class="inform"><?php echo $sql5[$k] ?>  Record(s)</p></b> 
+        </div> 
+        <?php }?>   
         </a>
         <a href="view_all_cheques.php">
         <?php

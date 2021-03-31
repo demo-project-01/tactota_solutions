@@ -185,6 +185,12 @@ class inventory_maintain
     public function countcheck_reminders(){   //reshani
         return $this->inven->count_check_reminders();
     }
+    public function count_review(){ //reshani
+        return $this->inven->count_reviews();
+    }
+    public function count_inbox(){
+        return $this->inven->count_inbox();
+    }
    /* public function countitems(){   //reshani
         return $this->inven->count_items();
     }*/

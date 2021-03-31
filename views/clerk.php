@@ -8,6 +8,7 @@
    $sql3=$data->countproducts();
    $sql4=$data->countsold_items();
    $sql5=$data->countstock_details();
+   $sql6=$data->count_inbox();
   // print_r($sql1);
 ?>
 <body>
@@ -39,11 +40,15 @@
         </a>
 
         <a href ="inbox_supplier_reply.php">
+        <?php
+        foreach ($sql6 as $k => $v){
+            ?>
             <div class= "dash5"> 
                 <b><p class="dash">INBOX</p></b>
                 <i class="fas fa-inbox fa-3x icon-right"></i>
-                <b><p class="infor">15 Record(s)</p></b>   
+                <b><p class="infor"><?php echo $sql6[$k] ?> Record(s)</p></b>   
             </div>
+            <?php }?>  
         </a>
     </div>
 
