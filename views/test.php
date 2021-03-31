@@ -59,3 +59,64 @@ $sql=$data->view_categories();
         }
     }
 </script>
+
+
+<!--div class="nav-bar">
+      <table class="selection">
+        <tr>
+          <td><label for="category" class="date-lbl">Category</label></td>
+          <td><label for="brand" class="date-lbl">Brand</label></td>
+          <td><label for="model" class="date-lbl">Model</label></td>
+        </tr>
+        <tr>
+          <td>
+            <select name="category" id="category">
+              <option value="0">All</option>
+              <?php  
+              if(!empty($sql)){
+                foreach ($sql as $k => $v){  ?>
+                  <option value="<?php echo $sql[$k]["category_id"] ?>"> <?php 
+                    echo $sql[$k]["category_name"] ?>
+                  </option>   <?php
+                   }
+                }
+              ?>
+            </select>
+          </td>
+          <td>
+            <select name="brand" id="brand">
+              <option value="0">All</option>
+              <?php
+                 if(!empty($sql1)){
+                foreach ($sql1 as $k => $v){  ?>
+                  <option value="<?php echo $sql1[$k]["brand_id"] ?>"> <?php 
+                    echo $sql1[$k]["brand_name"] ?>
+                  </option>   <?php
+                 }
+                }
+              ?>
+            </select>
+          </td>
+          <td>
+            <select name="model" id="model">
+              <option value="0">All</option>
+              <?php 
+                 if(!empty($sql2)){
+                foreach ($sql2 as $k => $v){  ?>
+                  <option value="<?php echo $sql2[$k]["model_id"] ?>"> <?php 
+                    echo $sql2[$k]["model_name"] ?>
+                  </option>   <?php
+                 }
+                }
+              ?>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td colspan=3>
+            <a class="button" href="#">Search </a>
+          </td>
+        </tr>
+      </table>
+    </div-->

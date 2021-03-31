@@ -71,8 +71,8 @@ $sql= $data->get_username();
 <div class="sidebar">
     <a href="admin.php"><i class="fas fa-home"></i></i><span>Dashboard</span></a>
     <a href="users.php"><i class="fas fa-users"></i></i><span>Users</span></a>
-    <a href="report_loss_profit.php"><i class="fa fa-money"></i></i><span>Income</span></a>
     <a href="report_products.php"><i class="fas fa-store"></i></i><span>Stock Details</span></a>
+    <a href="report_loss_profit.php"><i class="fa fa-money"></i></i><span>Income</span></a>
     <a href="report_sold_out_items.php"><i class="fas fa-shopping-cart"></i></i><span>Sold Products</span></a>
     <a href="report_top_selling.php"><i class="fa fa-industry" aria-hidden="true"></i><span>Top Selling </span></a>
     <a href="review.php"><i class="fas fa-thumbs-up"></i>Review</span></a>
