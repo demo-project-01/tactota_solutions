@@ -102,13 +102,7 @@ $sql3 = $data->get_model_name();
 
                     </td>
                 </tr>
-                <tr>
-                    <th>Sales Price</th>
-                    <td>  <labal id="sales_price1"> </labal>
-                        <input class="text" id="sales_price" type="number" min="1" name="sales_price"  required="">
-
-                    </td>
-                </tr>
+        
                 <tr>
                     <th>Warranty</th>
                     <td>
