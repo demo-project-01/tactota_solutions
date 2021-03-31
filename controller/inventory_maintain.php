@@ -522,10 +522,10 @@ class inventory_maintain
      //   print_r($row['email_id']);
         if($row!=""){  
            $_SESSION['view_inbox_email']=$row;
-          header('location:../views/view_feedback.php');
+          header('location:../views/view_inbox.php');
         }else{
             $_SESSION['view_inbox_email']="No details";
-            header('location:../views/view_feedback.php');
+            header('location:../views/view_inbox.php');
         }
     }
 
