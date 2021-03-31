@@ -313,7 +313,7 @@ public function diplay_cus_return_items_search($id){
 }
 
 public function shopkeeper_return_items($row){        //reshani
-    $query=$this->mysqli->query("SELECT category.category_name,brand.brand_name,model.model_name,items.serial_no,items.item_status FROM items INNER JOIN product_list ON items.p_id=product_list.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE (items.item_status=1 OR items.item_status=0) AND items.serial_no LIKE '%" . $row . "%' OR category.category_name LIKE '%" . $row . "%' OR brand.brand_name LIKE '%" . $row . "%' OR model.model_name LIKE '%" . $row . "%' LIMIT 15");
+    $query=$this->mysqli->query("SELECT category.category_name,brand.brand_name,model.model_name,items.serial_no,items.item_status FROM items INNER JOIN product_list ON items.p_id=product_list.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE  (items.serial_no LIKE '%" . $row . "%' OR category.category_name LIKE '%" . $row . "%' OR brand.brand_name LIKE '%" . $row . "%' OR model.model_name LIKE '%" . $row . "%') AND ((items.item_status=1) OR (items.item_status=0)) LIMIT 15");
         if ($query->num_rows > 0) {
             while ($row = $query->fetch_assoc()) {
                 $result[]= $row;
@@ -381,15 +381,16 @@ public function all_return_items(){
         }
     }
     public function add_customer_return_item($cust_id,$returned_date,$description,$item_id){   //reshani,add retrun items to customer_return_items_table
+
         $stmt=$this->mysqli->prepare("INSERT INTO customer_return_item(cust_id,returned_date,description,item_id) VALUES(?,?,?,?)");
         if($stmt==false){
             return 0;
         }else{
             $stmt->bind_param('ssss',$cust_id,$returned_date,$description,$item_id);
             return $stmt->execute();
-            
         
         }
+       
     }
     public function add_item_status($item_status_shop,$item_id,$model_no){     //reshani  shop retirn item
         $stmt = $this->mysqli->prepare("UPDATE items SET item_status= ? WHERE item_id=?");
@@ -405,6 +406,7 @@ public function all_return_items(){
     }
 
     public function add_item_status_cust($item_status_cust,$item_id){  //reshani customer return
+    
         $stmt = $this->mysqli->prepare("UPDATE items SET item_status= ? WHERE item_id=?");
         if($stmt==FALSE)
             return 0;
@@ -412,6 +414,7 @@ public function all_return_items(){
             $stmt->bind_param('ss',$item_status_cust,$item_id);
              $stmt->execute();
         }
+        
     }
      public function valid_email_address($email_address)        //reshani  ,add customer details
     {

@@ -24,7 +24,7 @@ $sql=$_SESSION['add_return_search'];
                     <td><?php echo $sql[$k]["serial_no"] ?></td>
                     <td><?php echo $sql[$k]["category_name"] ?></td>
 		                <td><?php echo $sql[$k]["brand_name"] ?></td>
-                    <td><?php echo $sql[$k]["item_status"] ?></td>
+                    <td><?php echo $sql[$k]["model_name"] ?></td>
 
                     <?php
                     if(($sql[$k]["item_status"])==1){
