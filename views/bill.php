@@ -224,7 +224,7 @@ $row=$data->get_bill_no();
                
          <div class="row">
     <div class="col-25">
-    <label1>Recived Date</label1>
+    <label1>Issued Date</label1>
     </div>
     <div class="col-75">
      <input id="date" class="text" type="date" name="recived_date">
