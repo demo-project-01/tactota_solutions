@@ -78,7 +78,7 @@ class sales
         $product_cost= $_POST['product_cost'];
         $supplier_id = $_POST['supplier'];
         $warranty = $_POST['warranty'];
-        $sales_price = $_POST['sales_price'];
+     //   $sales_price = $_POST['sales_price'];
         $serial_number = $_POST['serial_number'];
       //  $reorder_level = $_POST['reorder_level'];
         $product_status=true;
@@ -108,7 +108,7 @@ class sales
 
          }
 
-         if($product_cost>$sales_price){
+   /*      if($product_cost>$sales_price){
              $count++;
           //   print_r($count);
          }
@@ -120,7 +120,7 @@ class sales
              $count++;
             //  print_r($count);
          }
-
+*/
          if($quantity==$arr){
              $count++;
           //  print_r($count);
@@ -132,7 +132,7 @@ class sales
  //print_r($count);
 
   if($count==0) {
-     if($total1=$this->sale->add_new_product($category_id,$sales_price,$product_cost, $brand_id, $reorder_level, $model_id, $quantity,$product_status, $product_date, $serial_number,$item_status, $supplier_id,$warranty))
+     if($total1=$this->sale->add_new_product($category_id,$product_cost, $brand_id, $model_id, $quantity,$product_status, $product_date, $serial_number,$item_status, $supplier_id,$warranty))
       {    $_SESSION['addnewproduct']="Add new product is successful ";
         header('location: ../views/newproduct.php');
        // print_r($total1);   
@@ -271,7 +271,6 @@ class sales
                 }
                  else{ 
                     echo '<script>alert("Item Alredy Added")</script>';
-
                      }            
             }
              else{  header('location: ../views/email.php');
@@ -539,8 +538,3 @@ else if(isset($_GET['action']) && $_GET['action'] == 'add_new_model') {
 
      $controller->get_model_brand();
 }
-
-
-
-
-
