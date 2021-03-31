@@ -5,7 +5,7 @@
 <head>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../public/js/shopkeeper.js"></script>
+  
 </head>
 <div class="content"style="width:auto;">
   <br>
@@ -16,10 +16,7 @@
   <br>
   <br>
   <div class="center">
-    <form class="example" action="">
-      <input type="text" id="search" placeholder="Search Product" name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+   
  
 
   <div class="footer" style="margin-top:350px;">
