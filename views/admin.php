@@ -121,7 +121,7 @@
         <div class="column">
             <div>
                 <a href="report_top_selling.php">
-                <p style="color:rgba(255, 99, 132);font-size:20;font-family:times new roman;font-weight:bold;"> TOP <br/> SELLING</p><!--p style="color:000000;font-size:15px;">ITEM OF THE MONTH</p-->
+                <p style="color:rgba(255, 99, 132);font-size:2em;font-family:times new roman;font-weight:bold;"> TOP <br/> SELLING</p><!--p style="color:000000;font-size:15px;">ITEM OF THE MONTH</p-->
                 <p style="font-size:20px;color:#6D6E31;font-weight:bold;">
                     <?php 
                     echo $sql3[0]['model_name'];
@@ -142,7 +142,7 @@
             </div>
             <div>
                 <a href="report_top_selling.php">
-                <p style="color:rgba(255, 99, 132);font-size:20;font-family:times new roman;font-weight:bold;">LEAST <br/>SELLING </p>
+                <p style="color:rgba(255, 99, 132);font-size:2em;font-family:times new roman;font-weight:bold;">LEAST <br/>SELLING </p>
                 <p style="font-size:20px;color:#6D6E31;font-weight:bold;">
                     <?php 
                     echo $sql3[count($sql3)-1]['model_name'];
