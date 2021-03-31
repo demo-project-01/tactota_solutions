@@ -44,7 +44,7 @@ $row=$data->get_bill_no();
                      <label1>Date</label1>
                    </div>
                    <div class="col-75">
-                    <input id="date" class="text" type="date" name="date_time" value="<?php echo date("Y/m/d")?>" required="">
+                    <b><input id="date" class="text" type="text" name="date_time" placeholder="<?php echo date("Y/m/d")?>" disabled></b>
                    </div>
                  </div>
     
