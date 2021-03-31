@@ -181,7 +181,7 @@ class sales
         $item_id=$_POST['hidden_itemid'];
         $id= $_SESSION['emp_id'];
         $bill_no= $this->sale->get_bill_no();
-        $date_time = $_POST['date_time'];
+        $date_time = date("Y/m/d");
         $amount = $_POST['total_amount']*(100- $_POST['discount'])/100;
         $cust_name = $_POST['cust_name'];
         $email_address= $_POST['email_address'];
