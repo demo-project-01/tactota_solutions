@@ -200,14 +200,22 @@ class sales
         if($recived_date>$due_date and $payment_method=="cheque"){
             echo'<script>alert("invalid check dates")</script>';
         }
+
     else{
+
      if($payment_method=="cheque"){
-     if($this->sale->insert_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id,$model_no)){
+        if(empty($bank_name)OR empty($cheque_no) OR empty($recived_date) OR empty($due_date) ){
+            echo'<script>alert("No complete cheque details")</script>';
+        }
+     else { 
+         if($this->sale->insert_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$cheque_no,$recived_date,$due_date,$bank_name,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id,$model_no)){
         unset($_SESSION["purchase"]);
         $_SESSION["flash_payment"]="Payment Done";
          header('location: ../views/purchase.php');
          echo'<script>alert("payment Done")</script>';
         }
+    }
+
     }
         else if($payment_method=="cash"){
             if($this->sale->insert_cash_bill($id,$cust_name,$bill_no,$date_time,$amount,$payment_method,$cust_id,$telephone_no,$serial_no,$email_address,$address,$total_items,$item_id,$model_no)){
