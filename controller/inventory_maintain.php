@@ -473,6 +473,18 @@ class inventory_maintain
            header('location: ../views/supplier_details.php');
        }
    }
+   public function delete_supplier_details($id)
+   {
+       print_r($id );
+    $row = $this->inven->delete_supplier_details($id);
+    if($row =="0"){
+      // print_r("no");
+       header('location:../views/supplier_details.php');
+    }else{
+       // print_r("yes");
+        header('location:../views/supplier_details.php'); 
+    }
+   }
 
    public function inbox_supplier($row){
        $this->inven->suplier_reply();
@@ -779,6 +791,10 @@ if(isset($_GET['action']) && $_GET['action'] == "newsuppliers") {
 else if(isset($_GET['action']) && $_GET['action'] == 'update_supplier_details') {
     $id=$_GET["id"];
     $controller->view_supplier_details($id);
+}
+else if(isset($_GET['action']) && $_GET['action'] == 'delete_supplier_details') {
+    $id=$_GET["id"];
+    $controller->delete_supplier_details($id);
 }
 else if(isset($_GET['action']) && $_GET['action'] == 'display_reminders'){  //reshani
     $controller->display_reminders();

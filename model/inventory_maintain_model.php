@@ -79,7 +79,7 @@ class inventory_maintain_model
     }
         public function get_details1($id){
 
-        $query = $this->mysqli->query("SELECT * FROM  supplier INNER JOIN sup_address ON supplier.sup_id=sup_address.sup_id INNER JOIN sup_telephone ON sup_address.sup_id=sup_telephone.sup_id WHERE sup_name LIKE  '%" . $id . "%' OR email_address LIKE  '%" . $id . "%' OR address LIKE  '%" . $id . "%' OR telephone_no   LIKE  '%" . $id . "%'  ");
+        $query = $this->mysqli->query("SELECT * FROM  supplier INNER JOIN sup_address ON supplier.sup_id=sup_address.sup_id INNER JOIN sup_telephone ON sup_address.sup_id=sup_telephone.sup_id WHERE (sup_name LIKE  '%" . $id . "%' OR email_address LIKE  '%" . $id . "%' OR address LIKE  '%" . $id . "%' OR telephone_no   LIKE  '%" . $id . "%') AND supplier.active_status='1' ");
            if ($query->num_rows > 0) {
             while ($row = $query->fetch_assoc()) {
                 $result[] = $row;
@@ -101,6 +101,15 @@ class inventory_maintain_model
          }
          return $result;
      }
+     public function delete_supplier_details($id){
+        $stmt = $this->mysqli->prepare("UPDATE supplier AS s SET s.active_status='0' where s.sup_id=?");
+        if($stmt==false){
+            return 0;
+        }else{
+            $stmt->bind_param("s", $id);
+             return  $stmt->execute();
+        }
+    }
     
     public function get_view_supplier_product_details($id){
         $query = $this->mysqli->query("SELECT distinct m.model_name,s.sup_id, p.p_id,c.category_name,b.brand_name
