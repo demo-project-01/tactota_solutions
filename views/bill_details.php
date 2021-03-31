@@ -46,7 +46,7 @@ $row=$_SESSION['bill_details'];
             <b><label1>Total Price(Rs.)</label1></b>
            </div>
            <div class="col-75">
-           <input type="text" name="amount" value="<?php echo $row[0]['amount'] ?>" disabled>
+           <input type="text" name="amount" value="<?php echo number_format($row[0]['amount'],2) ?>" disabled>
            </div>
                </div>
               

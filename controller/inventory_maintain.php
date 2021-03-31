@@ -154,10 +154,10 @@ class inventory_maintain
     }
     public function  remainder_details($row){
         $row1=$this->inven->display_stockreminders($row);
-           if($row1!=""){
+           if($row1!="0"){
                 $_SESSION['remainder_search']=$row1;
                 header('location: ../views/remainderitems_search.php');
-            }else if($row1==0) {
+            }else if($row1=="0") {
                 echo "NOT FOUND";
             }
     }
@@ -782,6 +782,9 @@ class inventory_maintain
         $row= $this->inven->view_one_model_details($id);
         $_SESSION['one_model_details']=$row;
         header('location: ../views/view_one_model.php');
+    }
+    public function get_sold_time_range($date1,$date2){
+        return $this->inven->get_sold_time_range($date1,$date2);
     }
 
 }

@@ -38,7 +38,7 @@ session_start();
                 <tr>
                     <th>Sales Price</th>
                     <td>  <labal id="sales_price1"> </labal>
-                        <input class="text" id="sales_price" type="number" min="1" name="sales_price" required="">
+                        <input class="text" id="sales_price" type="text" min="1" name="sales_price" required="">
 
                     </td>
                 </tr>
@@ -56,7 +56,7 @@ session_start();
                 </tr>
 
                 <tr>
-                    <th>specification</th>
+                    <th>Specification</th>
                     <td>
                         <labal id="reorder1"> </labal>
                         <input class="text" id="reorder"  type="text"  min="1" name="specification" required="">

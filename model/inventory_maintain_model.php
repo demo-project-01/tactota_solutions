@@ -164,7 +164,7 @@ class inventory_maintain_model
     }
      public function display_stockreminders($row){   //reshani  ,view stock reminders
         //$result="";
-         $query=$this->mysqli->query("SELECT product_list.p_id,category.category_name,brand.brand_name,model.model_name FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE model.total_quantity<=model.reorder_level  AND category.category_name LIKE  '%" . $row. "%' OR brand.brand_name LIKE  '%" . $row . "%' OR model.model_name LIKE  '%" . $row . "%' GROUP BY model.model_name ");  /*modified*/
+         $query=$this->mysqli->query("SELECT product_list.p_id,category.category_name,brand.brand_name,model.model_name FROM product_list INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id WHERE model.total_quantity<=model.reorder_level  AND (category.category_name LIKE  '%" . $row. "%' OR brand.brand_name LIKE  '%" . $row . "%' OR model.model_name LIKE  '%" . $row . "%' )GROUP BY model.model_name ");  /*modified*/
          if ($query->num_rows > 0){
               while ($row = $query->fetch_assoc()) {
 
@@ -1087,4 +1087,20 @@ public function review_monthly(){
         return 0;
     }
 } 
+public function get_sold_time_range($date1,$date2){
+    print_r($date1);
+    print_r($date2);
+    $query=$this->mysqli->query(" SELECT category.category_name,model.model_name,brand.brand_name,product_list.p_id, count(model.model_name)as total FROM purchase,items,product_list,category,model,bill,brand WHERE purchase.item_id=items.item_id AND items.p_id=product_list.p_id AND category.category_id=product_list.category_id AND model.model_id=product_list.model_id AND purchase.bill_no=bill.bill_no AND product_list.brand_id=brand.brand_id AND bill.date_time BETWEEN '$date1' AND '$date2'  group by model.model_name ORDER BY product_list.p_id ASC");
+    
+    if ($query->num_rows > 0) {
+         while ($row = $query->fetch_assoc()) {
+            $result[] = $row;   
+        }
+        return $result;
+    }else
+    {
+        return 0;
+    }
+}
+
 }
