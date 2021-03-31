@@ -25,3 +25,9 @@ $(document).ready(function(){
         }
     });
 });
+
+
+    setTimeout(function() {
+        let alert = document.querySelector(".alert");
+        alert.remove();
+    }, 1600);
