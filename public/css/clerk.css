@@ -24,7 +24,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
   }*/
   .subcontent{
     
-    margin-top: 20px;
+    margin-top: 25px;
     margin-bottom: 5px;
     margin-left: 110px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -73,7 +73,7 @@ html,body, div, h1, h2, h3, h4, h5, h6, p{
     margin-left: 950px;  /*modifed*/
     background: darkblue(0,0,0,0.4);
     width: 280px;     /*modified*/
-    margin-top: -270px;  /*modifed*/
+    margin-top: -280px;  /*modifed*/
     /* orientation: portrait; */
     height:420px;    /*modified*/
     /* margin-left: -200px; */

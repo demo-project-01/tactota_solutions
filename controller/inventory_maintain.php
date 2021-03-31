@@ -511,11 +511,11 @@ class inventory_maintain
        $this->inven->suplier_reply();
         $row1=$this->inven->inbox_supplier($row);
    //  print_r($row1);
-         if($row1!=""){
+         if($row1!="0"){
            $_SESSION['inbox_supplier']=$row1;
           header('location: ../views/inbox_suppier_reply_search.php');
         //    print_r($row1);
-       }else if($row1==0) {
+       }else if($row1=="0") {
            echo "NOT FOUND";
        }  
 
