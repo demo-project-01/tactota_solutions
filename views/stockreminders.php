@@ -25,9 +25,9 @@ $sql= $_SESSION['reminderitem_suppliers'];
                   <?php endif; ?>
                 <?php unset($_SESSION['email_sent_supplier']); ?>
 
-      <div class="search">
+      <!--div class="search">
         <input type="text" placeholder="Search..">
-      </div>
+      </div-->
 
 
       <div class="view-tbl">
