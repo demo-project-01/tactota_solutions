@@ -10,7 +10,7 @@ $sql=$_SESSION['add_return_search'];
                     <th> Category Name</th>
                     <th> Brand Name</th>  
                     <th> Model Name</th>
-                    <th> Sell / Not Sell</th>
+                    <th> Sold Out / Available</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -29,12 +29,12 @@ $sql=$_SESSION['add_return_search'];
                     <?php
                     if(($sql[$k]["item_status"])==1){
                     ?>
-                    <td><?php echo "Not Sell" ?></td>
+                    <td><?php echo "Available" ?></td>
                     <?php }?>
                     <?php
                     if(($sql[$k]["item_status"])==0){
                     ?>
-                    <td><?php echo "Sell" ?></td>
+                    <td><?php echo "Sold Out" ?></td>
                     <?php }?>
                     <td><a href="../controller/inventory_maintain.php?action=display_onereturnitem_details&id=<?php  echo $sql[$k]["serial_no"]; ?>" class="view">
                     <i class="fa fa-eye" aria-hidden="true" id="tbl-icon"></i></a></td>
