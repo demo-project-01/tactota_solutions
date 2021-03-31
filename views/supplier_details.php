@@ -7,7 +7,13 @@ include 'clerk_sidebar.php';
 </head>
 <div class="content" style="width:auto;">
     <h1 id="tbl-heading">Supplier Details</h1>
-    
+    <?php if(isset($_SESSION['supplier_details_success'])): ?>
+        <div class="alert" id="activate">
+            <span class="activebtn">&times;</span>
+            <strong><?php echo $_SESSION['supplier_details_success']; ?></strong>
+        </div>
+    <?php endif; ?>
+    <?php unset($_SESSION['supplier_details_success']); ?>
     <div class="new">
         <a class="add_button" href="add_suppliers.php"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp&nbspAdd new Suppliers</a>
     </div>
