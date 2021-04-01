@@ -643,7 +643,7 @@ public function all_return_items(){
     }
     public function sold_category_count()
     {
-        $query = $this->mysqli->query("SELECT category.category_name,count(category_name) as total FROM purchase,items,product_list, category WHERE purchase.item_id=items.item_id AND items.p_id=product_list.p_id AND category.category_id=product_list.category_id group by category_name ");
+        $query = $this->mysqli->query("SELECT category.category_name,count(category_name) as total FROM purchase,items,product_list, category,bill WHERE purchase.item_id=items.item_id AND items.p_id=product_list.p_id AND purchase.bill_no=bill.bill_no AND category.category_id=product_list.category_id AND MONTH(bill.date_time) = MONTH(CURRENT_DATE()) group by category_name ");
         while ($row = $query->fetch_assoc()) {
             $result[]= $row;
         }
@@ -833,7 +833,7 @@ public function max_min_sales()
 }
 public function max_sales_with_categories()
 {
-    $query = $this->mysqli->query("CREATE OR REPLACE VIEW countingmodels AS SELECT items.item_id,items.p_id,purchase.bill_no,product_list.category_id, category.category_name,model.model_id,model.model_name, brand.brand_name, COUNT(model.model_id) as total FROM purchase,items,product_list, category,model,brand WHERE purchase.item_id=items.item_id AND items.p_id=product_list.p_id AND category.category_id=product_list.category_id AND model.model_id=product_list.model_id AND brand.brand_id=product_list.brand_id GROUP BY model.model_id");
+    $query = $this->mysqli->query("CREATE OR REPLACE VIEW countingmodels AS SELECT items.item_id,items.p_id,purchase.bill_no,product_list.category_id, category.category_name,model.model_id,model.model_name, brand.brand_name, COUNT(model.model_id) as total FROM purchase,items,product_list, category,model,brand,bill WHERE purchase.item_id=items.item_id AND purchase.bill_no=bill.bill_no AND MONTH(bill.date_time) = MONTH(CURRENT_DATE()) AND items.p_id=product_list.p_id AND category.category_id=product_list.category_id AND model.model_id=product_list.model_id AND brand.brand_id=product_list.brand_id GROUP BY model.model_id");
     $query2=$this->mysqli->query("SELECT category_name, model_name, brand_name,total
     from countingmodels where total =
     (
@@ -848,7 +848,7 @@ public function max_sales_with_categories()
 }
 public function min_sales_with_categories()
 {
-    $query = $this->mysqli->query("CREATE OR REPLACE VIEW countingmodels AS SELECT items.item_id,items.p_id,purchase.bill_no,product_list.category_id, category.category_name,model.model_id,model.model_name, brand.brand_name, COUNT(model.model_id) as total FROM purchase,items,product_list, category,model,brand WHERE purchase.item_id=items.item_id AND items.p_id=product_list.p_id AND category.category_id=product_list.category_id AND model.model_id=product_list.model_id AND brand.brand_id=product_list.brand_id GROUP BY model.model_id");
+    $query = $this->mysqli->query("CREATE OR REPLACE VIEW countingmodels AS SELECT items.item_id,items.p_id,purchase.bill_no,product_list.category_id, category.category_name,model.model_id,model.model_name, brand.brand_name, COUNT(model.model_id) as total FROM purchase,items,product_list, category,model,brand,bill WHERE purchase.item_id=items.item_id AND items.p_id=product_list.p_id AND category.category_id=product_list.category_id AND model.model_id=product_list.model_id AND brand.brand_id=product_list.brand_id purchase.bill_no=bill.bill_no AND MONTH(bill.date_time) = MONTH(CURRENT_DATE()) GROUP BY model.model_id");
     $query2=$this->mysqli->query("SELECT category_name, model_name, brand_name,total
     from countingmodels where total =
     (
