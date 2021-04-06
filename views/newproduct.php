@@ -3,6 +3,7 @@ include 'clerk_sidebar.php';
 
 require '../controller/sales.php';
 $data=new sales();
+
 $sql=$data->get_supplier_names();
 $sql1 = $data->get_category_name();
 $sql2 = $data->get_brand_name();

@@ -126,11 +126,11 @@ class inventory_maintain_model
             return 0;
         }
     }
-    public function get_product_details_search($row){   //michelle -> view model by model count 
+    public function get_product_details_search($row){   // view model by model count 
         //   $result = "";
         //$query = $this->mysqli->query("SELECT DISTINCT * FROM  product INNER JOIN supplier_product ON product.p_id=supplier_product.p_id INNER JOIN item ON product.p_id=item.p_id AND product_status=1 WHERE product.p_name LIKE  '%" . $row . "%' OR product.brand_name LIKE  '%" . $row . "%' OR product.model_no LIKE  '%" . $row . "%' ");
         //$query = $this->mysqli->query("SELECT DISTINCT * FROM   product_list INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id INNER JOIN category ON product_list.category_id=category.category_id WHERE category.category_name LIKE  '%" . $row . "%' OR brand.brand_name LIKE  '%" . $row . "%' OR model.model_name LIKE  '%" . $row . "%' ");
-        $query = $this->mysqli->query("SELECT DISTINCT *, model.total_quantity AS qty FROM product_list INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN items ON items.p_id=product_list.p_id WHERE items.item_status='1' AND (category.category_name LIKE  '%" . $row . "%' OR brand.brand_name LIKE  '%" . $row . "%' OR model.model_name LIKE  '%" . $row . "%') GROUP BY model.model_id ");
+        $query = $this->mysqli->query("SELECT * FROM product_list INNER JOIN brand ON product_list.brand_id=brand.brand_id INNER JOIN model ON product_list.model_id=model.model_id INNER JOIN supplier_product ON product_list.p_id=supplier_product.p_id INNER JOIN category ON product_list.category_id=category.category_id INNER JOIN items ON items.p_id=product_list.p_id WHERE items.item_status='1' AND (category.category_name LIKE  '%" . $row . "%' OR brand.brand_name LIKE  '%" . $row . "%' OR model.model_name LIKE  '%" . $row . "%') GROUP BY product_list.warrenty ASC");
 
         if ($query->num_rows > 0) {
             while ($row = $query->fetch_assoc()) {
@@ -1110,6 +1110,86 @@ public function get_sold_time_range($date1,$date2){
     {
         return 0;
     }
+}
+
+
+public function backDb($host, $user, $pass, $dbname, $tables = '*'){
+    $conn = new mysqli($host, $user, $pass, $dbname);
+		if ($conn->connect_error) {
+		    die("Connection failed: " . $conn->connect_error);
+		}
+
+		
+		if($tables == '*'){
+			$tables = array();
+			$sql = "SHOW TABLES";
+			$query = $conn->query($sql);
+			while($row = $query->fetch_row()){
+				$tables[] = $row[0];
+			}
+		}
+		else{
+			$tables = is_array($tables) ? $tables : explode(',',$tables);
+		}
+
+		
+		$outsql = '';
+		foreach ($tables as $table) {
+    
+		   
+		    $sql = "SHOW CREATE TABLE $table";
+		    $query = $conn->query($sql);
+		    $row = $query->fetch_row();
+		    
+		    $outsql .= "\n\n" . $row[1] . ";\n\n";
+		    
+		    $sql = "SELECT * FROM $table";
+		    $query = $conn->query($sql);
+		    
+		    $columnCount = $query->field_count;
+
+		   
+		    for ($i = 0; $i < $columnCount; $i ++) {
+		        while ($row = $query->fetch_row()) {
+		            $outsql .= "INSERT INTO $table VALUES(";
+		            for ($j = 0; $j < $columnCount; $j ++) {
+		                $row[$j] = $row[$j];
+		                
+		                if (isset($row[$j])) {
+		                    $outsql .= '"' . $row[$j] . '"';
+		                } else {
+		                    $outsql .= '""';
+		                }
+		                if ($j < ($columnCount - 1)) {
+		                    $outsql .= ',';
+		                }
+		            }
+		            $outsql .= ");\n";
+		        }
+		    }
+		    
+		    $outsql .= "\n"; 
+		}
+
+	
+	    $backup_file_name = $dbname . '_database.sql';
+	    $fileHandler = fopen($backup_file_name, 'w+');
+	    fwrite($fileHandler, $outsql);
+	    fclose($fileHandler);
+
+	   
+	    header('Content-Description: File Transfer');
+	    header('Content-Type: application/octet-stream');
+	    header('Content-Disposition: attachment; filename=' . basename($backup_file_name));
+	    header('Content-Transfer-Encoding: binary');
+	    header('Expires: 0');
+	    header('Cache-Control: must-revalidate');
+	    header('Pragma: public');
+	    header('Content-Length: ' . filesize($backup_file_name));
+	    ob_clean();
+	    flush();
+	    readfile($backup_file_name);
+	    exec('rm ' . $backup_file_name);
 }
 
 }

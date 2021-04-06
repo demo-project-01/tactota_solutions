@@ -77,6 +77,7 @@ $sql= $data->get_username();
     <a href="report_top_selling.php"><i class="fa fa-industry" aria-hidden="true"></i><span>Top Selling </span></a>
     <a href="review.php"><i class="fas fa-thumbs-up"></i>Review</span></a>
     <a href="view_all_cheques.php"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>Cheque Reminders</span></a>
+    <a href="../controller/inventory_maintain.php?action=backup"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>Backup</span></a>
 
 </div>
 

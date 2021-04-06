@@ -95,6 +95,7 @@ class inventory_maintain
          echo "<br>";
          print_r($row['email_address']);
          echo "<br>";
+         
          print_r($row['address']);
          echo "<br>";
          print_r($row['telephone_no']);
@@ -447,8 +448,8 @@ class inventory_maintain
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
-        $mail->Username = 'projectt541@gmail.com'; // YOUR gmail email
-        $mail->Password = '#project32'; // YOUR gmail password
+        $mail->Username = '#'; // YOUR gmail email
+        $mail->Password = '#'; // YOUR gmail password
 
         // Sender and recipient settings
         $mail->setFrom('projectt541@gmail.com', 'Tactota Solution');
@@ -791,6 +792,16 @@ class inventory_maintain
         return $this->inven->get_sold_time_range($date1,$date2);
     }
 
+    public function backup(){
+        $server = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "mvc";
+        $this->inven->backDb($server, $username, $password, $dbname);
+
+		exit();
+    }
+
 }
 
 
@@ -935,6 +946,9 @@ else if(isset($_GET['action']) && $_GET['action'] == 'view_categories'){   //res
 else if(isset($_GET['action']) && $_GET['action'] == 'view_one_model_details') {
     $id=$_GET["id"];
     $controller->view_one_model_details($id);
+}else if(isset($_GET['action']) && $_GET['action'] == 'backup') {
+   // print_r("sfsjhdgjsd");
+   $controller->backup();
 }
 
 

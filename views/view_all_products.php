@@ -37,7 +37,8 @@ session_start();
 
     </div>
     <div class="footer">
-			<p>© Tactota Solutions All rights reserved </p>
+			<p>© Tactota Solutions All rights reserved </p
+            >
       </div> 
 </div>
 

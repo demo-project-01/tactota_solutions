@@ -3,6 +3,7 @@ setTimeout(function() {
     alert.remove();
 }, 60)
 
+
 $(document).ready(function(){
     load_data();
     function load_data(query)
