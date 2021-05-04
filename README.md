@@ -11,6 +11,16 @@ We are TeamSprinters - Group32.
 - Handle re-order levels
 - Calculating incomes & expenses
 - Notification sending
-- Access control module
+- User Access control module
 - Automated Report generating module
+- Handle return items
+- Handle Billing Process
+- Handle Cheque Payments
+
+## Screen Captures of our System
+
+### Registration & Login pages
+<img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/1-registration form.PNG" width="400">
+<img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/2-login form.PNG" width="400">
+
 
