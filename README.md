@@ -23,9 +23,6 @@ We are TeamSprinters - Group32.
   - Current Stock reports
   - Least and Top selling item reports
 
-<br/>
-<br/>
-
 ## Used Technologies:
 
 - PHP
@@ -35,7 +32,6 @@ We are TeamSprinters - Group32.
 - Javascript
 - Ajax
 - JQuery
-
 
 <br/>
 <br/>
