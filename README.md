@@ -23,24 +23,46 @@ We are TeamSprinters - Group32.
   - Current Stock reports
   - Least and Top selling item reports
 
+<br/>
+<br/>
 
 ## Some Screen Captures of our System
+<br/>
 
 ### Registration & Login pages
+
+<br/>
 <img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/1-registration form.PNG">
 <img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/2-login form.PNG">
+<br/>
+<br/>
 
 ### Clerk Dashboard & Functionalities
+
+<br/>
 <img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/3-clerk dashboard.PNG">
 <img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/4-view all products.PNG">
 <img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/5-Add new product.PNG">
 <img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/6-contact suppliers.PNG">
+<br/>
+<br/>
 
-### Clerk Dashboard & Functionalities
-<img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/3-clerk dashboard.PNG">
-<img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/4-view all products.PNG">
-<img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/5-Add new product.PNG">
-<img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/6-contact suppliers.PNG">
+### ShopKeeper Dashboard & Functionalities
+
+<br/>
+<img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/7-select items to purchasepurchase.PNG">
+<img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/8-bill1.PNG">
+<img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/9-return items.PNG">
+<br/>
+<br/>
+
+### Manager Dashboard & Functionalities
+
+<br/>
+<img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/10-manager dashboard.PNG">
+<img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/11-sold product reports.PNG">
+<img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/12-least-top selling.PNG">
+
 
 
 
