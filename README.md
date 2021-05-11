@@ -37,6 +37,7 @@ We are TeamSprinters - Group32.
 <br/>
 <br/>
 
+
 ### Clerk Dashboard & Functionalities
 
 <br/>
@@ -62,7 +63,7 @@ We are TeamSprinters - Group32.
 <img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/10-manager dashboard.PNG">
 <img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/11-sold product reports.PNG">
 <img src="https://github.com/demo-project-01/tactota_solutions/blob/master/public/images/12-least-top selling.PNG">
-
-
+<br/>
+<br/>
 
 
