@@ -26,6 +26,17 @@ We are TeamSprinters - Group32.
 <br/>
 <br/>
 
+## Used Technologies:
+
+- PHP
+- MySQL
+- HTML
+- CSS
+- Javascript
+- Ajax
+- JQuery
+
+
 ## Some Screen Captures of our System
 <br/>
 
